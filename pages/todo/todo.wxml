@@ -1,0 +1,54 @@
+<view class="c-minheight weui-panel_access" data-c_e_id="wx_viewbce5e3c6">
+  <view class="weui-panel__bd" data-c_e_id="wx_view9b781d75">
+    <view class="weui-media-box__bd" data-c_e_id="wx_view83758353"/>
+
+    <view class="weui-media-box_block" data-c_e_id="wx_view15311e3b">
+      <view class="weui-media-box__bd" data-c_e_id="wx_viewf8df2a48">
+        <text class="c-block weui-media-box__title weui-media-box_text" data-c_e_id="wx_textef6c966c">行政用章申请</text>
+        <text class="c-block weui-media-box__desc" data-c_e_id="wx_texta2a8ed82">测试。</text>
+      </view>
+      <view class="weui-media-box__info" data-c_e_id="wx_view_91713ae6">
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text_a20670f6">测试1</text>
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text556e6cf8">2017-11-29 15:53:24</text>
+        <text class="weui-media-box__info__meta_extra" data-c_e_id="wx_text08646f86">紧急</text>
+      </view>
+    </view>
+                
+    <view class="weui-media-box_block" data-c_e_id="wx_viewbee54d99">
+      <view class="weui-media-box__bd" data-c_e_id="wx_view87c0c1b0">
+        <text class="c-block weui-media-box__title weui-media-box_text" data-c_e_id="wx_textd722085b">项目开工通知单</text>
+        <text class="c-block weui-media-box__desc" data-c_e_id="wx_text93711796">测试开工。</text>
+      </view>
+      <view class="weui-media-box__info" data-c_e_id="wx_view022f33b5">
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text13796206">jinher</text>
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text20b9890a">2017-11-29 15:53:24</text>
+        <text class="weui-media-box__info__meta_extra" data-c_e_id="wx_text379a45ea">一般</text>
+      </view>
+    </view>
+
+    <view class="weui-media-box_block" data-c_e_id="wx_viewbee54d99">
+      <view class="weui-media-box__bd" data-c_e_id="wx_view87c0c1b0">
+        <text class="c-block weui-media-box__title weui-media-box_text" data-c_e_id="wx_textd722085b">合同会签申请</text>
+        <text class="c-block weui-media-box__desc" data-c_e_id="wx_text93711796">测试。</text>
+      </view>
+      <view class="weui-media-box__info" data-c_e_id="wx_view022f33b5">
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text13796206">测试1</text>
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text20b9890a">2017-11-29 15:53:24</text>
+        <text class="weui-media-box__info__meta_extra" data-c_e_id="wx_text379a45ea">紧急</text>
+      </view>
+    </view>
+
+    <view class="weui-media-box_block" data-c_e_id="wx_viewbee54d99">
+      <view class="weui-media-box__bd" data-c_e_id="wx_view87c0c1b0">
+        <text class="c-block weui-media-box__title weui-media-box_text" data-c_e_id="wx_textd722085b">项目风险分析(产品要求评审)记录单</text>
+        <text class="c-block weui-media-box__desc" data-c_e_id="wx_text93711796">测试流程。</text>
+      </view>
+      <view class="weui-media-box__info" data-c_e_id="wx_view022f33b5">
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text13796206">测试1</text>
+        <text class="weui-media-box__info__meta" data-c_e_id="wx_text20b9890a">2017-11-29 15:53:24</text>
+        <text class="weui-media-box__info__meta_extra" data-c_e_id="wx_text379a45ea">一般</text>
+      </view>
+    </view>
+
+  </view>
+</view>
