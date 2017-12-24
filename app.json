@@ -3,32 +3,44 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/mine/mine",
-    "pages/todo/todo"
+    "pages/todo/todo",
+    "pages/call/call"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "white",
     "navigationBarBackgroundColor": "#54adf4",
     "navigationBarTitleText": "安源OA",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
+    "color": "#cdcdcd",
+    "borderStyle": "white",
+    "backgroundColor": "#f7f7f7",
     "selectedColor": "#54adf4",
     "list": [
       {
         "pagePath": "pages/index/index",
-        "text": "首页"
+        "text": "首页",
+        "iconPath": "resources/images/icon_home_off.png",
+        "selectedIconPath": "resources/images/icon_home_on.png"
       },
       {
         "pagePath": "pages/todo/todo",
-        "text": "待办"
+        "text": "待办",
+        "iconPath": "resources/images/icon_todo_off.png",
+        "selectedIconPath": "resources/images/icon_todo_on.png"
       },
       {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "pagePath": "pages/call/call",
+        "text": "寻呼",
+        "iconPath": "resources/images/icon_call_off.png",
+        "selectedIconPath": "resources/images/icon_call_on.png"
       },
       {
         "pagePath": "pages/mine/mine",
-        "text": "我的"
+        "text": "我的",
+        "iconPath": "resources/images/icon_my_off.png",
+        "selectedIconPath": "resources/images/icon_my_on.png"
       }
     ]
   }
