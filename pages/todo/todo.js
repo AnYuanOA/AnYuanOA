@@ -1,32 +1,38 @@
 // pages/todo/todo.js
+if (typeof TodoType == "undefined") {
+  var TodoType = {}
+  TodoType.Todo = 1//待办
+  TodoType.ToRead = 2//待阅
+}
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-  
+    showType: TodoType.Todo
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
@@ -62,5 +68,24 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /*
+   * 点击待办
+   */
+  tapTodo: function(e) {
+    if (this.data.showType != TodoType.Todo){
+      this.setData({
+        showType: TodoType.Todo
+      });
+    }
+  },
+
+  tapToRead: function(e) {
+    if (this.data.showType != TodoType.ToRead) {
+      this.setData({
+        showType: TodoType.ToRead
+      });
+    }
   }
 })
