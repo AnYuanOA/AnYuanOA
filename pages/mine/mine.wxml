@@ -1,0 +1,39 @@
+<!--pages/mine/mine.wxml-->
+<view class="container">
+
+  <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class='userinfo-nickname'>外聘专家</text>
+    <view style='height:20rpx;'></view>
+    <!-- <image src="../../images/person/account_bg.png" class="account-bg"></image> -->
+  </view>
+
+  <!-- <view class="separate"></view>
+  <view class="line"></view> -->
+
+  <view class="separate"></view>
+  <view class="person-list">
+    <view class="list-item">
+      <image class="item-image" src="../../resources/images/mine/check_icon.png"></image>
+      <text class="item-text">我的考勤</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../../resources/images/mine/record_icon.png"></image>
+      <text class="item-text">我的考勤记录</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../../resources/images/mine/info_icon.png"></image>
+      <text class="item-text">个人档案</text>
+    </view>
+    <view class="person-line"></view>
+    <view class="list-item">
+      <image class="item-image" src="../../resources/images/mine/pay_type_icon.png"></image>
+      <text class="item-text">常用支付方式</text>
+    </view>
+    <view class="person-line"></view>
+  </view>
+  <view class="separate"></view>
+</view>
