@@ -2,14 +2,81 @@
 /**index.wxss**/
 .banners {
   width: 100%;
-  height: 100px;
+  height: 150px;
 }
-
 .banner{
   position: relative;
 }
-
-.banner-image{
+.banner image{
   width: 100%;
   height: 100%;
+}
+/***应用区**/
+.menuWrap{
+  background-color: #54adf4;
+  padding: 10rpx;
+  display: -webkit-box;
+}
+.menuWrap-item{
+  text-align: center;
+  -webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex:1;
+}
+.menuWrap-item-navi{
+  display: inline-block;
+  width: 150rpx;
+  padding: 10rpx 0;
+}
+.menuWrap-item-navi image{
+  width: 30px;
+  height: 30px;
+}
+.menuWrap-item-navi text{
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  display: block;
+}
+/**资讯区**/
+.noticeList{
+  margin-top: 10px;
+  padding: 0 16rpx;
+}
+.noticeList-item{
+  padding: 24rpx 6rpx 16rpx;
+  border-bottom: 1px solid #f3f3f3;
+  display: -webkit-box;
+}
+.noticeList-item-r{
+  padding-left: 8px;
+  -webkit-box-flex: 1;
+	-webkit-flex: 1;
+	flex:1;
+  overflow: hidden;
+}
+.noticeList-item-r text{
+  display: block;
+}
+.noticeList-item-title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: bold;
+  color: #393939;
+  font-size:28rpx;
+}
+.noticeList-item-desc{
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  text-overflow: -o-ellipsis-lastline;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  color: #999;
+  line-height: 1.3;
+  margin-top: 5px;
+  height: 46px;
+  font-size:26rpx;
 }
