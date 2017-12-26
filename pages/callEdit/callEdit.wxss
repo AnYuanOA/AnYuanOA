@@ -1,1 +1,65 @@
-/* pages/msgedit.wxss */
+.weui-form-preview{
+    background-color: rgb(255, 255, 255);
+     border-top: 1px solid rgb(229, 229, 229);
+     border-bottom: 1px solid rgb(229, 229, 229);
+     margin-bottom: 10px;
+     position: relative;
+     text-align: left;
+}
+ .weui-form-preview__hd{
+    padding: 10px 15px;
+     border-bottom: 1px solid rgb(229, 229, 229);
+     display: flex;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     align-content: flex-start;
+     background-color: rgba(240,240,240,1);
+}
+ .weui-form-preview__label{
+    color: rgb(153, 153, 153);
+     font-size: 16px;
+     padding: 0px;
+     border-bottom: 1px none rgb(229, 229, 229);
+     display: inline-block;
+}
+ .weui-form-preview__hd2{
+    padding: 10px 15px;
+     border-bottom: 1px none rgb(229, 229, 229);
+     display: block;
+     justify-content: space-between;
+     align-items: center;
+     flex-wrap: wrap;
+     align-content: flex-start;
+     border-bottom-style: solid;
+}
+ .weui-form-preview__btn_primary{
+    border-style: none;
+     border-radius: 0px;
+     color: rgb(9, 187, 7);
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     line-height: 50px;
+     font-size: 16px;
+}
+ .wx-view_coWu6c{
+    flex: 1 1 0%;
+     text-align: center;
+     background-color: rgb(9, 187, 7);
+     color: #FFFFFF;
+}
+ .wx-image_6niB8N{
+    width: 25px;
+     height: 23px;
+}
+ .wx-image_pa6Z7m{
+    width: 65px;
+     height: 65px;
+     padding-top: 0px;
+     margin-left: 15px;
+     margin-top: 15px;
+}
+ .wx-view_coWu6c:active{
+    background-color: rgba(242,242,242,1);
+}

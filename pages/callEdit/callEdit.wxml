@@ -1,2 +1,22 @@
-<!--pages/msgedit.wxml-->
-<text>pages/callEdit.wxml</text>
+<view class="weui-form-preview" >
+    <view class="weui-form-preview__hd" >
+        <text class="weui-form-preview__label" >接收人</text>
+        <image class="wx-image_6niB8N"  mode="scaleToFill" src="/resources/images/call/addressBook.png" style="background-size: 100% 100%; background-position: 0% 0%; background-repeat: no-repeat; background-image: url(/resources/images/call/addressBook.png);"/>
+    </view>
+    <input class="c-block c-fullwidth wx-input_JHU1VU"  name="input1" type="text"/>
+    <view class="weui-form-preview__hd2" />
+    <view class="weui-form-preview__hd" >
+        <text class="weui-form-preview__label" >内容</text>
+    </view>
+    <textarea class="c-block c-fullwidth wx-textarea_9UB3iZ"  name="textarea1" placeholder="请输入内容" type="textarea"/>
+    <view class="weui-form-preview__hd" >
+        <text class="weui-form-preview__label" >图片</text>
+    </view>
+    <image class="wx-image_pa6Z7m"  mode="scaleToFill" src="/resources/images/call/upload.png" style="background-size: 100% 100%; background-position: 0% 0%; background-repeat: no-repeat; background-image: url(/resources/images/call/upload.png);"/>
+    <view class="weui-form-preview__hd2" />
+    <view class="weui-form-preview__btn_primary" >
+        <view class="wx-view_coWu6c" >
+            发送
+        </view>
+    </view>
+</view>

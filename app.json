@@ -5,7 +5,8 @@
     "pages/mine/mine",
     "pages/todo/todo",
     "pages/call/call",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/callEdit/callEdit"
   ],
   "window": {
     "backgroundTextStyle": "white",
