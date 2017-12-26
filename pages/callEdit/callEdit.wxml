@@ -8,7 +8,7 @@
     <view class="weui-form-preview__hd" >
         <text class="weui-form-preview__label" >内容</text>
     </view>
-    <textarea class="c-block c-fullwidth wx-textarea_9UB3iZ"  name="textarea1" placeholder="请输入内容" type="textarea"/>
+    <textarea class="c-block c-fullwidth wx-textarea_9UB3iZ"  name="textarea1" type="textarea"/>
     <view class="weui-form-preview__hd" >
         <text class="weui-form-preview__label" >图片</text>
     </view>
