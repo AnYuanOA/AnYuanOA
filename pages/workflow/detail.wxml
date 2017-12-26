@@ -1,0 +1,12 @@
+<!--pages/workflow/detail.wxml-->
+<import src="/dist/field/index.wxml"/>
+
+<view class='workflow-container'>
+  <view class="zan-panel operation-panel" style="padding: 15px;margin-bottom:0px;">
+    <template
+      is="zan-field"
+      data="{{opinionInfo}}"></template>
+    <button class="zan-btn zan-btn--small">退回</button>
+    <button class="zan-btn zan-btn--small zan-btn--primary">同意</button>
+  </view>
+</view>

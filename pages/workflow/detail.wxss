@@ -1,0 +1,16 @@
+/* pages/workflow/detail.wxss */
+.workflow-container {
+  background-color:red;
+  height:1206rpx;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap; */
+}
+
+.operation-panel {
+  position: absolute;
+  height: 60px;
+  bottom: 0;
+  left: 0;
+  width: 750rpx;
+}
