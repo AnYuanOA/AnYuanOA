@@ -4,7 +4,8 @@
     "pages/logs/logs",
     "pages/mine/mine",
     "pages/todo/todo",
-    "pages/call/call"
+    "pages/call/call",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "white",

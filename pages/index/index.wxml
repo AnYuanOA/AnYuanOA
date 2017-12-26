@@ -3,13 +3,13 @@
   <!-- banner导航区 -->
   <swiper indicator-dots="true" autoplay="true" class="banners" interval="3000" indicator-active-color="white">
     <swiper-item class="banner" >
-          <image src="/resources/images/home_banner.jpg"></image>
+          <image src="/resources/images/home_banner1.jpg"></image>
     </swiper-item>
     <swiper-item class="banner" >
-          <image src="/resources/images/home_banner.jpg"></image>
+          <image src="/resources/images/home_banner2.jpg"></image>
     </swiper-item>
     <swiper-item class="banner" >
-          <image src="/resources/images/home_banner.jpg"></image>
+          <image src="/resources/images/home_banner3.jpg"></image>
     </swiper-item>
   </swiper>
 

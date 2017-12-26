@@ -15,6 +15,26 @@
 
 <!-- <scroll-view scroll-x> -->
   <!-- 待办视图 -->
+  <navigator url="/pages/news/{{item.type}}/{{item.type}}_detail?type={{item.type}}&id={{item.articleid}}">
+        <view class="list-item oa">
+          <view class="list-item-left">
+            <text class="list-item-title">行政用章申请</text>
+            <text class="list-item-time">2017-11-29 15:53:24</text>
+          </view>
+          <image class="list-item-icon" src="/resources/images/todo/oa@colour.png"></image>
+        </view>
+      </navigator>
+      <navigator url="/pages/news/{{item.type}}/{{item.type}}_detail?type={{item.type}}&id={{item.articleid}}">
+        <view class="list-item oa">
+          <view class="list-item-left">
+            <text class="list-item-title">合同会签申请</text>
+            <text class="list-item-time">2017-11-30 18:23:00</text>
+          </view>
+          <image class="list-item-icon" src="/resources/images/todo/oa@colour.png"></image>
+        </view>
+      </navigator>
+
+
   <view class="c-minheight weui-panel_access" hidden='{{showType!=1}}'>
     <view class="weui-panel__bd">
       <view class="weui-media-box__bd"/>

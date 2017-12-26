@@ -22,5 +22,11 @@ Page({
         })
       }
     })
+  },
+
+  logIn: function(){
+    wx.navigateTo({
+      url: '/pages/login/login',
+    })
   }
 })

@@ -4,6 +4,7 @@
   <view class="userinfo">
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    <text class="userinfo-nickname">请绑定安源OA账号</text>
   </view>
 
   <!-- 我的操作区 -->
@@ -38,7 +39,6 @@
   <!-- 按钮 -->
 
   <view class="personBtn">
-    <button>登录</button>
-    <button>退出</button>
+    <button bindtap='logIn'>绑定账号</button>
   </view>
 </view>
