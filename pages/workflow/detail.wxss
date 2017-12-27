@@ -1,10 +1,9 @@
 /* pages/workflow/detail.wxss */
+@import "/dist/index.wxss"
+
 .workflow-container {
-  background-color:red;
+  background-color:#f0f0f0;
   height:1206rpx;
-  /* display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap; */
 }
 
 .operation-panel {

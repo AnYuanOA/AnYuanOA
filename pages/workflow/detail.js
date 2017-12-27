@@ -6,9 +6,9 @@ Page({
    */
   data: {
     opinionInfo:{
-      title:'意见',
-      type:'input',
-      placeholder:'请输入您的意见'
+      title:"意见",
+      type:"input",
+      placeholder:"请输入您的意见"
     }
   },
 
