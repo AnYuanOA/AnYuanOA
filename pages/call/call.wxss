@@ -83,13 +83,15 @@
 }
  .weui-panel_access{
     padding-left: 15px;
-     background-color: rgb(255, 255, 255);
-     border-style: solid;
-     border-color: rgb(229, 229, 229);
-     margin-bottom: 10px;
-     filter: blur(0px);
-     box-shadow: rgb(0, 0, 0) 0px 0px 12px 0px;
-     border-width: 5px;
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: rgb(229, 229, 229);
+    filter: blur(0px);
+    box-shadow: rgb(240, 240, 240) 0px 0px 12px 0px;
+    border-width: 5px;
+    border-left:5px;
+    border-right:5px;
+
 }
  .wx-text_v5HHOl{
     color: rgb(0, 0, 0);
@@ -133,9 +135,11 @@
      line-height: 1em;
 }
  .weui-media-box__info__meta{
-    margin-right: 50px;
-     text-indent: 10px;
-     color: rgb(28, 134, 238);
+    text-indent: 10px;
+    width: 18%;
+    display: inline-block;
+    text-align: left;
+    color: rgb(28, 134, 238);
 }
  .wx-text_6frLkr{
     text-align: right;
