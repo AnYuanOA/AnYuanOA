@@ -7,7 +7,8 @@
     "pages/call/call",
     "pages/login/login",
     "pages/callEdit/callEdit",
-    "pages/emp/emp"
+    "pages/emp/emp",
+    "pages/workflow/detail"
   ],
   "window": {
     "backgroundTextStyle": "white",
