@@ -1,10 +1,64 @@
 <!--pages/workflow/detail.wxml-->
-<import src="/dist/field/index.wxml"/>
 
 <view class='workflow-container'>
-    <template
-      is="zan-field"
-      data="{{opinionInfo}}"></template>
-    <button class="zan-btn zan-btn--small">退回</button>
-    <button class="zan-btn zan-btn--small zan-btn--primary">同意</button>
+  <view style='height:8px;'/>
+  <view class='approve-info-header'>
+    <image class='approve-info-header-avatar' src='{{userInfo.avatarUrl}}'></image>
+    <view class='approve-info-header-info'>
+      <text>{{userInfo.nickName}}</text>
+      <text class='approve-info-header-state'>审批中</text>
+    </view>
+  </view>
+  <view style='height:4px'/>
+
+  <view class='approve-info-main'>
+
+    <view class='approve-info-main-item'>
+      <text class='approve-info-main-item-title'>所在部门：</text>
+      <text class='approve-info-main-item-desc'>技术部</text>
+    </view>
+
+    <view class='approve-info-main-item'>
+      <text class='approve-info-main-item-title'>申请类别：</text>
+      <text class='approve-info-main-item-desc'>行政公章申请</text>
+    </view>
+
+    <view class='approve-info-main-item'>
+      <text class='approve-info-main-item-title'>申请说明：</text>
+      <text class='approve-info-main-item-desc'>领跑世界的不只是速度，2017年，中国高铁动车组累计旅客发送量从去年的50亿增加到70多亿，相当于世界人口的总和！平均每天乘坐高铁出行的人数超过400万，单日最高人数则接近800万!</text>
+    </view>
+
+    <view class='approve-info-main-item'>
+      <text class='approve-info-main-item-title'>申请时间：</text>
+      <text class='approve-info-main-item-desc'>2017-12-27 20:53</text>
+    </view>
+
+  </view>
+
+  <view style='height:4px;'/>
+
+  <view class='approve-state-item'>
+    <view class='approve-state-item-cover'>
+      <view class='approve-state-item-cover-line'>
+        <image class='approve-state-item-cover-icon' src='/resources/images/todo/icon_approve_pass.png'/>
+      </view>
+    </view>
+    <view class='approve-state-item-info'>hahaha</view>
+  </view>
+
+  <view class='operation-panel' >
+    <view class='operation-panel-item' bindtap='approvePass'>
+      <image class='operation-panel-item-icon' src='/resources/images/todo/icon_agree.png'></image>
+      <view>
+        <text class='operation-panel-item-text'>审批通过</text>
+      </view>
+    </view>
+    <view class='operation-panel-item' bindtap='approveReject'>
+      <image class='operation-panel-item-icon' src='/resources/images/todo/icon_back.png'></image>
+      <view>
+        <text class='operation-panel-item-text'>审批退回</text>
+      </view>
+    </view>
+  </view>
+  
 </view>

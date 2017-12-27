@@ -1,15 +1,147 @@
 /* pages/workflow/detail.wxss */
-@import "/dist/index.wxss"
 
 .workflow-container {
   background-color:#f0f0f0;
   height:1206rpx;
 }
 
+.approve-info-header {
+  background-color: white;
+  height: 70px;
+  display: flex;
+  flex-direction: row;
+}
+
+.approve-info-header-avatar {
+  width: 50px;
+  height: 50px;
+  margin-left: 14px;
+  margin-top: 8px;
+  border-radius: 50%;
+}
+
+.approve-info-header-info {
+  display: flex;
+  flex-direction: column;
+  padding-left: 14px;
+  padding-top: 10px;
+}
+
+.approve-info-header-state {
+  font-size: 14px;
+  color: #54adf4;
+  margin-top: 4px;
+}
+
+.approve-info-main {
+  background-color: white;
+  padding-top: 8px;
+}
+
+.approve-info-main-item {
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 8px;
+}
+
+.approve-info-main-item-title {
+  font-size: 14px;
+  color: #434343;
+  margin-left: 4px;
+  line-height: 20px;
+  flex-shrink: 0;
+}
+
+.approve-info-main-item-desc {
+  font-size: 14px;
+  color: #aaaaaa;
+  padding-left: 8px;
+  line-height: 20px;
+  padding-right: 4px;
+}
+
+.approve-state-item {
+  display: flex;
+  flex-direction: row;
+  /* height: 80px; */
+}
+
+.approve-state-item-cover {
+  height: 100%;
+  width: 22px;
+}
+
+.approve-state-item-cover-line {
+  width: 1px;
+  height: 100%;
+  background-color: #dddddd;
+  margin-left: 10.5px;
+}
+
+.approve-state-item-cover-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: -7px;
+  margin-top: 30px;
+}
+
+.approve-state-item-info {
+  margin-top: 18px;
+  border-radius: 4px;
+  background-color: white;
+  height: 80px; 
+  margin-left: 4px;
+  margin-right: 8px;
+  flex-grow: 1;
+}
+
+.approve-state-item-info-avatar {
+
+}
+
+.approve-state-item-info-nick {
+
+}
+
+.approve-state-item-info-state {
+
+}
+
+.approve-state-item-info-desc {
+
+}
+
+.approve-state-item-info-time {
+
+}
+
 .operation-panel {
-  position: absolute;
-  height: 60px;
-  bottom: 0;
+  position: fixed;
+  height: 40px;
   left: 0;
-  width: 750rpx;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+}
+
+.operation-panel-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+}
+
+.operation-panel-item-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 12px;
+  margin-top: 4px;
+}
+
+.operation-panel-item-text {
+  color: #939393;
+  font-size: 15px;
 }

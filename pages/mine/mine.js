@@ -20,6 +20,7 @@ Page({
         that.setData({
           userInfo: userInfo
         })
+        app.globalData.userInfo = userInfo;
       }
     })
   },
