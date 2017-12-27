@@ -22,9 +22,28 @@ Page({
    */
 
   data: {
-    showType: seekCall.notRead
+    showType: seekCall.notRead,
+    list: [
+      {
+        id: '1',
+        sendUser: '张三',
+        comment: '流程：测试流程已通过，请注意查收！！！！',
+        sendDate: '2017/01/01 21:21:21',
 
+      }, {
+        id: '2',
+        sendUser: '李四',
+        comment: '流程：测试流程已通过，请注意查收！！！！',
+        sendDate: '2017/01/01 21:21:21',
 
+      }, {
+        id: '3',
+        sendUser: '赵武，测试111',
+        comment: '流程：测试流程已通过，请注意查收！！！！',
+        sendDate: '2017/01/01 21:21:21',
+
+      }
+    ]
   },
 
   /**

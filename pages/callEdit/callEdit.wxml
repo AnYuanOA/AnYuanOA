@@ -3,7 +3,7 @@
         <text class="weui-form-preview__label" >接收人</text>
         <image bindtap="tapSelectUser" class="wx-image_6niB8N"  mode="scaleToFill" src="/resources/images/call/addressBook.png" style="background-size: 100% 100%; background-position: 0% 0%; background-repeat: no-repeat; background-image: url(/resources/images/call/addressBook.png);"/>
     </view>
-    <input class="c-block c-fullwidth wx-input_JHU1VU"  name="input1" type="text"/>
+    <input class="c-block c-fullwidth wx-input_JHU1VU"  name="input1" type="text" disabled='true'/>
     <view class="weui-form-preview__hd2" />
     <view class="weui-form-preview__hd" >
         <text class="weui-form-preview__label" >内容</text>
