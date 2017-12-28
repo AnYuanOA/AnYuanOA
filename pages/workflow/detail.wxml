@@ -133,5 +133,8 @@
       </view>
     </view>
   </view>
+
+  <view class='operation-panel-item-spliter'/>
+  <view class='operation-panel-spliter'/>
   
 </view>

@@ -19,7 +19,7 @@ Page({
    */
   onLoad: function (options) {
     if (app.globalData.userInfo) {
-      that.setData({
+      this.setData({
         userInfo: app.globalData.userInfo
       })
     }else{
