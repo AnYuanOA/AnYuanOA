@@ -1,4 +1,5 @@
 // pages/workflow/detail.js
+var app = getApp()
 Page({
 
   /**
@@ -9,14 +10,30 @@ Page({
       title:"意见",
       type:"input",
       placeholder:"请输入您的意见"
-    }
+    },
+    userInfo:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    if (app.globalData.userInfo) {
+      that.setData({
+        userInfo: app.globalData.userInfo
+      })
+    }else{
+      var that = this;
+      wx.getUserInfo({
+        success: function (res) {
+          var userInfo = res.userInfo
+          that.setData({
+            userInfo: userInfo
+          })
+          app.globalData.userInfo = userInfo;
+        }
+      })
+    }
   },
 
   /**
@@ -72,6 +89,20 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 审批通过 
+   */
+  approvePass: function() {
+    console.log("审批通过")
+  },
+
+  /**
+   * 审批退回
+   */
+  approveReject: function() {
+    console.log("审批退回")
   },
 
   // 输入框聚焦时触发
