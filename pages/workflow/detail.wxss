@@ -2,7 +2,12 @@
 
 .workflow-container {
   background-color:#f0f0f0;
-  height:1206rpx;
+  height:100%;
+}
+
+.workflow-container-main {
+  margin-bottom: 40px;
+  padding-bottom: 14px;
 }
 
 .approve-info-header {
@@ -31,6 +36,19 @@
   font-size: 14px;
   color: #54adf4;
   margin-top: 4px;
+}
+
+.approve-info-header-state-icon-container {
+  flex-grow: 1;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.approve-info-header-state-icon {
+  margin-right: 14px;
+  width: 50px;
+  height: 50px;
 }
 
 .approve-info-main {
@@ -63,12 +81,12 @@
 .approve-state-item {
   display: flex;
   flex-direction: row;
-  /* height: 80px; */
+  align-items: stretch;
 }
 
 .approve-state-item-cover {
-  height: 100%;
   width: 22px;
+  flex-shrink: 0;
 }
 
 .approve-state-item-cover-line {
@@ -89,30 +107,62 @@
   margin-top: 18px;
   border-radius: 4px;
   background-color: white;
-  height: 80px; 
   margin-left: 4px;
   margin-right: 8px;
   flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  padding-bottom: 8px;
 }
 
 .approve-state-item-info-avatar {
+  width: 50px;
+  height: 50px;
+  margin-left: 18px;
+  margin-top: 14px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
 
+.approve-state-item-info-state-container {
+  display: flex;
+  flex-direction: column; 
+  flex-grow: 1;
+}
+
+.approve-state-item-info-nick-container {
+  margin-top: 18px;
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .approve-state-item-info-nick {
-
+  font-size: 16px;
+  /* margin-top: 18px; */
+  margin-left: 8px;
 }
 
 .approve-state-item-info-state {
-
+  font-size: 13px;
+  margin-top: 4px;
+  margin-left: 8px;
+  color: lightgreen;
 }
 
 .approve-state-item-info-desc {
-
+  font-size: 13px;
+  color: #aaaaaa;
+  padding-left: 8px;
+  padding-right: 14px;
+  padding-top: 4px;
 }
 
 .approve-state-item-info-time {
-
+  margin-right: 14px;
+  color: #aaaaaa;
+  font-size: 13px;
 }
 
 .operation-panel {
