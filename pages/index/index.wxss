@@ -48,6 +48,10 @@
   border-bottom: 1px solid #f3f3f3;
   display: -webkit-box;
 }
+.noticeList-item image{
+  width:112px;
+  height:68px;
+}
 .noticeList-item-r{
   padding-left: 8px;
   -webkit-box-flex: 1;

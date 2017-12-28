@@ -20,6 +20,11 @@
       <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
     </view>
     <view class="list-item">
+      <image class="item-image" src="../../resources/images/mine/icon_duty.png"></image>
+      <text class="item-text">我的考勤</text>
+      <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+    </view>
+    <view class="list-item">
       <image class="item-image" src="../../resources/images/mine/icon_pay.png"></image>
       <text class="item-text">支付方式</text>
       <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>

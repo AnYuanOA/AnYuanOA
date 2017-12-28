@@ -8,7 +8,11 @@
     "pages/login/login",
     "pages/callEdit/callEdit",
     "pages/emp/emp",
-    "pages/workflow/detail"
+    "pages/workflow/detail",
+    "pages/apply/apply",
+    "pages/article/article",
+    "pages/apply/carApply/carApply",
+    "pages/apply/dayApply/dayApply"
   ],
   "window": {
     "backgroundTextStyle": "white",
