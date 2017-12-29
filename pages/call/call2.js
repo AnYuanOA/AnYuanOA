@@ -43,30 +43,13 @@ Page({
         sendDate: '2017/01/01 21:21:21',
 
       }
-    ],
-    actionSheetHidden: true,
-    actionSheetItems: ['item1', 'item2', 'item3']
+    ], 
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad() {
-    if (app.globalData.userInfo) {
-      that.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else {
-      var that = this;
-      wx.getUserInfo({
-        success: function (res) {
-          var userInfo = res.userInfo
-          that.setData({
-            userInfo: userInfo
-          })
-          app.globalData.userInfo = userInfo;
-        }
-      })
-    }
+
   },
 
   /**
@@ -144,60 +127,15 @@ Page({
     }
   },
 
-  actioncnt: function () {
-    wx.showActionSheet({
-      itemList: ['转发', '回复',  '已阅'],
-      success: function (res) {
-        
-        if (res.tapIndex == 0){
-          wx.navigateTo({
-            url: '../callEdit/callEdit'
-          })
-        }
 
-        if (res.tapIndex == 1) {
-          wx.navigateTo({
-            url: '../callEdit/callEdit'
-          })
-        }
+  tap_forward: function (e) {
 
-        if (res.tapIndex == 2) {
-          wx.showToast({
-            title: '已阅',
-            icon: 'success',
-            duration: 2000
-          })
-        }
-      },
-      fail: function (res) {
-        console.log(res.errMsg)
-      }
+    wx.navigateTo({
+      url: '../callEdit/callEdit'
     })
+
+
   },
-
-  keepcnt: function () {
-    wx.showToast({
-      title: '收藏成功',
-      icon: 'success',
-      duration: 2000
-    })
-  },
-
-  deletecnt: function () {
-    wx.showModal({
-      title: '提示',
-      content: '是否删除该寻呼！',
-      success: function (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  }  
-
-
 
 })
 

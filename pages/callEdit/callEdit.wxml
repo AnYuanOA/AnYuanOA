@@ -1,22 +1,33 @@
-<view class="weui-form-preview" >
-    <view class="weui-form-preview__hd" >
-        <text class="weui-form-preview__label" >接收人</text>
-        <image bindtap="tapSelectUser" class="wx-image_6niB8N"  mode="scaleToFill" src="/resources/images/call/addressBook.png" style="background-size: 100% 100%; background-position: 0% 0%; background-repeat: no-repeat; background-image: url(/resources/images/call/addressBook.png);"/>
+<!--pages/apply/carApply/carApply.wxml-->
+<view class="container">
+  <text class="declare-context-title">接收人</text>
+    <view class="reporter-user reporter-detail-item">
+      <image class="item-icon" src="/resources/images/apply/icon_apply_peoper.png"></image>
+      <text class="reporter-detail-name">接收人：</text>
+      <view class="reporter-detail-input">
+        <input value="张三，李四，王五" disabled="true" />
+          <image bindtap="tapSelectUser" class="wx-image_6niB8N"  mode="scaleToFill" src="/resources/images/call/addressBook.png"/>
+  <view class="reporter-detail">
+      </view>
     </view>
-    <input class="c-block c-fullwidth wx-input_JHU1VU"  name="input1" type="text" disabled='true'/>
-    <view class="weui-form-preview__hd2" />
-    <view class="weui-form-preview__hd" >
-        <text class="weui-form-preview__label" >内容</text>
+  </view>
+  <view class="declare-context">
+    <text class="declare-context-title">内容详情</text>
+    <view class="declare-context-panel">
+      <textarea cursor-spacing="50" class="declare-context-textarea" placeholder="请输入发送内容" bindinput="listenerTextarea"></textarea>
     </view>
-    <textarea class="c-block c-fullwidth wx-textarea_9UB3iZ"  name="textarea1" type="textarea"/>
-    <view class="weui-form-preview__hd" >
-        <text class="weui-form-preview__label" >图片</text>
-    </view>
-    <image bindtap="tapUploadImg" class="wx-image_pa6Z7m"  mode="scaleToFill" src="/resources/images/call/upload.png" style="background-size: 100% 100%; background-position: 0% 0%; background-repeat: no-repeat; background-image: url(/resources/images/call/upload.png);"/>
-    <view class="weui-form-preview__hd2" />
-    <view class="weui-form-preview__btn_primary" >
-        <view class="wx-view_coWu6c" >
-            发送
-        </view>
-    </view>
+  </view>
+
+  <view class="declare-context">
+    <text class="declare-context-title2">图片</text>
+ <image bindtap="tapUploadImg" class="wx-image_6niB8m"  mode="scaleToFill" src="/resources/images/call/upload.png" />
+  </view>
+  <image bindtap="previewImage" src="{{tempFilePaths }}" mode="aspecFill" style="width: 80px; height: 80px"/>  
+
+  <view class="submit-declare" >
+    <text>提交申请</text>
+  </view>
+
+
+
 </view>

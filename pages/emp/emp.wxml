@@ -2,7 +2,7 @@
 <view class="index">
 
   <view class="head">
-    <view class="title"> <image bindtap="topSure" class="widget__arrow"  mode="scaleToFill" src="/resources/images/emp/srue.png"/>湖北安源安全环保科技有限公司</view>
+    <view class="title">湖北安源安全环保科技有限公司</view>
   </view>
 
   <view class="body">
@@ -11,7 +11,8 @@
 
         <view class="widgets__item">
 
-          <view id="{{item.id}}" class="widgets__info {{item.open ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
+          <view id="{{item.id}}" style="background-color:{{item.color}}" class="widgets__info {{item.open ? 'widgets__info_show' : ''}}" bindtap="widgetsToggle">
+            <image class="widget__img" src="/resources/images/emp/emp.png" mode="aspectFill" /> 
             <text class="widgets__info-name">{{item.name}}</text>
             <image class="widgets__info-img" src="/resources/images/emp/arrowright.png" mode="aspectFill" />
           </view>
@@ -20,13 +21,13 @@
 
             <block class="checkbox" wx:for-items="{{item.userName}}" wx:for-item="name">
              
-              <view class="widget" hover-start-time="10" hover-stay-time="100">
+              <view class="widget" style="background-color:{{item.color}}" hover-start-time="10" hover-stay-time="100">
                
               <checkbox value="{{id}}" checked="{{item.checked}}"/>
               <image class="widget__img" src="/resources/images/emp/emp.png" mode="aspectFill" /> {{userName}}
                
-                <text class="widget__name">{{name}}</text>
-                <text class="orgText">{{item.org[index]}}</text>                
+                <text class="widget__name" style='font-size:12px'>{{name}}</text>
+                <text class="orgText" style='font-size:12px'>{{item.org[index]}}</text>                
                 <view class="widget__line {{index == 0 ? 'widget__line_first' : ''}}"></view>
               </view>
             </block>
@@ -37,4 +38,8 @@
       </block>
     </view>
   </view>
+  <view class="submit-declare" >
+    <text>确定</text>
+  </view>
+
 </view>
