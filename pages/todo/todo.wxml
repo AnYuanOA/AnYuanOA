@@ -17,7 +17,7 @@
   <!-- 待办视图 -->
   <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}'>
     <block wx:for="{{todoList}}">
-      <navigator url="/pages/workflow/detail?type={{item.type}}&id={{item.articleid}}" hover-class="none">
+      <navigator url="/pages/workflow/detail?pageType=1" hover-class="none">
         <view class='list-item'>
           <image class='list-item-icon' src='{{userInfo.avatarUrl}}'/>
           <view class='list-item-content'>
@@ -34,7 +34,7 @@
   <!-- 待阅视图 -->
   <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}'>
     <block wx:for="{{toReadList}}">
-      <navigator url="/pages/workflow/detail?type={{item.type}}&id={{item.articleid}}" hover-class="none">
+      <navigator url="/pages/workflow/detail?pageType=2" hover-class="none">
         <view class='list-item'>
           <image class='list-item-icon' src='{{userInfo.avatarUrl}}'/>
           <view class='list-item-content'>

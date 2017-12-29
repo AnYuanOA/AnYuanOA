@@ -34,6 +34,9 @@ Page({
         }
       })
     }
+    this.setData({
+      pageType:options.pageType
+    })
   },
 
   /**
