@@ -5,6 +5,8 @@ if (typeof TodoType == "undefined") {
   TodoType.ToRead = 2//待阅
 }
 
+var app = getApp()
+
 Page({
 
   /**
@@ -12,6 +14,7 @@ Page({
    */
   data: {
     showType: TodoType.Todo,
+    userInfo: null,
     todoList: [
       {
         typeTitle:'行政用章申请',
@@ -35,7 +38,7 @@ Page({
         level: '紧急'
       },
       {
-        typeTitle: '项目风险分析(产品要求评审)记录单',
+        typeTitle: '项目风险分析(产品要求评审)记录专用单',
         title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
         publish_name: '测试1',
         publish_time: '2017-11-29 15:53:24',
@@ -102,61 +105,73 @@ Page({
       {
         typeTitle: '发文办理流程',
         title: '关于开展员工职级调整工作的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '曾闪'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于发布《2017年管理评审报告》的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: 'jinher'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于发布2017年11月质量月报的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '测试1'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于公布2017年度“优秀咨询成果奖”评选结果的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '测试1'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于开展员工职级调整工作的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '曾闪'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于发布《2017年管理评审报告》的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: 'jinher'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于发布2017年11月质量月报的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '测试1'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于公布2017年度“优秀咨询成果奖”评选结果的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '测试1'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于开展员工职级调整工作的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '曾闪'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于发布《2017年管理评审报告》的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: 'jinher'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于发布2017年11月质量月报的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '测试1'
       },
       {
         typeTitle: '发文办理流程',
         title: '关于公布2017年度“优秀咨询成果奖”评选结果的通知',
+        publish_time: '2017-11-29 15:53:24',
         publish_name: '测试1'
       }
     ]
@@ -166,7 +181,22 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
+    } else {
+      var that = this;
+      wx.getUserInfo({
+        success: function (res) {
+          var userInfo = res.userInfo
+          that.setData({
+            userInfo: userInfo
+          })
+          app.globalData.userInfo = userInfo;
+        }
+      })
+    }
   },
 
   /*
