@@ -12,7 +12,9 @@
     "pages/apply/apply",
     "pages/article/article",
     "pages/apply/carApply/carApply",
-    "pages/apply/dayApply/dayApply"
+    "pages/apply/dayApply/dayApply",
+    "pages/mine/attendance/attendance",
+    "pages/mine/clockin/clockin"
   ],
   "window": {
     "backgroundTextStyle": "white",
