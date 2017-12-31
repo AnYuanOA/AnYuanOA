@@ -1,7 +1,7 @@
 <!--pages/workflow/detail.wxml-->
 
 <view class='workflow-container'>
-  <view class='workflow-container-main'>
+  <view class='workflow-container-main' style='margin-bottom:{{pageType==1?40:0}}px'>
     <view style='height:8px;'/>
     <view class='approve-info-header'>
       <image class='approve-info-header-avatar' src='{{userInfo.avatarUrl}}'></image>
@@ -119,7 +119,7 @@
 
   </view>
 
-  <view class='operation-panel' >
+  <view class='operation-panel' hidden='{{pageType!=1}}'>
     <view class='operation-panel-item' bindtap='approvePass'>
       <image class='operation-panel-item-icon' src='/resources/images/todo/icon_agree.png'></image>
       <view>
@@ -134,7 +134,7 @@
     </view>
   </view>
 
-  <view class='operation-panel-item-spliter'/>
-  <view class='operation-panel-spliter'/>
+  <view class='operation-panel-item-spliter' hidden='{{pageType!=1}}'/>
+  <view class='operation-panel-spliter' hidden='{{pageType!=1}}'/>
   
 </view>

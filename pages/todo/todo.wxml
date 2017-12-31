@@ -1,80 +1,50 @@
 <view class='todo_container'>
   <view class="switch_header">
-  <view class='switch_container'>
-    <view class='switch_item' style='color: {{showType==1?"#54adf4":"#000"}};' bindtap='tapTodo'>
-      <text>待办</text>
+    <view class='switch_container'>
+      <view class='switch_item' style='color: {{showType==1?"#54adf4":"#000"}};' bindtap='tapTodo'>
+        <text>待办</text>
+      </view>
+      <view class='switch_item' style='color: {{showType==2?"#54adf4":"#000"}};' bindtap='tapToRead'>
+        <text>待阅</text>
+      </view>
     </view>
-    <view class='switch_item' style='color: {{showType==2?"#54adf4":"#000"}};' bindtap='tapToRead'>
-      <text>待阅</text>
+    <view class='switch_slider_container'>
+      <view class='switch_slider' wx:if="{{showType==1}}" style='margin-left:0%'/>
+      <view class='switch_slider' wx:if="{{showType==2}}" style='margin-left:50%'/>
     </view>
   </view>
-  <view class='switch_slider_container'>
-    <view class='switch_slider' wx:if="{{showType==1}}" style='margin-left:0%'/>
-    <view class='switch_slider' wx:if="{{showType==2}}" style='margin-left:50%'/>
-  </view>
-</view>
 
   <!-- 待办视图 -->
-  <!-- <navigator url="/pages/news/{{item.type}}/{{item.type}}_detail?type={{item.type}}&id={{item.articleid}}">
-        <view class="list-item oa">
-          <view class="list-item-left">
-            <text class="list-item-title">行政用章申请</text>
-            <text class="list-item-time">2017-11-29 15:53:24</text>
+  <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}'>
+    <block wx:for="{{todoList}}">
+      <navigator url="/pages/workflow/detail?pageType=1" hover-class="none">
+        <view class='list-item'>
+          <image class='list-item-icon' src='{{userInfo.avatarUrl}}'/>
+          <view class='list-item-content'>
+            <text class='list-item-content-title'>{{item.typeTitle}}</text>
+            <text class='list-item-content-nick-name'>{{item.publish_name}}  {{item.publish_time}}</text>
           </view>
-          <image class="list-item-icon" src="/resources/images/todo/oa@colour.png"></image>
+          <image class='list-item-state' src='/resources/images/todo/icon_approve_state_wait.png'/>
         </view>
       </navigator>
-      <navigator url="/pages/news/{{item.type}}/{{item.type}}_detail?type={{item.type}}&id={{item.articleid}}">
-        <view class="list-item oa">
-          <view class="list-item-left">
-            <text class="list-item-title">合同会签申请</text>
-            <text class="list-item-time">2017-11-30 18:23:00</text>
-          </view>
-          <image class="list-item-icon" src="/resources/images/todo/oa@colour.png"></image>
-        </view>
-      </navigator> -->
-
-
-  <view class="c-minheight weui-panel_access" hidden='{{showType!=1}}'>
-    <view class="weui-panel__bd">
-      <view class="weui-media-box__bd"/>
-      <block wx:for="{{todoList}}">
-        <navigator url="/pages/workflow/detail?type={{item.type}}&id={{item.articleid}}" hover-class="none">
-          <view class="{{index==0?'weui-media-box_block_first':'weui-media-box_block'}}">
-            <view class="weui-media-box__bd">
-              <text class="c-block weui-media-box__title weui-media-box_text">{{item.typeTitle}}</text>
-              <text class="c-block weui-media-box__desc">{{item.title}}</text>
-            </view>
-            <view class="weui-media-box__info">
-              <text class="weui-media-box__info__meta">{{item.publish_name}}</text>
-              <text class="weui-media-box__info__meta">{{item.publish_time}}</text>
-              <text class="weui-media-box__info__meta_extra">{{item.level}}</text>
-            </view>
-          </view>
-        </navigator>
-      </block>
-    </view>
-  </view>
+    </block>
+  </scroll-view>
   <!--  -->
 
   <!-- 待阅视图 -->
-  <view class="c-minheight weui-panel_access" hidden='{{showType!=2}}'>
-    <view class="weui-panel__bd">
-      <view class="weui-media-box__bd"/>
-        <block wx:for="{{toReadList}}">
-          <navigator url="/pages/workflow/detail?type={{item.type}}&id={{item.articleid}}" hover-class="none">
-            <view class="{{index==0?'weui-media-box_block_first':'weui-media-box_block'}}">
-              <view class="weui-media-box__bd">
-                <text class="c-block weui-media-box__title weui-media-box_text">{{item.typeTitle}}</text>
-                <text class="c-block weui-media-box__desc">{{item.title}}</text>
-              </view>
-              <view class="weui-media-box__info">
-                <text class="weui-media-box__info__meta">{{item.publish_name}}</text>
-              </view>
-            </view>
-          </navigator>
-        </block>
-    </view>
-  </view>
+  <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}'>
+    <block wx:for="{{toReadList}}">
+      <navigator url="/pages/workflow/detail?pageType=2" hover-class="none">
+        <view class='list-item'>
+          <image class='list-item-icon' src='{{userInfo.avatarUrl}}'/>
+          <view class='list-item-content'>
+            <text class='list-item-content-title'>{{item.typeTitle}}</text>
+            <text class='list-item-content-nick-name'>{{item.publish_name}}  {{item.publish_time}}</text>
+          </view>
+          <image class='list-item-state' src='/resources/images/todo/icon_approve_state_pass.png'/>
+        </view>
+      </navigator>
+    </block>
+  </scroll-view>
   <!--  -->
 </view>

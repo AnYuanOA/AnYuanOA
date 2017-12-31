@@ -14,16 +14,23 @@
       <text class="item-text">个人档案</text>
       <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
     </view>
-    <view class="list-item">
-      <image class="item-image" src="../../resources/images/mine/icon_duty.png"></image>
-      <text class="item-text">我的考勤</text>
-      <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
-    </view>
-    <view class="list-item">
-      <image class="item-image" src="../../resources/images/mine/icon_duty.png"></image>
-      <text class="item-text">我的考勤</text>
-      <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
-    </view>
+    
+    <navigator url="/pages/mine/clockin/clockin" hover-class="none">
+      <view class="list-item">
+        <image class="item-image" src="../../resources/images/mine/icon_duty.png"></image>
+        <text class="item-text">我的考勤</text>
+        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+      </view>
+    </navigator>
+
+    <navigator url="/pages/mine/attendance/attendance" hover-class="none">
+      <view class="list-item">
+        <image class="item-image" src="../../resources/images/mine/icon_duty.png"></image>
+        <text class="item-text">我的考勤记录</text>
+        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+      </view>
+    </navigator>
+    
     <view class="list-item">
       <image class="item-image" src="../../resources/images/mine/icon_pay.png"></image>
       <text class="item-text">支付方式</text>
