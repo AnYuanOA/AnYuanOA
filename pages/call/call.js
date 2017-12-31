@@ -195,8 +195,15 @@ Page({
         }
       }
     })
-  }  
+  },  
 
+addCall: function (e) {
+
+  wx.navigateTo({
+    url: '../callEdit/callEdit'
+  })   
+
+  },
 
 
 })

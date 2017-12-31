@@ -47,4 +47,11 @@
             <image bindtap="deletecnt" class="wx-image_keep"   src="/resources/images/call/trash.png" /> 
         </view>
     </view>
+
+<view>  
+<contact-button type="default-dark" size="20" session-from="weapp" class="img-plus-style zindex100 yc">
+</contact-button>
+<image src="/resources/images/call/upload.png" class="img-plus-style1" bindtap="addCall"></image>
+</view>  
+
 </scroll-view>
