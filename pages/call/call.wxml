@@ -9,16 +9,16 @@
 </view>-->
 <view class="bottomGrayboder toptab" >
     <view bindtap="tap_d9c62767" class="toptabWrap" >
-        <view bindtap="tap_notRead" style='color: {{showType==1?"#54adf4":"#757575"}};border-bottom-style: {{showType==1?"solid":""}};' class="toptabItem" >
+        <view bindtap="tap_notRead" class="toptabItem {{showType==1?'on':''}}" >
             未阅
         </view>
-        <view bindtap="tap_collect" style='color: {{showType==2?"#54adf4":"#757575"}};border-bottom-style: {{showType==2?"solid":""}};'class="toptabItem" >
+        <view bindtap="tap_collect" class="toptabItem {{showType==2?'on':''}}" >
             收藏
         </view>
-        <view bindtap="tap_sent" style='color: {{showType==3?"#54adf4":"#757575"}};border-bottom-style: {{showType==3?"solid":""}};' class="toptabItem" >
+        <view bindtap="tap_sent" class="toptabItem {{showType==3?'on':''}}" >
             已发
         </view>
-        <view bindtap="tap_received" style='color: {{showType==4?"#54adf4":"#757575"}};border-bottom-style: {{showType==4?"solid":""}};' class="toptabItem" >
+        <view bindtap="tap_received" class="toptabItem {{showType==4?'on':''}}" >
             已收
         </view>
     </view>
@@ -27,24 +27,32 @@
 <scroll-view class="c-minheight wx-scroll-view_MBKQjG"  lower-threshold="50" scroll-y="True" style="overflow-x: hidden; overflow-y: auto; " upper-threshold="50" >
     <view class="weui-panel_access" wx:for-items="{{list}}">
         <view class="weui-panel__hd" >
-            <image class="wx-image_fo928m"  mode="scaleToFill" src="{{userInfo.avatarUrl}}"/>
             <text class="c-block wx-text_v5HHOl" >{{item.sendUser}}</text>
-            <text class="c-block wx-text_j0cnPh" >{{item.sendDate}}</text>
+            <text class="c-block wx-text_v5HHOl-date" >日期：{{item.sendDate}}</text>
         </view>
         <view class="weui-panel__bd" >
-            <view class="weui-media-box__bd" />
             <view class="weui-media-box_block" >
                 <view class="weui-media-box__bd" >
-                    <text class="c-block weui-media-box__desc" >{{item.comment}}</text>
+                    <text class="c-block weui-media-box__desc" >内容：{{item.comment}}</text>
                     <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/call/1.jpg" />
                     <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/call/2.jpg" />
                 </view>
             </view>
         </view>
         <view class="weui-media-box__info" >
-            <image bindtap="actioncnt" class="wx-image_keep" src="/resources/images/call/skip.png" />
-            <image bindtap="keepcnt" class="wx-image_keep"   src="/resources/images/call/keep.png" />
-            <image bindtap="deletecnt" class="wx-image_keep"   src="/resources/images/call/trash.png" /> 
+            <view class="opeart-image-reply" bindtap="actioncnt">
+              <image class="wx-image_keep" src="/resources/images/call/icon_reply.png" />
+              <text class="opeart-text">回复</text>
+            </view>
+            <view class="opeart-image-collect" bindtap="keepcnt">
+              <image class="wx-image_keep" src="/resources/images/call/icon_collect.png" />
+              <text class="opeart-text">收藏</text>
+            </view>
+            <view class="opeart-image-delete" bindtap="deletecnt">
+              <image class="wx-image_keep" src="/resources/images/call/icon_delete.png" />
+              <text class="opeart-text">删除</text>
+            </view>
+             
         </view>
     </view>
 

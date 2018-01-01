@@ -16,9 +16,9 @@
   <!-- 应用区 -->
   <view class="menuWrap">
     <view class="menuWrap-item">
-      <navigator class="menuWrap-item-navi" url="../apply/carApply/carApply">
-        <image src="/resources/images/aprove/car_app1.png"></image>
-        <text>用车申请</text>
+      <navigator class="menuWrap-item-navi" url="../apply/apply">
+        <image src="/resources/images/aprove/other_app1.png"></image>
+        <text>我的申请</text>
       </navigator>
     </view>
     <view class="menuWrap-item">
@@ -28,9 +28,9 @@
       </navigator>
     </view>
     <view class="menuWrap-item">
-      <navigator class="menuWrap-item-navi" url="../apply/apply">
-        <image src="/resources/images/aprove/other_app1.png"></image>
-        <text>我的申请</text>
+      <navigator class="menuWrap-item-navi" url="../apply/carApply/carApply">
+        <image src="/resources/images/aprove/car_app1.png"></image>
+        <text>用车申请</text>
       </navigator>
     </view>
   </view>

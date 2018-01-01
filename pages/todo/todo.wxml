@@ -1,10 +1,10 @@
 <view class='todo_container'>
   <view class="switch_header">
     <view class='switch_container'>
-      <view class='switch_item' style='color: {{showType==1?"#54adf4":"#000"}};' bindtap='tapTodo'>
+      <view class="switch_item {{showType==1 ? 'on' : ''}}" bindtap='tapTodo'>
         <text>待办</text>
       </view>
-      <view class='switch_item' style='color: {{showType==2?"#54adf4":"#000"}};' bindtap='tapToRead'>
+      <view class="switch_item {{showType==2 ? 'on' : ''}}" bindtap='tapToRead'>
         <text>待阅</text>
       </view>
     </view>
@@ -18,13 +18,20 @@
   <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}'>
     <block wx:for="{{todoList}}">
       <navigator url="/pages/workflow/detail?pageType=1" hover-class="none">
-        <view class='list-item'>
-          <image class='list-item-icon' src='{{userInfo.avatarUrl}}'/>
-          <view class='list-item-content'>
-            <text class='list-item-content-title'>{{item.typeTitle}}</text>
-            <text class='list-item-content-nick-name'>{{item.publish_name}}  {{item.publish_time}}</text>
+        <view class='item-bottom-do'>
+          <text>请审批</text>
+        </view>
+        <view class='list-item list-db'>
+          <view class='item-apply-type'>
+            <image class='list-item-icon' src='{{item.icoUrl}}'/>
+            <text>{{item.applyType==1?'用车':'休假'}}</text>
           </view>
-          <image class='list-item-state' src='/resources/images/todo/icon_approve_state_wait.png'/>
+          <view class='list-item-content'>
+            <text class='list-item-content-title'>主题：{{item.typeTitle}}</text>
+            <text class='list-item-content-nick-name highlight'>人员：{{item.publish_name}}</text>
+            <text class='list-item-content-time'>日期：{{item.publish_time}}</text>
+          </view>
+          <image class='list-item-state' src='/resources/images/todo/icon_undo.png'/>
         </view>
       </navigator>
     </block>
@@ -35,13 +42,20 @@
   <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}'>
     <block wx:for="{{toReadList}}">
       <navigator url="/pages/workflow/detail?pageType=2" hover-class="none">
+        <view class='item-bottom-do'>
+          <text>请查阅</text>
+        </view>
         <view class='list-item'>
-          <image class='list-item-icon' src='{{userInfo.avatarUrl}}'/>
-          <view class='list-item-content'>
-            <text class='list-item-content-title'>{{item.typeTitle}}</text>
-            <text class='list-item-content-nick-name'>{{item.publish_name}}  {{item.publish_time}}</text>
+          <view class='item-apply-type'>
+            <image class='list-item-icon' src='/resources/images/todo/icon_unsee.png'/>
+            <text>事项</text>
           </view>
-          <image class='list-item-state' src='/resources/images/todo/icon_approve_state_pass.png'/>
+          <view class='list-item-content'>
+            <text class='list-item-content-title'>主题：{{item.typeTitle}}</text>
+            <text class='list-item-content-nick-name highlight'>人员：{{item.publish_name}}</text>
+            <text class='list-item-content-time'>日期：{{item.publish_time}}</text>
+          </view>
+          <image class='list-item-state' src='/resources/images/todo/icon_item_unsee.png'/>
         </view>
       </navigator>
     </block>

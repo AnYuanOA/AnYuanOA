@@ -1,4 +1,4 @@
 {
-  "navigationBarTitleText": "待办",
-  "enablePullDownRefresh":false
+  "navigationBarTitleText": "任务",
+  "enablePullDownRefresh":true
 }

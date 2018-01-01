@@ -1,5 +1,5 @@
 .todo_container {
-  background-color: #f0f0f0;
+  background-color: #f7f7ff;
   height: 100vh;
   width: 100%;
   display: flex;
@@ -16,7 +16,6 @@
 .switch_container {
   width: 100%;
   height: 40px;
-  background-color: #fff;
   display: flex;
   flex-direction: row;
 }
@@ -28,7 +27,15 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #54adf4;
+  margin-top: 5px;
+}
+
+.on {
+  background-color: #54adf4;
+  color: white;
 }
 
 .switch_slider_container {
@@ -43,6 +50,11 @@
   background-color: #54adf4;
 }
 
+.switch_image {
+  width: 25px;
+  height: 25px;
+}
+
 .content_container {
   flex-grow: 1;
 }
@@ -50,46 +62,73 @@
 .list-item {
   display: flex;
   flex-direction: row;
-  background-color: white;
-  border-bottom: solid 1px #f0f0f0;
+  background-color: #54adf4;
+  margin: 0px 1px 10px 1px;
   padding-top: 10px;
   padding-bottom: 10px;
+  /* box-shadow: 0 0 2rpx 1rpx #54adf4; */
+}
+
+.item-apply-type {
+  display: inline-block;
+  flex: 1;
+  font-size: 12px;
+  font-weight: bold;
+  color: white;
+  width: 100px;
+  padding: 8px 20px 0px;
 }
 
 .list-item-icon {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  margin-left: 14px;
-  flex-grow: 0;
-  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  display: block;
 }
 
 .list-item-content {
   display: flex;
   flex-direction: column;
-  margin-left: 10px;
   flex-grow: 1;
+  color: white;
+  width: 300px;
 }
 
 .list-item-content-title {
-  margin-top: 8px;
-  color: #535353;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
 }
 
 .list-item-content-nick-name {
   margin-top: 2px;
-  color: #ccc;
-  font-size: 13px;
+  font-size: 14px;
+}
+
+.list-item-content-time {
+  margin-top: 2px;
+  font-size: 12px;
 }
 
 .list-item-state {
   width: 50px;
   height: 50px;
-  margin-right: 20px;
+  margin-right: 5px;
+  margin-left: 10px;
   flex-grow: 0;
   flex-shrink: 0;
 }
 
+.item-bottom-do{
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background-color: #99ccff;
+  color: white;
+  font-size: 15px;
+  height: 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  padding: 5px 0px 5px 10px;
+  margin: 0px 1px 0px 1px;
+}

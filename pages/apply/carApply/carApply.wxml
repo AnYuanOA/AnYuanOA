@@ -7,10 +7,11 @@
         <image class="item-icon" src="/resources/images/apply/icon_apply_type.png"></image>
         <text class="repair-detail-name">申请类型：</text>
         <view class="repair-detail-item-ft">
-          <picker class="repair-detail-picker" bindchange="listenerServiceType" value="0" range="['用车', '休假']">
+          <picker class="repair-detail-picker" bindchange="listenerPickerSelected" mode="selector" value="{{index}}" range="{{array}}">
             <view class="repair-detail-content">
+              
+              <text class="repair-detail-info disabled">{{array[index]}}</text>
               <image class="more-icon" src="/resources/images/apply/icon_more.png"></image>
-              <text class="repair-detail-info disabled">请选择申请类型</text>
             </view>
           </picker>
         </view>
@@ -19,12 +20,12 @@
     <view class="repair-detail-item">
       <view class="repair-detail-item-hd">
         <image class="item-icon" src="/resources/images/apply/icon_apply_time.png"></image>
-        <text class="repair-detail-name">申请时间：</text>
+        <text class="repair-detail-name">申请日期：</text>
         <view class="repair-detail-item-ft">
-          <picker class="repair-detail-picker" bindchange="listenerServiceType" value="0" range="['用车', '休假']">
+          <picker class="repair-detail-picker" mode="date" value="{{date}}" bindchange="listenerDatePickerSelected">
             <view class="repair-detail-content">
+              <text class="repair-detail-info disabled">{{date}}</text>
               <image class="more-icon" src="/resources/images/apply/icon_more.png"></image>
-              <text class="repair-detail-info disabled">请选择申请时间</text>
             </view>
           </picker>
         </view>
@@ -49,9 +50,9 @@
     <text class="declare-context-title">申请详情</text>
     <view class="declare-context-panel">
       <view class="declare-context-input">
-          <input placeholder="申请主题" bindinput="listenerTitle" />
+          <input placeholder="主题" bindinput="listenerTitle" />
       </view>
-      <textarea cursor-spacing="50" class="declare-context-textarea" placeholder="申请内容" bindinput="listenerTextarea"></textarea>
+      <textarea cursor-spacing="50" class="declare-context-textarea" placeholder="内容" bindinput="listenerTextarea"></textarea>
     </view>
   </view>
   <view class="submit-declare" bindtap="submitApply">
