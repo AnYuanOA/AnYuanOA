@@ -1,1 +1,118 @@
 /* pages/mine/clockin/clockin.wxss */
+.body {
+  height: 100vh;
+  background-color: white;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+  padding: 14px 0px;
+  justify-content: center;
+}
+
+
+.time {
+  color: #54adf4;
+  font-size: 30px;
+  margin-right: 6px;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 6px;
+}
+
+.day {
+  color: #54adf4;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.location-container {
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  padding: 4px 0px;
+}
+
+.location-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.location-text {
+  font-size: 14px;
+  color: #434343;
+}
+
+.in-range-refresh {
+  font-size: 14px;
+  color: blue;
+  margin-left: 8px;
+}
+
+.operation-container {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 18px 0px;
+}
+
+.operation-item {
+  background-color: #54adf4;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30vw;
+  height: 30vw;
+}
+
+.operation-item-title {
+  color: white;
+  font-size: 30px;
+}
+
+.operation-item-desc {
+  color: #999;
+  font-size: 17px;
+  margin-top: 8px;
+}
+
+.atten-list-item {
+  display: flex;
+  flex-direction: row;
+  margin-top: 14px;
+  padding-left: 14px;
+}
+
+.atten-list-item-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+.atten-list-item-content {
+  display: flex;
+  flex-direction: column;
+  padding-left: 2px;
+}
+
+.atten-list-item-content-time {
+  font-size: 14px;
+  color: #434343;
+}
+
+.atten-list-item-content-address {
+  color: #999;
+  font-size: 12px;
+  margin-top: 2px;
+}
+

@@ -1,2 +1,30 @@
-<!--pages/mine/clockin/clockin.wxml-->
-<text>pages/mine/clockin/clockin.wxml</text>
+<view class='body'>
+  <view class='time-container'>
+    <text class='time'>21:50</text>
+    <view class='day-container'>
+      <text class='day'>12月29日</text>
+      <text class='day'>星期五</text>
+    </view>
+  </view>
+  <view class='location-container'>
+    <image class='location-icon' src='/resources/images/mine/icon_attendace_exception.png'/>
+    <text class='location-text'>当前位置：湖北省武汉市东湖高新区光谷软件园</text>
+  </view>
+  <view class='location-container'>
+    <text class='location-text'>未进入打卡范围</text>
+    <text class='in-range-refresh'>刷新</text>
+  </view>
+  <view  class='operation-container'>
+    <view class='operation-item'>
+      <text class='operation-item-title'>打卡</text>
+    </view>
+    <text class='operation-item-desc'>今日未打卡</text>
+  </view>
+  <view class='atten-list-item'>
+    <image class='atten-list-item-icon' src='/resources/images/mine/icon_attendace_normal.png'/>
+    <view class='atten-list-item-content'>
+      <text class='atten-list-item-content-time calendar-main-item-state-normal'>上班 21:44  正常</text>
+      <text class='atten-list-item-content-address'>湖北省武汉市东湖高新区光谷软件园A2栋</text>
+    </view>
+  </view>
+</view>
