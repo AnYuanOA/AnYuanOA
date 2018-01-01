@@ -34,8 +34,10 @@
             <view class="weui-media-box_block" >
                 <view class="weui-media-box__bd" >
                     <text class="c-block weui-media-box__desc" >内容：{{item.comment}}</text>
-                    <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/call/1.jpg" />
-                    <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/call/2.jpg" />
+                    <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/test.jpg" />
+                    <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/test.jpg" />
+                    <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/test.jpg" />
+                    <image class="wx-image_Zd6uCL"  mode="scaleToFill" src="/resources/images/test.jpg" />
                 </view>
             </view>
         </view>

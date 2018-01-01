@@ -1,4 +1,8 @@
 /* pages/mine/mine.wxss */
+navigator{
+  width: 100%;
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
