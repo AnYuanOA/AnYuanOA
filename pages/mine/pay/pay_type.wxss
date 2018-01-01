@@ -1,0 +1,51 @@
+.body {
+  height: 100vh;
+  background-color: #f0f0f0;
+  width: 100vw;
+}
+
+.list-item {
+  background-color: white;
+  border-bottom: solid #f0f0f0 1px;
+  display: flex;
+  flex-direction: row;
+  padding: 14px;
+}
+
+.list-item-icon {
+  width: 30px;
+  height: 30px;
+}
+
+.list-item-content {
+  display: flex;
+  padding-left: 8px;
+  padding-right: 14px;
+  flex-direction: column;
+}
+
+.list-item-content-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #434343;
+}
+
+.list-item-content-accounttype {
+  font-size: 13px;
+  color: white;
+  border-radius: 2px;
+  margin-left: 8px;
+  padding: 0px 4px;
+}
+
+.list-item-content-accounttype-personal {
+  background-color: #ff6666;
+}
+
+.list-item-content-accounttype-public {
+  background-color:#1296db;
+}
+
+.list-item-content-account {
+  padding-top: 8px;
+}
