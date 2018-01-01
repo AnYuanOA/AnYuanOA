@@ -9,11 +9,13 @@
 
   <!-- 我的操作区 -->
   <view class="person-list">
-    <view class="list-item">
-      <image class="item-image" src="../../resources/images/mine/icon_dos.png"></image>
-      <text class="item-text">个人档案</text>
-      <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
-    </view>
+    <navigator url="/pages/mine/archives/archives" hover-class="none">
+      <view class="list-item">
+        <image class="item-image" src="../../resources/images/mine/icon_dos.png"></image>
+        <text class="item-text">个人档案</text>
+        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+      </view>
+    </navigator>
     
     <navigator url="/pages/mine/clockin/clockin" hover-class="none">
       <view class="list-item">
