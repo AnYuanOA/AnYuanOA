@@ -33,11 +33,14 @@
       </view>
     </navigator>
     
-    <view class="list-item">
-      <image class="item-image" src="../../resources/images/mine/icon_pay.png"></image>
-      <text class="item-text">支付方式</text>
-      <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
-    </view>
+    <navigator url='/pages/mine/pay/pay_type' hover-class='none'>
+      <view class="list-item">
+        <image class="item-image" src="../../resources/images/mine/icon_pay.png"></image>
+        <text class="item-text">支付方式</text>
+        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+      </view>
+    </navigator>
+
     <view class="list-item">
       <image class="item-image" src="../../resources/images/mine/icon_help.png"></image>
       <text class="item-text">帮助</text>
