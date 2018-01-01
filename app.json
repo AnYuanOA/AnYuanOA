@@ -15,7 +15,8 @@
     "pages/apply/dayApply/dayApply",
     "pages/mine/attendance/attendance",
     "pages/mine/clockin/clockin",
-    "pages/mine/archives/archives"
+    "pages/mine/archives/archives",
+    "pages/mine/pay/pay_type"
   ],
   "window": {
     "backgroundTextStyle": "white",
