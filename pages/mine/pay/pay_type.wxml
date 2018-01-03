@@ -20,4 +20,11 @@
       <text class='list-item-content-account'>**** **** **** 3670</text>
     </view>
   </view>
+
+  <navigator hover-class='none' url='/pages/mine/pay/add/add_pay_type'>
+    <view class='add-btn' hover-class='none'>
+      <text class='add-btn-text'>新  增</text>
+    </view>  
+  </navigator>
+
 </view>
