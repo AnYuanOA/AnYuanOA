@@ -2,75 +2,37 @@
 <view class="container">
   <!-- banner导航区 -->
   <swiper indicator-dots="true" autoplay="true" class="banners" interval="3000" indicator-active-color="white">
-    <swiper-item class="banner" >
-          <image src="/resources/images/home_banner1.jpg"></image>
-    </swiper-item>
-    <swiper-item class="banner" >
-          <image src="/resources/images/home_banner2.jpg"></image>
-    </swiper-item>
-    <swiper-item class="banner" >
-          <image src="/resources/images/home_banner3.jpg"></image>
-    </swiper-item>
+    <block wx:for="{{banners}}">
+      <swiper-item class="banner">
+        <image src="{{item.url}}"></image>
+      </swiper-item>
+    </block>
   </swiper>
 
   <!-- 应用区 -->
   <view class="menuWrap">
-    <view class="menuWrap-item">
-      <navigator class="menuWrap-item-navi" url="../apply/apply">
-        <image src="/resources/images/aprove/other_app1.png"></image>
-        <text>我的申请</text>
-      </navigator>
-    </view>
-    <view class="menuWrap-item">
-      <navigator class="menuWrap-item-navi" url="../apply/dayApply/dayApply">
-        <image src="/resources/images/aprove/daily_app1.png"></image>
-        <text>休假申请</text>
-      </navigator>
-    </view>
-    <view class="menuWrap-item">
-      <navigator class="menuWrap-item-navi" url="../apply/carApply/carApply">
-        <image src="/resources/images/aprove/car_app1.png"></image>
-        <text>用车申请</text>
-      </navigator>
-    </view>
+    <block wx:for="{{wrapItems}}">
+      <view class="menuWrap-item">
+        <navigator class="menuWrap-item-navi" url="{{item.navigator}}">
+          <view class="wrap-item-image">
+            <image src="{{item.icon}}"></image>
+          </view>
+          <text>{{item.title}}</text>
+        </navigator>
+      </view>
+    </block>
   </view>
 
   <!-- 资讯专区 -->
   <view class="noticeList">
-    <navigator class="noticeList-item" url="../article/article">
-        <image src="/resources/images/test.jpg"></image>
-        <view class="noticeList-item-r">
-          <text class="noticeList-item-title">新闻中心</text>
-          <text class="noticeList-item-desc">小程序数据分析，是面向小程序开发者、运营者的数据分析工具，提供关键指标统计、实时访问监控、自定义分析等，帮助小程序产品迭代优化和运营。主要功能包括每日例行统计的标准分析，以及满足用户个性化需求的自定义分析。</text>
-        </view>
-      </navigator>
+    <block wx:for="{{companyNews}}">
       <navigator class="noticeList-item" url="../article/article">
-        <image src="/resources/images/test.jpg"></image>
+        <image src="{{item.image}}"></image>
         <view class="noticeList-item-r">
-          <text class="noticeList-item-title">业务中心</text>
-          <text class="noticeList-item-desc">微信最核心的价值，就是连接——提供一对一、一对多和多对多的连接方式，从而实现人与人、人与智能终端、人与社交化娱乐、人与硬件设备的连接，同时连接服务、资讯、商业。</text>
+          <text class="noticeList-item-title">{{item.name}}</text>
+          <text class="noticeList-item-desc">{{item.content}}</text>
         </view>
       </navigator>
-      <navigator class="noticeList-item" url="../article/article">
-        <image src="/resources/images/test.jpg"></image>
-        <view class="noticeList-item-r">
-          <text class="noticeList-item-title">技术实力</text>
-          <text class="noticeList-item-desc">微信最核心的价值，就是连接——提供一对一、一对多和多对多的连接方式，从而实现人与人、人与智能终端、人与社交化娱乐、人与硬件设备的连接，同时连接服务、资讯、商业。</text>
-        </view>
-      </navigator>
-      <navigator class="noticeList-item" url="../article/article">
-        <image src="/resources/images/test.jpg"></image>
-        <view class="noticeList-item-r">
-          <text class="noticeList-item-title">人力资源</text>
-          <text class="noticeList-item-desc">微信最核心的价值，就是连接——提供一对一、一对多和多对多的连接方式，从而实现人与人、人与智能终端、人与社交化娱乐、人与硬件设备的连接，同时连接服务、资讯、商业。</text>
-        </view>
-      </navigator>
-      <navigator class="noticeList-item" url="../article/article">
-        <image src="/resources/images/test.jpg"></image>
-        <view class="noticeList-item-r">
-          <text class="noticeList-item-title">企业文化</text>
-          <text class="noticeList-item-desc">微信最核心的价值，就是连接——提供一对一、一对多和多对多的连接方式，从而实现人与人、人与智能终端、人与社交化娱乐、人与硬件设备的连接，同时连接服务、资讯、商业。</text>
-        </view>
-      </navigator>
+    </block>
   </view>
 </view>

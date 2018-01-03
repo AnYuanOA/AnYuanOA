@@ -8,9 +8,9 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.7.0",
-	"appid": "touristappid",
-	"projectname": "AnYuanOA",
+	"libVersion": "1.7.2",
+	"appid": "wx9b93f178992ef513",
+	"projectname": "pendulumOA",
 	"condition": {
 		"search": {
 			"current": -1,

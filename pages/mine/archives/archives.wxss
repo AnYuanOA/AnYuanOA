@@ -14,7 +14,7 @@
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  background-color: #19caad;
+  background-color: #54adf4;
 }
 
 .ks-text {
@@ -26,13 +26,13 @@
 }
 
 .ks-header-title {
-  font-size: 20px;
+  font-size: 50rpx;
   font-weight: bold;
   margin-bottom: 5px;
 }
 
 .ks-header-info {
-  font-size: 13px;
+  font-size: 30rpx;
   line-height: 200%;
 }
 
@@ -131,9 +131,9 @@
 }
 
 .ks-detail-label {
-  color: black;
+  color: #393939;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 28rpx;
   width: 60pt;
   text-align: right;
 }
@@ -141,16 +141,17 @@
 .ks-detail-textArea{
   width: 250px;
   height: 80px;
-  color: #888;
+  color: #999;
+  font-size: 30rpx;
 }
 
 .ks-detail-content {
-  font-size: 13px;
-  color: #888;
+  font-size: 30rpx;
+  color: #999;
 }
 
 .issues-label {
-  font-size: 10pt;
+  font-size: 30rpx;
   line-height: 100%;
   color: #999;
   margin: 25rpx 20rpx 15rpx;
@@ -237,8 +238,7 @@
   width: 100%;
   padding: 0px 10px 0px 10px;
   height: 120rpx;
-  background-color: #fcfcfc;
-  border: 1rpx solid #ececec;
+  border: 1rpx solid #54adf4;
   border-radius: 3px;
   display: flex;
   justify-content: space-between;

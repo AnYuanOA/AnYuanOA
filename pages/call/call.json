@@ -1,3 +1,3 @@
 {
-  "navigationBarTitleText": "寻呼"
+  "enablePullDownRefresh": true
 }

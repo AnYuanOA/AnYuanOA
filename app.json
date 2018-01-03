@@ -19,7 +19,7 @@
     "pages/mine/pay/pay_type"
   ],
   "window": {
-    "backgroundTextStyle": "white",
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#54adf4",
     "navigationBarTitleText": "安源OA",
     "navigationBarTextStyle": "white"
@@ -27,7 +27,7 @@
   "tabBar": {
     "color": "#cdcdcd",
     "borderStyle": "white",
-    "backgroundColor": "white",
+    "backgroundColor": "#ffffff",
     "selectedColor": "#54adf4",
     "list": [
       {

@@ -1,13 +1,9 @@
 /**jy.wxss**/
 
-.container {
-  background-color: #f7f7ff;
-}
-
 .user-jy {
   display: flex;
-  background: #fefefe;
-  border-bottom: 1rpx solid #eee;
+  background-color: #54adf4;
+  box-shadow: 0 0 20rpx 3rpx #e5e5e5;
 }
 
 .user-jy-item {
@@ -15,35 +11,20 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 11pt;
   line-height: 150%;
-  height: 150rpx;
-  padding: 20rpx;
-  border-right: 1rpx solid #eee;
+  height: 120rpx;
+  color: white;
+  border-bottom: 1rpx solid white;
 }
 
-.wait-num {
-  background-color: #54adf4;
+.user-jy-tp {
+  text-align: center;
 }
 
-.complete-num {
-  background-color: #7acfa6;
-}
-
-.refuse-num {
-  background-color: #e78ab0;
-}
-
-.wait-value {
-  color: #54adf4;
-}
-
-.complete-value {
-  color: #7acfa6;
-}
-
-.refuse-value {
-  color: #e78ab0;
+.usr-jy-image {
+  display: flex;
+  width: 20px;
+  height: 20px;
 }
 
 .user-jy-dbet {
@@ -51,30 +32,25 @@
 }
 
 .user-jy-hd {
+  font-size: 12pt;
+  font-weight: bold;
   text-align: center;
-  border: 1 solid #54adf4;
-  border-radius: 5px;
-  padding: 5px 5px 5px 5px;
-  color: white;
 }
 
 .user-jy-bd {
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 
 .user-jy-value {
-  font-size: 28pt;
-  font-weight: bold;
-  line-height: 150%;
-  padding: 0 20rpx 0 30rpx;
+  font-size: 12pt;
 }
 
 .user-jy-text {
-  color: #999;
   font-size: 10pt;
-  line-height: 200%;
-  align-self: flex-end;
+  line-height: 220%;
+  margin-left: 3px;
 }
 
 .book-list {
@@ -94,61 +70,56 @@
 }
 
 .book-wraper {
-  display: flex;
   flex-direction: column;
   align-items: stretch;
   justify-content: space-between;
   overflow: hidden;
-  padding: 35rpx 30rpx 10rpx;
-  margin-bottom: 20rpx;
-  background: #fff;
-  border-radius: 3px;
-}
-
-.book-wraper-wait {
-  background-color: #54adf4;
-}
-
-.book-wraper-complete {
-  background-color: #7acfa6;
-}
-
-.book-wraper-refuse {
-  background-color: #e78ab0;
+  padding: 10px 10px 6px 10px;
+  margin-bottom: 30rpx;
+  box-shadow: 0 0 20rpx 3rpx #e5e5e5;
 }
 
 .book-name {
-  color: white;
+  display: flex;
+}
+
+.book-name text {
+  font-size: 12pt;
+  padding-top: 3px;
 }
 
 .book-date {
-  display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  margin-top: 25rpx;
-  font-size: 9pt;
-  color: white;
+  margin-top: 5px;
+  font-size: 10pt;
+  color: #5b5b5b;
 }
 
-.book-img {
-  float: right;
+.book-date-text {
+  margin-bottom: 5px;
+}
+
+.book-type-icon {
   height: 30px;
   width: 30px;
+  margin-right: 5px;
 }
 
 .book-detail {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  text-align: center;
+  border-top: 1px solid #f3f3f3;
 }
 
 .book-detail text {
-  padding-top: 10px;
-  color: white;
-  text-align: center;
-  font-size: 10pt;
-  /* background-color: white; */
-  border: 1 solid white;
-  border-radius: 5px;
+  padding-top: 6px;
+  font-size: 9pt;
+  color: #8a8a8a;
+}
+
+.book-see-icon {
+  height: 20px;
+  width: 20px;
+  margin-left: 5px;
+  vertical-align: middle;
 }

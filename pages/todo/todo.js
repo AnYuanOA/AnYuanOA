@@ -130,7 +130,7 @@ Page({
         typeTitle: '发文办理流程',
         title: '关于开展员工职级调整工作的通知',
         publish_time: '2017-11-29 15:53:24',
-        publish_name: '曾闪'
+        publish_name: '欧阳俊俊'
       },
       {
         typeTitle: '发文办理流程',

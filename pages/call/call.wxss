@@ -81,9 +81,10 @@ checkbox-group, radio-group {
   -webkit-box-flex: 1;
   -webkit-flex: 1;
   flex: 1;
-  font-size: 15px;
+  font-size: 30rpx;
   background-color: white;
   height: 30px;
+  color: #393939;
 }
 
 .toptabWrap2 {
@@ -113,20 +114,17 @@ checkbox-group, radio-group {
 }
 
 .wx-text_v5HHOl {
-  font-size: 15px;
-  font-weight: bold;
-  padding: 3px 0px 3px 0px;
+  color: #393939;
+  font-size:28rpx;
+  padding: 5px 0px 5px 0px;
   border-bottom: 1px solid rgb(229, 229, 229);
-  position: static;
-  display: flex;
 }
 
 .wx-text_v5HHOl-date{
-  font-size: 12px;
-  padding: 3px 0px 3px 0px;
-  border-bottom: 1px none rgb(229, 229, 229);
-  position: static;
-  display: flex;
+  color: #393939;
+  font-size:26rpx;
+  padding: 5px 0px 5px 0px;
+  border-bottom: 1px solid rgb(229, 229, 229);
 }
 
 .weui-panel__bd {
@@ -145,7 +143,9 @@ checkbox-group, radio-group {
 }
 
 .weui-media-box__desc {
-  font-size: 14px;
+  color: #888;
+  line-height: 1.5;
+  font-size:28rpx;
 }
 
 .weui-media-box__info {

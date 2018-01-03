@@ -5,7 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    applyList: [
+      {
+        applyTitle: '办公用车外出申请',
+        applyType:'用车',
+        applyDate: '2017/12/12 12:00:00',
+        applyEmp:'张三'
+      },
+      {
+        applyTitle: '申请周三休假一天',
+        applyType: '休假',
+        applyDate: '2017/10/11 18:50:00',
+        applyEmp: '李四'
+      },
+      {
+        applyTitle: '用车用车',
+        applyType: '用车',
+        applyDate: '2015/11/11 14:22:00',
+        applyEmp: '王五'
+      },
+      {
+        applyTitle: '休假休假',
+        applyType: '休假',
+        applyDate: '2017/01/10 12:00:00',
+        applyEmp: '马六'
+      },
+      {
+        applyTitle: '办公申请用车外出',
+        applyType: '用车',
+        applyDate: '2018/01/01 12:00:00',
+        applyEmp: '路人甲'
+      },
+      {
+        applyTitle: '办公申请用车外出',
+        applyType: '用车',
+        applyDate: '2018/01/01 12:00:00',
+        applyEmp: '路人甲'
+      },
+      {
+        applyTitle: '办公申请用车外出',
+        applyType: '用车',
+        applyDate: '2018/01/01 12:00:00',
+        applyEmp: '路人甲'
+      }
+    ]
   },
 
   /**
