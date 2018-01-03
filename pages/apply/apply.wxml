@@ -38,29 +38,29 @@
     <view class="book-list">
       <text class="current-type">最近申请记录</text>
       <block wx:for="{{applyList}}">
-        <view class="book-wraper">
+        <navigator class="book-wraper" url="../apply/detail/detail">
           <view class="book-name">
-            <block wx:if="{{item.applyType=='用车'}}">
-              <image class="book-type-icon" src="/resources/images/apply/icon_type_car.png"></image>
-            </block>
-            <block wx:else>
-              <image class="book-type-icon" src="/resources/images/apply/icon_type_day.png"></image>
-            </block>
-            <text>{{item.applyTitle}}</text>
-          </view>
-          <view class="book-date">
-            <view class="book-date-text">
-              <text>申请日期：{{item.applyDate}}</text>
+              <block wx:if="{{item.applyType=='用车'}}">
+                <image class="book-type-icon" src="/resources/images/apply/icon_type_car.png"></image>
+              </block>
+              <block wx:else>
+                <image class="book-type-icon" src="/resources/images/apply/icon_type_day.png"></image>
+              </block>
+              <text>{{item.applyTitle}}</text>
             </view>
-            <view class="book-date-text">
-              <text>申请人：{{item.applyEmp}}</text>
+            <view class="book-date">
+              <view class="book-date-text">
+                <text>申请日期：{{item.applyDate}}</text>
+              </view>
+              <view class="book-date-text">
+                <text>申请人：{{item.applyEmp}}</text>
+              </view>
             </view>
-          </view>
-          <view class="book-detail">
-            <text>点击查看详情</text>
-            <image class="book-see-icon" src="/resources/images/apply/icon_see.png"></image>
-          </view>
-        </view>
+            <view class="book-detail">
+              <text>点击查看详情</text>
+              <image class="book-see-icon" src="/resources/images/apply/icon_see.png"></image>
+            </view>
+        </navigator>
       </block>
     </view>
   </scroll-view>
