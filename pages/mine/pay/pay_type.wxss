@@ -49,3 +49,18 @@
 .list-item-content-account {
   padding-top: 8px;
 }
+
+.add-btn {
+  margin: 16px;
+  background-color: #54adf4;
+  border-radius: 4px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-btn-text {
+  font-size: 18px;
+  color: white;
+}
