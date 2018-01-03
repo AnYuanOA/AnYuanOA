@@ -78,12 +78,15 @@
 .noticeList-item-title{
   font-weight: bold;
   font-size:10pt;
+  /* background-color: #54adf4;
+  color: white; */
+  /* text-align: center; */
 }
 .noticeList-item-desc{
   overflow: hidden;
   color: #6e6e6e;
-  line-height: 1.3;
+  line-height: 1.4;
   margin-top: 3px;
-  height: 50px;
-  font-size:10pt;
+  height: 48px;
+  font-size:9pt;
 }

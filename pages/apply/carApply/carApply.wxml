@@ -1,62 +1,34 @@
 <!--pages/apply/carApply/carApply.wxml-->
 <view class="container">
   <text class="declare-context-title">基本信息</text>
-  <view class="reporter-detail">
+  <view class="repair-detail">
     <view class="repair-detail-item">
-      <view class="repair-detail-item-hd">
-        <image class="item-icon" src="/resources/images/apply/icon_apply_type.png"></image>
-        <text class="repair-detail-name">申请类型：</text>
-        <view class="repair-detail-item-ft">
-          <picker class="repair-detail-picker" bindchange="listenerPickerSelected" mode="selector" value="{{index}}" range="{{array}}">
-            <view class="repair-detail-content">
-              
-              <text class="repair-detail-info disabled">{{array[index]}}</text>
-              <image class="more-icon" src="/resources/images/apply/icon_more.png"></image>
-            </view>
-          </picker>
-        </view>
-      </view>
+      <text class="repair-detail-name">申请类型：</text>
+      <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="listenerPickerSelected">
+        <text class="repair-detail-info">{{array[index]}}</text>
+      </picker>
     </view>
     <view class="repair-detail-item">
-      <view class="repair-detail-item-hd">
-        <image class="item-icon" src="/resources/images/apply/icon_apply_time.png"></image>
-        <text class="repair-detail-name">申请日期：</text>
-        <view class="repair-detail-item-ft">
-          <picker class="repair-detail-picker" mode="date" value="{{date}}" bindchange="listenerDatePickerSelected">
-            <view class="repair-detail-content">
-              <text class="repair-detail-info disabled">{{date}}</text>
-              <image class="more-icon" src="/resources/images/apply/icon_more.png"></image>
-            </view>
-          </picker>
-        </view>
-      </view>
+      <text class="repair-detail-name">申请日期：</text>
+      <picker mode="date" value="{{date}}" bindchange="listenerDatePickerSelected">
+        <text class="repair-detail-info">{{date}}</text>
+      </picker>
     </view>
-    <view class="reporter-user reporter-detail-item">
-      <image class="item-icon" src="/resources/images/apply/icon_apply_peoper.png"></image>
-      <text class="reporter-detail-name">申请人：</text>
-      <view class="reporter-detail-input">
-        <input value="张三（00273）" disabled="true" />
-      </view>
+    <view class="repair-detail-item">
+      <text class="repair-detail-name">申请人：</text>
+      <text class="repair-detail-info">（001002）张三</text>
     </view>
-    <view class="reporter-tel reporter-detail-item">
-      <image class="item-icon" src="/resources/images/apply/icon_apply_phone.png"></image>
-      <text class="reporter-detail-name">联系电话：</text>
-      <view class="reporter-detail-input">
-        <input type="number" maxlength="11" value="12908209888" placeholder="联系电话" bindinput="listenerTel" />
-      </view>
+    <view class="repair-detail-item">
+      <text class="repair-detail-name">联系电话：</text>
+      <text class="repair-detail-info">19708278022</text>
     </view>
   </view>
-  <view class="declare-context">
-    <text class="declare-context-title">申请详情</text>
-    <view class="declare-context-panel">
-      <view class="declare-context-input">
-          <input placeholder="主题" bindinput="listenerTitle" />
-      </view>
-      <textarea cursor-spacing="50" class="declare-context-textarea" placeholder="内容" bindinput="listenerTextarea"></textarea>
-    </view>
+  <text class="declare-context-title">申请详情</text>
+  <view class="repair-detail">
+    <input class="repair-content-title" placeholder="(必填)" />
+    <textarea class="repair-content-textArea" cursor-spacing="50" placeholder="(必填)"></textarea>
   </view>
-  <view class="submit-declare" bindtap="submitApply">
-    <text>提交申请</text>
+  <view class="submit-declare">
+    <button class="submit-button">提交申请</button>
   </view>
-  
 </view>

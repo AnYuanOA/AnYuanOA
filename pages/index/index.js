@@ -31,18 +31,18 @@ Page({
         icon: '/resources/images/index/icon_car.png'
       },
       {
-        title: '休假',
+        title: '请假',
         navigator: '../apply/dayApply/dayApply',
         icon: '/resources/images/index/icon_xj.png'
       },
       {
-        title: '待办',
+        title: '审批',
         navigator: '../todo/todo',
         icon: '/resources/images/index/icon_db.png'
       },
       {
         title: '计划',
-        navigator: '../apply/apply',
+        navigator: '../plan/plan',
         icon: '/resources/images/index/icon_jh.png'
       }
     ],
@@ -50,7 +50,7 @@ Page({
       {
         name: '新闻中心',
         image: '/resources/images/test.jpg',
-        content: '小程序数据分析，是面向小程序开发者、运营者的数据分析工具，提供关键指标统计、实时访问监控、自定义分析等，帮助小程序产品迭代优化和运营。主要功能包括每日例行统计的标准分析，以及满足用户个性化需求的自定义分析。'
+        content: '使用微信小程序平台的服务，你必须阅读并遵守 《微信小程序平台服务条款》，以及腾讯为此制定的专项规则等。本运营规范是在上述协议及规则基础上进行解释和说明，相关内容旨在帮助你更加清晰地理解和遵守相关协议和规则，以便能够更加顺利地在微信小程序平台进行运营，而不是修改或变更上述协议及规则中的任何条款。如果我们认为你的微信小程序违反了我们的条款、相关平台规则或法律法规，或对微信公众平台、微信开放平台造成了影响，则微信有权对你的微信小程序采取强制措施，包括但不限于限制你的微信小程序访问平台功能、封禁小程序、要求删除数据、终止协议等。'
       },
       {
         name: '业务中心',

@@ -16,7 +16,8 @@
     "pages/mine/attendance/attendance",
     "pages/mine/clockin/clockin",
     "pages/mine/archives/archives",
-    "pages/mine/pay/pay_type"
+    "pages/mine/pay/pay_type",
+    "pages/plan/plan"
   ],
   "window": {
     "backgroundTextStyle": "light",
