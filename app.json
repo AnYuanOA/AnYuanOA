@@ -13,6 +13,7 @@
     "pages/article/article",
     "pages/apply/carApply/carApply",
     "pages/apply/dayApply/dayApply",
+    "pages/apply/detail/detail",
     "pages/mine/attendance/attendance",
     "pages/mine/clockin/clockin",
     "pages/mine/archives/archives",
