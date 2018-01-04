@@ -19,7 +19,8 @@
     "pages/mine/archives/archives",
     "pages/mine/pay/pay_type",
     "pages/plan/plan",
-    "pages/mine/pay/add/add_pay_type"
+    "pages/mine/pay/add/add_pay_type",
+    "pages/plan/planDetail/planDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -25,7 +25,7 @@
   width: 15px;
   height: 13px;
   border-radius: 50rpx;
-  background-color: #bfbfbf;
+  background-color: #f7f7ff;
   border: 3px solid #eee;
   margin: 7px 10px;
 }
@@ -49,16 +49,28 @@
   color: #bfbfbf;
 }
 
-.apply-state-memo-color1 {
-  color: #54adf4;
+/* .apply-state-memo-color1 {
+  color: white;
 }
 
 .apply-state-memo-color2 {
-  color: #7acfa6;
+  color: white;
 }
 
 .apply-state-memo-color3 {
-  color: #e78ab0;
+  color: white;
+} */
+
+.gradient-color1{
+  background-image:linear-gradient(to right,white,#54adf4);
+}
+
+.gradient-color2{
+  background-image:linear-gradient(to right,white,#7acfa6);
+}
+
+.gradient-color3{
+  background-image:linear-gradient(to right,white,#e78ab0);
 }
 
 .apply-state-info {
@@ -67,6 +79,8 @@
   margin-top: 25px;
   margin-right: 20px;
   width: 100%;
+  padding: 0px 10px;
+   
 }
 
 .apply-state-info::before {

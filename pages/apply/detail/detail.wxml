@@ -6,7 +6,7 @@
       <block wx:for="{{advances}}">
         <view class="apply-state-item">
           <view class="apply-state-icon {{item.status?'icon-color'+item.status:''}}"></view>
-          <view class="apply-state-info {{index==advances.length-1?'last':''}}">
+          <view class="apply-state-info {{index==advances.length-1?'last':''}} gradient-{{item.status?'color'+item.status:''}}">
             <view class="apply-state-name">
               <text>{{item.status==1?'提交申请':'节点'+index}}</text>
               <text class="apply-state-memo-{{item.status?'color'+item.status:''}}">{{item.memo}}</text>

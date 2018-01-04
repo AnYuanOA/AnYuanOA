@@ -1,0 +1,133 @@
+/* pages/plan/planDetail/planDetail.wxss */
+.container {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+/** 头部 **/
+.xf-title-wraper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.xf-title-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 25rpx;
+}
+
+.xf-stu-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.xf-stu-info text {
+  font-size: 11pt;
+  line-height: 160%;
+  color: #888;
+}
+
+.xf-title {
+  font-size: 18pt;
+  line-height: 150%;
+  margin-bottom: 15rpx;
+  color: #222;
+}
+
+.xf-title-icon {
+  display: block;
+  width: 100rpx;
+  height: 100rpx;
+  padding-right: 5rpx;
+}
+
+/** 列表 **/
+.xf-types {
+  display: flex;
+  flex-direction: column;
+}
+
+.xf-type-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 11pt;
+  padding: 0 10rpx;
+  margin-bottom: 20rpx;
+  background-color: #f7f7f7;
+  border-radius: 3px;
+}
+
+.xf-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 145rpx;
+}
+
+.xf-detail {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  padding: 0;
+}
+
+.xf-item-show .xf-detail {
+  display: flex;
+  padding: 5rpx 0 15rpx;
+}
+
+.xf-detail-item {
+  display: flex;
+  align-items: center;
+  padding: 25rpx 5rpx 20rpx;
+  border-top: 1px solid #eee;
+}
+
+.xf-detail-label {
+  color: #888;
+  width: 75pt;
+}
+
+.xf-detail-content {
+  flex: 1;
+}
+
+/**列表展开的icon旋转 **/
+.xf-item-icon {
+  width: 30rpx;
+  height: 30rpx;
+  transition: transform 0.2s;
+  transform: rotate(0deg);
+}
+
+.xf-item-show .xf-item-icon {
+  transform: rotate(180deg);
+}
+
+/**列表展开时标题的颜色变化 **/
+.xf-type-name {
+  font-size: 10pt;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-type-name-front {
+  font-size: 12pt;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-item-show .xf-type-name {
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-TotalTuition, .xf-ApartmentPay, .xf-CollectingPay {
+  margin-left: 25rpx;
+}
+
+.xf-MajorTuition, .xf-GradeTuition, .xf-SecMajorTuition {
+  margin-left: 50rpx;
+}
