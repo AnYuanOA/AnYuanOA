@@ -4,10 +4,9 @@
 }
 
 .repair-detail-item {
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e6e6e6;
   display: flex;
   padding: 10px 5px;
-  justify-content: space-between;
   height: 20px;
 }
 
@@ -18,15 +17,13 @@
 }
 
 .repair-detail-info {
-  font-size: 11pt;
-  float: right;
-  text-align: right;
-  width: 200px;
+  font-size: 10pt;
+  float: left;
+  width: 80%;
 }
 
 .repair-detail-name {
   width: 80px;
-  border-right: 1px solid #ddd;
   font-size: 10pt;
   text-align: right;
   padding-right: 5px;
@@ -37,20 +34,19 @@
   background-color: #f7f7ff;
   color: #707070;
   padding: 8px;
-  text-align: center;
 }
 
 .repair-content-title {
   color: black;
-  font-size: 12pt;
+  font-size: 11pt;
   text-align: center;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid #e6e6e6;
   padding: 5px;
 }
 
 .repair-content-textArea {
   color: black;
-  font-size: 12pt;
+  font-size: 11pt;
   width: 100%;
   padding-top: 10px;
 }
@@ -64,4 +60,8 @@
   color: #fff;
   font-size: 16px;
   border-radius: 5px;
+}
+
+.picker{
+  width: 80%;
 }

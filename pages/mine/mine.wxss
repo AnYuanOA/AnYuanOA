@@ -7,7 +7,8 @@ navigator{
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: #54adf4;
+   background: #54adf4; 
+   background-image:linear-gradient(to bottom,#54adf4,#99ccff);
 }
 .account-bg {
   width: 100%;
@@ -20,9 +21,26 @@ navigator{
   border-radius: 50%;
 }
 .userinfo-nickname {
-  font-size: 15px;
+  font-size: 11pt;
   color: #fff;
-  padding-bottom: 20px;
+  padding-bottom: 15px;
+}
+
+.icon-bangding{
+  width: 16px;
+  height: 16px;
+}
+
+.userinfo-bangding{
+  display: flex;
+  padding-left: 75%;
+  padding-top: 10px;
+  position:absolute;
+}
+
+.userinfo-account-opt{
+  font-size: 9pt;
+  color: #fff;
 }
 
 /* 列表 */
@@ -32,23 +50,23 @@ navigator{
   align-items: left;
 }
 .list-item {
-  border-bottom: 3px solid #f3f3f3;
+  border-bottom:1px solid #f0f0f0;
   display: flex;
   flex-direction: row;
   align-items: center;
-  height: 80rpx;
   width: 100%;
+  padding: 15px;
 }
 .item-image {
   width: 40rpx;
   height: 40rpx;
-  margin: 20rpx;
+  margin-right: 10px;
 }
 .item-text {
-  width: 300px;
+  width: 80%;
   text-overflow: ellipsis;
   color: #393939;
-  font-size:30rpx;
+  font-size:10pt;
 }
 .icon-right{
   float: right;

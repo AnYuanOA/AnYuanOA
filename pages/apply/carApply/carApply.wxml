@@ -4,19 +4,19 @@
   <view class="repair-detail">
     <view class="repair-detail-item">
       <text class="repair-detail-name">申请类型：</text>
-      <picker mode="selector" value="{{index}}" range="{{array}}" bindchange="listenerPickerSelected">
+      <picker class="picker" mode="selector" value="{{index}}" range="{{array}}" bindchange="listenerPickerSelected">
         <text class="repair-detail-info">{{array[index]}}</text>
       </picker>
     </view>
     <view class="repair-detail-item">
       <text class="repair-detail-name">申请日期：</text>
-      <picker mode="date" value="{{date}}" bindchange="listenerDatePickerSelected">
+      <picker class="picker" mode="date" value="{{date}}" bindchange="listenerDatePickerSelected">
         <text class="repair-detail-info">{{date}}</text>
       </picker>
     </view>
     <view class="repair-detail-item">
       <text class="repair-detail-name">申请人：</text>
-      <text class="repair-detail-info">（001002）张三</text>
+      <text class="repair-detail-info">张三</text>
     </view>
     <view class="repair-detail-item">
       <text class="repair-detail-name">联系电话：</text>
@@ -25,8 +25,8 @@
   </view>
   <text class="declare-context-title">申请详情</text>
   <view class="repair-detail">
-    <input class="repair-content-title" placeholder="(必填)" />
-    <textarea class="repair-content-textArea" cursor-spacing="50" placeholder="(必填)"></textarea>
+    <input class="repair-content-title" placeholder="填写主题" />
+    <textarea class="repair-content-textArea" cursor-spacing="50" placeholder="填写申请内容..."></textarea>
   </view>
   <view class="submit-declare">
     <button class="submit-button">提交申请</button>

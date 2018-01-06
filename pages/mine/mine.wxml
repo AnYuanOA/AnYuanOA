@@ -2,55 +2,60 @@
 <view class="container">
   <!-- 个人基本信息展示 -->
   <view class="userinfo">
+    <view class="userinfo-bangding">
+      <image bindtap="logIn" class="icon-bangding" src="/resources/images/mine/icon_bangding.png"></image>
+      <text bindtap="logIn" class="userinfo-account-opt">账号绑定</text>
+    </view>
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    <text class="userinfo-nickname">请绑定安源OA账号</text>
   </view>
 
   <!-- 我的操作区 -->
   <view class="person-list">
     <navigator url="/pages/mine/archives/archives" hover-class="none">
       <view class="list-item">
-        <image class="item-image" src="../../resources/images/mine/icon_dos.png"></image>
+        <image class="item-image" src="../../resources/images/mine/icon_dangan.png"></image>
         <text class="item-text">个人档案</text>
-        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+        <image class="icon-right" src="../../resources/images/mine/icon_goto.png"></image>
       </view>
     </navigator>
     
+    <navigator url="/pages/emp/emp" hover-class="none">
+      <view class="list-item">
+        <image class="item-image" src="../../resources/images/mine/icon_zuzhi.png"></image>
+        <text class="item-text">组织架构</text>
+        <image class="icon-right" src="../../resources/images/mine/icon_goto.png"></image>
+      </view>
+    </navigator>
+
     <navigator url="/pages/mine/clockin/clockin" hover-class="none">
       <view class="list-item">
-        <image class="item-image" src="../../resources/images/mine/icon_duty.png"></image>
-        <text class="item-text">我的考勤</text>
-        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+        <image class="item-image" src="../../resources/images/mine/icon_daka.png"></image>
+        <text class="item-text">考勤打卡</text>
+        <image class="icon-right" src="../../resources/images/mine/icon_goto.png"></image>
       </view>
     </navigator>
 
     <navigator url="/pages/mine/attendance/attendance" hover-class="none">
       <view class="list-item">
-        <image class="item-image" src="../../resources/images/mine/icon_duty.png"></image>
-        <text class="item-text">我的考勤记录</text>
-        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+        <image class="item-image" src="../../resources/images/mine/icon_kaoqin.png"></image>
+        <text class="item-text">考勤记录</text>
+        <image class="icon-right" src="../../resources/images/mine/icon_goto.png"></image>
       </view>
     </navigator>
     
     <navigator url='/pages/mine/pay/pay_type' hover-class='none'>
       <view class="list-item">
-        <image class="item-image" src="../../resources/images/mine/icon_pay.png"></image>
+        <image class="item-image" src="../../resources/images/mine/icon_zhifu.png"></image>
         <text class="item-text">支付方式</text>
-        <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+        <image class="icon-right" src="../../resources/images/mine/icon_goto.png"></image>
       </view>
     </navigator>
 
     <view class="list-item">
-      <image class="item-image" src="../../resources/images/mine/icon_help.png"></image>
+      <image class="item-image" src="../../resources/images/mine/icon_bangzhu.png"></image>
       <text class="item-text">帮助</text>
-      <image class="icon-right" src="../../resources/images/mine/icon_right.png"></image>
+      <image class="icon-right" src="../../resources/images/mine/icon_goto.png"></image>
     </view>
-  </view>
-
-  <!-- 按钮 -->
-
-  <view class="personBtn">
-    <button bindtap='logIn'>绑定账号</button>
   </view>
 </view>
