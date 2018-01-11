@@ -35,5 +35,20 @@ App({
   },
   globalData: {
     userInfo: null
+  },
+  showErrorModal: function (title, content) {
+    wx.showModal({
+      title: title || '加载失败',
+      content: content || '未知错误',
+      showCancel: false
+    });
+  },
+  showLoadToast: function (title, duration) {
+    wx.showToast({
+      title: title || '加载中',
+      icon: 'loading',
+      mask: true,
+      duration: duration || 10000
+    });
   }
 })

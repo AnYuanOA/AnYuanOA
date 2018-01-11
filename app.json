@@ -1,12 +1,51 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/home/home",
+    "pages/message/message",
+    "pages/organize/organize",
+    "pages/platform/platform",
+    "pages/mine/mine",
+    "pages/login/login"
+    
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#3c78d8",
+    "navigationBarTitleText": "安源OA",
+    "navigationBarTextStyle":"white"
+  },
+  "tabBar": {
+    "color": "#cdcdcd",
+    "borderStyle": "white",
+    "backgroundColor": "#ffffff",
+    "selectedColor": "#3c78d8",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "消息",
+        "iconPath": "/images/icon_message_off.png",
+        "selectedIconPath": "/images/icon_message_on.png"
+      },
+      {
+        "pagePath": "pages/organize/organize",
+        "text": "通讯录",
+        "iconPath": "/images/icon_organize_off.png",
+        "selectedIconPath": "/images/icon_organize_on.png"
+      },
+      {
+        "pagePath": "pages/platform/platform",
+        "text": "工作台",
+        "iconPath": "/images/icon_platform_off.png",
+        "selectedIconPath": "/images/icon_platform_on.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我",
+        "iconPath": "/images/icon_mine_off.png",
+        "selectedIconPath": "/images/icon_mine_on.png"
+      }
+    ]
   }
 }

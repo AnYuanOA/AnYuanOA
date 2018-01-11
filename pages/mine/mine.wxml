@@ -1,0 +1,5 @@
+<!--pages/mine/mine.wxml-->
+<text>pages/mine/mine.wxml</text>
+<navigator url="/pages/login/login">
+  <button>登录</button>
+</navigator>
