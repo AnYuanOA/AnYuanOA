@@ -1,10 +1,144 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_todo.png'/>
+    <view class='list-item-badge'>99</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>我的待办</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          王洋的请假流程待审批，请及时处理！
+      </view>
+    </view>
   </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_cc.png'/>
+    <view class='list-item-badge'>99</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>我的待阅</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          春节放假方案已通过审批，请及时查阅最新休假方案。
+      </view>
+    </view>
+  </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_news.jpg'/>
+    <view class='list-item-badge'>3</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>新闻中心</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          科研院所和高校是基础研究的主力军，其最关键的因素是科研人员。
+      </view>
+    </view>
+  </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_business.jpg'/>
+    <view class='list-item-badge'>99</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>业务中心</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          进一步鼓励大企业、科研院所打造创新资源开放共享平台，
+      </view>
+    </view>
+  </view>
+
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_technology.jpg'/>
+    <view class='list-item-badge'>99</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>技术实力</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          没有创新主体的内生动力，创新就可能走样，就可能变成“好看不好吃的塑料蛋糕”。
+      </view>
+    </view>
+  </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_hr.jpg'/>
+    <view class='list-item-badge'>99</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>人力资源</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          企业是技术创新的“主角”，其最关键的因素是企业家。
+      </view>
+    </view>
+  </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_man1.jpg'/>
+    <view class='list-item-badge'>1</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>马龙</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          我设计的方案看了吗？
+      </view>
+    </view>
+  </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_man2.jpg'/>
+    <view class='list-item-badge'>1</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>海辉</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          新的业务运营的如何？
+      </view>
+    </view>
+  </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_man3.jpg'/>
+    <view class='list-item-badge'>1</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>杨磊</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          我申请的外出费用批了吗？
+      </view>
+    </view>
+  </view>
+
+  <view class='list-item'>
+    <image class='list-item-icon' src='/images/icon_index_woman1.jpg'/>
+    <view class='list-item-badge'>1</view>
+    <view class='list-item-content'>
+      <view class='list-item-content-title-container'>
+        <view class='list-item-content-title'>万柳</view>
+        <view class='list-item-content-time'>2018/1/11</view>
+      </view>
+      <view class='list-item-content-desc'>
+          我的请假流程批了吗？
+      </view>
+    </view>
+  </view>
+
 </view>
