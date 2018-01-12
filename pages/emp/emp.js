@@ -1,4 +1,5 @@
-// pages/organize/organize.js
+// pages/emp/emp.js
+var app = getApp()
 Page({
 
   /**
@@ -10,38 +11,24 @@ Page({
     list: [
       {
         id: '1',
-        name: '领导层',
-      }, {
-        id: '2',
-        name: '安全事业部',
-      }, {
-        id: '3',
-        name: '环境事业部',
-      }, {
-        id: '4',
-        name: '综合管理部',
-      }, {
-        id: '5',
-        name: '市场部',
-      }
-      
-    ],
-    searchList: [
-      {
-        id: '1',
         name: '张三',
+        zw:'董事长'
       }, {
         id: '2',
         name: '王五',
+        zw: '主任'
       }, {
         id: '3',
-        name: '赵三四',
+        name: '招式',
+        zw: '副主任'
       }, {
         id: '4',
-        name: '综合管理部',
+        name: '马云',
+        zw: '干事'
       }, {
         id: '5',
-        name: '市场部',
+        name: '马化腾',
+        zw: '职员'
       }
 
     ]
@@ -51,7 +38,24 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    console.log(options.id);
+
+    if (app.globalData.userInfo) {
+      this.setData({
+        userInfo: app.globalData.userInfo
+      })
+    } else {
+      var that = this;
+      wx.getUserInfo({
+        success: function (res) {
+          var userInfo = res.userInfo
+          that.setData({
+            userInfo: userInfo
+          })
+          app.globalData.userInfo = userInfo;
+        }
+      })
+    }
   },
 
   /**
@@ -102,7 +106,6 @@ Page({
   onShareAppMessage: function () {
   
   },
-
   showInput: function () {
     this.setData({
       inputShowed: true
@@ -124,10 +127,10 @@ Page({
       inputVal: e.detail.value
     });
   },
-  emp: function (e) {
+  call: function (e) {
     var id = e.currentTarget.id;
     wx.navigateTo({
-      url: '../emp/emp?id=' + id
-    }) 
+      url: '../call/call?id=' + id
+    })
   }
 })
