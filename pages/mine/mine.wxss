@@ -1,1 +1,108 @@
 /* pages/mine/mine.wxss */
+
+.container {
+  background-color: #fff;
+  height: 100%;
+}
+
+.user-info {
+  margin: 20px;
+  box-shadow: 0 0 20rpx 3rpx #f7f7ff;
+  border: 1px solid #f7f7ff;
+}
+
+.user-info-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.user-info-top text {
+  margin: 20rpx;
+  font-size: 10pt;
+  font-weight: bold;
+  color: #8a8a8a;
+}
+
+.userinfo-avatar {
+  width: 108rpx;
+  height: 108rpx;
+  margin: 20rpx;
+}
+
+.user-info-bottom {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-info-name {
+  font-size: 15pt;
+  font-weight: bold;
+  margin: 5rpx 20rpx;
+}
+
+.user-info-email {
+  margin: 5rpx 20rpx 20rpx 20rpx;
+  font-size: 10pt;
+  color: #8a8a8a;
+}
+
+.user-info-login {
+  border-top: 1px solid #e6e6e6;
+}
+
+.user-info-login-nag {
+  height: 30px;
+  padding: 5rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info-login-nag text {
+  font-size: 10pt;
+  color: #8a8a8a;
+}
+
+.user-info-login-nag image {
+  width: 20px;
+  height: 20px;
+}
+
+.user-opt {
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+}
+
+.user-opt-nag {
+  display: flex;
+  padding: 10px 0px;
+  margin-left: 20px;
+  margin-right: 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bottom-border {
+  border-bottom: 1px solid #ececec;
+}
+
+.user-opt-left {
+  display: flex;
+  align-items: center;
+}
+
+.user-opt-nag text {
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.user-opt-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 15px;
+}
+
+.opt-icon-right {
+  width: 20px;
+  height: 20px;
+}

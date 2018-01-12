@@ -1,5 +1,57 @@
 <!--pages/mine/mine.wxml-->
-<text>pages/mine/mine.wxml</text>
-<navigator url="/pages/login/login">
-  <button>登录</button>
-</navigator>
+<view class="container">
+  <view class="user-info">
+    <view class="user-info-top">
+      <text>湖北安源科技环保有限公司</text>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    </view>
+    <view class="user-info-bottom">
+      <text class="user-info-name">张三</text>
+      <text class="user-info-email">123456789@qq.com</text>
+    </view>
+    <view class="user-info-login">
+      <navigator class="user-info-login-nag" url="/pages/login/login">
+        <text>绑定账号</text>
+        <image src="/images/mine/icon_user_login.png"></image>
+      </navigator>
+    </view>
+  </view>
+
+  <view class="user-opt">
+    <navigator class="user-opt-nag bottom-border" url="/pages/mine/archives/archives">
+      <view class="user-opt-left">
+        <image class="user-opt-icon" src="/images/mine/icon_info.png"></image>
+        <text>个人档案</text>
+      </view>
+      <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
+    </navigator>
+    <navigator class="user-opt-nag bottom-border" url="/pages/mine/archives/archives">
+      <view class="user-opt-left">
+        <image class="user-opt-icon" src="/images/mine/icon_duty.png"></image>
+        <text>考勤打卡</text>
+      </view>
+      <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
+    </navigator>
+    <navigator class="user-opt-nag bottom-border" url="/pages/mine/archives/archives">
+      <view class="user-opt-left">
+        <image class="user-opt-icon" src="/images/mine/icon_data.png"></image>
+        <text>考勤记录</text>
+      </view>
+      <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
+    </navigator>
+    <navigator class="user-opt-nag bottom-border" url="/pages/mine/archives/archives">
+      <view class="user-opt-left">
+        <image class="user-opt-icon" src="/images/mine/icon_clear.png"></image>
+        <text>清除缓存</text>
+      </view>
+      <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
+    </navigator>
+    <navigator class="user-opt-nag" url="/pages/mine/archives/archives">
+      <view class="user-opt-left">
+        <image class="user-opt-icon" src="/images/mine/icon_help.png"></image>
+        <text>帮助</text>
+      </view>
+      <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
+    </navigator>
+  </view>
+</view>
