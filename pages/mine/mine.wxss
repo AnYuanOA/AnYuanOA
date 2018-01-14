@@ -71,13 +71,12 @@
 .user-opt {
   border-top: 1px solid #ececec;
   border-bottom: 1px solid #ececec;
+  padding: 0px 20px;
 }
 
 .user-opt-nag {
   display: flex;
   padding: 10px 0px;
-  margin-left: 20px;
-  margin-right: 20px;
   align-items: center;
   justify-content: space-between;
 }

@@ -1,2 +1,60 @@
 <!--pages/platform/platform.wxml-->
-<text>pages/platform/platform.wxml</text>
+<view class="container">
+  <!-- banner导航区 -->
+  <swiper class="news-swiper" autoplay="true" interval="3000">
+    <block wx:for="{{news}}">
+      <swiper-item class="news-item">
+        <view class="item-top">
+          <image class="title-icon" src="/images/platform/icon_news.png"></image>
+          <text class="item-title">{{item.title}}</text>
+          <text class="item-content">{{item.content}}</text>
+        </view>
+        <view class="item-bottom">
+          <text re class="item-detail">{{item.detail}}</text>
+        </view>
+      </swiper-item>
+    </block>
+  </swiper>
+  <!-- 应用区 -->
+  <view class="platform-opt">
+    <view class="opt-title">
+      <text class="opt-title-text">办公</text>
+    </view>
+    <view class="opt-coloum">
+      <block wx:for="{{bgItems}}">
+        <view class="opt-item">
+          <navigator class="opt-item-navi" url="{{item.navigator}}" style="background-color: {{item.bgcolor}};">
+            <image class="opt-item-img" src="{{item.icon}}"></image>
+          </navigator>
+          <text class="opt-item-text">{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="opt-title">
+      <text class="opt-title-text">流程</text>
+    </view>
+    <view class="opt-coloum">
+      <block wx:for="{{lcItems}}">
+        <view class="opt-item">
+          <navigator class="opt-item-navi" url="{{item.navigator}}" style="background-color: {{item.bgcolor}};">
+            <image class="opt-item-img" src="{{item.icon}}"></image>
+          </navigator>
+          <text class="opt-item-text">{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+    <view class="opt-title">
+      <text class="opt-title-text">工具</text>
+    </view>
+    <view class="opt-coloum">
+      <block wx:for="{{gjItems}}">
+        <view class="opt-item">
+          <navigator class="opt-item-navi" url="{{item.navigator}}" style="background-color: {{item.bgcolor}};">
+            <image class="opt-item-img" src="{{item.icon}}"></image>
+          </navigator>
+          <text class="opt-item-text">{{item.title}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
