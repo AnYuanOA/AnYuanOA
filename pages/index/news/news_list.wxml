@@ -1,0 +1,4 @@
+<!--pages/index/news/news_list.wxml-->
+<view class='news-list-body'>
+  <view class='news-list-item' bindtap='toLogin'></view>
+</view>

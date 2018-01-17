@@ -1,5 +1,5 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs",
     "pages/home/home",
@@ -8,14 +8,14 @@
     "pages/platform/platform",
     "pages/mine/mine",
     "pages/login/login",
-    "pages/emp/emp"
-    
+    "pages/emp/emp",
+    "pages/index/news/news_list"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#3c78d8",
     "navigationBarTitleText": "安源OA",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#cdcdcd",

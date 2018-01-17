@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <view class="container">
+
   <view class='list-item'>
     <image class='list-item-icon' src='/images/icon_index_todo.png'/>
     <view class='list-item-badge'>99</view>
@@ -28,19 +29,21 @@
     </view>
   </view>
 
-  <view class='list-item'>
-    <image class='list-item-icon' src='/images/icon_index_news.jpg'/>
-    <view class='list-item-badge'>3</view>
-    <view class='list-item-content'>
-      <view class='list-item-content-title-container'>
-        <view class='list-item-content-title'>新闻中心</view>
-        <view class='list-item-content-time'>2018/1/11</view>
-      </view>
-      <view class='list-item-content-desc'>
+  <navigator url='/pages/index/news/news_list' hover-class='none'>
+    <view class='list-item'>
+      <image class='list-item-icon' src='/images/icon_index_news.jpg'/>
+      <view class='list-item-badge'>3</view>
+      <view class='list-item-content'>
+        <view class='list-item-content-title-container'>
+          <view class='list-item-content-title'>新闻中心</view>
+          <view class='list-item-content-time'>2018/1/11</view>
+        </view>
+        <view class='list-item-content-desc'>
           科研院所和高校是基础研究的主力军，其最关键的因素是科研人员。
+        </view>
       </view>
     </view>
-  </view>
+  </navigator>
 
   <view class='list-item'>
     <image class='list-item-icon' src='/images/icon_index_business.jpg'/>
