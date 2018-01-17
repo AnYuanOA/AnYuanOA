@@ -1,6 +1,7 @@
 //login.js
 //获取应用实例
 const app = getApp()
+const service = require("../../services/oldServerService.js")
 
 Page({
   data: {
@@ -63,9 +64,21 @@ Page({
       return false;
     }
     app.showLoadToast('登录中...');
-    wx.hideToast();
-    wx.redirectTo({
-      url: '/pages/home/home',
+    service.login({
+      username: that.data.userid,
+      password: that.data.passwd,
+      succeed: function(){
+        wx.hideToast();
+        wx.redirectTo({
+          url: '/pages/home/home',
+        })
+      },
+      failed: function() {
+        wx.hideToast();
+        wx.showToast({
+          title: '用户名或密码错误',
+        })
+      }
     })
   },
   inputFocus: function (e) {
