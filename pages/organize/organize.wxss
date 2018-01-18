@@ -1,109 +1,116 @@
 /* pages/organize/organize.wxss */
-.searchbar-result{
-    margin-top: 0;
-    font-size: 14px;
-}
-.searchbar-result:before{
-    display: none;
-}
-.weui-cell{
-    padding: 12px 15px 12px 35px;
+
+.container {
+  height: 100%;
 }
 
-page{
-    background-color: #F8F8F8;
-    font-size: 16px;
-    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+/** 列表 **/
+
+.xf-types {
+  display: flex;
+  flex-direction: column;
 }
 
-.page__bd {
-    padding-bottom: 10px;
+.xf-type-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 11pt;
+  border-bottom: 1px solid #e6e6e6;
 }
 
-.img {
-  margin-right: 10px;
-  vertical-align: middle;
-  width:30px; 
+.xf-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0px 10px;
+}
+
+.xf-detail {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.xf-item-show .xf-detail {
+  display: flex;
+}
+
+.xf-detail-item {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #eee;
   height: 30px;
-  border-radius:  50px;
+  padding:5px 15px;
 }
-.weui-cells{
-    position:relative;
-    background-color:#fff;
-    line-height:1.41176471;
-    font-size:17px
+
+.xf-left-name {
+  display: flex;
+  align-items: center;
 }
-.weui-cells:before{
-    top:0;
-    border-top:1rpx solid #d9d9d9
+
+.xf-name-icon {
+  width: 30px;
+  height: 30px;
+  background-color: #f0f0f0;
+  margin-right: 10px;
+  padding: 3px;
 }
-.weui-cells:after,.weui-cells:before{
-    content:" ";
-    position:absolute;
-    left:0;
-    right:0;
-    height:1px;
-    color:#d9d9d9
+
+.xf-emp-icon{
+  width: 20px;
+  height: 20px;
+  margin-right: 5px;
 }
-.weui-cells:after{
-    bottom:0;
-    border-bottom:1rpx solid #d9d9d9
+
+.xf-detail-label {
+  width: 50pt;
+  font-size: 10pt;
+  font-weight: bold;
 }
-.weui-cells__title{
-    margin-top:.3em;
-    margin-bottom:.1em;
-    padding-left:10px;
-    padding-right:10px;
-    color:#999;
-    font-size:12px
+
+.xf-detail-content {
+  flex: 1;
+  text-align: right;
+  font-size: 10pt;
+  color: #515151;
 }
-.weui-cells_after-title{
-    margin-top:0
+
+/**列表展开的icon旋转 **/
+
+.xf-item-icon {
+  width: 30rpx;
+  height: 30rpx;
+  transition: transform 0.2s;
+  transform: rotate(0deg);
 }
-.weui-cells__tips{
-    margin-top:.3em;
-    color:#999;
-    padding-left:15px;
-    padding-right:15px;
-    font-size:14px
+
+.xf-item-show .xf-item-icon {
+  transform: rotate(180deg);
 }
-.weui-cell{
-    padding:10px 15px;
-    position:relative;
-    display:-webkit-box;
-    display:-webkit-flex;
-    display:flex;
-    -webkit-box-align:center;
-    -webkit-align-items:center;
-    align-items:center
+
+/**列表展开时标题的颜色变化 **/
+
+.xf-type-name {
+  font-size: 10pt;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
 }
-.weui-cell:before{
-    content:" ";
-    position:absolute;
-    left:0;
-    top:0;
-    right:0;
-    height:1px;
-    border-top:1rpx solid #d9d9d9;
-    color:#d9d9d9
+
+.xf-type-name-front {
+  font-size: 12pt;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
 }
-.weui-cell:first-child:before{
-    display:none
+
+.xf-item-show .xf-type-name {
+  transition: color 0.15s ease-in-out;
 }
-.weui-cell_active{
-    background-color:#ececec
+
+.xf-TotalTuition, .xf-ApartmentPay, .xf-CollectingPay {
+  margin-left: 25rpx;
 }
-.weui-cell_primary{
-    -webkit-box-align:start;
-    -webkit-align-items:flex-start;
-    align-items:flex-start
-}
-.weui-cell__bd{
-    -webkit-box-flex:1;
-    -webkit-flex:1;
-    flex:1
-}
-.weui-cell__ft{
-    text-align:right;
-    color:#999
+
+.xf-MajorTuition, .xf-GradeTuition, .xf-SecMajorTuition {
+  margin-left: 50rpx;
 }
