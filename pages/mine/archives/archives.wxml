@@ -1,0 +1,121 @@
+<!--pages/mine/archives/archives.wxml-->
+<view clss="container">
+  <swiper class="container-swiper">
+    <swiper-item>
+      <!--  基本信息 -->
+      <view class="archive-swiper-item">
+        <view class="ks-header">
+          <view class="ks-text">
+            <text class="ks-header-title">基本信息</text>
+            <text class="ks-header-info">姓名：张三</text>
+            <text class="ks-header-info">工号：001001</text>
+          </view>
+          <image class="ks-bg" src="/images/mine/archives/icon_basic1.png"></image>
+        </view>
+        <view class="ks-class-ctn">
+          <view class="ks-class-item ks-item-show">
+            <view class="ks-detail">
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">性别：</text>
+                <text class="ks-detail-content">男</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">婚姻状态：</text>
+                <text class="ks-detail-content">未婚</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">民族：</text>
+                <text class="ks-detail-content">汉</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">政治面貌：</text>
+                <text class="ks-detail-content">团员</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">出生日期：</text>
+                <text class="ks-detail-content">1989/01/01</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">籍贯：</text>
+                <text class="ks-detail-content">湖北武汉</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">学历：</text>
+                <text class="ks-detail-content">本科</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">毕业学习：</text>
+                <text class="ks-detail-content">清华大学</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="issues-label">选择图片（可选）</text>
+                <view class="issues-img-panel">
+                  <view class="issues-photo-item add-photo">
+                    <image class="remind-img" src="/images/mine/archives/icon_add_photo.png"></image>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+
+    <!-- 工作经历 -->
+    <swiper-item>
+      <!-- 工作经历 -->
+      <view class="archive-swiper-item">
+        <view class="ks-header">
+          <view class="ks-text">
+            <text class="ks-header-title">工作经历</text>
+            <text class="ks-header-info">姓名：张三</text>
+            <text class="ks-header-info">工号：001001</text>
+          </view>
+          <image class="ks-bg" src="/images/mine/archives/icon_work1.png"></image>
+        </view>
+        <view class="ks-class-ctn">
+          <view class="ks-class-item ks-item-show">
+            <view class="ks-detail">
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">时间：</text>
+                <text class="ks-detail-content">2001/01/01 - 2016/12/01</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">所在单位：</text>
+                <text class="ks-detail-content">XX科技有限公司</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">离职原因：</text>
+                <text class="ks-detail-content">工资低，上班累，不想干。</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">备注：</text>
+                <textarea class="ks-detail-textArea">1.负责大客户的售前支持;2.制定新产品的技术支持方案;3.负责部门日常管理，协调部门内部工作;4.负责销售人员和技术支持工程师的技术培训。</textarea>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">证明人：</text>
+                <text class="ks-detail-content">人事主任</text>
+              </view>
+              <view class="ks-detail-item">
+                <text class="ks-detail-label">联系电话：</text>
+                <text class="ks-detail-content">19090909099</text>
+              </view>
+              <view class="ks-detail-item">
+                <view class="file">
+                  <image src="/images/mine/archives/icon_file1.png" class="file-img"></image>
+                  <view class="fileNameSource">
+                    <text class="file-name">解读：宏观调控继续显效.docx</text>
+                    <text class="file-source">解读：宏观调控继续显效.docx</text>
+                  </view>
+                  <view class="file-remind">
+                    <text bindtap="previewFile">点击预览</text>
+                  </view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
+</view>

@@ -1,0 +1,136 @@
+/* pages/mine/clockin/clockin.wxss */
+
+.body {
+  height: 100vh;
+  background-color: white;
+}
+
+.time-container {
+  display: flex;
+  flex-direction: row;
+  padding: 10px 0px;
+  justify-content: center;
+  background-color: #3c78d8;
+}
+
+.time {
+  color: white;
+  font-size: 30pt;
+  text-align: right;
+  width: 50%;
+  padding-right: 10px;
+}
+
+.day-container {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  text-align: left;
+  justify-content: center;
+  padding-left: 10px;
+}
+
+.day {
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.location-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px 0px 0px 0px;
+}
+
+.location-icon {
+  width: 18px;
+  height: 18px;
+  padding: 0px 5px;
+}
+
+.location-text {
+  font-size: 11pt;
+}
+
+.location-text1 {
+  font-size: 10pt;
+  color: #fe4466;
+  border-bottom: 1px solid #fe4466;
+  /* color: white;
+  background-color: #fe4466; */
+}
+
+.in-range-refresh {
+  width: 15px;
+  height: 15px;
+  padding: 0px 5px;
+}
+
+.operation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.operation-item {
+  background-color: #3c78d8;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+}
+
+.operation-item-title {
+  color: white;
+  font-size: 20pt;
+  font-weight: bold;
+}
+
+.atten-list-item {
+  margin: 10px;
+  box-shadow: 0 0 100rpx 2rpx #f7f7ff;
+}
+
+.atten-morning {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding: 10px 0px;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.atten-night {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+  padding: 0px 0px 10px 0px;
+}
+
+.atten-list-item-icon {
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+}
+
+.atten-list-item-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  line-height: 120%;
+}
+
+.atten-list-item-content-time {
+  font-size: 10pt;
+  font-weight: bold;
+}
+
+.atten-list-item-content-address {
+  font-size: 10pt;
+  color: #8a8a8a;
+}

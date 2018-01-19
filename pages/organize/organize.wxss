@@ -4,11 +4,58 @@
   height: 100%;
 }
 
+.container .search {
+  display: flex;
+  width: 100%;
+  background-color: #3c78d8;
+  position: fixed;
+  height: 50px;
+  z-index: 5;
+}
+
+.container .search-left {
+  display: flex;
+  flex: 8;
+  background: #4ea3e7;
+  text-align: left;
+  align-items: center;
+  margin: 10px 0px 10px 20px;
+}
+
+.container .search-left input {
+  font-size: 10pt;
+  width: 100%;
+  color: white;
+}
+
+.search-placeholder {
+  color: #8ccefd;
+  line-height: 20rpx;
+}
+
+.container .search .search-left image {
+  width: 35rpx;
+  height: 35rpx;
+  padding: 10px;
+}
+
+.container .search .search-right image {
+  width: 20px;
+  height: 20px;
+}
+
+.search-right {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
 /** 列表 **/
 
 .xf-types {
   display: flex;
   flex-direction: column;
+  padding-top: 50px;
 }
 
 .xf-type-item {
@@ -41,7 +88,7 @@
   align-items: center;
   border-top: 1px solid #eee;
   height: 30px;
-  padding:5px 15px;
+  padding: 5px 15px;
 }
 
 .xf-left-name {
@@ -52,12 +99,12 @@
 .xf-name-icon {
   width: 30px;
   height: 30px;
-  background-color: #f0f0f0;
+  /* background-color: #f0f0f0; */
   margin-right: 10px;
-  padding: 3px;
+  /* padding: 3px; */
 }
 
-.xf-emp-icon{
+.xf-emp-icon {
   width: 20px;
   height: 20px;
   margin-right: 5px;
@@ -82,7 +129,6 @@
   width: 30rpx;
   height: 30rpx;
   transition: transform 0.2s;
-  transform: rotate(0deg);
 }
 
 .xf-item-show .xf-item-icon {

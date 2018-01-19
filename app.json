@@ -8,8 +8,21 @@
     "pages/platform/platform",
     "pages/mine/mine",
     "pages/login/login",
-    "pages/emp/emp"
-    
+    "pages/emp/emp",
+    "pages/plan/plan",
+    "pages/plan/planDetail/planDetail",
+    "pages/mine/archives/archives",
+    "pages/mine/clockin/clockin",
+    "pages/mine/attendance/attendance",
+    "pages/mine/help/help",
+    "pages/mine/clear/clear",
+    "pages/apply/apply",
+    "pages/apply/detail/detail",
+    "pages/apply/newApply/newApply",
+    "pages/todo/todo",
+    "pages/workflow/detail",
+    "pages/board/board",
+    "pages/feeApp/feeApp"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -19,7 +32,7 @@
   },
   "tabBar": {
     "color": "#8a8a8a",
-    "borderStyle": "white",
+    "borderStyle": "black",
     "backgroundColor": "#ffffff",
     "selectedColor": "#3c78d8",
     "list": [

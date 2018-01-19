@@ -1,1 +1,147 @@
 /* pages/message/message.wxss */
+
+.container {
+  width: 100%;
+  height: 100%;
+}
+
+.message-main {
+  display: block;
+  padding-top: 10px;
+  padding-bottom: 60px;
+  margin-bottom: 60px;
+}
+
+.message-time {
+  align-items: center;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.message-time text {
+  font-size: 9pt;
+  background-color: #cdcdcd;
+  color: white;
+  padding: 2px 5px;
+  border-radius: 10px;
+}
+
+.message-detail-o {
+  display: flex;
+  margin: 10px;
+  align-items:left;
+}
+
+.message-text-o {
+  position: relative;
+  min-height: 20px;
+  max-width: 240px;
+  background: #3c78d8;
+  border-radius: 5px;
+  margin:0px 10px;
+  word-break: break-word;
+  line-height: 25px;
+  font-size: 10pt;
+  padding:0px 5px;
+  color: #f7f7ff;
+}
+
+.message-text-o::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-right-color: #3c78d8;
+  top: 2px;
+  left: -11px;
+}
+
+.message-detail-m {
+  display: flex;
+  margin: 10px;
+  position: relative;
+  float: right;
+  align-items:right;
+}
+
+.message-text-m {
+  position: relative;
+  min-height: 20px;
+  max-width: 240px;
+  background: #00B271;
+  border-radius: 5px;
+  margin:0px 10px;
+  word-break: break-word;
+  line-height: 25px;
+  font-size: 10pt;
+  padding:0px 5px;
+  color: #f7f7ff;
+}
+
+.message-text-m::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-right-color: #00B271;
+  top: 2px;
+  left: -11px;
+}
+
+.message-head {
+  width: 40px;
+  height: 40px;
+}
+
+.opt-panel {
+  display: flex;
+  position: fixed;
+  /* height: 50px; */
+  bottom: 0;
+  width: 97%;
+  border-top: 1px solid #f4f4f4;
+  align-items: center;
+  text-align: center;
+  padding: 0px 5px;
+  height: 50px;
+  z-index:5;
+background-color:#fdfdfd;
+}
+
+.opt-textarea {
+  height: 30px;
+  width: 70%;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  margin: 0px 5px;
+  font-size: 11pt;
+  text-align: left;
+  overflow: hidden;
+  padding: 5px;
+  max-height: 150px;
+}
+
+.opt-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.opt-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.opt-send-btn {
+  height: 40px;
+  width: 60px;
+  background-color: #3c78d8;
+  font-size: 10pt;
+  color: white;
+  line-height: 300%;
+}

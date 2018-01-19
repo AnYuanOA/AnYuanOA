@@ -65,7 +65,7 @@ Page({
     app.showLoadToast('登录中...');
     wx.hideToast();
     wx.redirectTo({
-      url: '/pages/home/home',
+      url: '/pages/index/index',
     })
   },
   inputFocus: function (e) {
