@@ -1,2 +1,23 @@
 <!--pages/board/board.wxml-->
-<text>pages/board/board.wxml</text>
+<view class="container">
+  <block wx:for="{{news}}">
+    <view class="news-main">
+      <text class="news-main-title">{{item.title}}</text>
+      <view class="news-content">
+        <view class="news-img-view">
+          <image src="{{item.pic}}"></image>
+        </view>
+        <view class="news-content-view">
+          <text>{{item.content}}</text>
+        </view>
+        <view class="news-file-view" wx:if="{{item.file}}">
+          <text>{{item.file}}</text>
+          <view class="news-file-opt">
+            <image class="opt-preview" src="/images/board/icon_preview.png"></image>
+            <image class="opt-download" src="/images/board/icon_download.png"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

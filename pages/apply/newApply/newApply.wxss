@@ -53,15 +53,17 @@
   border-bottom: 1px solid #e6e6e6;
 }
 
-.submit-declare {
-  padding: 10px;
-}
-
 .submit-button {
   background: #3c78d8;
   color: #fff;
-  font-size: 16px;
-  border-radius: 5px;
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  height: 50px;
+  z-index: 5;
+  justify-content:center;
+  margin: 10px;
 }
 
 .picker{

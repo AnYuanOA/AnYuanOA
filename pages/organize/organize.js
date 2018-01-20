@@ -405,5 +405,12 @@ Page({
     this.setData({
       orgData: list
     });
+  },
+  //打电话
+  makePhone: function(e){
+    var phone=e.target.dataset.phone;
+    wx.makePhoneCall({
+      phoneNumber: phone 
+    })
   }
 })

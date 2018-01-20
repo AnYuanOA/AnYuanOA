@@ -1,33 +1,35 @@
 <!--index.wxml-->
 <view class="container">
-  <view class='list-item'>
-    <image class='list-item-icon' src='/images/icon_index_todo.png' />
-    <view class='list-item-badge'>99</view>
-    <view class='list-item-content'>
-      <view class='list-item-content-title-container'>
-        <view class='list-item-content-title'>我的待办</view>
-        <view class='list-item-content-time'>2018/1/11</view>
-      </view>
-      <view class='list-item-content-desc'>
-        王洋的请假流程待审批，请及时处理！
-      </view>
-    </view>
-  </view>
-
-  <view class='list-item'>
-    <image class='list-item-icon' src='/images/icon_index_cc.png' />
-    <view class='list-item-badge'>99</view>
-    <view class='list-item-content'>
-      <view class='list-item-content-title-container'>
-        <view class='list-item-content-title'>我的待阅</view>
-        <view class='list-item-content-time'>2018/1/11</view>
-      </view>
-      <view class='list-item-content-desc'>
-        春节放假方案已通过审批，请及时查阅最新休假方案。
+  <navigator url="/pages/event/event">
+    <view class='list-item'>
+      <image class='list-item-icon' src='/images/icon_index_todo.png' />
+      <view class='list-item-badge'>99</view>
+      <view class='list-item-content'>
+        <view class='list-item-content-title-container'>
+          <view class='list-item-content-title'>我的待办</view>
+          <view class='list-item-content-time'>2018/1/11</view>
+        </view>
+        <view class='list-item-content-desc'>
+          王洋的请假流程待审批，请及时处理！
+        </view>
       </view>
     </view>
-  </view>
-
+  </navigator>
+  <navigator url="/pages/event/event">
+    <view class='list-item'>
+      <image class='list-item-icon' src='/images/icon_index_cc.png' />
+      <view class='list-item-badge'>99</view>
+      <view class='list-item-content'>
+        <view class='list-item-content-title-container'>
+          <view class='list-item-content-title'>我的待阅</view>
+          <view class='list-item-content-time'>2018/1/11</view>
+        </view>
+        <view class='list-item-content-desc'>
+          春节放假方案已通过审批，请及时查阅最新休假方案。
+        </view>
+      </view>
+    </view>
+  </navigator>
   <!-- <view class='list-item'>
     <image class='list-item-icon' src='/images/icon_index_news.jpg'/>
     <view class='list-item-badge'>3</view>
@@ -101,8 +103,6 @@
     </view>
   </navigator>
   <navigator url="/pages/message/message">
-
-
     <view class='list-item'>
       <image class='list-item-icon' src='/images/icon_index_man2.jpg' />
       <view class='list-item-badge'>1</view>
@@ -117,8 +117,6 @@
       </view>
     </view>
   </navigator>
-
-
   <navigator url="/pages/message/message">
     <view class='list-item'>
       <image class='list-item-icon' src='/images/icon_index_man3.jpg' />
@@ -134,7 +132,6 @@
       </view>
     </view>
   </navigator>
-
   <navigator url="/pages/message/message">
     <view class='list-item'>
       <image class='list-item-icon' src='/images/icon_index_woman1.jpg' />

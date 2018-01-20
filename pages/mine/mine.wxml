@@ -39,17 +39,17 @@
       </view>
       <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
     </navigator>
-    <navigator class="user-opt-nag bottom-border" url="/pages/mine/clear/clear">
+    <view class="user-opt-nag bottom-border" bindtap="openclearmodal">
       <view class="user-opt-left">
         <image class="user-opt-icon" src="/images/mine/icon_clear.png"></image>
         <text>清除缓存</text>
       </view>
       <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
-    </navigator>
+    </view>
     <navigator class="user-opt-nag" url="/pages/mine/help/help">
       <view class="user-opt-left">
         <image class="user-opt-icon" src="/images/mine/icon_help.png"></image>
-        <text>帮助</text>
+        <text>关于</text>
       </view>
       <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
     </navigator>

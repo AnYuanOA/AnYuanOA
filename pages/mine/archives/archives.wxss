@@ -233,19 +233,15 @@
   align-items: stretch;
 }
 
-.file {
+.news-file-view {
   width: 100%;
   padding: 0px 10px 0px 10px;
   height: 120rpx;
-  border: 1rpx solid #54adf4;
+  border: 1rpx solid #3c78d8;
   border-radius: 3px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-}
-
-.file:active {
-  background-color: #fff;
 }
 
 .fileNameSource {

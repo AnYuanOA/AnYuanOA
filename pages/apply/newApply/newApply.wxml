@@ -28,7 +28,5 @@
     <input class="repair-content-title" placeholder="填写主题" />
     <textarea class="repair-content-textArea" cursor-spacing="50" placeholder="填写申请内容..."></textarea>
   </view>
-  <view class="submit-declare">
-    <button class="submit-button">提交申请</button>
-  </view>
+  <button class="submit-button">提交申请</button>
 </view>

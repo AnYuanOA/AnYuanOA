@@ -2,15 +2,14 @@
 <view class="container">
   <!-- 搜索栏 -->
   <view class="search flex-wrp">
-      <view class="search-left flex-item">
-          <image src="/images/organize/search.png"></image>
-          <input placeholder="搜索部门或人员" placeholder-class="search-placeholder"/>
-      </view>
-      <view class="search-right flex-item" bindtap="upper">
-          <image src="/images/organize/lighting.png"></image>
-      </view>
+    <view class="search-left flex-item">
+      <image src="/images/organize/search.png"></image>
+      <input placeholder="搜索部门或人员" placeholder-class="search-placeholder" />
+    </view>
+    <view class="search-right flex-item" bindtap="upper">
+      <image src="/images/organize/lighting.png"></image>
+    </view>
   </view>
-
   <!-- 组织架构 -->
   <view class="xf-types">
     <block wx:for="{{orgData}}" wx:key="{{empData}}">
@@ -26,10 +25,12 @@
           <block wx:for="{{item.empData}}" wx:for-item="emp" wx:key="{{name}}">
             <view class="xf-detail-item">
               <view class="xf-left-name">
-                <image class="xf-emp-icon" src="/images/organize/icon_emp{{emp.six}}.png"></image>
-                <text class="xf-detail-label">{{emp.name}}</text>
+                <navigator hover-class="none" class='xf-emp-navigator' url='/pages/message/newMessage/newMessage'>
+                  <image class="xf-emp-icon" src="/images/organize/icon_emp{{emp.six}}.png"></image>
+                  <text class="xf-detail-label">{{emp.name}}</text>
+                </navigator>
+                <text bindtap='makePhone' class="xf-detail-content" data-phone='{{emp.phone}}'>电话:{{emp.phone}}</text>
               </view>
-              <text class="xf-detail-content">{{emp.phone}}</text>
               <text class="xf-detail-content">{{emp.position}}</text>
             </view>
           </block>

@@ -63,13 +63,15 @@ Page({
       navigator: '/pages/todo/todo',
       icon: '/images/platform/icon_shenpi.png',
       bgcolor: '#6d9eeb'
-    },
-    {
-      title: '报销',
-      navigator: '/pages/feeApp/feeApp',
-      icon: '/images/platform/icon_baoxiao.png',
-      bgcolor: '#4bbdfa'
-    }],
+    }
+    // ,
+    // {
+    //   title: '报销',
+    //   navigator: '/pages/feeApp/feeApp',
+    //   icon: '/images/platform/icon_baoxiao.png',
+    //   bgcolor: '#4bbdfa'
+    // }
+    ],
     gjItems: [{
       title: '点子墙',
       navigator: '../todo/todo',

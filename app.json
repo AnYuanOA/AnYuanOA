@@ -22,7 +22,9 @@
     "pages/todo/todo",
     "pages/workflow/detail",
     "pages/board/board",
-    "pages/feeApp/feeApp"
+    "pages/feeApp/feeApp",
+    "pages/event/event",
+    "pages/message/newMessage/newMessage"
   ],
   "window":{
     "backgroundTextStyle":"light",

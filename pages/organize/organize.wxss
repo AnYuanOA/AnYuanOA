@@ -111,9 +111,9 @@
 }
 
 .xf-detail-label {
-  width: 50pt;
   font-size: 10pt;
   font-weight: bold;
+  padding-right: 30px;
 }
 
 .xf-detail-content {
@@ -124,7 +124,6 @@
 }
 
 /**列表展开的icon旋转 **/
-
 .xf-item-icon {
   width: 30rpx;
   height: 30rpx;
@@ -136,7 +135,6 @@
 }
 
 /**列表展开时标题的颜色变化 **/
-
 .xf-type-name {
   font-size: 10pt;
   letter-spacing: 1px;
@@ -159,4 +157,11 @@
 
 .xf-MajorTuition, .xf-GradeTuition, .xf-SecMajorTuition {
   margin-left: 50rpx;
+}
+
+.xf-emp-navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }

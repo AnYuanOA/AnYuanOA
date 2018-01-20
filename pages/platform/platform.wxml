@@ -43,7 +43,7 @@
         </view>
       </block>
     </view>
-    <view class="opt-title">
+    <!-- <view class="opt-title">
       <text class="opt-title-text">工具</text>
     </view>
     <view class="opt-coloum">
@@ -55,6 +55,6 @@
           <text class="opt-item-text">{{item.title}}</text>
         </view>
       </block>
-    </view>
+    </view> -->
   </view>
 </view>
