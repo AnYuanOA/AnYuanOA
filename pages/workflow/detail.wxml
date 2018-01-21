@@ -2,49 +2,39 @@
 
 <view class='workflow-container'>
   <view class='workflow-container-main' style='margin-bottom:{{pageType==1?40:0}}px'>
-    <view style='height:8px;'/>
-    <view class='approve-info-header'>
+    <!-- <view class='approve-info-header'>
       <image class='approve-info-header-avatar' src='{{userInfo.avatarUrl}}'></image>
       <view class='approve-info-header-info'>
         <text>{{userInfo.nickName}}</text>
         <text class='approve-info-header-state'>审批中</text>
       </view>
       <view class='approve-info-header-state-icon-container'>
-        <image class='approve-info-header-state-icon' src='/images/todo/icon_approve_state_wait.png'/>
+        <image class='approve-info-header-state-icon' src='/images/todo/icon_approve_state_wait.png' />
       </view>
-    </view>
-    <view style='height:4px'/>
+    </view> -->
 
     <view class='approve-info-main'>
-
       <view class='approve-info-main-item'>
         <text class='approve-info-main-item-title'>所在部门：</text>
         <text class='approve-info-main-item-desc'>技术部</text>
       </view>
-
       <view class='approve-info-main-item'>
         <text class='approve-info-main-item-title'>申请类别：</text>
         <text class='approve-info-main-item-desc'>行政公章申请</text>
       </view>
-
       <view class='approve-info-main-item'>
         <text class='approve-info-main-item-title'>申请说明：</text>
         <text class='approve-info-main-item-desc'>央行对扫码支付进行过种种限制，甚至叫停，央行出于安全的考虑在起初的时候并不放心。那时候，支付宝钱包之类的第三方支付的发展也局限于线上，对于线下反而不如拉卡拉之类的第三方平台。</text>
       </view>
-
       <view class='approve-info-main-item'>
         <text class='approve-info-main-item-title'>申请时间：</text>
         <text class='approve-info-main-item-desc'>2017-12-27 20:53</text>
       </view>
-
     </view>
-
-    <view style='height:4px;'/>
-
     <view class='approve-state-item'>
       <view class='approve-state-item-cover'>
         <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/todo/icon_approve_pass.png'/>
+          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_faqi.png' />
         </view>
       </view>
       <view class='approve-state-item-info'>
@@ -54,16 +44,15 @@
             <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
             <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
           </view>
-          <text class='approve-state-item-info-state'>发起申请</text>
+          <text class='approve-state-item-info-state info-state-1'>发起</text>
           <text class='approve-state-item-info-desc'>支付宝钱包之类的第三方支付的发展也局限于线上，对于线下反而不如拉卡拉之类的第三方平台。</text>
         </view>
       </view>
     </view>
-
     <view class='approve-state-item'>
       <view class='approve-state-item-cover'>
         <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/todo/icon_approve_pass.png'/>
+          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_tongguo.png' />
         </view>
       </view>
       <view class='approve-state-item-info'>
@@ -73,16 +62,15 @@
             <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
             <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
           </view>
-          <text class='approve-state-item-info-state'>审批通过</text>
+          <text class='approve-state-item-info-state info-state-2'>通过</text>
           <text class='approve-state-item-info-desc'>同意</text>
         </view>
       </view>
     </view>
-
     <view class='approve-state-item'>
       <view class='approve-state-item-cover'>
         <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/todo/icon_approve_wait.png'/>
+          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_dengdai.png' />
         </view>
       </view>
       <view class='approve-state-item-info'>
@@ -92,16 +80,15 @@
             <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
             <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
           </view>
-          <text class='approve-state-item-info-state'>等待审批</text>
+          <text class='approve-state-item-info-state info-state-3'>等待</text>
           <text class='approve-state-item-info-desc'></text>
         </view>
       </view>
     </view>
-
     <view class='approve-state-item'>
       <view class='approve-state-item-cover'>
         <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/todo/icon_approve_back.png'/>
+          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_jujue.png' />
         </view>
       </view>
       <view class='approve-state-item-info'>
@@ -111,30 +98,22 @@
             <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
             <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
           </view>
-          <text class='approve-state-item-info-state'>审批退回</text>
+          <text class='approve-state-item-info-state info-state-4'>退回</text>
           <text class='approve-state-item-info-desc'>不同意</text>
         </view>
       </view>
     </view>
-
   </view>
-
   <view class='operation-panel' hidden='{{pageType!=1}}'>
-    <view class='operation-panel-item' bindtap='approvePass'>
-      <image class='operation-panel-item-icon' src='/images/todo/icon_agree.png'></image>
-      <view>
-        <text class='operation-panel-item-text'>审批通过</text>
-      </view>
+    <view class='operation-panel-item op-panel-tongguo' bindtap='approvePass'>
+      <image class='operation-panel-item-icon' src='/images/workflow/icon_agree.png'></image>
+      <text class='operation-panel-item-text'>审批通过</text>
     </view>
-    <view class='operation-panel-item' bindtap='approveReject'>
-      <image class='operation-panel-item-icon' src='/images/todo/icon_back.png'></image>
-      <view>
-        <text class='operation-panel-item-text'>审批退回</text>
-      </view>
+    <view class='operation-panel-item op-panel-tuihui' bindtap='approveReject'>
+      <image class='operation-panel-item-icon' src='/images/workflow/icon_back.png'></image>
+      <text class='operation-panel-item-text'>审批退回</text>
     </view>
   </view>
-
-  <view class='operation-panel-item-spliter' hidden='{{pageType!=1}}'/>
-  <view class='operation-panel-spliter' hidden='{{pageType!=1}}'/>
-  
+  <!-- <view class='operation-panel-item-spliter' hidden='{{pageType!=1}}' />
+  <view class='operation-panel-spliter' hidden='{{pageType!=1}}' /> -->
 </view>

@@ -11,10 +11,17 @@
           <text>{{item.content}}</text>
         </view>
         <view class="news-file-view" wx:if="{{item.file}}">
-          <text>{{item.file}}</text>
+          <text class="news-file-view-text">{{item.file}}</text>
           <view class="news-file-opt">
-            <image class="opt-preview" src="/images/board/icon_preview.png"></image>
-            <image class="opt-download" src="/images/board/icon_download.png"></image>
+            <view class="opt-preview">
+              <text>预览</text>
+              <image src="/images/board/icon_preview.png"></image>
+            </view>
+            <view class="opt-download">
+              <text>下载</text>
+              <image src="/images/board/icon_download.png"></image>
+            </view>
+
           </view>
         </view>
       </view>
