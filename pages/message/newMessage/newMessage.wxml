@@ -1,0 +1,32 @@
+<!--pages/message/newMessage/newMessage.wxml-->
+<!--pages/message/message.wxml-->
+<view class='container'>
+  <view class='message-main'>
+    <view class='message-cont' wx:for-items="{{messageData}}">
+      <block wx:if="{{item.name==userInfo.nickName}}">
+        <view class='message-time {{item.time?"":"notime"}}'>
+          <text wx:if='{{item.time}}'>{{item.time}}</text>
+        </view>
+        <view class='message-detail-m'>
+          <text class='message-text-m'>{{item.message}}</text>
+          <image class='message-head' src='{{userInfo.avatarUrl}}'></image>
+        </view>
+      </block>
+      <block wx:else>
+        <view class='message-time {{item.time?"":"notime"}}'>
+          <text wx:if='{{item.time}}'>{{item.time}}</text>
+        </view>
+        <view class='message-detail-o'>
+          <image class='message-head' src='{{item.head}}'></image>
+          <text class='message-text-o'>{{item.message}}</text>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class='opt-panel'>
+    <image class='opt-icon' src='/images/message/icon_speak2.png'></image>
+    <textarea class='opt-textarea'></textarea>
+    <!-- <image class='opt-icon' src='/images/message/icon_add2.png'></image> -->
+    <button class='opt-send-btn'>发送</button>
+  </view>
+</view>

@@ -1,0 +1,30 @@
+<!--pages/board/board.wxml-->
+<view class="container">
+  <block wx:for="{{news}}">
+    <view class="news-main">
+      <text class="news-main-title">{{item.title}}</text>
+      <view class="news-content">
+        <view class="news-img-view">
+          <image src="{{item.pic}}"></image>
+        </view>
+        <view class="news-content-view">
+          <text>{{item.content}}</text>
+        </view>
+        <view class="news-file-view" wx:if="{{item.file}}">
+          <text class="news-file-view-text">{{item.file}}</text>
+          <view class="news-file-opt">
+            <view class="opt-preview">
+              <text>预览</text>
+              <image src="/images/board/icon_preview.png"></image>
+            </view>
+            <view class="opt-download">
+              <text>下载</text>
+              <image src="/images/board/icon_download.png"></image>
+            </view>
+
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+</view>

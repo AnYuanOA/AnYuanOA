@@ -1,0 +1,147 @@
+/* pages/event/event.wxss */
+
+.container {
+  padding-top: 20px;
+  height: 100%;
+  width: 100%;
+  background-color: #f2f2f2;
+  text-align: center;
+}
+
+.event-date {
+  padding: 3px 10px;
+  background-color: #dbdbdb;
+  color: white;
+  font-size: 9pt;
+  border-radius:50px;
+}
+
+.event-main {
+  display: block;
+  margin: 10px 20px;
+  text-align: center;
+  /* box-shadow: 0 0 200rpx 3rpx #e6e6e6; *//* border: 1px solid #f7f7ff; */
+}
+
+.event-top {
+  display: flex;
+  text-align: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  /* border-bottom-left-radius: 10px; */
+}
+
+.event-top image {
+  width: 30px;
+  height: 30px;
+}
+
+.event-title {
+  font-size: 11pt;
+  color: white;
+  margin-top: 3px;
+}
+
+.event-source {
+  font-size: 11pt;
+  color: #f7f7ff;
+  font-weight: bold;
+}
+
+.top-1 {
+  background-color: #f39c12;
+}
+
+.top-1::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-right-color: #f39c12;
+  top: 0;
+  left: -20px;
+}
+
+.top-2 {
+  background-color: #27ae60;
+}
+
+.top-2::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-right-color: #27ae60;
+  top: 0;
+  left: -20px;
+}
+
+.top-3 {
+  background-color: #2980b9;
+}
+
+.top-3::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-right-color: #2980b9;
+  top: 0;
+  left: -20px;
+}
+
+.top-4 {
+  background-color: #fd4e4e;
+}
+
+.top-4::before {
+  content: "";
+  display: block;
+  position: relative;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-right-color: #fd4e4e;
+  top: 0;
+  left: -20px;
+}
+
+.event-body {
+  display: flex;
+  text-align: left;
+  padding: 30px 10px;
+  background-color: #fff;
+}
+
+.event-body text {
+  font-size: 10pt;
+  width: 100%;
+  text-indent: 20px;
+  letter-spacing: 1px;
+  line-height: 150%;
+}
+
+.event-goto {
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-top: 1px solid #f0f0f0;
+  background-color: #fff;
+}
+
+.event-goto text {
+  font-size: 9pt;
+  color: #8a8a8a;
+}
+
+.event-goto image {
+  width: 20px;
+  height: 20px;
+}

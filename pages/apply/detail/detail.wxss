@@ -1,0 +1,141 @@
+/* pages/apply/detail/detail.wxss */
+
+.apply-state-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.apply-state-title {
+  /* background-color: #f7f7ff; */
+  font-size: 12pt;
+  color: #888;
+  font-weight: bold;
+  padding: 5px 0px 5px 10px;
+}
+
+.apply-state {
+  display: block;
+  padding-bottom: 25px;
+}
+
+.apply-state-item {
+  display: flex;
+}
+
+.apply-state-icon {
+  width: 15px;
+  height: 13px;
+  border-radius: 50rpx;
+  background-color: #dbdbdb;
+  border: 3px solid #eee;
+  margin: 7px 10px;
+}
+
+.icon-color1 {
+  background-color: #3c78d8;
+}
+
+.icon-color2 {
+  background-color: #19CAAD;
+}
+
+.icon-color3 {
+  background-color: #F4606C;
+}
+
+/* .apply-state-memo- {
+  color: #bfbfbf;
+} */
+
+/* .apply-state-memo-color1 {
+  color: white;
+}
+
+.apply-state-memo-color2 {
+  color: white;
+}
+
+.apply-state-memo-color3 {
+  color: white;
+} */
+
+.gradient-color1{
+   background-color:#3c78d8;
+  color: white;
+}
+
+.gradient-color2{
+   background-color: #19CAAD;
+  color: white;
+}
+
+.gradient-color3{
+   background-color: #F4606C;
+  color: white;
+}
+
+.gradient-{
+  background-color: #dbdbdb;
+  color: white;
+}
+
+.apply-state-info {
+  position: relative;
+  margin-top: 25px;
+  margin-right: 20px;
+  width: 100%;
+  padding: 0px 10px;
+}
+
+.apply-state-info::before {
+  position: absolute;
+  top: 5px;
+  left: -20px;
+  content: '';
+  width: 5rpx;
+  background: #eee;
+  height: 100%;
+}
+
+.last::before {
+  background: transparent;
+  width: 0;
+  height: 0;
+}
+
+.apply-state-name {
+  display: flex;
+  font-size: 10pt;
+  font-weight: bold;
+  padding: 15px 0px 5px 0px;
+  justify-content: space-between;
+}
+
+.apply-state-detail {
+  display: flex;
+  font-size: 10pt;
+  padding: 5px 0px 5px 0px;
+  justify-content: space-between;
+}
+
+.apply-detail-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.apply-content {
+  color: #515151;
+}
+
+.apply-detail-title {
+  display: block;
+  padding: 3px 10px;
+  font-size: 12pt;
+  text-align: center;
+}
+
+.apply-detail-content {
+  font-size: 10pt;
+  display: block;
+  padding: 0px 10px;
+}

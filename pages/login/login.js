@@ -68,9 +68,9 @@ Page({
       username: that.data.userid,
       password: that.data.passwd,
       succeed: function(){
-        wx.hideToast();
+        wx.hideToast()
         wx.redirectTo({
-          url: '/pages/home/home',
+          url: '/pages/index/index',
         })
       },
       failed: function() {

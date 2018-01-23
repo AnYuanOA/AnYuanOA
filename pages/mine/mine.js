@@ -78,5 +78,22 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 用户点击清除缓存
+   */
+  openclearmodal:function(){
+    wx.showModal({
+      title: '提示',
+      content: '清除缓存将同时解除账号绑定，是否确认清除缓存？',
+      success: function (res) {
+        if (res.confirm) {
+
+        } else if (res.cancel) {
+
+        }
+      }
+    })
   }
 })

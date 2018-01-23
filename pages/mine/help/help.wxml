@@ -1,0 +1,21 @@
+<!--pages/mine/help/help.wxml-->
+<view class='container'>
+  <view class='about-top'>
+    <image class='about-icon' src='/images/mine/help/icon_about.png'></image>
+    <text class='about-title2'>安源OA</text>
+  </view>
+  <view class='about-bottom'>
+    <view class='about-version'>
+      <text>版本：v1.0</text>
+    </view>
+    <view class='about-summay'>
+      <view class='about-iof'>
+        <text>安源后台管理：www.anyuan_backend.com</text>
+      </view>
+      <view class='about-iof'>
+        <text>安源协同办公：www.anyuan_oa.com</text>
+      </view>
+      <text class='about-content'>湖北安源安全环保科技有限公司由湖北省电力勘测设计院劳动安全卫生评价中心改制而成，于2004年3月正式注册。现为中国电力建设集团旗下湖北省电力勘测设计院全资子公司，是服务于政府、企业和社会的安全环保节能咨询机构。</text>
+    </view>
+  </view>
+</view>

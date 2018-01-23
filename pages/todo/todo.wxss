@@ -1,0 +1,159 @@
+.todo_container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.switch_header {
+  display: flex;
+  width: 100%;
+  margin-bottom: 10px;
+  /* box-shadow: 0 0 20rpx 3rpx #e5e5e5; */
+  line-height: 20px;
+  position: fixed;
+  z-index: 5;
+  background-color: #3c78d8;
+}
+
+.switch_item {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+
+.switch_item text {
+  font-size: 10pt;
+  color: white;
+  margin-bottom: 10px;
+  padding: 5px 30px;
+  border: 1px solid #3c78d8;
+}
+
+.on text {
+  font-size: 11pt;
+  border: 1px solid white;
+  border-radius: 50px;
+  /* background-color: #3c78d8;
+  color: white; */
+}
+
+.content_container {
+  padding-top: 50px;
+}
+
+.todo-item-navigator {
+  margin: 3px 5px 10px 5px;
+  box-shadow: 0 0 20rpx 3rpx #e5e5e5;
+}
+
+.list-item-db {
+  flex-direction: row;
+  margin-bottom: 10px;
+  padding: 5px;
+  color: #515151;
+}
+
+.list-item-db-title {
+  font-size: 12pt;
+  padding: 5px;
+  margin-right: 20px;
+}
+
+.list-item-db-content {
+  font-size: 10pt;
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.list-item {
+  flex-direction: row;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+
+.item-apply-type {
+  display: inline-block;
+  flex: 1;
+  font-size: 12px;
+  font-weight: bold;
+  width: 100px;
+  padding: 8px 20px 0px;
+}
+
+.list-item-icon {
+  width: 25px;
+  height: 25px;
+  display: block;
+}
+
+.list-item-content {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  width: 300px;
+}
+
+.list-item-content-title {
+  font-size: 12pt;
+  display: flex;
+}
+
+.list-item-content-nick-name {
+  font-size: 10pt;
+  display: flex;
+}
+
+.list-item-content-time {
+  font-size: 10pt;
+  display: flex;
+}
+
+.list-item-state {
+  width: 50px;
+  height: 50px;
+  margin-right: 5px;
+  margin-left: 10px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.item-bottom-do {
+  padding: 5px;
+  border-bottom: 1px solid #f3f3f3;
+}
+
+.item-bottom-img {
+  width: 20px;
+  height: 20px;
+  float: right;
+}
+
+.item-bottom-txt {
+  font-size: 10pt;
+  margin: 5px;
+}
+
+.item-dy-user-send {
+  display: flex;
+}
+
+.item-db-type {
+  width: 40px;
+  background-color: #54adf4;
+  border-radius: 25px;
+  color: white;
+  text-align: center;
+  font-size: 10pt;
+  margin: 0px 5px;
+  padding: 0px 10px;
+}
+
+.yongche {
+  background-color: #6d9eeb;
+}
+
+.xiujia {
+  background-color: #93c47d;
+}

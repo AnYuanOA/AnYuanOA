@@ -1,40 +1,41 @@
 <!--pages/organize/organize.wxml-->
-<view class="page">
-    <view>
-        <view class="weui-search-bar">
-            <view class="weui-search-bar__form">
-                <view class="weui-search-bar__box">
-                    <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
-                    <input type="text" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
-                    <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
-                        <icon type="clear" size="14"></icon>
-                    </view>
-                </view>
-                <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
-                    <icon class="weui-icon-search" type="search" size="14"></icon>
-                    <view class="weui-search-bar__text">搜索</view>
-                </label>
-            </view>
-            <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
-        </view>
-        <view class="weui-cells searchbar-result" wx:if="{{inputVal.length > 0}}">
-            <navigator url="" class="weui-cell" hover-class="weui-cell_active" wx:for-items="{{searchList}}">
-                <view class="weui-cell__bd" style='font-size:12px'>
-                    <view>{{item.name}}</view>
-                </view>
-            </navigator>
-        </view>
+<view class="container">
+  <!-- 搜索栏 -->
+  <view class="search flex-wrp">
+    <view class="search-left flex-item">
+      <image src="/images/organize/search.png"></image>
+      <input placeholder="搜索部门或人员" placeholder-class="search-placeholder" />
     </view>
-</view>
-<view class="weui-cells__title">企业通讯录</view>
-        <view class="weui-cells weui-cells_after-title" >
-            <view bindtap='emp' id="{{item.id}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active" wx:for-items="{{list}}">
-                <view class="weui-cell__hd">
-                    <image src="/images/org/mr.png" class="img" ></image>
-                </view>
-                <view class="weui-cell__bd">{{item.name}}</view>
-                <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-            </view>
+    <view class="search-right flex-item" bindtap="upper">
+      <image src="/images/organize/lighting.png"></image>
+    </view>
+  </view>
+  <!-- 组织架构 -->
+  <view class="xf-types">
+    <block wx:for="{{orgData}}" wx:key="{{empData}}">
+      <view class="xf-type-item {{item.open ? 'xf-item-show' : ''}}">
+        <view class="xf-head" id="{{item.code}}" bindtap="slideDetail">
+          <view class="xf-left-name">
+            <image class="xf-name-icon" src="/images/organize/icon_dept.png"></image>
+            <text class="xf-type-name-front">{{item.name}}</text>
+          </view>
+          <image class="xf-item-icon" src="/images/organize/down1.png"></image>
         </view>
-
-
+        <view class="xf-detail">
+          <block wx:for="{{item.empData}}" wx:for-item="emp" wx:key="{{name}}">
+            <view class="xf-detail-item">
+              <view class="xf-left-name">
+                <navigator hover-class="none" class='xf-emp-navigator' url='/pages/message/newMessage/newMessage'>
+                  <image class="xf-emp-icon" src="/images/organize/icon_emp{{emp.six}}.png"></image>
+                  <text class="xf-detail-label">{{emp.name}}</text>
+                </navigator>
+                <text bindtap='makePhone' class="xf-detail-content" data-phone='{{emp.phone}}'>电话:{{emp.phone}}</text>
+              </view>
+              <text class="xf-detail-content">{{emp.position}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,73 @@
+<!--pages/event/event.wxml-->
+<view class='container'>
+  <block wx:for="{{events}}">
+    <block wx:if="{{item.mold==1}}">
+      <text class='event-date'>{{item.date}}</text>
+      <view class='event-main'>
+        <view class='event-top top-{{item.mold}}'>
+          <text class='event-title'>{{item.title}}   --   {{item.source}}</text>
+        </view>
+        <navigator url='/pages/workflow/detail?pageType=1'>
+          <view class='event-body'>
+            <text>{{item.content}}</text>
+          </view>
+          <view class='event-goto'>
+            <image src='/images/event/icon_more.png'></image>
+            <text>处理 >></text>
+          </view>
+        </navigator>
+      </view>
+    </block>
+    <block wx:elif="{{item.mold==2}}">
+      <text class='event-date'>{{item.date}}</text>
+      <view class='event-main'>
+        <view class='event-top top-{{item.mold}}'>
+          <text class='event-title'>{{item.title}}   --   {{item.source}}</text>
+        </view>
+        <navigator url='/pages/workflow/detail?pageType=2'>
+          <view class='event-body'>
+            <text>{{item.content}}</text>
+          </view>
+          <view class='event-goto'>
+            <image src='/images/event/icon_more.png'></image>
+            <text>审阅 >></text>
+          </view>
+        </navigator>
+      </view>
+    </block>
+    <block wx:elif="{{item.mold==3}}">
+      <text class='event-date'>{{item.date}}</text>
+      <view class='event-main'>
+        <view class='event-top top-{{item.mold}}'>
+          <text class='event-title'>{{item.title}}   --   {{item.source}}</text>
+        </view>
+        <navigator url='/pages/board/board'>
+          <view class='event-body'>
+            <text>{{item.content}}</text>
+          </view>
+          <view class='event-goto'>
+            <image src='/images/event/icon_more.png'></image>
+            <text>查看 >></text>
+          </view>
+        </navigator>
+      </view>
+    </block>
+    <block wx:elif="{{item.mold==4}}">
+      <text class='event-date'>{{item.date}}</text>
+      <view class='event-main'>
+        <view class='event-top top-{{item.mold}}'>
+          <text class='event-title'>{{item.title}}   --   {{item.source}}</text>
+        </view>
+        <navigator url='/pages/mine/clockin/clockin'>
+          <view class='event-body'>
+            <text>{{item.content}}</text>
+          </view>
+          <view class='event-goto'>
+            <image src='/images/event/icon_more.png'></image>
+            <text>打卡 >></text>
+          </view>
+        </navigator>
+      </view>
+    </block>
+  </block>
+</view>

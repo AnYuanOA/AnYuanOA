@@ -1,0 +1,32 @@
+<!--pages/apply/carApply/carApply.wxml-->
+<view class="container">
+  <text class="declare-context-title">基本信息</text>
+  <view class="repair-detail">
+    <view class="repair-detail-item">
+      <text class="repair-detail-name">申请类型：</text>
+      <picker class="picker" mode="selector" value="{{index}}" range="{{array}}" bindchange="listenerPickerSelected">
+        <text class="repair-detail-info">{{array[index]}}</text>
+      </picker>
+    </view>
+    <view class="repair-detail-item">
+      <text class="repair-detail-name">申请日期：</text>
+      <picker class="picker" mode="date" value="{{date}}" bindchange="listenerDatePickerSelected">
+        <text class="repair-detail-info">{{date}}</text>
+      </picker>
+    </view>
+    <view class="repair-detail-item">
+      <text class="repair-detail-name">申请人：</text>
+      <text class="repair-detail-info">张三</text>
+    </view>
+    <view class="repair-detail-item">
+      <text class="repair-detail-name">联系电话：</text>
+      <text class="repair-detail-info">19708278022</text>
+    </view>
+  </view>
+  <text class="declare-context-title">申请详情</text>
+  <view class="repair-detail">
+    <input class="repair-content-title" placeholder="填写主题" />
+    <textarea class="repair-content-textArea" cursor-spacing="50" placeholder="填写申请内容..."></textarea>
+  </view>
+  <button class="submit-button">提交申请</button>
+</view>

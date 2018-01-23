@@ -92,7 +92,6 @@
 
 .user-opt-nag text {
   font-size: 11pt;
-  font-weight: bold;
 }
 
 .user-opt-icon {

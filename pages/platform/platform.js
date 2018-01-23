@@ -29,47 +29,49 @@ Page({
     bgItems: [
       {
         title: '看板',
-        navigator: '../apply/apply',
+        navigator: '/pages/board/board',
         icon: '/images/platform/icon_kanban.png',
         bgcolor: '#00cc00'
       },
       {
         title: '计划',
-        navigator: '../apply/carApply/carApply',
+        navigator: '/pages/plan/plan',
         icon: '/images/platform/icon_jihua.png',
         bgcolor: '#fe4466'
       },
-      {
-        title: '任务',
-        navigator: '../apply/dayApply/dayApply',
-        icon: '/images/platform/icon_renwu.png',
-        bgcolor: '#00cc00'
-      },
+      // {
+      //   title: '任务',
+      //   navigator: '../apply/dayApply/dayApply',
+      //   icon: '/images/platform/icon_renwu.png',
+      //   bgcolor: '#00cc00'
+      // },
       {
         title: '事项',
-        navigator: '../apply/dayApply/dayApply',
+        navigator: '/pages/apply/apply',
         icon: '/images/platform/icon_shixiang.png',
         bgcolor: '#ec89ec'
       }
     ],
     lcItems: [{
       title: '申请',
-      navigator: '../todo/todo',
+      navigator: '/pages/apply/newApply/newApply',
       icon: '/images/platform/icon_shenqing.png',
       bgcolor: '#f1c232'
     },
     {
       title: '审批',
-      navigator: '../plan/plan',
+      navigator: '/pages/todo/todo',
       icon: '/images/platform/icon_shenpi.png',
       bgcolor: '#6d9eeb'
-    },
-    {
-      title: '报销',
-      navigator: '../plan/plan',
-      icon: '/images/platform/icon_baoxiao.png',
-      bgcolor: '#4bbdfa'
-    }],
+    }
+    // ,
+    // {
+    //   title: '报销',
+    //   navigator: '/pages/feeApp/feeApp',
+    //   icon: '/images/platform/icon_baoxiao.png',
+    //   bgcolor: '#4bbdfa'
+    // }
+    ],
     gjItems: [{
       title: '点子墙',
       navigator: '../todo/todo',

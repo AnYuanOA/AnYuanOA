@@ -1,0 +1,38 @@
+<view class='body'>
+  <view class='time-container'>
+    <text class='time'>21:50</text>
+    <view class='day-container'>
+      <text class='day'>12月29日</text>
+      <text class='day'>星期五</text>
+    </view>
+  </view>
+  <view class='location-container'>
+    <image class='location-icon' src='/images/mine/clockin/icon_now2.png' />
+    <text class='location-text'>湖北省武汉市东湖高新区光谷软件园</text>
+  </view>
+  <view class='location-container'>
+    <text class='location-text1'>未进入打卡范围</text>
+    <image class='in-range-refresh' src='/images/mine/clockin/icon_reflush.png'></image>
+  </view>
+  <view class='operation-container'>
+    <view class='operation-item'>
+      <text class='operation-item-title'>打卡</text>
+    </view>
+  </view>
+  <view class='atten-list-item'>
+    <view class='atten-morning'>
+      <!-- <image class='atten-list-item-icon' src='/images/mine/clockin/icon_place1.png' /> -->
+      <view class='atten-list-item-content'>
+        <text class='atten-list-item-content-time calendar-main-item-state-normal'>上班【08:46】正常</text>
+        <text class='atten-list-item-content-address'>湖北省武汉市东湖高新区光谷软件园A2栋</text>
+      </view>
+    </view>
+    <view class='atten-night'>
+      <!-- <image class='atten-list-item-icon' src='/images/mine/clockin/icon_place1.png' /> -->
+      <view class='atten-list-item-content'>
+        <text class='atten-list-item-content-time calendar-main-item-state-normal'>下班【18:21】正常</text>
+        <text class='atten-list-item-content-address'>湖北省武汉市东湖高新区光谷软件园A2栋</text>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,32 @@
+<!--pages/apply/detail/detail.wxml-->
+<view class="container">
+  <view class="apply-state-panel">
+    <text class="apply-state-title">进度</text>
+    <view class="apply-state">
+      <block wx:for="{{advances}}">
+        <view class="apply-state-item">
+          <view class="apply-state-icon {{item.status?'icon-color'+item.status:''}}"></view>
+          <view class="apply-state-info {{index==advances.length-1?'last':''}} gradient-{{item.status?'color'+item.status:''}}">
+            <view class="apply-state-name">
+              <text>{{item.status==1?'提交申请':'节点'+index}}</text>
+              <text class="apply-state-memo-{{item.status?'color'+item.status:''}}">{{item.memo}}</text>
+            </view>
+            <view class="apply-state-detail">
+              <text>{{item.emp}}</text>
+              <text>{{item.time}}</text>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <view class="apply-detail-panel">
+    <text class="apply-state-title">详情</text>
+    <view class="apply-content">
+      <text class="apply-detail-title">周三请假一天</text>
+      <text class="apply-detail-content">
+        家中急事需要回去，照顾老人小孩，去看病，办事处理问题杂七杂八的乱七八糟事情太多了，必须请一天假，请批准。
+      </text>
+    </view>
+  </view>
+</view>
