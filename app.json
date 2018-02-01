@@ -5,6 +5,7 @@
     "pages/home/home",
     "pages/message/message",
     "pages/organize/organize",
+    "pages/organize/childOrg/childOrg",
     "pages/platform/platform",
     "pages/mine/mine",
     "pages/login/login",

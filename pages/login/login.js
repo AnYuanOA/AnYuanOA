@@ -37,6 +37,7 @@ Page({
       method: 'POST',
       header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8' },
       success: function (res) {
+        wx.hideToast();
         if (res.data.code == 200) {
           app.globalData.header.Cookie = 'JSESSIONID=' + res.data.data;
           //写入小程序登录态缓存
@@ -57,7 +58,6 @@ Page({
           wx.switchTab({
             url: '/pages/index/index'
           })
-          wx.hideToast();
         } else {
           app.showErrorModal('提示', res.data.message);
         }

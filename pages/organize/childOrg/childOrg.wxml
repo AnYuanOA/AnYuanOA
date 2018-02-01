@@ -31,7 +31,7 @@
         </view>
 
         <view class="xf-detail">
-          <block wx:for="{{item.childDepts}}" wx:for-item="child" wx:key="child">
+          <block wx:for="{{item.childDepts}}" wx:for-item="child">
             <view class="xf-detail-item" id="{{child.id}}" bindtap="slideChildOrg">
               <view class="xf-left-name">
                 <image class="xf-emp-icon" src="/images/organize/icon_dept.png"></image>
@@ -52,7 +52,7 @@
             </view> -->
           </block>
 
-          <block wx:for="{{item.childUsers}}" wx:for-item="user" wx:key="user">
+          <block wx:for="{{item.childUsers}}" wx:for-item="user">
             <view class="xf-detail-item">
               <view class="xf-left-name">
                 <navigator hover-class="none" class='xf-emp-navigator' url='/pages/message/newMessage/newMessage'>

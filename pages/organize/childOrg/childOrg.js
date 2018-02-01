@@ -14,8 +14,12 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var key=options.key;
     wx.request({
       url: app.globalData.hostUrl + '/dept/showAllDept',
+      data:{
+        key:key
+      },
       header: app.globalData.header,
       success: function (res) {
         if (res.data.code == 500) {
@@ -85,16 +89,17 @@ Page({
   onShareAppMessage: function () {
 
   },
-  slideChildOrg:function(e){
+  slideChildOrg: function (e) {
     var id = e.currentTarget.id
-    wx.navigateTo({
-      url: '/pages/organize/childOrg/childOrg?key=' + id,
+    console.log(id)
+    wx.reLaunch({
+      url: '/pages/organize/organize?key=' + id,
     })
   },
   // 展示详情
   slideDetail: function (e) {
     var id = e.currentTarget.id
-    var  list = this.data.depts;
+    var list = this.data.depts;
     // 每次点击都将当前open换为相反的状态并更新到视图，视图根据open的值来切换css
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {
