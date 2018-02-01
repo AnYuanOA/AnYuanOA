@@ -8,8 +8,8 @@
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.1",
-	"appid": "touristappid",
+	"libVersion": "1.7.2",
+	"appid": "wx9b93f178992ef513",
 	"projectname": "wecat_demo",
 	"condition": {
 		"search": {

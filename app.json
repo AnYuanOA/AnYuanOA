@@ -10,6 +10,7 @@
     "pages/login/login",
     "pages/noAccess/noAccess",
     "pages/emp/emp",
+    "pages/index/news/news_list",
     "pages/plan/plan",
     "pages/plan/planDetail/planDetail",
     "pages/mine/archives/archives",
