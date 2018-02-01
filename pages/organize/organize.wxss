@@ -107,7 +107,7 @@
 .xf-emp-icon {
   width: 20px;
   height: 20px;
-  margin-right: 5px;
+  margin-right: 10px;
 }
 
 .xf-detail-label {

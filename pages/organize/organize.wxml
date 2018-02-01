@@ -12,9 +12,9 @@
   </view>
   <!-- 组织架构 -->
   <view class="xf-types">
-    <block wx:for="{{orgData}}" wx:key="{{empData}}">
+    <block wx:for="{{depts}}" wx:key="{{childUsers}}">
       <view class="xf-type-item {{item.open ? 'xf-item-show' : ''}}">
-        <view class="xf-head" id="{{item.code}}" bindtap="slideDetail">
+        <view class="xf-head" id="{{item.id}}" bindtap="slideDetail">
           <view class="xf-left-name">
             <image class="xf-name-icon" src="/images/organize/icon_dept.png"></image>
             <text class="xf-type-name-front">{{item.name}}</text>
@@ -22,16 +22,37 @@
           <image class="xf-item-icon" src="/images/organize/down1.png"></image>
         </view>
         <view class="xf-detail">
-          <block wx:for="{{item.empData}}" wx:for-item="emp" wx:key="{{name}}">
+          <block wx:for="{{item.childDepts}}" wx:for-item="child">
+             <view class="xf-type-item {{child.open ? 'xf-item-show' : ''}}">
+              <view class="xf-head" id="{{child.id}}" bindtap="slideDetail">
+                <view class="xf-left-name">
+                  <image class="xf-name-icon" src="/images/organize/icon_dept.png"></image>
+                  <text class="xf-type-name-front">{{child.name}}</text>
+                </view>
+                <image class="xf-item-icon" src="/images/organize/down1.png"></image>
+              </view>
+            </view> 
+
+            <!-- <view class="xf-detail-item">
+              <view class="xf-left-name">
+                <navigator hover-class="none" class='xf-emp-navigator' url='/pages/message/newMessage/newMessage'>
+                  <image class="xf-emp-icon" src="/images/organize/icon_dept.png"></image>
+                  <text class="xf-detail-label">{{child.name}}</text>
+                </navigator>
+              </view>
+            </view> -->
+          </block>
+
+          <block wx:for="{{item.childUsers}}" wx:for-item="user">
             <view class="xf-detail-item">
               <view class="xf-left-name">
                 <navigator hover-class="none" class='xf-emp-navigator' url='/pages/message/newMessage/newMessage'>
-                  <image class="xf-emp-icon" src="/images/organize/icon_emp{{emp.six}}.png"></image>
-                  <text class="xf-detail-label">{{emp.name}}</text>
+                  <image class="xf-emp-icon" src="/images/organize/icon_emp1.png"></image>
+                  <text class="xf-detail-label">{{user.cName}}</text>
                 </navigator>
-                <text bindtap='makePhone' class="xf-detail-content" data-phone='{{emp.phone}}'>电话:{{emp.phone}}</text>
+                <text bindtap='makePhone' class="xf-detail-content" data-phone='{{user.phone}}'>电话:{{user.mobile}}</text>
               </view>
-              <text class="xf-detail-content">{{emp.position}}</text>
+              <text class="xf-detail-content">{{user.position}}</text>
             </view>
           </block>
         </view>

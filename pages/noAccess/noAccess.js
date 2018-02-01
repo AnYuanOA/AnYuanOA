@@ -1,24 +1,18 @@
-// pages/workflow/detail.js
-var app = getApp()
+// pages/noAccess/noAccess.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    opinionInfo:{
-      title:"意见",
-      type:"input",
-      placeholder:"请输入您的意见"
-    },
-    userInfo: app.globalData.userInfo
+  
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+  
   },
 
   /**
@@ -32,13 +26,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.setData({
-      opinionInfo: {
-        title: '意见',
-        type: 'input',
-        placeholder: '请输入您的意见'
-      }
-    })
+  
   },
 
   /**
@@ -74,28 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
   
-  },
-
-  /**
-   * 审批通过 
-   */
-  approvePass: function() {
-    console.log("审批通过")
-  },
-
-  /**
-   * 审批退回
-   */
-  approveReject: function() {
-    console.log("审批退回")
-  },
-
-  // 输入框聚焦时触发
-  handleZanFieldFocus({ componentId, detail }) { 
-    console.log('input')
-  },
-  // 输入框失焦时触发
-  handleZanFieldBlur({ componentId, detail }) {
-    console.log('out')
-   },
+  }
 })

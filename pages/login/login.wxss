@@ -16,7 +16,7 @@
   width: 128rpx;
   height: 128rpx;
   margin: 20rpx;
-  border-radius: 50%;
+  /* border-radius: 50%; */
 }
 
 .login-form {
@@ -34,7 +34,7 @@
   border: 1px solid white;
 }
 
-.active{
+.active {
   border: 1px solid #3c78d8;
 }
 

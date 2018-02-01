@@ -1,345 +1,47 @@
 // pages/organize/organize.js
+var app = getApp();
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    orgData: [
-      {
-        code:'001',
-        open: false,
-        name: '领导层',
-        empData: [
-          {
-            name: '张三',
-            six:'1',
-            phone:'19012733888',
-            position: '总经理'
-          }, {
-            name: '李四',
-            six: '1',
-            phone: '19012733888',
-            position: '副总'
-          }, {
-            name: '王五',
-            six: '2',
-            phone: '19012733888',
-            position: '副总'
-          }
-        ]
-      }, {
-        code: '002',
-        open: false,
-        name: '安全事业部',
-        empData: [
-          {
-            name: '骞天',
-            six: '1',
-            phone: '19012733888',
-            position: '主任'
-          }, {
-            name: '烁骞',
-            six: '1',
-            phone: '19012733888',
-            position: '部长'
-          }, {
-            name: '博俊',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '芃震',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '博星',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }
-        ]
-      }, {
-        code: '003',
-        open: false,
-        name: '环境事业部',
-        empData: [
-          {
-            name: '腾辰',
-            six: '2',
-            phone: '19012733888',
-            position: '科长'
-          }, {
-            name: '升驰',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '梓濡',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }
-        ]
-      }, {
-        code: '004',
-        open: false,
-        name: '综合管理部',
-        empData: [
-          {
-            name: '蔚丽',
-            six: '2',
-            phone: '19012733888',
-            position: '人事经理'
-          }, {
-            name: '薇薇',
-            six: '2',
-            phone: '19012733888',
-            position: '人事专员'
-          }, {
-            name: '妍鑫',
-            six: '2',
-            phone: '19012733888',
-            position: 'HRBP'
-          }
-        ]
-      }, {
-        code: '005',
-        open: false,
-        name: '市场部',
-        empData: [
-          {
-            name: '美惠',
-            six: '2',
-            phone: '19012733888',
-            position: '经理'
-          }, {
-            name: '茜克',
-            six: '2',
-            phone: '19012733888',
-            position: '部长'
-          }, {
-            name: '柔雪',
-            six: '2',
-            phone: '19012733888',
-            position: '主任'
-          }, {
-            name: '璐彩',
-            six: '2',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珊梦',
-            six: '2',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珠涵',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '格馨',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '曦慧',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧初',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧馨',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }
-        ]
-      }, {
-        code: '006',
-        open: false,
-        name: '销售部',
-        empData: [
-          {
-            name: '美惠',
-            six: '1',
-            phone: '19012733888',
-            position: '经理'
-          }, {
-            name: '茜克',
-            six: '1',
-            phone: '19012733888',
-            position: '部长'
-          }, {
-            name: '柔雪',
-            six: '1',
-            phone: '19012733888',
-            position: '主任'
-          }, {
-            name: '璐彩',
-            six: '1',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珊梦',
-            six: '1',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珠涵',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '格馨',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '曦慧',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧初',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧馨',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }
-        ]
-      }, {
-        code: '007',
-        open: false,
-        name: '生产部',
-        empData: [
-          {
-            name: '美惠',
-            six: '1',
-            phone: '19012733888',
-            position: '经理'
-          }, {
-            name: '茜克',
-            six: '1',
-            phone: '19012733888',
-            position: '部长'
-          }, {
-            name: '柔雪',
-            six: '1',
-            phone: '19012733888',
-            position: '主任'
-          }, {
-            name: '璐彩',
-            six: '1',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珊梦',
-            six: '1',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珠涵',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '格馨',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '曦慧',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧初',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧馨',
-            six: '1',
-            phone: '19012733888',
-            position: '专员'
-          }
-        ]
-      }, {
-        code: '008',
-        open: false,
-        name: '质量部',
-        empData: [
-          {
-            name: '美惠',
-            six: '1',
-            phone: '19012733888',
-            position: '经理'
-          }, {
-            name: '茜克',
-            six: '2',
-            phone: '19012733888',
-            position: '部长'
-          }, {
-            name: '柔雪',
-            six: '2',
-            phone: '19012733888',
-            position: '主任'
-          }, {
-            name: '璐彩',
-            six: '2',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珊梦',
-            six: '2',
-            phone: '19012733888',
-            position: '副主任'
-          }, {
-            name: '珠涵',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '格馨',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '曦慧',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧初',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }, {
-            name: '婧馨',
-            six: '2',
-            phone: '19012733888',
-            position: '专员'
-          }
-        ]
-      }
-    ]
+    depts: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      url: app.globalData.hostUrl + '/dept/showAllDept',
+      header: app.globalData.header,
+      success: function (res) {
+        console.log(res.data)
+        if (res.data.code == 500) {
+          wx.redirectTo({
+            url: '/pages/noAccess/noAccess',
+          })
+        } else {
+          if (res.data.data <= 0) {
+            wx.showModal({
+              title: '提示',
+              content: '暂无数据！',
+              success: function () {
+                wx.navigateBack({
+                  delta: 1
+                })
+              }
+            })
+          } else {
+            // console.log(res.data.depts);
+            that.setData({
+              depts: res.data.data
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
@@ -393,24 +95,24 @@ Page({
   // 展示详情
   slideDetail: function (e) {
     var id = e.currentTarget.id,
-      list = this.data.orgData;
+      list = this.data.depts;
     // 每次点击都将当前open换为相反的状态并更新到视图，视图根据open的值来切换css
     for (var i = 0, len = list.length; i < len; ++i) {
-      if (list[i].code == id) {
+      if (list[i].id == id) {
         list[i].open = !list[i].open;
       } else {
         list[i].open = false;
       }
     }
     this.setData({
-      orgData: list
+      depts: list
     });
   },
   //打电话
-  makePhone: function(e){
-    var phone=e.target.dataset.phone;
+  makePhone: function (e) {
+    var phone = e.target.dataset.phone;
     wx.makePhoneCall({
-      phoneNumber: phone 
+      phoneNumber: phone
     })
   }
 })

@@ -1,0 +1,8 @@
+<!--pages/noAccess/noAccess.wxml-->
+<view class='container'>
+<navigator url='/pages/login/login'>
+  <text>你还未登录或无权限，请登录！</text>
+</navigator>
+</view>
+
+

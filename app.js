@@ -1,15 +1,21 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
+    var _that = this;
+    // 登录微信小程序后台获取当前用户openid
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
+        wx.request({
+          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + _that.globalData.appId + '&secret=' + _that.globalData.secret + '&js_code=' + res.code + '&grant_type=authorization_code',
+          data: {},
+          header: {
+            'content-type': 'application/json'
+          },
+          success: function (res) {
+            _that.globalData.openId = res.data.openid;
+          }
+        })
       }
     })
     // 获取用户信息
@@ -21,7 +27,6 @@ App({
             success: res => {
               // 可以将 res 发送给后台解码出 unionId
               this.globalData.userInfo = res.userInfo
-
               // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
               // 所以此处加入 callback 以防止这种情况
               if (this.userInfoReadyCallback) {
@@ -29,12 +34,52 @@ App({
               }
             }
           })
+        } else {
+          if (wx.canIUse('button.open-type.getUserInfo')) {
+            wx.getUserInfo({
+              success: res => {
+                // 可以将 res 发送给后台解码出 unionId
+                this.globalData.userInfo = res.userInfo
+                // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+                // 所以此处加入 callback 以防止这种情况
+                if (this.userInfoReadyCallback) {
+                  this.userInfoReadyCallback(res)
+                }
+              }
+            })
+          }
         }
       }
     })
+    //获取缓存
+    wx.getStorage({
+      key: 'login_act',
+      success: function (res) {
+        _that.globalData.userid = res.data;
+      }
+    })
+    wx.getStorage({
+      key: 'login_pwd',
+      success: function (res) {
+        _that.globalData.pwdid = res.data;
+      }
+    })
+    wx.getStorage({
+      key: 'login_jsession',
+      success: function (res) {
+        _that.globalData.header.Cookie = 'JSESSIONID=' + res.data;
+      },
+    })
   },
   globalData: {
-    userInfo: null
+    userid: '',
+    pwdid: '',
+    openId: '',
+    userInfo: null,
+    header: { 'Cookie': null },
+    hostUrl: 'http://localhost:8080',
+    appId: 'wx9b93f178992ef513',
+    secret: 'b7fc5c9a38fb6252ca149a11e4efe43b'
   },
   showErrorModal: function (title, content) {
     wx.showModal({

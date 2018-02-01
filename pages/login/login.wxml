@@ -1,17 +1,17 @@
 <!--login.wxml-->
 <view class="container">
-   <view class="login-top">
-    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+  <view class="login-top">
+    <image class="userinfo-avatar" src="/images/login_head.jpg" background-size="cover"></image>
   </view>
   <view class="login-form">
     <view class="login-input {{userid_focus ? 'active' : ''}}">
       <image class="input-icon" src="/images/index/act.png"></image>
-      <input id="userid" type="number" cursor-spacing="30" class="input-text" placeholder="请输入工号" bindfocus="inputFocus" bindblur="inputBlur" bindinput="useridInput"></input>
+      <input id="userid" type="number" cursor-spacing="30" class="input-text" placeholder="请输入账号" bindfocus="inputFocus" bindblur="inputBlur" bindinput="useridInput" value="{{userid}}"></input>
     </view>
     <view class="login-input {{passwd_focus ? 'active' : ''}}">
       <image class="input-icon" src="/images/index/pwd.png"></image>
-      <input id="passwd" password="true" cursor-spacing="30" class="input-text" placeholder="请输入密码" bindfocus="inputFocus" bindblur="inputBlur" bindinput="passwdInput"></input>
+      <input id="passwd" password="true" cursor-spacing="30" class="input-text" placeholder="请输入密码" bindfocus="inputFocus" bindblur="inputBlur" bindinput="passwdInput" value="{{passwd}}"></input>
     </view>
     <button class="login-btn" bindtap="loginUser">登录</button>
-  </view> 
+  </view>
 </view>

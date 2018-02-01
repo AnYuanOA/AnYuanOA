@@ -1,0 +1,15 @@
+/* pages/noAccess/noAccess.wxss */
+.container{
+  display: block;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+
+.container text{
+  display: flex;
+  font-size: 15pt;
+  color: red;
+  padding: 50px 0px;
+  justify-content:center;
+}

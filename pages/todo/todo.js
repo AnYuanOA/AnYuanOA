@@ -14,7 +14,7 @@ Page({
    */
   data: {
     showType: TodoType.Todo,
-    userInfo: null,
+    userInfo: app.globalData.userInfo,
     todoList: [
       {
         typeTitle:'行政用章申请',
@@ -205,22 +205,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo
-      })
-    } else {
-      var that = this;
-      wx.getUserInfo({
-        success: function (res) {
-          var userInfo = res.userInfo
-          that.setData({
-            userInfo: userInfo
-          })
-          app.globalData.userInfo = userInfo;
-        }
-      })
-    }
+    
   },
 
   /*
