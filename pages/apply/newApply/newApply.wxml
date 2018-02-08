@@ -1,32 +1,124 @@
 <!--pages/apply/carApply/carApply.wxml-->
 <view class="container">
-  <text class="declare-context-title">基本信息</text>
-  <view class="repair-detail">
-    <view class="repair-detail-item">
-      <text class="repair-detail-name">申请类型：</text>
-      <picker class="picker" mode="selector" value="{{index}}" range="{{array}}" bindchange="listenerPickerSelected">
-        <text class="repair-detail-info">{{array[index]}}</text>
-      </picker>
+  <view class="switch_header">
+    <view class="switch_item {{showType==1 ? 'on' : ''}}" bindtap='tabSwitchDay'>
+      <text>休假</text>
     </view>
-    <view class="repair-detail-item">
-      <text class="repair-detail-name">申请日期：</text>
-      <picker class="picker" mode="date" value="{{date}}" bindchange="listenerDatePickerSelected">
-        <text class="repair-detail-info">{{date}}</text>
-      </picker>
-    </view>
-    <view class="repair-detail-item">
-      <text class="repair-detail-name">申请人：</text>
-      <text class="repair-detail-info">张三</text>
-    </view>
-    <view class="repair-detail-item">
-      <text class="repair-detail-name">联系电话：</text>
-      <text class="repair-detail-info">19708278022</text>
+    <view class="switch_item {{showType==2 ? 'on' : ''}}" bindtap='tabSwitchCar'>
+      <text>用车</text>
     </view>
   </view>
-  <text class="declare-context-title">申请详情</text>
-  <view class="repair-detail">
-    <input class="repair-content-title" placeholder="填写主题" />
-    <textarea class="repair-content-textArea" cursor-spacing="50" placeholder="填写申请内容..."></textarea>
-  </view>
-  <button class="submit-button">提交申请</button>
+
+
+
+  <block wx:if="{{showType==1}}">
+    <view class="day_apply_view">
+      <view class="apply_item_view">
+        <text class="left_text">申请人：</text>
+        <text class="right_info no_border">张三</text>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">休假类型：</text>
+        <picker class="right_info" mode="selector" value="{{attltIndex}}" range="{{attltArray}}" bindchange="listenerPickerSelectedAttlt">
+          <text>{{attltArray[attltIndex]}}</text>
+        </picker>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">开始日期：</text>
+        <picker class="right_info" mode="date" value="{{restStartDate}}" bindchange="listenerDatePickerSelectedStartDate">
+          <text>{{restStartDate}}</text>
+        </picker>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">时间段：</text>
+        <picker class="right_info" mode="selector" value="{{startIndex}}" range="{{startType}}" bindchange="listenerPickerSelectedStartType">
+          <text>{{startType[startIndex]}}</text>
+        </picker>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">结束日期：</text>
+        <picker class="right_info" mode="date" value="{{restEndDate}}" bindchange="listenerDatePickerSelectedEndDate">
+          <text>{{restEndDate}}</text>
+        </picker>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">时间段：</text>
+        <picker class="right_info" mode="selector" value="{{endIndex}}" range="{{endType}}" bindchange="listenerDatePickerSelectedEndType">
+          <text>{{endType[endIndex]}}</text>
+        </picker>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">休假天数：</text>
+        <text class="right_info">0</text>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">休假原因：</text>
+        <textarea class="right_info"></textarea>
+      </view>
+    </view>
+    <view class="submit-view">
+      <button class="submit-button">提交申请</button>
+    </view>
+  </block>
+  <block wx:else>
+    <view class="day_apply_view">
+      <view class="apply_item_view">
+        <text class="left_text">申请人：</text>
+        <text class="right_info no_border">张三</text>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">用车部门：</text>
+        <text class="right_info no_border">安全信息部</text>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">联系电话：</text>
+        <input class="right_info"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">用车性质：</text>
+        <input class="right_info"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">司机是否加班：</text>
+        <picker class="right_info" mode="selector" value="{{isOverTimeIdx}}" range="{{isOverTime}}" bindchange="listenerPickerSelectedIsOverTime">
+          <text>{{isOverTime[isOverTimeIdx]}}</text>
+        </picker>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">用车人数：</text>
+        <input class="right_info"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">占用时间：</text>
+        <input class="right_info"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">用车时间：</text>
+        <input class="right_info"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">市内市外：</text>
+        <radio-group class="right_info no_border" bindchange="radioChange">
+          <label class="radio" wx:for="{{items}}">
+            <radio color="#3c78d8" value="{{item.name}}" checked="{{item.checked}}" />{{item.name}}
+          </label>
+        </radio-group>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">去往地点：</text>
+        <input class="right_info"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">发车地点：</text>
+        <input class="right_info"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">申请原因：</text>
+        <textarea class="right_info"></textarea>
+      </view>
+    </view>
+    <view class="submit-view">
+      <button class="submit-button">提交申请</button>
+    </view>
+  </block>
 </view>

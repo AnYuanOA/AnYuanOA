@@ -12,29 +12,74 @@ Page({
    * 页面的初始数据
    */
   data: {
-    array: ['用车', '休假'],
-    index: 0,
-    date: now
+    showType: 1,
+    attltArray: ['事假', '病假', '年假', '产假', '调休假'],
+    attltIndex: 0,
+    restStartDate: now,
+    startType: ['上午', '下午'],
+    startIndex: 0,
+    restEndDate: now,
+    endType: ['上午', '下午'],
+    endIndex: 0,
+    isOverTime: ['否', '是'],
+    isOverTimeIdx: 0,
+    items: [
+      { name: '市内', checked: true },
+      { name: '市外', checked: false }
+    ]
   },
 
   /**
-   * 监听普通picker选择器
+   * 监听休假类型picker选择器
    */
-  listenerPickerSelected: function (e) {
+  listenerPickerSelectedAttlt: function (e) {
     //改变index值，通过setData()方法重绘界面
     this.setData({
-      index: e.detail.value
+      attltIndex: e.detail.value
     });
   },
 
   /**
-   * 监听日期picker选择器
+   * 监听开始日期picker选择器
    */
-  listenerDatePickerSelected: function (e) {
+  listenerDatePickerSelectedStartDate: function (e) {
     this.setData({
-      date: e.detail.value
+      restStartDate: e.detail.value
     })
   },
+
+  listenerPickerSelectedStartType: function (e) {
+    //改变index值，通过setData()方法重绘界面
+    this.setData({
+      startIndex: e.detail.value
+    });
+  },
+
+
+  /**
+   * 监听结束日期picker选择器
+   */
+  listenerDatePickerSelectedEndDate: function (e) {
+    this.setData({
+      restEndDate: e.detail.value
+    })
+  },
+
+  listenerDatePickerSelectedEndType: function (e) {
+    //改变index值，通过setData()方法重绘界面
+    this.setData({
+      endIndex: e.detail.value
+    });
+  },
+
+
+  listenerPickerSelectedIsOverTime: function (e) {
+    //改变index值，通过setData()方法重绘界面
+    this.setData({
+      isOverTimeIdx: e.detail.value
+    });
+  },
+
 
   /**
    * 生命周期函数--监听页面加载
@@ -90,5 +135,23 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  /**
+   * tab页签切换
+   */
+  tabSwitchDay: function (e) {
+    if (this.data.showType != 1) {
+      this.setData({
+        showType: 1
+      });
+    }
+  },
+  tabSwitchCar: function (e) {
+    if (this.data.showType != 2) {
+      this.setData({
+        showType: 2
+      });
+    }
   }
 })
