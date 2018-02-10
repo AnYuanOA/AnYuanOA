@@ -1,32 +1,51 @@
-<!--pages/message/newMessage/newMessage.wxml-->
-<!--pages/message/message.wxml-->
 <view class='container'>
   <view class='message-main'>
     <view class='message-cont' wx:for-items="{{messageData}}">
-      <block wx:if="{{item.name==userInfo.nickName}}">
-        <view class='message-time {{item.time?"":"notime"}}'>
-          <text wx:if='{{item.time}}'>{{item.time}}</text>
-        </view>
+      <block wx:if="{{item.user==mine}}">       
+
+          <block wx:if="{{item.date==nowDate}}">  
+            <view class='message-time {{item.time}}'>
+            <text wx:if='{{item.time}}'>{{item.time}}</text>
+			</view>
+          </block>
+          <block wx:else>
+            <view class='message-time {{item.date}} {{item.time}}'>
+            <text wx:if='{{item.time}}'>{{item.date}} {{item.time}}</text>
+			</view>
+          </block>
+
         <view class='message-detail-m'>
           <text class='message-text-m'>{{item.message}}</text>
           <image class='message-head' src='{{userInfo.avatarUrl}}'></image>
         </view>
       </block>
+      
       <block wx:else>
-        <view class='message-time {{item.time?"":"notime"}}'>
-          <text wx:if='{{item.time}}'>{{item.time}}</text>
-        </view>
+
+          <block wx:if="{{item.date==nowDate}}">  
+            <view class='message-time {{item.time}}'>
+            <text wx:if='{{item.time}}'>{{item.time}}</text>
+			</view>
+          </block>
+          <block wx:else>
+            <view class='message-time {{item.date}} {{item.time}}'>
+            <text wx:if='{{item.time}}'>{{item.date}} {{item.time}}</text>
+			</view>
+          </block>
+
         <view class='message-detail-o'>
-          <image class='message-head' src='{{item.head}}'></image>
+          <image class='message-head' src='{{toUserHead}}'></image>
           <text class='message-text-o'>{{item.message}}</text>
         </view>
       </block>
     </view>
   </view>
+  <form bindreset="cleanInput">
   <view class='opt-panel'>
     <image class='opt-icon' src='/images/message/icon_speak2.png'></image>
-    <textarea class='opt-textarea'></textarea>
+    <textarea class='opt-textarea' bindinput="bindMessage"></textarea>
     <!-- <image class='opt-icon' src='/images/message/icon_add2.png'></image> -->
-    <button class='opt-send-btn'>发送</button>
+    <button class='opt-send-btn'  bindtap="sendMessage" formType="reset">发送</button>
   </view>
+   </form>
 </view>

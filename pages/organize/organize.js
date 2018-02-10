@@ -6,7 +6,8 @@ Page({
    */
   data: {
     noData: false,
-    depts: []
+    depts: [],
+    defaultHead:''
   },
 
   /**
@@ -14,6 +15,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    that.setData({
+      defaultHead: '/images/organize/icon_emp1.png'
+    })
     wx.request({
       url: app.globalData.hostUrl + '/dept/showAllDept',
       header: app.globalData.header,
@@ -112,6 +116,14 @@ Page({
     var phone = e.target.dataset.phone;
     wx.makePhoneCall({
       phoneNumber: phone
+    })
+  },
+  //新建回话
+  call: function (e) {
+    var name = e.currentTarget.id
+    console.log(name);
+    wx.navigateTo({
+      url: '/pages/message/newMessage/newMessage?name=' + name,
     })
   }
 })

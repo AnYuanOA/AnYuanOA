@@ -1,5 +1,12 @@
 //login.js
 //获取应用实例
+const chatLib = require("../../services/im/IMLib.js")
+const IMLib = chatLib.IMLib
+const IMLibStatus = chatLib.IMLibStatus
+const Message = chatLib.Message
+const MessageType = chatLib.MessageType
+
+const im = new IMLib()
 const app = getApp()
 Page({
   data: {
@@ -54,6 +61,18 @@ Page({
             key: 'login_pwd',
             data: that.data.passwd,
           })
+          //连接IM服务
+          im.connect("test01", "123456", function (status) {
+            wx.setStorage({
+              key: 'im_connect_staus',
+              data: status,
+            })
+          })
+          //从远程获取离线消息加载到消息首页 TODO
+
+
+
+
           //跳转
           wx.switchTab({
             url: '/pages/index/index'
@@ -97,3 +116,8 @@ Page({
     });
   }
 })
+
+module.exports = {
+  im: im
+}
+

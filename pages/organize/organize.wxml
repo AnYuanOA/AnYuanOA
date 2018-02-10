@@ -55,10 +55,10 @@
           <block wx:for="{{item.childUsers}}" wx:for-item="user" wx:key="user">
             <view class="xf-detail-item">
               <view class="xf-left-name">
-                <navigator hover-class="none" class='xf-emp-navigator' url='/pages/message/newMessage/newMessage'>
-                  <image class="xf-emp-icon" src="/images/organize/icon_emp1.png"></image>
+                <view hover-class="none" class='xf-emp-navigator' bindtap='call' id='{{user.userName}},{{user.cName}},{{user.avatarUrl}}'>
+                  <image class="xf-emp-icon" src='{{(user.avatarUrl==null || user.avatarUrl=="") ? defaultHead : user.avatarUrl}}'></image>
                   <text class="xf-detail-label">{{user.cName}}</text>
-                </navigator>
+                </view>
               </view>
               <text bindtap='makePhone' class="xf-detail-content" data-phone='{{user.mobile}}'>电话:{{user.mobile}}</text>
             </view>

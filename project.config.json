@@ -4,13 +4,13 @@
 		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
-		"minified": true,
+		"minified": false,
 		"newFeature": true
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.7.2",
 	"appid": "wx9b93f178992ef513",
-	"projectname": "wecat_demo",
+	"projectname": "AnYuanOA",
 	"condition": {
 		"search": {
 			"current": -1,
