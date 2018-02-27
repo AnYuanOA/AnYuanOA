@@ -2,7 +2,7 @@
 <view class="container">
   <!-- banner导航区 -->
   <swiper class="news-swiper" autoplay="true" interval="3000" circular="true">
-    <block wx:for="{{news}}">
+    <block wx:for="{{news}}" wx:key="{{title}}">
       <swiper-item class="news-item">
         <view class="item-top">
           <image class="title-icon" src="/images/platform/icon_news.png"></image>
@@ -21,7 +21,7 @@
       <text class="opt-title-text">办公</text>
     </view>
     <view class="opt-coloum">
-      <block wx:for="{{bgItems}}">
+      <block wx:for="{{bgItems}}" wx:key="{{title}}">
         <view class="opt-item">
           <navigator class="opt-item-navi" url="{{item.navigator}}" style="background-color: {{item.bgcolor}};">
             <image class="opt-item-img" src="{{item.icon}}"></image>
@@ -34,7 +34,7 @@
       <text class="opt-title-text">流程</text>
     </view>
     <view class="opt-coloum">
-      <block wx:for="{{lcItems}}">
+      <block wx:for="{{lcItems}}" wx:key="{{title}}">
         <view class="opt-item">
           <navigator class="opt-item-navi" url="{{item.navigator}}" style="background-color: {{item.bgcolor}};">
             <image class="opt-item-img" src="{{item.icon}}"></image>

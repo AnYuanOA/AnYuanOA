@@ -39,7 +39,8 @@ Page({
         account: that.data.userid,
         openId: app.globalData.openId,
         password: that.data.passwd,
-        chatNick: app.globalData.userInfo.nickName
+        chatNick: app.globalData.userInfo.nickName,
+        avatarUrl: app.globalData.userInfo.avatarUrl
       },
       method: 'POST',
       header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8' },

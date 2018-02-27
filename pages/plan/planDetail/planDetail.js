@@ -1,204 +1,58 @@
 // pages/plan/planDetail/planDetail.js
+var app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    jhData: [{
-      year: 2018,
-      jhType: '合同',
-      title: '合同年度计划汇总测试',
-      open: false,
-      detail: [{
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }, {
-        level: '二级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '80万元',
-        own_dept: '环境事业部',
-        own_emp: 'AA',
-        duty_dept: '环境事业部',
-        duty_emp: 'AA'
-      }, {
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }]
-    }, {
-      year: 2017,
-      jhType: '产值',
-      title: '产值年度计划汇总',
-      open: false,
-      detail: [{
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }, {
-        level: '二级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '80万元',
-        own_dept: '环境事业部',
-        own_emp: 'AA',
-        duty_dept: '环境事业部',
-        duty_emp: 'AA'
-      }, {
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }]
-    },
-    {
-      year: 2016,
-      jhType: '收费',
-      title: '收费2017年计划',
-      open: false,
-      detail: [{
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }, {
-        level: '二级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '80万元',
-        own_dept: '环境事业部',
-        own_emp: 'AA',
-        duty_dept: '环境事业部',
-        duty_emp: 'AA'
-      }, {
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }]
-    }, {
-      year: 2015,
-      jhType: '资质',
-      title: '资质测试',
-      open: false
-    }, {
-      year: 2014,
-      jhType: '科研',
-      title: '科研项目汇总',
-      open: false,
-      detail: [{
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }, {
-        level: '二级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '80万元',
-        own_dept: '环境事业部',
-        own_emp: 'AA',
-        duty_dept: '环境事业部',
-        duty_emp: 'AA'
-      }, {
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }]
-    }, {
-      year: 2013,
-      jhType: '科研',
-      title: '科研项目汇总',
-      open: false,
-      detail: [{
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }, {
-        level: '二级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '80万元',
-        own_dept: '环境事业部',
-        own_emp: 'AA',
-        duty_dept: '环境事业部',
-        duty_emp: 'AA'
-      }, {
-        level: '一级',
-        one_type: '环保业务',
-        two_type: '水保业务',
-        three_type: '电网水保业务（省外）',
-        target: '100万元',
-        own_dept: '环境事业部',
-        own_emp: '姚娜',
-        duty_dept: '环境事业部',
-        duty_emp: '姚娜'
-      }]
-    }]
+    planType:null,
+    planData:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this
+    that.setData({
+      planType: options.type
+    })
+    var requestUrl=null
+    switch (options.type) {
+      case "1":
+        requestUrl = app.globalData.hostUrl + '/plan/yearPlanData';
+        break;
+      case "2":
+        requestUrl = app.globalData.hostUrl + '/plan/monthPlanData';
+        break;
+      case "3":
+        requestUrl = app.globalData.hostUrl + '/plan/weekPlanData';
+        break;
+      default:
+        break
+    }
+    wx.request({
+      url: requestUrl,
+      header: app.globalData.header,
+      success: function (res) {
+        if (res.data.code == 500) {
+          wx.redirectTo({
+            url: '/pages/noAccess/noAccess',
+          })
+        } else {
+          if (res.data.data <= 0) {
+            that.setData({
+              noData: true
+            })
+          } else {
+            that.setData({
+              planData: res.data.data
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
@@ -253,17 +107,17 @@ Page({
   // 展示详情
   slideDetail: function (e) {
     var id = e.currentTarget.id,
-      list = this.data.jhData;
+    list = this.data.planData;
     // 每次点击都将当前open换为相反的状态并更新到视图，视图根据open的值来切换css
     for (var i = 0, len = list.length; i < len; ++i) {
-      if (list[i].year == id) {
+      if (list[i].op05Id == id) {
         list[i].open = !list[i].open;
       } else {
         list[i].open = false;
       }
     }
     this.setData({
-      jhData: list
+      planData: list
     });
   }
 })
