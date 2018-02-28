@@ -69,6 +69,18 @@ Page({
         }
       }
     )
+
+    WebService.loadToReadList(
+      that.data.currentPage,
+      {
+        success: function(data) {
+          console.log(data)
+        },
+        fail: function(msg) {
+          console.log(msg)
+        }
+      }
+    )
     // wx.request({
     //   url: app.globalData.hostUrl + '/workflow/getToDoList',
     //   header: app.globalData.header,
