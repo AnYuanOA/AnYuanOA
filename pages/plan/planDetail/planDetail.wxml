@@ -1,90 +1,99 @@
 <!--pages/plan/planDetail/planDetail.wxml-->
 <!--xf.wxml-->
 <view class="container">
-  <!-- 标题 -->
-  <view class="xf-title-wraper">
-    <view class="xf-title-info">
-      <text class="xf-title">计划汇总</text>
+
+  <block wx:if="{{noData}}">
+    <view class='no-data-view'>
+      <image src='/images/nodata.png'></image>
     </view>
-    <block wx:if="{{planType==1}}">
-      <image class="xf-title-icon" src="/images/plan/nd.png"></image>
-    </block>
-    <block wx:elif="{{planType==2}}">
-      <image class="xf-title-icon" src="/images/plan/yd.png"></image>
-    </block>
-    <block wx:elif="{{planType==3}}">
-      <image class="xf-title-icon" src="/images/plan/zd.png"></image>
-    </block>
-    <block wx:else>
-      <image class="xf-title-icon" src="/images/plan/jd.png"></image>
-    </block>
-  </view>
-  <!-- 详情 -->
-  <view class="xf-types">
-    <block wx:for="{{planData}}" wx:key="{{planDate}}">
-      <view class="xf-type-item {{item.open ? 'xf-item-show' : ''}}">
-        <view class="xf-head" id="{{item.op05Id}}" bindtap="slideDetail">
-          <text class="xf-type-name-front">{{item.planDate}}</text>
-          <text class="xf-type-name">{{item.planTitle}}</text>
-          <image class="xf-item-icon" src="/images/plan/down1.png"></image>
-        </view>
-        <view class="xf-detail">
-          <view class="xf-detail-main">
-            <image class="xf-detail-icon" src="/images/plan/icon_right.png"></image>
-            <swiper class="xf-detail-swiper" circular="true">
-              <block wx:for="{{item.planDetails}}" wx:for-item="pro" wx:key="{{levelName}}">
-                <swiper-item class="xf-detail-swiper-item">
-                  <block wx:if="{{planType==3}}">
+  </block>
+
+  <view wx:if="!{{noData}}">
+    <!-- 标题 -->
+    <view class="xf-title-wraper">
+      <view class="xf-title-info">
+        <text class="xf-title">计划汇总</text>
+      </view>
+      <block wx:if="{{planType==1}}">
+        <image class="xf-title-icon" src="/images/plan/nd.png"></image>
+      </block>
+      <block wx:elif="{{planType==2}}">
+        <image class="xf-title-icon" src="/images/plan/yd.png"></image>
+      </block>
+      <block wx:elif="{{planType==3}}">
+        <image class="xf-title-icon" src="/images/plan/zd.png"></image>
+      </block>
+      <block wx:else>
+        <image class="xf-title-icon" src="/images/plan/jd.png"></image>
+      </block>
+    </view>
+    <!-- 详情 -->
+    <view class="xf-types">
+      <block wx:for="{{planData}}" wx:key="{{planDate}}">
+        <view class="xf-type-item {{item.open ? 'xf-item-show' : ''}}">
+          <view class="xf-head" id="{{item.op05Id}}" bindtap="slideDetail">
+            <text class="xf-type-name-front">{{item.planDate}}</text>
+            <text class="xf-type-name">{{item.planTitle}}</text>
+            <image class="xf-item-icon" src="/images/plan/down1.png"></image>
+          </view>
+          <view class="xf-detail">
+            <view class="xf-detail-main">
+              <image class="xf-detail-icon" src="/images/plan/icon_right.png"></image>
+              <swiper class="xf-detail-swiper" circular="true">
+                <block wx:for="{{item.planDetails}}" wx:for-item="pro" wx:key="{{levelName}}">
+                  <swiper-item class="xf-detail-swiper-item">
+                    <block wx:if="{{planType==3}}">
+                      <view class="xf-detail-item">
+                        <text class="xf-detail-label">内容</text>
+                        <text class="xf-detail-content">{{pro.target}}</text>
+                      </view>
+                    </block>
+                    <block wx:else>
+                      <view class="xf-detail-item">
+                        <text class="xf-detail-label">重要级别</text>
+                        <text class="xf-detail-content">{{pro.levelName}}</text>
+                      </view>
+                      <view class="xf-detail-item">
+                        <text class="xf-detail-label">一级分类</text>
+                        <text class="xf-detail-content">{{pro.typeName1}}</text>
+                      </view>
+                      <view class="xf-detail-item">
+                        <text class="xf-detail-label">二级分类</text>
+                        <text class="xf-detail-content">{{pro.typeName2}}</text>
+                      </view>
+                      <view class="xf-detail-item">
+                        <text class="xf-detail-label">三级分类</text>
+                        <text class="xf-detail-content">{{pro.typeName3}}</text>
+                      </view>
+                      <view class="xf-detail-item">
+                        <text class="xf-detail-label">目标</text>
+                        <text class="xf-detail-content">{{pro.target}}</text>
+                      </view>
+                    </block>
                     <view class="xf-detail-item">
-                      <text class="xf-detail-label">内容</text>
-                      <text class="xf-detail-content">{{pro.target}}</text>
-                    </view>
-                  </block>
-                  <block wx:else>
-                    <view class="xf-detail-item">
-                      <text class="xf-detail-label">重要级别</text>
-                      <text class="xf-detail-content">{{pro.levelName}}</text>
+                      <text class="xf-detail-label">承办部门</text>
+                      <text class="xf-detail-content">{{pro.deptXg}}</text>
                     </view>
                     <view class="xf-detail-item">
-                      <text class="xf-detail-label">一级分类</text>
-                      <text class="xf-detail-content">{{pro.typeName1}}</text>
+                      <text class="xf-detail-label">经办人</text>
+                      <text class="xf-detail-content">{{pro.empXg}}</text>
                     </view>
                     <view class="xf-detail-item">
-                      <text class="xf-detail-label">二级分类</text>
-                      <text class="xf-detail-content">{{pro.typeName2}}</text>
+                      <text class="xf-detail-label">责任部门</text>
+                      <text class="xf-detail-content">{{pro.deptZr}}</text>
                     </view>
                     <view class="xf-detail-item">
-                      <text class="xf-detail-label">三级分类</text>
-                      <text class="xf-detail-content">{{pro.typeName3}}</text>
+                      <text class="xf-detail-label">责任人</text>
+                      <text class="xf-detail-content">{{pro.empZr}}</text>
                     </view>
-                    <view class="xf-detail-item">
-                      <text class="xf-detail-label">目标</text>
-                      <text class="xf-detail-content">{{pro.target}}</text>
-                    </view>
-                  </block>
-                  <view class="xf-detail-item">
-                    <text class="xf-detail-label">承办部门</text>
-                    <text class="xf-detail-content">{{pro.deptXg}}</text>
-                  </view>
-                  <view class="xf-detail-item">
-                    <text class="xf-detail-label">经办人</text>
-                    <text class="xf-detail-content">{{pro.empXg}}</text>
-                  </view>
-                  <view class="xf-detail-item">
-                    <text class="xf-detail-label">责任部门</text>
-                    <text class="xf-detail-content">{{pro.deptZr}}</text>
-                  </view>
-                  <view class="xf-detail-item">
-                    <text class="xf-detail-label">责任人</text>
-                    <text class="xf-detail-content">{{pro.empZr}}</text>
-                  </view>
-                </swiper-item>
-              </block>
-            </swiper>
-            <image class="xf-detail-icon" src="/images/plan/icon_left.png"></image>
+                  </swiper-item>
+                </block>
+              </swiper>
+              <image class="xf-detail-icon" src="/images/plan/icon_left.png"></image>
+            </view>
           </view>
         </view>
-      </view>
-    </block>
+      </block>
+    </view>
   </view>
 </view>

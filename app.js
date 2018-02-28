@@ -77,7 +77,7 @@ App({
     openId: '',
     userInfo: null,
     header: { 'Cookie': null },
-    hostUrl: 'http://localhost:8080/web-service',
+    hostUrl: 'http://localhost:8080',
     appId: 'wx9b93f178992ef513',
     secret: 'b7fc5c9a38fb6252ca149a11e4efe43b'
   },

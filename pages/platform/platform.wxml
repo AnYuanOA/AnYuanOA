@@ -1,7 +1,7 @@
 <!--pages/platform/platform.wxml-->
 <view class="container">
   <!-- banner导航区 -->
-  <swiper class="news-swiper" autoplay="true" interval="3000" circular="true">
+  <!-- <swiper class="news-swiper" autoplay="true" interval="3000" circular="true">
     <block wx:for="{{news}}" wx:key="{{title}}">
       <swiper-item class="news-item">
         <view class="item-top">
@@ -14,7 +14,7 @@
         </view>
       </swiper-item>
     </block>
-  </swiper>
+  </swiper> -->
   <!-- 应用区 -->
   <view class="platform-opt">
     <view class="opt-title">

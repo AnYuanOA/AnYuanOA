@@ -17,186 +17,34 @@ Page({
     userInfo: app.globalData.userInfo,
     todoList: [
       {
-        typeTitle:'行政用章申请',
-        title:'总书记一直牵挂着贫困群众，对贫困地区交通设施建设更是牵肠挂肚。近日，总书记对“四好农村路”建设作出重要指示。',
-        publish_name:'测试1',
-        publish_time:'2017-11-29 15:53:24',
-        level:'紧急',
-        applyType:'1',
-        icoUrl: '/resources/images/apply/icon_car_sp.png'
+        appId:'39948',
+        appType: '休假申请',
+        appTitle:'jinher休假申请（2017-11-29)',
+        appUserName:'jinher',
+        appBeginTime:'2018/2/26 14:48:58'
       },
       {
-        typeTitle: '项目开工通知单',
-        title: '习近平总书记多次强调，没有农村的小康也就没有全面小康。为了广大农民的小康梦早日实现，新形势下，要进一步深化和加强农村公路发展。',
-        publish_name: 'jinher',
-        publish_time: '2017-11-29 15:53:24',
-        level: '一般',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
-      },
-      {
-        typeTitle: '合同会签申请',
-        title: '进一步深化对建设农村公路重要意义的认识，聚焦突出问题，完善政策机制，既要把农村公路建好，更要管好、护好、运营好，为广大农民致富奔小康、为加快推进农业农村现代化提供更好保障。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '紧急',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_car_sp.png'
-      },
-      {
-        typeTitle: '项目风险分析(产品要求评审)记录专用单',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '一般',
-        applyType: '1',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
-      },
-      {
-        typeTitle: '行政用章申请',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '紧急',
-        applyType: '1',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
-      },
-      {
-        typeTitle: '项目开工通知单',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: 'jinher',
-        publish_time: '2017-11-29 15:53:24',
-        level: '一般',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
-      },
-      {
-        typeTitle: '合同会签申请',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '紧急',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_car_sp.png'
-      },
-      {
-        typeTitle: '项目风险分析(产品要求评审)记录单',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '一般',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
-      },
-      {
-        typeTitle: '行政用章申请',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '紧急',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
-      },
-      {
-        typeTitle: '项目开工通知单',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: 'jinher',
-        publish_time: '2017-11-29 15:53:24',
-        level: '一般',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
-      },
-      {
-        typeTitle: '合同会签申请',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '紧急',
-        applyType: '2',
-        icoUrl:'/resources/images/apply/icon_car_sp.png'
-      },
-      {
-        typeTitle: '项目风险分析(产品要求评审)记录单',
-        title: '党的十八大以来，习近平总书记多次就农村公路发展作出重要指示、批示，对农村公路助推广大农民脱贫致富奔小康寄予了殷切期望。',
-        publish_name: '测试1',
-        publish_time: '2017-11-29 15:53:24',
-        level: '一般',
-        applyType: '2',
-        icoUrl: '/resources/images/apply/icon_day_sp.png'
+        appId: '40562',
+        appType: '项目开工通知单',
+        appTitle: '总产值流程测试201812',
+        appUserName: 'jinher',
+        appBeginTime: '2018/1/2 18:04:39'
       }
     ],
     toReadList: [
       {
-        typeTitle: '发文办理流程',
-        title: '关于开展员工职级调整工作的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '欧阳俊俊'
+        appId:'39948',
+        obj_Title: '关于开展“质量在我心中，全面加强质量管理”有奖征文活动的通知',
+        orderType: '发文办理流程',
+        userName: '欧阳俊俊',
+        orderId: '2017-12-28T09:31:24'
       },
       {
-        typeTitle: '发文办理流程',
-        title: '关于发布《2017年管理评审报告》的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: 'jinher'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于发布2017年11月质量月报的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '测试1'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于公布2017年度“优秀咨询成果奖”评选结果的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '测试1'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于开展员工职级调整工作的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '曾闪'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于发布《2017年管理评审报告》的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: 'jinher'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于发布2017年11月质量月报的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '测试1'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于公布2017年度“优秀咨询成果奖”评选结果的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '测试1'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于开展员工职级调整工作的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '曾闪'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于发布《2017年管理评审报告》的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: 'jinher'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于发布2017年11月质量月报的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '测试1'
-      },
-      {
-        typeTitle: '发文办理流程',
-        title: '关于公布2017年度“优秀咨询成果奖”评选结果的通知',
-        publish_time: '2017-11-29 15:53:24',
-        publish_name: '测试1'
+        appId: '38901',
+        obj_Title: '关于发布《2017年管理评审报告》的通知',
+        orderType: '发文办理流程',
+        userName: '曾闪',
+        orderId: '2017-12-19T11:49:46'
       }
     ]
   },
@@ -205,7 +53,29 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that=this
+    wx.request({
+      url: app.globalData.hostUrl + '/workflow/getToDoList',
+      header: app.globalData.header,
+      success: function (res) {
+        if (res.data.code == 500) {
+          // wx.redirectTo({
+          //   url: '/pages/noAccess/noAccess',
+          // })
+        } else {
+          if (res.data.data <= 0) {
+            that.setData({
+              noData: true
+            })
+          } else {
+            console.log(res.data.data)
+            that.setData({
+              depts: res.data.data
+            })
+          }
+        }
+      }
+    })
   },
 
   /*

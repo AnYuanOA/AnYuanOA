@@ -11,14 +11,19 @@ Page({
       type:"input",
       placeholder:"请输入您的意见"
     },
-    userInfo: app.globalData.userInfo
+    userInfo: null,
+    pageType:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var that = this
+    that.setData({
+      userInfo: app.globalData.userInfo,
+      pageType: options.pageType
+    })
   },
 
   /**

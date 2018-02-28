@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    noData: false,
   },
 
   /**
@@ -23,34 +23,40 @@ Page({
             url: '/pages/noAccess/noAccess',
           })
         } else {
-          var windowWidth = 320;
-          try {
-            var resSync = wx.getSystemInfoSync();
-            windowWidth = resSync.windowWidth;
-          } catch (e) {
-            console.error('getSystemInfoSync failed!');
+          if (res.data.data <= 0) {
+            that.setData({
+              noData: true
+            })
+          } else {
+            var windowWidth = 320;
+            try {
+              var resSync = wx.getSystemInfoSync();
+              windowWidth = resSync.windowWidth;
+            } catch (e) {
+              console.error('getSystemInfoSync failed!');
+            }
+            pieChart = new wxCharts({
+              animation: true,
+              canvasId: 'pieCanvas',
+              type: 'pie',
+              series: [{
+                name: '年度计划',
+                data: res.data.NJH
+              }, {
+                name: '季度计划',
+                data: 0
+              }, {
+                name: '月度计划',
+                data: res.data.YJH
+              }, {
+                name: '周计划',
+                data: res.data.ZWC
+              }],
+              width: windowWidth,
+              height: 210,
+              dataLabel: true,
+            });
           }
-          pieChart = new wxCharts({
-            animation: true,
-            canvasId: 'pieCanvas',
-            type: 'pie',
-            series: [{
-              name: '年度计划',
-              data: res.data.NJH
-            }, {
-              name: '季度计划',
-              data: 0
-            }, {
-              name: '月度计划',
-              data: res.data.YJH
-            }, {
-              name: '周计划',
-              data: res.data.ZWC
-            }],
-            width: windowWidth,
-            height: 210,
-            dataLabel: true,
-          });
         }
       }
     })

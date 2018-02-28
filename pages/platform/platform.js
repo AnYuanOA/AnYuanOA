@@ -27,12 +27,12 @@ Page({
       detail: '环保税对企业的影响究竟有多大？据记者了解，目前除西藏自治区外，各省（区、市）均已出台了本地区应税大气污染物和水污染物的具体适用税额。其中，黑龙江、福建、新疆等12个省份按低限确定税额，其大气、水污染物税额分别为每污染当量1.2元和1.4元。内蒙古、海南、云南等12个省份税额处于中间水平，其大气污染物税额在每污染当量1.8元至3.9元之间，水污染物税额在每污染当量2.1元至3.5元之间。北京、天津、河北等6个省（市）税额处于较高水平，其大气污染物税额在每污染当量4.8元至12元之间，水污染物税额在每污染当量4.8元至14元之间。'
     }],
     bgItems: [
-      {
-        title: '看板',
-        navigator: '/pages/board/board',
-        icon: '/images/platform/icon_kanban.png',
-        bgcolor: '#00cc00'
-      },
+      // {
+      //   title: '看板',
+      //   navigator: '/pages/board/board',
+      //   icon: '/images/platform/icon_kanban.png',
+      //   bgcolor: '#00cc00'
+      // },
       {
         title: '计划',
         navigator: '/pages/plan/plan',

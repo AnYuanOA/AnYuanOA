@@ -11,19 +11,18 @@
   <!-- 待办视图 -->
   <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}'>
     <block wx:for="{{todoList}}">
-      <navigator url="/pages/workflow/detail?pageType=1" class="todo-item-navigator">
+      <navigator url="/pages/workflow/detail?pageType=1&appId={{item.appId}}" class="todo-item-navigator">
         <view class='item-bottom-do'>
-          <text class="item-db-type {{item.applyType==1?'yongche':'xiujia'}}">{{item.applyType==1?'用车':'休假'}}</text>
-          <text class="item-bottom-txt">待审批</text>
+          <text class="item-db-type">{{item.appType}}</text>
           <image class="item-bottom-img" src='/images/todo/icon_todo_db_top1.png'></image>
         </view>
         <view class='list-item-db'>
           <view class="list-item-db-title">
-            <text>{{item.typeTitle}}</text>
+            <text>{{item.appTitle}}</text>
           </view>
           <view class="list-item-db-content">
-            <text>{{item.publish_name}}</text>
-            <text>{{item.publish_time}}</text>
+            <text>{{item.appUserName}}</text>
+            <text>{{item.appBeginTime}}</text>
           </view>
         </view>
       </navigator>
@@ -34,20 +33,20 @@
   <!-- 待阅视图 -->
   <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}'>
     <block wx:for="{{toReadList}}">
-      <navigator url="/pages/workflow/detail?pageType=2" class="todo-item-navigator">
+      <navigator url="/pages/workflow/detail?pageType=2&appId={{item.appId}}" class="todo-item-navigator">
         <view class='item-bottom-do'>
-          <text class="item-bottom-txt">待查看</text>
+          <text class="item-db-type">{{item.orderType}}</text>
           <image class="item-bottom-img" src='/images/todo/icon_todo_dy2.png'></image>
         </view>
         <view class='list-item-db'>
           <view class="list-item-db-title">
-            <text>{{item.typeTitle}}</text>
+            <text>{{item.obj_Title}}</text>
           </view>
           <view class="list-item-db-content">
             <view class="item-dy-user-send">
-              <text>{{item.publish_name}}</text>
+              <text>{{item.userName}}</text>
             </view>
-            <text>{{item.publish_time}}</text>
+            <text>{{item.orderId}}</text>
           </view>
         </view>
       </navigator>
