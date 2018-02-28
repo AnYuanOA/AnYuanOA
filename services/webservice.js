@@ -12,6 +12,15 @@
  * 本地存储sessionID key
  */
 const SESSIONID_KEY = "JSESSIONID"
+/**
+ * 无权限访问code
+ */
+const NO_PERMISSION_CODE = 10001
+/**
+ * 用户未绑定code
+ */
+const USER_NOT_BIND_CODE = 10002
+
 
 const BASE_URL = "http://localhost:8080/web-service"
 /**
@@ -75,8 +84,14 @@ function request(params) {
       'JSESSIONID': sessionId
     },
     success: function (res) {
-      if(params.success){
-        params.success(res)
+      if(res.data.code == USER_NOT_BIND_CODE){
+        wx.redirectTo({
+          url: '/pages/login/login'
+        })
+      }else {
+        if (params.success) {
+          params.success(res)
+        }
       }
     },
     fail: function () {
@@ -109,17 +124,17 @@ function login(params, callback) {
           key: SESSIONID_KEY,
           data: res.data.data,
         })
-        if (callback.success) {
+        if (callback && callback.success) {
           callback.success(res.data.data)
         }
       } else {
-        if (callback.fail) {
+        if (callback && callback.fail) {
           callback.fail(res.data.message)
         }
       }
     },
     fail: function(){
-      if (callback.fail) {
+      if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
     }
@@ -143,17 +158,17 @@ function loginWithOpenID(openID, callback) {
           key: SESSIONID_KEY,
           data: res.data.data,
         })
-        if (callback.success) {
+        if (callback && callback.success) {
           callback.success(res.data.data)
         }
       } else {
-        if (callback.fail) {
+        if (callback && callback.fail) {
           callback.fail(res.data.message)
         }
       }
     },
     fail: function() {
-      if (callback.fail) {
+      if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
     }
@@ -173,17 +188,17 @@ function loadToDoList(lastTime, callback) {
       },
       success: function(res) {
         if (res.data.code == 200) {
-          if (callback.success) {
+          if (callback && callback.success) {
             callback.success(res.data.data)
           }
         } else {
-          if (callback.fail) {
+          if (callback && callback.fail) {
             callback.fail(res.data.message)
           }
         }
       },
       fail: function() {
-        if (callback.fail) {
+        if (callback && callback.fail) {
           callback.fail("网络请求失败")
         }
       }
@@ -203,17 +218,17 @@ function loadToReadList(currentPage, callback) {
     },
     success: function(res) {
       if (res.data.code == 200) {
-        if (callback.success) {
+        if (callback && callback.success) {
           callback.success(res.data.data)
         }
       } else {
-        if (callback.fail) {
+        if (callback && callback.fail) {
           callback.fail(res.data.message)
         }
       }
     },
     fail: function() {
-      if (callback.fail) {
+      if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
     }

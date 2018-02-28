@@ -1,4 +1,5 @@
 //app.js
+const WebService = require("services/webservice.js")
 App({
   onLaunch: function () {
     var _that = this;
@@ -14,6 +15,8 @@ App({
           },
           success: function (res) {
             _that.globalData.openId = res.data.openid;
+            //使用openId登录webservice服务器
+            WebService.loginWithOpenID(res.data.openid)
           }
         })
       }

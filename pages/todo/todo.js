@@ -1,4 +1,6 @@
 // pages/todo/todo.js
+const WebService = require("../../services/webservice.js")
+
 if (typeof TodoType == "undefined") {
   var TodoType = {}
   TodoType.Todo = 1//待办
@@ -13,7 +15,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    lastAppId: null, //待办列表分页参数，对应接口请求参数lastTime
+    lastAppId: "", //待办列表分页参数，对应接口请求参数lastTime
     currentPage: 1, //待阅列表分页参数，从1开始
     showType: TodoType.Todo,
     userInfo: app.globalData.userInfo,
@@ -56,28 +58,39 @@ Page({
    */
   onLoad: function (options) {
     var that=this
-    wx.request({
-      url: app.globalData.hostUrl + '/workflow/getToDoList',
-      header: app.globalData.header,
-      success: function (res) {
-        if (res.data.code == 500) {
-          // wx.redirectTo({
-          //   url: '/pages/noAccess/noAccess',
-          // })
-        } else {
-          if (res.data.data <= 0) {
-            that.setData({
-              noData: true
-            })
-          } else {
-            console.log(res.data.data)
-            that.setData({
-              depts: res.data.data
-            })
-          }
+    WebService.loadToDoList(
+      that.data.lastAppId,
+      {
+        success: function(data) {
+          console.log(data)
+        },
+        fail: function(msg) {
+          console.log(msg)
         }
       }
-    })
+    )
+    // wx.request({
+    //   url: app.globalData.hostUrl + '/workflow/getToDoList',
+    //   header: app.globalData.header,
+    //   success: function (res) {
+    //     if (res.data.code == 500) {
+    //       // wx.redirectTo({
+    //       //   url: '/pages/noAccess/noAccess',
+    //       // })
+    //     } else {
+    //       if (res.data.data <= 0) {
+    //         that.setData({
+    //           noData: true
+    //         })
+    //       } else {
+    //         console.log(res.data.data)
+    //         that.setData({
+    //           depts: res.data.data
+    //         })
+    //       }
+    //     }
+    //   }
+    // })
     //加载待办及待阅数据
   },
 
