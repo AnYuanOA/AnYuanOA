@@ -13,6 +13,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    lastAppId: null, //待办列表分页参数，对应接口请求参数lastTime
+    currentPage: 1, //待阅列表分页参数，从1开始
     showType: TodoType.Todo,
     userInfo: app.globalData.userInfo,
     todoList: [
@@ -76,6 +78,7 @@ Page({
         }
       }
     })
+    //加载待办及待阅数据
   },
 
   /*

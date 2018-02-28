@@ -5,6 +5,7 @@ const IMLib = chatLib.IMLib
 const IMLibStatus = chatLib.IMLibStatus
 const Message = chatLib.Message
 const MessageType = chatLib.MessageType
+const WebService = require("../../services/webservice.js")
 
 const im = new IMLib()
 const app = getApp()
@@ -32,55 +33,49 @@ Page({
       return false;
     }
     app.showLoadToast('登录中...');
-    wx.request({
-      url: app.globalData.hostUrl + '/login/loginAnyuanUser',
-      data: {
-        userName: that.data.userid,
-        account: that.data.userid,
-        openId: app.globalData.openId,
-        password: that.data.passwd,
-        chatNick: app.globalData.userInfo.nickName,
-        avatarUrl: app.globalData.userInfo.avatarUrl
-      },
-      method: 'POST',
-      header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8' },
-      success: function (res) {
+    WebService.login({
+      userName: that.data.userid,
+      account: that.data.userid,
+      openId: app.globalData.openId,
+      password: that.data.passwd,
+      chatNick: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    }, {
+      success: function(data) {
         wx.hideToast();
-        if (res.data.code == 200) {
-          app.globalData.header.Cookie = 'JSESSIONID=' + res.data.data;
-          //写入小程序登录态缓存
+        app.globalData.header.Cookie = 'JSESSIONID=' + data;
+        //写入小程序登录态缓存
+        wx.setStorage({
+          key: 'login_jsession',
+          data: data,
+        })
+        //写入用户登录信息到缓存
+        wx.setStorage({
+          key: 'login_act',
+          data: that.data.userid,
+        })
+        wx.setStorage({
+          key: 'login_pwd',
+          data: that.data.passwd,
+        })
+        //连接IM服务
+        im.connect("test01", "123456", function (status) {
           wx.setStorage({
-            key: 'login_jsession',
-            data: res.data.data,
+            key: 'im_connect_staus',
+            data: status,
           })
-          //写入用户登录信息到缓存
-          wx.setStorage({
-            key: 'login_act',
-            data: that.data.userid,
-          })
-          wx.setStorage({
-            key: 'login_pwd',
-            data: that.data.passwd,
-          })
-          //连接IM服务
-          im.connect("test01", "123456", function (status) {
-            wx.setStorage({
-              key: 'im_connect_staus',
-              data: status,
-            })
-          })
-          //从远程获取离线消息加载到消息首页 TODO
+        })
+        //从远程获取离线消息加载到消息首页 TODO
 
 
-
-
-          //跳转
-          wx.switchTab({
-            url: '/pages/index/index'
-          })
-        } else {
-          app.showErrorModal('提示', res.data.message);
-        }
+        //跳转
+        wx.switchTab({
+          url: '/pages/index/index'
+        })
+      },
+      fail: function(msg) {
+        wx.hideToast();
+        app.showErrorModal('提示', msg)
       }
     })
   },
