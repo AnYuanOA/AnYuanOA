@@ -6,16 +6,41 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userInfo: null
+    userInfo: null,
+    selfUser: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var _that = this
-    _that.setData({
+    var that = this
+    that.setData({
       userInfo: app.globalData.userInfo
+    })
+    wx.request({
+      url: app.globalData.hostUrl + '/user/getSelfUser',
+      data: {
+        openId: app.globalData.openId
+      },
+      header: app.globalData.header,
+      success: function (res) {
+        if (res.data.code == 500) {
+          wx.redirectTo({
+            url: '/pages/noAccess/noAccess',
+          })
+        } else {
+          if (!res.data.data) {
+            that.setData({
+              noData: true
+            })
+          } else {
+            that.setData({
+              selfUser: res.data.data
+            })
+          }
+        }
+      }
     })
   },
 
@@ -77,7 +102,10 @@ Page({
       content: '清除缓存将同时解除账号绑定，是否确认清除缓存？',
       success: function (res) {
         if (res.confirm) {
-
+          wx.clearStorage();
+          wx.redirectTo({
+            url: '/pages/login/login',
+          })
         } else if (res.cancel) {
 
         }

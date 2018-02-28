@@ -6,15 +6,15 @@
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     </view>
     <view class="user-info-bottom">
-      <text class="user-info-name">张三</text>
-      <text class="user-info-email">123456789@qq.com</text>
+      <text class="user-info-name">{{selfUser.cName}}</text>
+      <text class="user-info-email">{{selfUser.email}}</text>
     </view>
-    <view class="user-info-login">
+    <!-- <view class="user-info-login">
       <navigator class="user-info-login-nag" url="/pages/login/login">
         <text>绑定账号</text>
         <image src="/images/mine/icon_user_login.png"></image>
       </navigator>
-    </view>
+    </view> -->
   </view>
 
   <view class="user-opt">
@@ -25,7 +25,7 @@
       </view>
       <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
     </navigator>
-    <navigator class="user-opt-nag bottom-border" url="/pages/mine/clockin/clockin">
+    <!-- <navigator class="user-opt-nag bottom-border" url="/pages/mine/clockin/clockin">
       <view class="user-opt-left">
         <image class="user-opt-icon" src="/images/mine/icon_daka.png"></image>
         <text>考勤打卡</text>
@@ -38,7 +38,7 @@
         <text>考勤记录</text>
       </view>
       <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
-    </navigator>
+    </navigator> -->
     <view class="user-opt-nag bottom-border" bindtap="openclearmodal">
       <view class="user-opt-left">
         <image class="user-opt-icon" src="/images/mine/icon_clear.png"></image>
