@@ -20,6 +20,10 @@ const NO_PERMISSION_CODE = 10001
  * 用户未绑定code
  */
 const USER_NOT_BIND_CODE = 10002
+/**
+ * 接口请求成功code
+ */
+const REQUEST_OK_CODE = 200
 
 
 const BASE_URL = "http://localhost:8080/web-service"
@@ -119,7 +123,7 @@ function login(params, callback) {
     url: LOGIN_URL,
     params: params,
     success: function(res){
-      if (res.data.code == 200) {
+      if (res.data.code == REQUEST_OK_CODE) {
         wx.setStorage({
           key: SESSIONID_KEY,
           data: res.data.data,
@@ -153,7 +157,7 @@ function loginWithOpenID(openID, callback) {
       openId: openID
     },
     success: function(res) {
-      if (res.data.code == 200) {
+      if (res.data.code == REQUEST_OK_CODE) {
         wx.setStorage({
           key: SESSIONID_KEY,
           data: res.data.data,
@@ -187,7 +191,7 @@ function loadToDoList(lastTime, callback) {
         lastTime: lastTime
       },
       success: function(res) {
-        if (res.data.code == 200) {
+        if (res.data.code == REQUEST_OK_CODE) {
           if (callback && callback.success) {
             callback.success(res.data.data)
           }
@@ -208,7 +212,7 @@ function loadToDoList(lastTime, callback) {
 /**
  * 获取待阅列表
  * @params currentPage 当前页码，从1开始
- * @params WebServiceCallback
+ * @params callback WebServiceCallback
  */
 function loadToReadList(currentPage, callback) {
   request({
@@ -217,7 +221,7 @@ function loadToReadList(currentPage, callback) {
       currentPage: currentPage
     },
     success: function(res) {
-      if (res.data.code == 200) {
+      if (res.data.code == REQUEST_OK_CODE) {
         if (callback && callback.success) {
           callback.success(res.data.data)
         }
@@ -235,9 +239,125 @@ function loadToReadList(currentPage, callback) {
   })
 }
 
+/**
+ * 加载请假类型列表
+ * @params callback WebServiceCallback
+ */
+function loadRestTypeList(callback) {
+  request({
+    url: GET_RESTTYPELIST_URL,
+    success: function(res) {
+      if (res.data.code == REQUEST_OK_CODE) {
+        if (callback && callback.success) {
+          callback.success(res.data.data)
+        }
+      } else {
+        if (callback && callback.fail) {
+          callback.fail(res.data.message)
+        }
+      }
+    },
+    fail: function() {
+      if (callback && callback.fail) {
+        callback.fail("网络请求失败")
+      }
+    }
+  })
+}
+
+/**
+ * 提交请假申请
+ * @params params 请假申请字段json字符串，详见测试用例
+ * @params callback WebServiceCallback
+ */
+function levealApply(params, callback) {
+  request({
+    url: SUBMIT_LEAVE_URL,
+    params: {
+      param: params
+    },
+    success: function(res) {
+      if (res.data.code == REQUEST_OK_CODE) {
+        if (callback && callback.success) {
+          callback.success(res.data.data)
+        }
+      } else {
+        if (callback && callback.fail) {
+          callback.fail(res.data.message)
+        }
+      }
+    },
+    fail: function() {
+      if (callback && callback.fail) {
+        callback.fail("网络请求失败")
+      }
+    }
+  })
+}
+
+/**
+ * 加载用车类型列表
+ * @params callback WebServiceCallback
+ */
+function loadUsCarTypeList(callback) {
+  request({
+    url: GET_USINGTYPELIST_URL,
+    success: function(res) {
+      if (res.data.code == REQUEST_OK_CODE) {
+        if (callback && callback.success) {
+          callback.success(res.data.data)
+        }
+      } else {
+        if (callback && callback.fail) {
+          callback.fail(res.data.message)
+        }
+      }
+    },
+    fail: function() {
+      if (callback && callback.fail) {
+        callback.fail("网络请求失败")
+      }
+    }
+  })
+}
+
+/**
+ * 用车申请
+ * @params params 用车申请字段json字符串，详见测试用例
+ * @params callback WebServiceCallback
+ */
+function usCarApply(params, callback) {
+  request({
+    url: SUBMIT_USCAR_URL,
+    params: {
+      param: params
+    },
+    success: function (res) {
+      if (res.data.code == REQUEST_OK_CODE) {
+        if (callback && callback.success) {
+          callback.success(res.data.data)
+        }
+      } else {
+        if (callback && callback.fail) {
+          callback.fail(res.data.message)
+        }
+      }
+    },
+    fail: function () {
+      if (callback && callback.fail) {
+        callback.fail("网络请求失败")
+      }
+    }
+  })
+}
+
 module.exports = {
   login: login,
   loginWithOpenID: loginWithOpenID,
   loadToDoList: loadToDoList,
-  loadToReadList: loadToReadList
+  loadToReadList: loadToReadList,
+  loadRestTypeList: loadRestTypeList,
+  levealApply: levealApply,
+  loadUsCarTypeList: loadUsCarTypeList,
+  usCarApply: usCarApply
 }
