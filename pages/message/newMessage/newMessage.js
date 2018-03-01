@@ -6,7 +6,7 @@ const IMLibStatus = chatLib.IMLibStatus
 const Message = chatLib.Message
 const MessageType = chatLib.MessageType
 
-const im = require('../../login/login.js').im;
+const im = require('../../../app.js').im;
 const app = getApp()
 Page({
 
