@@ -61,6 +61,10 @@
   display: flex;
 }
 
+.reson_input {
+  height: 150px;
+}
+
 .no_border {
   border: 1px solid white;
 }

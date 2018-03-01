@@ -45,12 +45,12 @@ Page({
       //   icon: '/images/platform/icon_renwu.png',
       //   bgcolor: '#00cc00'
       // },
-      {
-        title: '事项',
-        navigator: '/pages/apply/apply',
-        icon: '/images/platform/icon_shixiang.png',
-        bgcolor: '#ec89ec'
-      }
+      // {
+      //   title: '事项',
+      //   navigator: '/pages/apply/apply',
+      //   icon: '/images/platform/icon_shixiang.png',
+      //   bgcolor: '#ec89ec'
+      // }
     ],
     lcItems: [{
       title: '申请',
