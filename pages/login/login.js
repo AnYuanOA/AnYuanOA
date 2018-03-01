@@ -1,84 +1,81 @@
 //login.js
 //获取应用实例
-const app = getApp()
-const im = require('../../app.js').im;
-const service = require("../../services/oldServerService.js")
+const chatLib = require("../../services/im/IMLib.js")
+const IMLib = chatLib.IMLib
+const IMLibStatus = chatLib.IMLibStatus
+const Message = chatLib.Message
+const MessageType = chatLib.MessageType
+const WebService = require("../../services/webservice.js")
 
+const im = new IMLib()
+const app = getApp()
 Page({
   data: {
-    motto: 'Hello World',
-    userInfo: {},
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    userInfo: null,
     userid_focus: false,
     passwd_focus: false,
-    userid: '',
-    passwd: ''
-  },
-  //事件处理函数
-  bindViewTap: function () {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+    userid: null,
+    passwd: null
   },
   onLoad: function () {
-    if (app.globalData.userInfo) {
-      this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: true
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
-      app.userInfoReadyCallback = res => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
-      }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: true
-          })
-        }
-      })
-    }
-  },
-  getUserInfo: function (e) {
-    console.log(e)
-    app.globalData.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+    var _that = this
+    _that.setData({
+      userInfo: app.globalData.userInfo,
+      userid: app.globalData.userid,
+      passwd: app.globalData.pwdid
     })
   },
   //登录跳转事件
   loginUser: function (e) {
     var that = this;
     if (!that.data.userid || !that.data.passwd) {
-      app.showErrorModal('提醒', '工号及密码不能为空！');
+      app.showErrorModal('提醒', '账号及密码不能为空！');
       return false;
     }
     app.showLoadToast('登录中...');
-    service.login({
-      username: that.data.userid,
+    WebService.login({
+      userName: that.data.userid,
+      account: that.data.userid,
+      openId: app.globalData.openId,
       password: that.data.passwd,
-      succeed: function () {
+      chatNick: app.globalData.userInfo.nickName,
+      avatarUrl: app.globalData.userInfo.avatarUrl
+    }, {
+      success: function(data) {
         wx.hideToast();
-        wx.redirectTo({
-          url: '/pages/home/home',
+        app.globalData.header.Cookie = 'JSESSIONID=' + data;
+        //写入小程序登录态缓存
+        wx.setStorage({
+          key: 'login_jsession',
+          data: data,
+        })
+        //写入用户登录信息到缓存
+        wx.setStorage({
+          key: 'login_act',
+          data: that.data.userid,
+        })
+        wx.setStorage({
+          key: 'login_pwd',
+          data: that.data.passwd,
+        })
+        //连接IM服务
+        im.connect("test01", "123456", function (status) {
+          wx.setStorage({
+            key: 'im_connect_staus',
+            data: status,
+          })
+        })
+        //从远程获取离线消息加载到消息首页 TODO
+
+
+        //跳转
+        wx.switchTab({
+          url: '/pages/index/index'
         })
       },
-      failed: function () {
+      fail: function(msg) {
         wx.hideToast();
-        wx.showToast({
-          title: '用户名或密码错误',
-        })
+        app.showErrorModal('提示', msg)
       }
     })
   },
@@ -115,3 +112,8 @@ Page({
     });
   }
 })
+
+module.exports = {
+  im: im
+}
+
