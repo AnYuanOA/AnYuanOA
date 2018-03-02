@@ -68,7 +68,7 @@
       </view>
       <view class="apply_item_view">
         <text class="left_text">用车部门：</text>
-        <text class="right_info no_border">{{selfUser.deptName}}</text>
+        <text class="right_info no_border">{{selfUser.deptName==null?'':selfUser.deptName}}</text>
       </view>
       <view class="apply_item_view">
         <text class="left_text">联系电话：</text>

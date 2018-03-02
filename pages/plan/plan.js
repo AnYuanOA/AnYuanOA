@@ -109,5 +109,11 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  openQuartDetail:function(){
+    wx.showToast({
+      title: '暂无季度计划'
+    })
   }
 })

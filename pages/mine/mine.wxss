@@ -37,11 +37,11 @@
 .user-info-name {
   font-size: 15pt;
   font-weight: bold;
-  margin: 5rpx 20rpx;
+  margin:0px 10px 10px 10px;
 }
 
 .user-info-email {
-  margin: 5rpx 20rpx 20rpx 20rpx;
+  margin: 5px 10px;
   font-size: 10pt;
   color: #8a8a8a;
 }

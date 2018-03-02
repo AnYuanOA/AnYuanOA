@@ -10,8 +10,13 @@
 
   <!-- 待办视图 -->
   <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}'>
-    <block wx:for="{{todoList}}">
-      <navigator url="/pages/workflow/detail?pageType=1&appId={{item.appId}}" class="todo-item-navigator">
+    <block wx:if="{{todoList==null}}">
+      <view class='no-data-view'>
+        <image src='/images/nodata.png'></image>
+      </view>
+    </block>
+    <block wx:for="{{todoList}}" wx:key="{{appID}}">
+      <navigator url="/pages/workflow/detail?pageType=1&appID={{item.appID}}" class="todo-item-navigator">
         <view class='item-bottom-do'>
           <text class="item-db-type">{{item.appType}}</text>
           <image class="item-bottom-img" src='/images/todo/icon_todo_db_top1.png'></image>
@@ -32,8 +37,13 @@
 
   <!-- 待阅视图 -->
   <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}'>
-    <block wx:for="{{toReadList}}">
-      <navigator url="/pages/workflow/detail?pageType=2&appId={{item.appId}}" class="todo-item-navigator">
+    <block wx:if="{{toReadList==null}}">
+      <view class='no-data-view'>
+        <image src='/images/nodata.png'></image>
+      </view>
+    </block>
+    <block wx:for="{{toReadList}}" wx:key="{{appId}}">
+      <navigator url="/pages/workflow/detail?pageType=2&appID={{item.appId}}" class="todo-item-navigator">
         <view class='item-bottom-do'>
           <text class="item-db-type">{{item.orderType}}</text>
           <image class="item-bottom-img" src='/images/todo/icon_todo_dy2.png'></image>

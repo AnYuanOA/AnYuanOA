@@ -6,8 +6,11 @@
       <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
     </view>
     <view class="user-info-bottom">
-      <text class="user-info-name">{{selfUser.cName}}</text>
-      <text class="user-info-email">{{selfUser.email}}</text>
+      <text class="user-info-name">{{oldSelfUser.userChnName}}</text>
+      <text class="user-info-email">账号：{{oldSelfUser.userName==null?'':oldSelfUser.userName}}</text>
+      <text class="user-info-email">部门：{{oldSelfUser.deptName==null?'':oldSelfUser.deptName}}</text>
+      <text class="user-info-email">岗位：{{oldSelfUser.positionName==null?'':oldSelfUser.positionName}}</text>
+      <text class="user-info-email">邮箱：{{selfUser.email}}</text>
     </view>
     <!-- <view class="user-info-login">
       <navigator class="user-info-login-nag" url="/pages/login/login">
@@ -18,13 +21,13 @@
   </view>
 
   <view class="user-opt">
-    <navigator class="user-opt-nag bottom-border" url="/pages/mine/archives/archives">
+    <!-- <navigator class="user-opt-nag bottom-border" url="/pages/mine/archives/archives">
       <view class="user-opt-left">
         <image class="user-opt-icon" src="/images/mine/icon_info.png"></image>
         <text>个人档案</text>
       </view>
       <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
-    </navigator>
+    </navigator> -->
     <!-- <navigator class="user-opt-nag bottom-border" url="/pages/mine/clockin/clockin">
       <view class="user-opt-left">
         <image class="user-opt-icon" src="/images/mine/icon_daka.png"></image>

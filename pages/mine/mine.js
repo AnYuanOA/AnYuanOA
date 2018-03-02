@@ -7,7 +7,8 @@ Page({
    */
   data: {
     userInfo: null,
-    selfUser: null
+    selfUser: null,
+    oldSelfUser:null
   },
 
   /**
@@ -39,6 +40,21 @@ Page({
               selfUser: res.data.data
             })
           }
+        }
+      }
+    })
+    wx.request({
+      url: app.globalData.hostUrl + '/user/getOldOAUserInfo',
+      header: app.globalData.header,
+      success: function (res) {
+        if (res.data.code == 500) {
+          wx.redirectTo({
+            url: '/pages/noAccess/noAccess',
+          })
+        } else {
+          that.setData({
+            oldSelfUser: res.data.data
+          })
         }
       }
     })

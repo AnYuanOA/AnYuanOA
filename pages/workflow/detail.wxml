@@ -1,8 +1,13 @@
 <!--pages/workflow/detail.wxml-->
-
-<view class='workflow-container'>
-  <view class='workflow-container-main' style='margin-bottom:{{pageType==1?40:0}}px'>
-    <!-- <view class='approve-info-header'>
+<block wx:if="{{noData}}">
+  <view class='no-data-view'>
+    <image src='/images/nodata.png'></image>
+  </view>
+</block>
+<block wx:else>
+  <view class='workflow-container'>
+    <view class='workflow-container-main' style='margin-bottom:{{pageType==1?40:0}}px'>
+      <!-- <view class='approve-info-header'>
       <image class='approve-info-header-avatar' src='{{userInfo.avatarUrl}}'></image>
       <view class='approve-info-header-info'>
         <text>{{userInfo.nickName}}</text>
@@ -13,107 +18,81 @@
       </view>
     </view> -->
 
-    <view class='approve-info-main'>
-      <view class='approve-info-main-item'>
-        <text class='approve-info-main-item-title'>所在部门：</text>
-        <text class='approve-info-main-item-desc'>技术部</text>
-      </view>
-      <view class='approve-info-main-item'>
-        <text class='approve-info-main-item-title'>申请类别：</text>
-        <text class='approve-info-main-item-desc'>行政公章申请</text>
-      </view>
-      <view class='approve-info-main-item'>
-        <text class='approve-info-main-item-title'>申请说明：</text>
-        <text class='approve-info-main-item-desc'>央行对扫码支付进行过种种限制，甚至叫停，央行出于安全的考虑在起初的时候并不放心。那时候，支付宝钱包之类的第三方支付的发展也局限于线上，对于线下反而不如拉卡拉之类的第三方平台。</text>
-      </view>
-      <view class='approve-info-main-item'>
-        <text class='approve-info-main-item-title'>申请时间：</text>
-        <text class='approve-info-main-item-desc'>2017-12-27 20:53</text>
-      </view>
-    </view>
-    <view class='approve-state-item'>
-      <view class='approve-state-item-cover'>
-        <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_faqi.png' />
+      <view class='approve-info-main'>
+        <view class='approve-info-main-item'>
+          <text class='approve-info-main-item-title'>部门：</text>
+          <text class='approve-info-main-item-desc'>{{applyInfo.dealtList[0].deptName==null?'':applyInfo.dealtList[0].deptName}}</text>
+        </view>
+        <view class='approve-info-main-item' wx:if="{{applyInfo.detail.attLT_Name}}">
+          <text class='approve-info-main-item-title'>类别：</text>
+          <text class='approve-info-main-item-desc'>{{applyInfo.detail.attLT_Name==null?'':applyInfo.detail.attLT_Name}}</text>
+        </view>
+        <view class='approve-info-main-item'>
+          <text class='approve-info-main-item-title'>说明：</text>
+          <block wx:if="{{applyInfo.detail.attL_Reason}}">
+            <text class='approve-info-main-item-desc'>{{applyInfo.detail.attL_Reason==null?'':applyInfo.detail.attL_Reason}}</text>
+          </block>
+          <block wx:else>
+            <text class='approve-info-main-item-desc'>{{applyInfo.detail.workflowTitle==null?'':applyInfo.detail.workflowTitle}}</text>
+          </block>
+
+        </view>
+        <view class='approve-info-main-item'>
+          <text class='approve-info-main-item-title'>时间：</text>
+          <text class='approve-info-main-item-desc'>{{applyInfo.dealtList[0].appDealTime}}</text>
         </view>
       </view>
-      <view class='approve-state-item-info'>
-        <image class='approve-state-item-info-avatar' src='{{userInfo.avatarUrl}}'></image>
-        <view class='approve-state-item-info-state-container'>
-          <view class='approve-state-item-info-nick-container'>
-            <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
-            <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
+      <block wx:for="{{applyInfo.dealtList}}" wx:for-item="dealt" wx:key="{{appDID}}" wx:for-index="idx">
+        <view class='approve-state-item'>
+          <view class='approve-state-item-cover'>
+            <view class='approve-state-item-cover-line'>
+              <block wx:if="{{idx==0}}">
+                <image class='approve-state-item-cover-icon' src='/images/workflow/icon_faqi.png' />
+              </block>
+              <block wx:elif="{{dealt.appDealTime}}">
+                <image class='approve-state-item-cover-icon' src='/images/workflow/icon_tongguo.png' />
+
+              </block>
+              <block wx:else>
+                <image class='approve-state-item-cover-icon' src='/images/workflow/icon_dengdai.png' />
+              </block>
+            </view>
           </view>
-          <text class='approve-state-item-info-state info-state-1'>发起</text>
-          <text class='approve-state-item-info-desc'>支付宝钱包之类的第三方支付的发展也局限于线上，对于线下反而不如拉卡拉之类的第三方平台。</text>
-        </view>
-      </view>
-    </view>
-    <view class='approve-state-item'>
-      <view class='approve-state-item-cover'>
-        <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_tongguo.png' />
-        </view>
-      </view>
-      <view class='approve-state-item-info'>
-        <image class='approve-state-item-info-avatar' src='{{userInfo.avatarUrl}}'></image>
-        <view class='approve-state-item-info-state-container'>
-          <view class='approve-state-item-info-nick-container'>
-            <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
-            <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
+          <view class='approve-state-item-info'>
+            <!-- <image class='approve-state-item-info-avatar' src='{{userInfo.avatarUrl}}'></image> -->
+            <view class='approve-state-item-info-state-container'>
+              <view class='approve-state-item-info-nick-container'>
+                <text class='approve-state-item-info-nick'>{{dealt.appDuserName}}</text>
+                <text class='approve-state-item-info-time'>{{dealt.deptName}}</text>
+              </view>
+              <text class='approve-state-item-info-desc'>{{dealt.appDealTime}}</text>
+            </view>
+            <view class='approve-state-item-info-message-view'>
+              <block wx:if="{{idx==0}}">
+                <text class='approve-state-item-info-state info-state-1'>{{dealt.appDname}}</text>
+              </block>
+              <block wx:elif="{{dealt.appDealTime}}">
+                <text class='approve-state-item-info-state info-state-2'>{{dealt.appDname}}</text>
+              </block>
+              <block wx:else>
+                <text class='approve-state-item-info-state info-state-3'>{{dealt.appDname}}</text>
+              </block>
+            </view>
           </view>
-          <text class='approve-state-item-info-state info-state-2'>通过</text>
-          <text class='approve-state-item-info-desc'>同意</text>
         </view>
+      </block>
+    </view>
+    <view class='operation-panel' hidden='{{pageType!=1}}'>
+      <view class='operation-panel-item op-panel-tongguo' bindtap='approvePass'>
+        <image class='operation-panel-item-icon' src='/images/workflow/icon_agree.png'></image>
+        <text class='operation-panel-item-text'>{{operation.appButton[1].buttonValue}}</text>
+      </view>
+      <view class='operation-panel-item op-panel-tuihui' bindtap='approveReject'>
+        <image class='operation-panel-item-icon' src='/images/workflow/icon_back.png'></image>
+        <text class='operation-panel-item-text'>{{operation.appButton[0].buttonValue}}</text>
       </view>
     </view>
-    <view class='approve-state-item'>
-      <view class='approve-state-item-cover'>
-        <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_dengdai.png' />
-        </view>
-      </view>
-      <view class='approve-state-item-info'>
-        <image class='approve-state-item-info-avatar' src='{{userInfo.avatarUrl}}'></image>
-        <view class='approve-state-item-info-state-container'>
-          <view class='approve-state-item-info-nick-container'>
-            <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
-            <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
-          </view>
-          <text class='approve-state-item-info-state info-state-3'>等待</text>
-          <text class='approve-state-item-info-desc'></text>
-        </view>
-      </view>
-    </view>
-    <view class='approve-state-item'>
-      <view class='approve-state-item-cover'>
-        <view class='approve-state-item-cover-line'>
-          <image class='approve-state-item-cover-icon' src='/images/workflow/icon_jujue.png' />
-        </view>
-      </view>
-      <view class='approve-state-item-info'>
-        <image class='approve-state-item-info-avatar' src='{{userInfo.avatarUrl}}'></image>
-        <view class='approve-state-item-info-state-container'>
-          <view class='approve-state-item-info-nick-container'>
-            <text class='approve-state-item-info-nick'>{{userInfo.nickName}}</text>
-            <text class='approve-state-item-info-time'>2017-12-17 20:53</text>
-          </view>
-          <text class='approve-state-item-info-state info-state-4'>退回</text>
-          <text class='approve-state-item-info-desc'>不同意</text>
-        </view>
-      </view>
-    </view>
-  </view>
-  <view class='operation-panel' hidden='{{pageType!=1}}'>
-    <view class='operation-panel-item op-panel-tongguo' bindtap='approvePass'>
-      <image class='operation-panel-item-icon' src='/images/workflow/icon_agree.png'></image>
-      <text class='operation-panel-item-text'>审批通过</text>
-    </view>
-    <view class='operation-panel-item op-panel-tuihui' bindtap='approveReject'>
-      <image class='operation-panel-item-icon' src='/images/workflow/icon_back.png'></image>
-      <text class='operation-panel-item-text'>审批退回</text>
-    </view>
-  </view>
-  <!-- <view class='operation-panel-item-spliter' hidden='{{pageType!=1}}' />
+    <!-- <view class='operation-panel-item-spliter' hidden='{{pageType!=1}}' />
   <view class='operation-panel-spliter' hidden='{{pageType!=1}}' /> -->
-</view>
+  </view>
+</block>

@@ -7,7 +7,7 @@
         <text class="plan-text">年度计划</text>
       </view>
     </navigator>
-    <view class="plan-cell">
+    <view class="plan-cell" bindtap='openQuartDetail'>
       <text class="cricle plan-quart">季</text>
       <text class="plan-text">季度计划</text>
     </view>
