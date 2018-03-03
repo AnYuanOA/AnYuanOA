@@ -1,0 +1,4 @@
+<!--pages/noData/noData.wxml-->
+<view class='no-data-view'>
+      <image src='/images/nodata.png'></image>
+    </view>
