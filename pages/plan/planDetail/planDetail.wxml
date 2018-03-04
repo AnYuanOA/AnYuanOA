@@ -32,8 +32,12 @@
       <block wx:for="{{planData}}" wx:key="{{planDate}}">
         <view class="xf-type-item {{item.open ? 'xf-item-show' : ''}}">
           <view class="xf-head" id="{{item.op05Id}}" bindtap="slideDetail">
-            <text class="xf-type-name-front">{{item.planDate}}</text>
-            <text class="xf-type-name">{{item.planTitle}}</text>
+            <view>
+              <view>
+                <text class="xf-type-name-front">{{item.planDate}}</text>
+              </view>
+              <text class="xf-type-name">{{item.planTitle}}</text>
+            </view>
             <image class="xf-item-icon" src="/images/plan/down1.png"></image>
           </view>
           <view class="xf-detail">

@@ -1,14 +1,21 @@
 <!--pages/board/board.wxml-->
 <view class="container">
-  <block wx:for="{{news}}">
+
+  <block wx:if="{{noData}}">
+    <view class='no-data-view'>
+      <image src='/images/nodata.png'></image>
+    </view>
+  </block>
+
+  <block wx:for="{{news}}" wx:for-index="idx" wx:key="{{msgID}}">
     <view class="news-main">
-      <text class="news-main-title">{{item.title}}</text>
+      <text class="news-main-title">{{item.msgTitle}}</text>
       <view class="news-content">
         <view class="news-img-view">
-          <image src="{{item.pic}}"></image>
+          <image src="{{pics[idx]}}"></image>
         </view>
         <view class="news-content-view">
-          <text>{{item.content}}</text>
+          <text>{{item.msgContent==null?'':item.msgContent}}</text>
         </view>
         <view class="news-file-view" wx:if="{{item.file}}">
           <text class="news-file-view-text">{{item.file}}</text>
@@ -21,7 +28,6 @@
               <text>下载</text>
               <image src="/images/board/icon_download.png"></image>
             </view>
-
           </view>
         </view>
       </view>

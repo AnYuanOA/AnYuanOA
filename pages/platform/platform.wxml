@@ -4,16 +4,17 @@
   <swiper class="news-swiper" autoplay="true" interval="3000" circular="true">
     <block wx:for="{{newsTypes}}" wx:key="{{title}}">
       <swiper-item class="news-item">
-        <view class="item-top">
-          <image class="title-icon" src="/images/platform/icon_news.png"></image>
-          <text class="item-title">{{item.mainTypeName}}</text>
-        </view>
-        <view class="item-bottom">
-          <block wx:for="{{item.subTypes}}" wx:for-item="subType" wx:key="{{subTypeName}}">
-            <text re class="item-detail">{{subType.subTypeName}}</text>
-          </block>
-
-        </view>
+        <navigator url='/pages/board/board?mainType={{item.msgTypeMainID}}'>
+          <view class="item-top">
+            <image class="title-icon" src="/images/platform/icon_news.png"></image>
+            <text class="item-title">{{item.mainTypeName}}</text>
+          </view>
+          <view class="item-bottom">
+            <block wx:for="{{item.subTypes}}" wx:for-item="subType" wx:key="{{subTypeName}}">
+              <text re class="item-detail">{{subType.subTypeName}}</text>
+            </block>
+          </view>
+        </navigator>
       </swiper-item>
     </block>
   </swiper>

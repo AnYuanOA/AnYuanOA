@@ -8,12 +8,12 @@ Page({
   data: {
     newsTypes: null,
     bgItems: [
-      {
-        title: '动态看板',
-        navigator: '/pages/board/board',
-        icon: '/images/platform/icon_kanban.png',
-        bgcolor: '#00cc00'
-      },
+      // {
+      //   title: '动态看板',
+      //   navigator: '/pages/board/board',
+      //   icon: '/images/platform/icon_kanban.png',
+      //   bgcolor: '#00cc00'
+      // },
       {
         title: '计划查看',
         navigator: '/pages/plan/plan',
@@ -82,6 +82,7 @@ Page({
       header: app.globalData.header,
       success: function (res) {
         if (res.data.code == 200) {
+          // console.log(res.data.data)
           that.setData({
             newsTypes: res.data.data
           })
