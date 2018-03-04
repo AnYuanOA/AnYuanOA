@@ -6,7 +6,7 @@
   <view class="login-form">
     <view class="login-input {{userid_focus ? 'active' : ''}}">
       <image class="input-icon" src="/images/index/act.png"></image>
-      <input id="userid" type="number" cursor-spacing="30" class="input-text" placeholder="请输入账号" bindfocus="inputFocus" bindblur="inputBlur" bindinput="useridInput" value="{{userid}}"></input>
+      <input id="userid" cursor-spacing="30" class="input-text" placeholder="请输入账号" bindfocus="inputFocus" bindblur="inputBlur" bindinput="useridInput" value="{{userid}}"></input>
     </view>
     <view class="login-input {{passwd_focus ? 'active' : ''}}">
       <image class="input-icon" src="/images/index/pwd.png"></image>

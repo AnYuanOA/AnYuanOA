@@ -26,7 +26,7 @@ const USER_NOT_BIND_CODE = 10002
 const REQUEST_OK_CODE = 200
 
 
-const BASE_URL = "http://localhost:8080/web-service"
+const BASE_URL = "http://101.37.171.186:8081/web-service"
 /**
  * 使用用户名密码登录并绑定openID
  */

@@ -80,7 +80,7 @@ App({
     openId: '',
     userInfo: null,
     header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8','Cookie': null },
-    hostUrl: 'http://localhost:8080/web-service',
+    hostUrl: 'http://101.37.171.186:8081/web-service',
     appId: 'wx9b93f178992ef513',
     secret: 'b7fc5c9a38fb6252ca149a11e4efe43b'
   },
