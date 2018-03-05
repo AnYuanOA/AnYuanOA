@@ -38,6 +38,7 @@ Page({
     }, {
       success: function(data) {
         app.globalData.header.Cookie = 'JSESSIONID=' + data;
+        app.globalData.header.JSESSIONID = data;
         //写入小程序登录态缓存
         wx.setStorage({
           key: 'login_jsession',

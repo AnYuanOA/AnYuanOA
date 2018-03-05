@@ -1,7 +1,7 @@
 const StropheLib = require("./strophe.js")
 const Strophe = StropheLib.Strophe
 
-const BOSH_SERVICE = 'wss://101.37.171.186:7443/ws/'
+const BOSH_SERVICE = 'wss://weixin.anyuanhb.com:7443/ws/'
 const domain = 'anyuan.im'
 const suffix = '@'+domain
 
@@ -62,6 +62,7 @@ class IMLib {
           return self.handleMessage(msg)
         }, null, 'message', null, null, null);
       }
+      console.log(status)
     })
   }
 

@@ -34,7 +34,7 @@ Page({
     var username = options.name.split(",")[0];
     var name = options.name.split(",")[1];
     var head = options.name.split(",")[2];
-    var my = wx.getStorageSync('login_act');
+    var my = app.getLocalUserInfo().userName;
 
     console.log(username)
     console.log(name)
@@ -139,6 +139,9 @@ Page({
       this.data.toUser,
       MessageType.TEXT,
       this.data.userMessage.trim());
+    if(!this.data.messageData){
+      this.data.messageData = []
+    }
     this.data.messageData.unshift(msg)
 
     msg.toAvator = this.data.toUserHead

@@ -54,12 +54,12 @@ function getChatOfMessage(chatList, message) {
     if (chat.target==from || chat.target==to){
       theChat = chat
       //如果消息不是自己发送出去的，则更新聊天信息
-      if(currentUsername != message.from){
+      if(currentUsername != from){
         theChat.avator = message.fromAvator
         theChat.name = message.fromName
-        theChat.lastTime = message.time
-        theChat.lastContent = getPreviewContent(message)
       }
+      theChat.lastTime = message.time
+      theChat.lastContent = getPreviewContent(message)
       chatList.splice(i, 1)
       break
     }

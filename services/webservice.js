@@ -27,6 +27,7 @@ const REQUEST_OK_CODE = 200
 
 
 const BASE_URL = "https://weixin.anyuanhb.com/web-service"
+// const BASE_URL = "http://localhost:8080/web-service"
 /**
  * 使用用户名密码登录并绑定openID
  */
@@ -132,22 +133,11 @@ function login(params, callback) {
           key: SESSIONID_KEY,
           data: res.data.data,
         })
-        request({
-          url: GET_SELF_USERINFO_URL,
-          params: {
-            openId: params.openId 
-          },
-          success: function(res) {
-            if (res.data.code == REQUEST_OK_CODE){
-              params.user = res.data.data
-              wx.setStorageSync("USER_INFO", params)
-            }
-          },
-          fail: function(){}
+        loadUserInfo(params.openId, function(){
+          if (callback && callback.success) {
+            callback.success(res.data.data)
+          }
         })
-        if (callback && callback.success) {
-          callback.success(res.data.data)
-        }
       } else {
         if (callback && callback.fail) {
           callback.fail(res.data.message)
@@ -159,6 +149,36 @@ function login(params, callback) {
         callback.fail("网络请求失败")
       }
     }
+  })
+}
+
+/**
+ * 加载用户信息
+ */
+function loadUserInfo(openId, callback) {
+  request({
+    url: GET_SELF_USERINFO_URL,
+    params: {
+      openId: openId
+    },
+    success: function (res) {
+      if (res.data.code == REQUEST_OK_CODE) {
+        var user = res.data.data
+        var userInfo = {}
+        userInfo.user = user
+        userInfo.userName = user.userName
+        userInfo.account = user.userName
+        userInfo.openId = openId
+        userInfo.password = user.wPassword
+        userInfo.chatNick = user.chatNick
+        userInfo.avatarUrl = user.avatarUrl
+        wx.setStorageSync("USER_INFO", userInfo)
+      }
+      if(callback){
+        callback()
+      }
+    },
+    fail: function () { }
   })
 }
 
@@ -376,5 +396,6 @@ module.exports = {
   loadRestTypeList: loadRestTypeList,
   levealApply: levealApply,
   loadUsCarTypeList: loadUsCarTypeList,
-  usCarApply: usCarApply
+  usCarApply: usCarApply,
+  loadUserInfo: loadUserInfo
 }

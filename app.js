@@ -34,15 +34,19 @@ App({
             _that.globalData.openId = res.data.data.openid;
             //使用openId登录webservice服务器
             WebService.loginWithOpenID(res.data.data.openid, {
-              success: function () {
-                var userInfo = _that.getLocalUserInfo()
-                _that.imLogin(userInfo.userName, userInfo.password, function (isSuccess) {
-                  if (!isSuccess) {//IM未登录成功
-                    wx.redirectTo({
-                      url: '/pages/login/login'
-                    })
-                  }
-                }) 
+              success: function (data) {
+                _that.globalData.header.Cookie = 'JSESSIONID=' + data
+                _that.globalData.header.JSESSIONID = data
+                WebService.loadUserInfo(res.data.data.openid, function(){
+                  var userInfo = _that.getLocalUserInfo()
+                  _that.imLogin(userInfo.userName, userInfo.password, function (isSuccess) {
+                    // if (!isSuccess) {//IM未登录成功
+                    //   wx.redirectTo({
+                    //     url: '/pages/login/login'
+                    //   })
+                    // }
+                  }) 
+                })
               },
               fail: function() {
                 wx.redirectTo({
@@ -118,9 +122,10 @@ App({
       if(callback){
         if (status == IMLibStatus.CONNECTED) {
           callback(true)
-        } else {
-          callback(false)
-        }
+        } 
+        // else {
+        //   callback(false)
+        // }
       }
       im.listen({
         onTextMessage: function (msg) {
@@ -171,8 +176,13 @@ App({
     pwdid: '',
     openId: '',
     userInfo: null,
-    header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8', 'Cookie': null },
+    header: { 
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8', 
+      'Cookie': null,
+      JSESSIONID: null 
+    },
     hostUrl: 'https://weixin.anyuanhb.com/web-service',
+    // hostUrl: 'http://localhost:8080/web-service',
     appId: 'wx42c2b2080fd58ff9',
     secret: 'a1eeab18ed1e785741946e3c29499a0c'
   },
