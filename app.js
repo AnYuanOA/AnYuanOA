@@ -14,6 +14,7 @@ App({
             'content-type': 'application/json'
           },
           success: function (res) {
+            console.log(res.data.openid)
             _that.globalData.openId = res.data.openid;
             //使用openId登录webservice服务器
             WebService.loginWithOpenID(res.data.openid)
@@ -80,9 +81,9 @@ App({
     openId: '',
     userInfo: null,
     header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8','Cookie': null },
-    hostUrl: 'http://101.37.171.186:8081/web-service',
-    appId: 'wx9b93f178992ef513',
-    secret: 'b7fc5c9a38fb6252ca149a11e4efe43b'
+    hostUrl: 'https://weixin.anyuanhb.com/web-service',
+    appId: 'wx42c2b2080fd58ff9',
+    secret: 'a1eeab18ed1e785741946e3c29499a0c'
   },
   showErrorModal: function (title, content) {
     wx.showModal({

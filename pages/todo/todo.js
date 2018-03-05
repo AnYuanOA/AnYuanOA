@@ -32,9 +32,11 @@ Page({
       that.data.lastAppId,
       {
         success: function (data) {
-          that.setData({
-            todoList: data.wfList
-          });
+          if (data.wfList && data.wfList.length > 0) {
+            that.setData({
+              todoList: data.wfList
+            });
+          }
         },
         fail: function (msg) {
           console.log(msg)
@@ -46,9 +48,12 @@ Page({
       that.data.currentPage,
       {
         success: function (data) {
-          that.setData({
-            toReadList: data.waitList
-          });
+          if (data.waitList && data.waitList.length > 0) {
+            that.setData({
+              toReadList: data.waitList
+            });
+          }
+
         },
         fail: function (msg) {
           console.log(msg)
