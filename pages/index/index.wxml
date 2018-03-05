@@ -1,23 +1,25 @@
 <!--index.wxml-->
 <view class="container">
 
-  <navigator url="/pages/event/event">
-    <view class='list-item'>
-      <image class='list-item-icon' src='/images/icon_index_todo.png' />
-      <view class='list-item-badge'>99</view>
-      <view class='list-item-content'>
-        <view class='list-item-content-title-container'>
-          <view class='list-item-content-title'>我的待办</view>
-          <view class='list-item-content-time'>2018/1/11</view>
-        </view>
-        <view class='list-item-content-desc'>
-          王洋的请假流程待审批，请及时处理！
+  <block wx:for="{{chatList}}" wx:for-index="idx" wx:for-item="chat">
+    <navigator url='{{chat.url ? chat.url:"/pages/message/newMessage/newMessage?name="+chat.target+","+chat.name+","+chat.avator}}'>
+      <view class='list-item'>
+        <image class='list-item-icon' src='{{chat.avator}}' />
+        <view class='list-item-badge'>99</view>
+        <view class='list-item-content'>
+          <view class='list-item-content-title-container'>
+            <view class='list-item-content-title'>{{chat.name}}</view>
+            <view class='list-item-content-time'>{{chat.lastTime}}</view>
+          </view>
+          <view class='list-item-content-desc'>
+            {{chat.lastContent}}
+          </view>
         </view>
       </view>
-    </view>
-  </navigator>
+    </navigator>
+  </block>
   
-  <navigator url="/pages/event/event">
+  <!-- <navigator url="/pages/event/event">
     <view class='list-item'>
       <image class='list-item-icon' src='/images/icon_index_cc.png' />
       <view class='list-item-badge'>99</view>
@@ -47,7 +49,7 @@
         </view>
       </view>
     </view>
-  </navigator>
+  </navigator> -->
   <!-- <view class='list-item'>
     <image class='list-item-icon' src='/images/icon_index_news.jpg'/>
     <view class='list-item-badge'>3</view>
@@ -106,7 +108,7 @@
     </view>
   </view> -->
 
-  <navigator url="/pages/message/message">
+  <!-- <navigator url="/pages/message/message">
     <view class='list-item'>
       <image class='list-item-icon' src='/images/icon_index_man1.jpg' />
       <view class='list-item-badge'>1</view>
@@ -165,5 +167,5 @@
         </view>
       </view>
     </view>
-  </navigator>
+  </navigator> -->
 </view>

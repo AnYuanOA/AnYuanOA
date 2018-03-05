@@ -1,5 +1,20 @@
 //app.js
+/**
+ * 接口服务
+ */
 const WebService = require("services/webservice.js")
+
+/**
+ * IM服务
+ */
+const chatLib = require("services/im/IMLib.js")
+const IMLib = chatLib.IMLib
+const IMLibStatus = chatLib.IMLibStatus
+const Message = chatLib.Message
+const MessageType = chatLib.MessageType
+const ChatStore = require("utils/chatstore.js")
+const im = new IMLib()
+
 App({
   onLaunch: function () {
     var _that = this;
@@ -15,11 +30,26 @@ App({
             'content-type': 'application/json'
           },
           success: function (res) {
-            if (res.data.code==200){
-              _that.globalData.openId = res.data.data.openid;
-              //使用openId登录webservice服务器
-              WebService.loginWithOpenID(res.data.openid)
-            }
+            console.log(res.data.data.openid)
+            _that.globalData.openId = res.data.data.openid;
+            //使用openId登录webservice服务器
+            WebService.loginWithOpenID(res.data.data.openid, {
+              success: function () {
+                var userInfo = _that.getLocalUserInfo()
+                _that.imLogin(userInfo.userName, userInfo.password, function (isSuccess) {
+                  if (!isSuccess) {//IM未登录成功
+                    wx.redirectTo({
+                      url: '/pages/login/login'
+                    })
+                  }
+                }) 
+              },
+              fail: function() {
+                wx.redirectTo({
+                  url: '/pages/login/login'
+                })
+              }
+            })
           }
         })
       }
@@ -77,6 +107,65 @@ App({
       },
     })
   },
+  /**
+   * IM登录
+   * @params username IM用户名
+   * @params password IM密码
+   * @params callback 登录后回调  callback(isSuccess)
+   */
+  imLogin: function(username, password, callback) {
+    im.connect(username, password, function (status) {
+      if(callback){
+        if (status == IMLibStatus.CONNECTED) {
+          callback(true)
+        } else {
+          callback(false)
+        }
+      }
+      im.listen({
+        onTextMessage: function (msg) {
+          //存储消息
+          ChatStore.saveMessage(msg)
+          //通知收到消息，刷新界面
+          if (getApp().imMessageListener){
+            getApp().imMessageListener()
+          }
+          console.log(msg)
+        }
+      })
+    })
+  },
+  /**
+   * 设置收到IM消息的回调函数
+   */
+  setImMessageListener:function(imMessageListener) {
+    this.imMessageListener = imMessageListener
+  },
+  imMessageListener: null,
+  /**
+   * 发送IM消息
+   */
+  sendImMessage:function(message) {
+    //存储消息
+    ChatStore.saveMessage(message)
+    im.sendMessage(message)
+  },
+  /**
+   * 发送文本消息
+   * @params toUserName 目标用户
+   * @params content 文本内容
+   */
+  sendTextMessage:function(toUserName, content) {
+    var userInfo = this.getLocalUserInfo()
+    var message = new Message(
+      userInfo.userName, 
+      userInfo.user.cName, 
+      userInfo.user.avatarUrl,
+      toUserName,
+      MessageType.TEXT,
+      content)
+    im.sendMessage(message)
+  },
   globalData: {
     userid: '',
     pwdid: '',
@@ -86,6 +175,10 @@ App({
     hostUrl: 'https://weixin.anyuanhb.com/web-service',
     appId: 'wx42c2b2080fd58ff9',
     secret: 'a1eeab18ed1e785741946e3c29499a0c'
+  },
+  getLocalUserInfo: function() {
+    var userInfo = wx.getStorageSync("USER_INFO")
+    return userInfo
   },
   showErrorModal: function (title, content) {
     wx.showModal({

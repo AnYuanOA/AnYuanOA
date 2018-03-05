@@ -1,12 +1,11 @@
 // pages/message/newMessage/newMessage.js
 const chatLib = require("../../../services/im/IMLib.js")
-var util = require('../../../utils/util.js');  
-const IMLib = chatLib.IMLib
-const IMLibStatus = chatLib.IMLibStatus
+var util = require('../../../utils/util.js');
 const Message = chatLib.Message
 const MessageType = chatLib.MessageType
+const Chat = chatLib.Chat
+const ChatStore = require("../../../utils/chatstore.js")
 
-const im = require('../../login/login.js').im;
 const app = getApp()
 Page({
 
@@ -36,6 +35,10 @@ Page({
     var name = options.name.split(",")[1];
     var head = options.name.split(",")[2];
     var my = wx.getStorageSync('login_act');
+
+    console.log(username)
+    console.log(name)
+    console.log(head)
     
     if (head == null || head == "" || head == 'null'){
       head = '/images/login_head.jpg';
@@ -45,21 +48,18 @@ Page({
       title: name
     })
 
-    console.log(wx.getStorageSync(my + username));
-
     this.setData({
       imConnectStatus : wx.getStorageSync('im_connect_staus'),
       loginPwd : wx.getStorageSync('login_pwd'),
       mine: my,
       toUser : username,
+      toUserCname: name,
       userInfo : app.globalData.userInfo,
       toUserHead : head,
       nowDate : util.formatDate(new Date()),
-      messageData : wx.getStorageSync(my + username) || []
     })
-    
 
-
+    this.loadMessageList()
   },
 
   /**
@@ -111,6 +111,13 @@ Page({
   
   },
 
+  loadMessageList: function() {
+    var messageList = ChatStore.getChatMessageListByTarget(this.data.toUser)
+    this.setData({
+      messageData: messageList
+    })
+  },
+
   bindMessage: function (e) {
     this.setData({
       userMessage: e.detail.value
@@ -119,52 +126,27 @@ Page({
 
   sendMessage: function (e) {
 
-    if (!this.data.userMessage.trim()) return;
+    if (!this.data.userMessage.trim()) return
 
-    var that = this;
-    var nowTime = util.formatTime(new Date());  
-
+    var that = this
+    var nowTime = util.formatTime(new Date())  
+    var userInfo = app.getLocalUserInfo()
+    
     const msg = new Message(
-      this.data.mine,
+      userInfo.userName,
+      userInfo.user.cName,
+      userInfo.avatarUrl,
       this.data.toUser,
-      nowTime,
       MessageType.TEXT,
       this.data.userMessage.trim());
+    this.data.messageData.unshift(msg)
 
-    if (this.data.imConnectStatus == IMLibStatus.CONNECTED) {
+    msg.toAvator = this.data.toUserHead
+    msg.toName = this.data.toUserCname
+    app.sendImMessage(msg)
 
-      im.sendMessage(msg);
-
-    } else {
-
-      im.connect(this.data.mine, this.data.loginPwd, function (status) {
-        if (status == IMLibStatus.CONNECTED) {
-          im.sendMessage(msg)
-        }
-      })
-
-    }
-
-    var msgData = {
-      user: this.data.mine,
-      message: this.data.userMessage.trim(),
-      date: nowTime.split(" ")[0],
-      time: nowTime.split(" ")[1]
-    }
-
-
-    that.data.messageData.push(msgData)
-
-    that.setData({
-      messageData: that.data.messageData
+    this.setData({
+      messageData: this.data.messageData
     })
-
-    console.log(this.data.mine + this.data.toUser);
-
-    wx.setStorage({
-      key: this.data.mine + this.data.toUser,
-      data: that.data.messageData
-    })
-
   }
 })

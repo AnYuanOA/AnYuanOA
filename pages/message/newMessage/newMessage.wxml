@@ -1,41 +1,39 @@
 <view class='container'>
   <view class='message-main'>
     <view class='message-cont' wx:for-items="{{messageData}}">
-      <block wx:if="{{item.user==mine}}">       
-
-          <block wx:if="{{item.date==nowDate}}">  
-            <view class='message-time {{item.time}}'>
+      <block wx:if="{{item.fromUserName==mine}}">       
+        <block wx:if="{{item.date==nowDate}}">  
+          <view class='message-time {{item.time}}'>
             <text wx:if='{{item.time}}'>{{item.time}}</text>
-			</view>
-          </block>
-          <block wx:else>
-            <view class='message-time {{item.date}} {{item.time}}'>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='message-time {{item.date}} {{item.time}}'>
             <text wx:if='{{item.time}}'>{{item.date}} {{item.time}}</text>
-			</view>
-          </block>
+          </view>
+        </block>
 
         <view class='message-detail-m'>
-          <text class='message-text-m'>{{item.message}}</text>
+          <text class='message-text-m'>{{item.content}}</text>
           <image class='message-head' src='{{userInfo.avatarUrl}}'></image>
         </view>
       </block>
       
       <block wx:else>
-
-          <block wx:if="{{item.date==nowDate}}">  
-            <view class='message-time {{item.time}}'>
+        <block wx:if="{{item.date==nowDate}}">  
+          <view class='message-time {{item.time}}'>
             <text wx:if='{{item.time}}'>{{item.time}}</text>
-			</view>
-          </block>
-          <block wx:else>
-            <view class='message-time {{item.date}} {{item.time}}'>
+          </view>
+        </block>
+        <block wx:else>
+          <view class='message-time {{item.date}} {{item.time}}'>
             <text wx:if='{{item.time}}'>{{item.date}} {{item.time}}</text>
-			</view>
-          </block>
+          </view>
+        </block>
 
         <view class='message-detail-o'>
           <image class='message-head' src='{{toUserHead}}'></image>
-          <text class='message-text-o'>{{item.message}}</text>
+          <text class='message-text-o'>{{item.content}}</text>
         </view>
       </block>
     </view>

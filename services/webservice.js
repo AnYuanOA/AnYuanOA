@@ -67,6 +67,10 @@ const SUBMIT_USCAR_URL = "/workflow/submitUsingCar";
  * 办理流程
  */
 const PROCESS_WORKFLOW_URL = "/workflow/processWorkflow";
+/**
+ * 获取当前用户信息
+ */
+const GET_SELF_USERINFO_URL = "/user/getSelfUser"
 
 /**
  * 发起网络请求
@@ -127,6 +131,19 @@ function login(params, callback) {
         wx.setStorage({
           key: SESSIONID_KEY,
           data: res.data.data,
+        })
+        request({
+          url: GET_SELF_USERINFO_URL,
+          params: {
+            openId: params.openId 
+          },
+          success: function(res) {
+            if (res.data.code == REQUEST_OK_CODE){
+              params.user = res.data.data
+              wx.setStorageSync("USER_INFO", params)
+            }
+          },
+          fail: function(){}
         })
         if (callback && callback.success) {
           callback.success(res.data.data)

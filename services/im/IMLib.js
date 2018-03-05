@@ -52,6 +52,7 @@ class IMLib {
       if (callback) {
         callback(status)
       }
+      this.username = username
 
       if (status == Strophe.Status.CONNECTED) {
         console.log("连接及时通讯服务器成功");
@@ -90,6 +91,8 @@ class IMLib {
       type: "chat",
       to: message.to,
       from: message.from,
+      fromAvator:message.fromAvator,
+      fromName:message.fromName,
       msgTime: message.time,
       msgType: message.type+""
     }).cnode(Strophe.xmlElement('body', '', message.content))
@@ -100,8 +103,11 @@ class IMLib {
    * 处理消息
    */
   handleMessage(msg) {
+    console.log(msg)
     const to = msg.getAttribute('to')
     const from = msg.getAttribute('from')
+    const fromAvator = msg.getAttribute('fromAvator')
+    const fromName = msg.getAttribute('fromName')
     const type = msg.getAttribute('type')
     const msgTime = msg.getAttribute('msgTime')
     const msgType = parseInt(msg.getAttribute('msgType'))
@@ -110,12 +116,12 @@ class IMLib {
     if (type == "chat" && elems.length > 0) {
       const body = elems[0]
       const content = Strophe.getText(body)
-      const message = new Message(from, to, msgTime, msgType, content)
-      if(msgType == MessageType.TEXT){
+      const message = new Message(from, fromName, fromAvator, to, msgTime, msgType, content)
+      // if(msgType == MessageType.TEXT){
         if (this.callbacks.onTextMessage) {
           this.callbacks.onTextMessage(message)
         }
-      }
+      // }
     }
     return true
   }
@@ -124,25 +130,75 @@ class IMLib {
 /***
  * 消息
  * @property from    消息发送者ID
+ * @property fromName 消息发送者昵称
+ * @property fromAvator 消息发送者头像
  * @property to      消息接收者ID
  * @property time    消息发送时间
  * @property type    MessageType 消息类型
  * @property content 消息内容
  */
 class Message {
-  constructor(from, to, time, type, content){
-    this.from = from
-    this.to = to
-    this.time = time
+  constructor(from, fromName, fromAvator, to, type, content){
+    this.from = from + suffix 
+    this.fromUserName = from
+    this.fromName = fromName
+    this.fromAvator = fromAvator
+    this.to = to + suffix
+    this.toUserName = to
+    this.time = getNowFormatDate()
     this.type = type
     this.content = content
     this.MessageType = MessageType
   }
 }
 
+function getNowFormatDate() {
+  var date = new Date();
+  var seperator1 = "-";
+  var seperator2 = ":";
+  var month = date.getMonth() + 1;
+  var strDate = date.getDate();
+  if (month >= 1 && month <= 9) {
+    month = "0" + month;
+  }
+  if (strDate >= 0 && strDate <= 9) {
+    strDate = "0" + strDate;
+  }
+  var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+    + " " + date.getHours() + seperator2 + date.getMinutes()
+    + seperator2 + date.getSeconds();
+  return currentdate;
+}
+
+/**
+ * 聊天项
+ * @property avator 聊天项图标(对方头像，群组头像，或其它系统消息类型图标)
+ * @property name   聊天项名称(对象昵称，群组名称，或其它系统消息类型名称)
+ * @property target 聊天对象id
+ * @property lastTime 最后一条消息的时间
+ * @property lastContent 最后一条消息内容
+ * @property messages    聊天项包含的消息数组
+ */
+class Chat {
+  constructor(avator, name, target, lastTime, lastContent, messages) {
+    this.avator = avator
+    this.name = name
+    this.target = target
+    this.lastTime = lastTime
+    this.lastContent = lastContent
+    this.messages = messages
+  }
+}
+
+/**
+ * const msg = new Message("test01@10.0.9.201", "test02@10.0.9.201", "2018-01-21 22:03:32", MessageType.TEXT, "呵呵呵")
+        im.sendMessage(msg)
+ */
+
 module.exports = {
   IMLib: IMLib,
   Message: Message,
   IMLibStatus: Status,
-  MessageType: MessageType
+  MessageType: MessageType,
+  Chat: Chat
 }
