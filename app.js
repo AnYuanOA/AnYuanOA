@@ -6,18 +6,20 @@ App({
     // 登录微信小程序后台获取当前用户openid
     wx.login({
       success: res => {
+        console.log()
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         wx.request({
-          url: 'https://api.weixin.qq.com/sns/jscode2session?appid=' + _that.globalData.appId + '&secret=' + _that.globalData.secret + '&js_code=' + res.code + '&grant_type=authorization_code',
-          data: {},
+          url: this.globalData.hostUrl + "/login/getUserOpenId",
+          data: { jsCode: res.code },
           header: {
             'content-type': 'application/json'
           },
           success: function (res) {
-            console.log(res.data.openid)
-            _that.globalData.openId = res.data.openid;
-            //使用openId登录webservice服务器
-            WebService.loginWithOpenID(res.data.openid)
+            if (res.data.code==200){
+              _that.globalData.openId = res.data.data.openid;
+              //使用openId登录webservice服务器
+              WebService.loginWithOpenID(res.data.openid)
+            }
           }
         })
       }
@@ -80,7 +82,7 @@ App({
     pwdid: '',
     openId: '',
     userInfo: null,
-    header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8','Cookie': null },
+    header: { 'content-type': 'application/x-www-form-urlencoded;charset=utf-8', 'Cookie': null },
     hostUrl: 'https://weixin.anyuanhb.com/web-service',
     appId: 'wx42c2b2080fd58ff9',
     secret: 'a1eeab18ed1e785741946e3c29499a0c'
