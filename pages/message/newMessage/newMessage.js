@@ -29,6 +29,8 @@ Page({
    */
   onLoad: function (options) {
 
+    app.setImMessageListener(this.onReceiveImMessage)
+
     var that = this
 
     var username = options.name.split(",")[0];
@@ -87,7 +89,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+    app.removeImMessageListener(this.onReceiveImMessage)
   },
 
   /**
@@ -109,6 +111,15 @@ Page({
    */
   onShareAppMessage: function () {
   
+  },
+
+  /**
+   * 收到im消息
+   */
+  onReceiveImMessage: function(msg) {
+    if(msg.toUserName == this.data.mine){
+      this.loadMessageList()
+    }
   },
 
   loadMessageList: function() {

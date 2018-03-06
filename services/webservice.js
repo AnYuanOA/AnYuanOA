@@ -129,10 +129,7 @@ function login(params, callback) {
     params: params,
     success: function(res){
       if (res.data.code == REQUEST_OK_CODE) {
-        wx.setStorage({
-          key: SESSIONID_KEY,
-          data: res.data.data,
-        })
+        wx.setStorageSync(SESSIONID_KEY, res.data.data)
         loadUserInfo(params.openId, function(){
           if (callback && callback.success) {
             callback.success(res.data.data)
@@ -195,10 +192,7 @@ function loginWithOpenID(openID, callback) {
     },
     success: function(res) {
       if (res.data.code == REQUEST_OK_CODE) {
-        wx.setStorage({
-          key: SESSIONID_KEY,
-          data: res.data.data,
-        })
+        wx.setStorageSync(SESSIONID_KEY, res.data.data)
         if (callback && callback.success) {
           callback.success(res.data.data)
         }

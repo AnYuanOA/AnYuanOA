@@ -117,7 +117,24 @@ class IMLib {
     if (type == "chat" && elems.length > 0) {
       const body = elems[0]
       const content = Strophe.getText(body)
-      const message = new Message(from, fromName, fromAvator, to, msgTime, msgType, content)
+      var realFrom = null
+      var realTo = null
+      var fromArray = from.split("@")
+      if(fromArray.length > 0){
+        realFrom = fromArray[0]
+      }
+      var toArray = to.split("@")
+      if(toArray.length > 0){
+        realTo = toArray[0]
+      }
+      if(!realFrom) {
+        realFrom = from
+      }
+
+      if(!realTo){
+        realTo = to
+      }
+      const message = new Message(realFrom, fromName, fromAvator, realTo, msgTime, msgType, content)
       // if(msgType == MessageType.TEXT){
         if (this.callbacks.onTextMessage) {
           this.callbacks.onTextMessage(message)

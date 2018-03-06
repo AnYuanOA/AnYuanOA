@@ -37,6 +37,7 @@ App({
               success: function (data) {
                 _that.globalData.header.Cookie = 'JSESSIONID=' + data
                 _that.globalData.header.JSESSIONID = data
+
                 WebService.loadUserInfo(res.data.data.openid, function(){
                   var userInfo = _that.getLocalUserInfo()
                   _that.imLogin(userInfo.userName, userInfo.password, function (isSuccess) {
@@ -132,8 +133,13 @@ App({
           //存储消息
           ChatStore.saveMessage(msg)
           //通知收到消息，刷新界面
-          if (getApp().imMessageListener){
-            getApp().imMessageListener()
+          if (getApp().imMessageListeners){
+            for (var i = 0; i < getApp().imMessageListeners.length; i++){
+              var listener = getApp().imMessageListeners[i]
+              if(listener){
+                listener(msg)
+              }
+            }
           }
           console.log(msg)
         }
@@ -144,9 +150,18 @@ App({
    * 设置收到IM消息的回调函数
    */
   setImMessageListener:function(imMessageListener) {
-    this.imMessageListener = imMessageListener
+    this.imMessageListeners.push(imMessageListener)
   },
-  imMessageListener: null,
+  /**
+   * 删除IM消息监听函数
+   */
+  removeImMessageListener:function(imMessageListener) {
+    var index = this.imMessageListeners.indexOf(imMessageListener)
+    if(index >= 0){
+      this.imMessageListeners.splice(index, 1)
+    }
+  },
+  imMessageListeners: [],
   /**
    * 发送IM消息
    */
