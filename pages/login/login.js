@@ -55,15 +55,16 @@ Page({
         })
         //连接IM服务
         app.imLogin(that.data.userid, that.data.passwd, function(isSuccess){
-          wx.hideToast();
-          if(isSuccess){
-            //跳转
-            wx.switchTab({
-              url: '/pages/index/index'
-            })
-          }else {
-            app.showErrorModal('提示', '登录失败')
-          }
+          // if(isSuccess){
+            
+          // }else {
+          //   app.showErrorModal('提示', '登录失败')
+          // }
+        })
+        //跳转
+        wx.hideToast();
+        wx.switchTab({
+          url: '/pages/index/index'
         })
       },
       fail: function(msg) {
