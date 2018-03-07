@@ -5588,6 +5588,7 @@ var $pres = null;
           console.log('WebSocket连接已经关闭!')
 
           self.socket.onclose.call(self);
+          this.socket = null
         })
       },
 
@@ -5759,12 +5760,9 @@ var $pres = null;
        *
        *  Closes the socket if it is still open and deletes it
        */
-      // _closeSocket: function () {
-      //     if (this.socket) { try {
-      //         this.socket.close();
-      //     } catch (e) {} }
-      //     this.socket = null;
-      // },
+      _closeSocket: function () {
+        wx.closeSocket()
+      },
 
       /** PrivateFunction: _emptyQueue
        * _Private_ function to check if the message queue is empty.

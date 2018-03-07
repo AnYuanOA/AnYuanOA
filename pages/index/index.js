@@ -109,6 +109,7 @@ Page({
    */
   onReceiveImMessage: function() {
     //查询本地消息，刷新界面
+    this.loadChatList()
   },
 
   /**

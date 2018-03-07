@@ -13,7 +13,7 @@ const IMLibStatus = chatLib.IMLibStatus
 const Message = chatLib.Message
 const MessageType = chatLib.MessageType
 const ChatStore = require("utils/chatstore.js")
-const im = new IMLib()
+var im = new IMLib()
 
 App({
   onLaunch: function () {
@@ -111,6 +111,23 @@ App({
         _that.globalData.header.Cookie = 'JSESSIONID=' + res.data;
       },
     })
+  },
+  onShow: function (options) {
+    //检查登录状态，若已登录则检查IM连接状态，IM未连接的需要重新连接
+    if (this.isFromHide){
+      var userInfo = this.getLocalUserInfo()
+      if (userInfo) {
+        var userName = userInfo.userName
+        var password = userInfo.password
+        if (userName && password) {
+          this.imLogin(userName, password)
+        }
+      }
+    }
+  },
+  onHide: function () {
+    this.isFromHide = true
+    im.disconnect()
   },
   /**
    * IM登录

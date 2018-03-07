@@ -81,7 +81,7 @@ function getChatOfMessage(chatList, message) {
       }else{
         theChat.avator = message.fromAvator
         theChat.name = message.fromName
-        theChat.target = message.from
+        theChat.target = message.fromUserName
       }
 
       theChat.lastTime = message.time

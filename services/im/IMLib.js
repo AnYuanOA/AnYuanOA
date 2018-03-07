@@ -53,16 +53,16 @@ class IMLib {
         callback(status)
       }
       this.username = username
-
+      
       if (status == Strophe.Status.CONNECTED) {
         console.log("连接及时通讯服务器成功");
+        this.status = Status.CONNECTED
         //发送上线消息
         self.connection.send($pres());
         self.connection.addHandler(function (msg) {
           return self.handleMessage(msg)
         }, null, 'message', null, null, null);
       }
-      console.log(status)
     })
   }
 
@@ -134,7 +134,8 @@ class IMLib {
       if(!realTo){
         realTo = to
       }
-      const message = new Message(realFrom, fromName, fromAvator, realTo, msgTime, msgType, content)
+      const message = new Message(realFrom, fromName, fromAvator, realTo, msgType, content)
+      message.time = msgTime
       // if(msgType == MessageType.TEXT){
         if (this.callbacks.onTextMessage) {
           this.callbacks.onTextMessage(message)
