@@ -1,7 +1,8 @@
 const StropheLib = require("./strophe.js")
 const Strophe = StropheLib.Strophe
 
-const BOSH_SERVICE = 'wss://weixin.anyuanhb.com:7443/ws/'
+const BOSH_SERVICE = 'wss://weixin.anyuanhb.com/ws/'
+// const BOSH_SERVICE = 'wss://localhost:8443/ws/'
 const domain = 'anyuan.im'
 const suffix = '@'+domain
 

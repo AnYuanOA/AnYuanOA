@@ -27,7 +27,7 @@ const REQUEST_OK_CODE = 200
 
 
 const BASE_URL = "https://weixin.anyuanhb.com/web-service"
-// const BASE_URL = "http://localhost:8080/web-service"
+// const BASE_URL = "https://localhost:8443/web-service"
 /**
  * 使用用户名密码登录并绑定openID
  */
