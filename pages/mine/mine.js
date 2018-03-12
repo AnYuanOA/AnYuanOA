@@ -1,5 +1,7 @@
 // pages/mine/mine.js
 const app = getApp()
+const WebService = require("../../services/webservice.js")
+
 Page({
 
   /**
@@ -110,20 +112,28 @@ Page({
   },
 
   /**
-   * 用户点击清除缓存
+   * 用户点击解除绑定
    */
   openclearmodal: function () {
     wx.showModal({
       title: '提示',
-      content: '清除缓存将同时解除账号绑定，是否确认清除缓存？',
+      content: '解除账号绑定同时将清除聊天记录等缓存，是否确认解除绑定？',
       success: function (res) {
         if (res.confirm) {
-          wx.clearStorage();
-          wx.redirectTo({
-            url: '/pages/login/login',
+          app.showLoadToast('处理中...')
+          WebService.logoutWithOpenId(app.globalData.openId, {
+            success: function(){
+              wx.hideToast()
+              wx.clearStorage();
+              wx.redirectTo({
+                url: '/pages/login/login',
+              })
+            },
+            fail: function(msg) {
+              wx.hideToast()
+              app.showErrorModal('提示', msg)
+            }
           })
-        } else if (res.cancel) {
-
         }
       }
     })

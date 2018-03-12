@@ -27,7 +27,7 @@ const REQUEST_OK_CODE = 200
 
 
 const BASE_URL = "https://weixin.anyuanhb.com/web-service"
-// const BASE_URL = "https://localhost:8443/web-service"
+// const BASE_URL = "http://localhost:8080/web-service"
 /**
  * 使用用户名密码登录并绑定openID
  */
@@ -36,6 +36,10 @@ const LOGIN_URL = "/login/loginAnyuanUser"
  * 使用openID登录
  */
 const LOGIN_OPENID_URL = "/login/loginWithOpenID"
+/**
+ * 退出登录，解除绑定
+ */
+const LOGOUT_URL = "/login/logout"
 /**
  * 获取待办列表
  */
@@ -161,15 +165,17 @@ function loadUserInfo(openId, callback) {
     success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         var user = res.data.data
-        var userInfo = {}
-        userInfo.user = user
-        userInfo.userName = user.userName
-        userInfo.account = user.userName
-        userInfo.openId = openId
-        userInfo.password = user.wPassword
-        userInfo.chatNick = user.chatNick
-        userInfo.avatarUrl = user.avatarUrl
-        wx.setStorageSync("USER_INFO", userInfo)
+        if(user){
+          var userInfo = {}
+          userInfo.user = user
+          userInfo.userName = user.userName
+          userInfo.account = user.userName
+          userInfo.openId = openId
+          userInfo.password = user.wPassword
+          userInfo.chatNick = user.chatNick
+          userInfo.avatarUrl = user.avatarUrl
+          wx.setStorageSync("USER_INFO", userInfo)
+        }
       }
       if(callback){
         callback()
@@ -204,6 +210,35 @@ function loginWithOpenID(openID, callback) {
     },
     fail: function() {
       if (callback && callback.fail) {
+        callback.fail("网络请求失败")
+      }
+    }
+  })
+}
+
+/**
+ * 退出登录解除绑定
+ * @param openID
+ */
+function logoutWithOpenId(openID, callback) {
+  request({
+    url: LOGOUT_URL,
+    params: {
+      openId: openID
+    },
+    success: function(res) {
+      if(res.data.code == REQUEST_OK_CODE){
+        if(callback && callback.success){
+          callback.success(res.data.data)
+        }
+      }else {
+        if(callback && callback.fail){
+          callback.fail(res.data.message)
+        }
+      }
+    },
+    fail: function() {
+      if(callback && callback.fail){
         callback.fail("网络请求失败")
       }
     }
@@ -385,6 +420,7 @@ function usCarApply(params, callback) {
 module.exports = {
   login: login,
   loginWithOpenID: loginWithOpenID,
+  logoutWithOpenId: logoutWithOpenId,
   loadToDoList: loadToDoList,
   loadToReadList: loadToReadList,
   loadRestTypeList: loadRestTypeList,

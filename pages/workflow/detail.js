@@ -112,9 +112,10 @@ Page({
             data: {
               operationButton: JSON.stringify(that.data.operation.appButton[1]),
               workflowTitle: that.data.applyInfo.detail.workflowTitle,
-              workflowName: that.data.operation.appTitle,
+              workflowName: that.data.applyInfo.detail.workflowTemplateID,
               oaSPID: that.data.applyInfo.detail.in_sp_id,
-              appOId: that.data.applyInfo.detail.buzPKID
+              appOId: that.data.applyInfo.detail.buzPKID,
+              currentStepId: that.data.operation.httAppDID
             },
             success: function (res) {
               wx.hideToast();
@@ -155,9 +156,10 @@ Page({
             data: {
               operationButton: JSON.stringify(that.data.operation.appButton[0]),
               workflowTitle: that.data.applyInfo.detail.workflowTitle,
-              workflowName: that.data.operation.appTitle,
+              workflowName: that.data.applyInfo.detail.workflowTemplateID,
               oaSPID: that.data.applyInfo.detail.in_sp_id,
-              appOId: that.data.applyInfo.detail.buzPKID
+              appOId: that.data.applyInfo.detail.buzPKID,
+              currentStepId: that.data.operation.httAppDID
             },
             success: function (res) {
               wx.hideToast();

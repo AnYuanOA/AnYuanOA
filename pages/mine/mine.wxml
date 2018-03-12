@@ -45,7 +45,7 @@
     <view class="user-opt-nag bottom-border" bindtap="openclearmodal">
       <view class="user-opt-left">
         <image class="user-opt-icon" src="/images/mine/icon_clear.png"></image>
-        <text>清除缓存</text>
+        <text>解除绑定</text>
       </view>
       <image class="opt-icon-right" src="/images/mine/icon_right_go.png"></image>
     </view>
