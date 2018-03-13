@@ -95,6 +95,21 @@
   color: #fff;
   font-size: 10pt;
   width: 100%;
-  border-radius: 0px;
   margin: 0px 3px;
+}
+
+.seled_nvgt{
+  width: 100%
+}
+
+.selemp-button{
+  background: #3c78d8;
+  color: #fff;
+  font-size: 10pt;
+  width: 100%;
+  border-radius: 0px;
+}
+
+.seled_emp{
+  width: 100%;
 }

@@ -9,8 +9,6 @@
     </view>
   </view>
 
-
-
   <block wx:if="{{showType==1}}">
     <view class="day_apply_view">
       <view class="apply_item_view">
@@ -55,11 +53,18 @@
         <text class="left_text">休假原因：</text>
         <input id="attL_Reason" class="right_info reson_input" bindinput="attLeaveReasonInput" value="{{attL_Reason}}"></input>
       </view>
+      <view class="apply_item_view">
+        <text class="left_text">审批人：</text>
+        <picker class="right_info" mode="selector" value="{{idxEmpxj}}" range="{{selectEmpxj}}" bindchange="listenerPickerSelectedEmpXJ">
+          <text>{{selectEmpxj[idxEmpxj]}}</text>
+        </picker>
+      </view>
     </view>
     <view class="submit-view">
       <button class="submit-button" bindtap='handAttendanceLeave'>提交申请</button>
     </view>
   </block>
+
   <block wx:else>
     <view class="day_apply_view">
       <view class="apply_item_view">
@@ -119,6 +124,12 @@
       <view class="apply_item_view">
         <text class="left_text">申请原因：</text>
         <input id="usingReason" class="right_info reson_input" bindinput="usingReasonInput" value="{{usingReason}}"></input>
+      </view>
+      <view class="apply_item_view">
+        <text class="left_text">审批人：</text>
+        <picker class="right_info" mode="selector" value="{{idxEmpyc}}" range="{{selectEmpyc}}" bindchange="listenerPickerSelectedEmpYC">
+          <text>{{selectEmpyc[idxEmpyc]}}</text>
+        </picker>
       </view>
     </view>
     <view class="submit-view">

@@ -36,6 +36,8 @@ Page({
     endType: '上午',
     attL_Reason: null,
     rest_day_num: null,
+    appFieldNameXJ: null,
+
 
     carType: null,
     carTypeArray: [],
@@ -60,7 +62,16 @@ Page({
     usingCarRange: '市内',
     dest: null,
     startPoint: null,
-    usingReason: null
+    usingReason: null,
+    appFieldNameYC: null,
+
+    /**审批人 */
+    empsXJs:null,
+    empsYCs: null,
+    selectEmpxj:[],
+    idxEmpxj:0,
+    selectEmpyc: [],
+    idxEmpyc: 0,
   },
 
   /**
@@ -142,6 +153,41 @@ Page({
     })
   },
 
+  /**
+   * 监听休假审批人picker选择器
+   */
+  listenerPickerSelectedEmpXJ: function (e) {
+    var that = this
+    that.setData({
+      idxEmpxj: e.detail.value
+    });
+    var apList = that.data.selectEmpxj
+    for (var i = 0, len = that.data.empsXJs.length; i < len; ++i) {
+      if (apList[e.detail.value] == that.data.empsXJs[i].appFieldValue) {
+        that.setData({
+          appFieldNameXJ: that.data.empsXJs[i].appFieldName
+        })
+      }
+    }
+  },
+
+  /**
+     * 监听用车审批人picker选择器
+     */
+  listenerPickerSelectedEmpYC: function (e) {
+    var that = this
+    that.setData({
+      idxEmpyc: e.detail.value
+    });
+    var apList = that.data.selectEmpyc
+    for (var i = 0, len = that.data.empsYCs.length; i < len; ++i) {
+      if (apList[e.detail.value] == that.data.empsYCs[i].appFieldValue) {
+        that.setData({
+          appFieldNameYC: that.data.empsYCs[i].appFieldName
+        })
+      }
+    }
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -203,6 +249,52 @@ Page({
             applyUsingType: that.data.carType[0].usingTypeName
           })
         }
+      }
+    })
+    wx.request({
+      url: app.globalData.hostUrl + '/workflow/getAcceptUserList',
+      header: app.globalData.header,
+      data: {
+        buttonId: '6',
+        workflowName: 'IHRM_AttendanceLeave',
+        currentStepId: null
+      },
+      success: function (res) {
+        // console.log(res.data.data)
+        that.setData({
+          empsXJs: res.data.data
+        })
+        var newArrayList = that.data.selectEmpxj
+        for (var i = 0, len = res.data.data.length; i < len; ++i) {
+          newArrayList[i] = res.data.data[i].appFieldValue
+        }
+        that.setData({
+          selectEmpxj: newArrayList,
+          appFieldNameXJ: that.data.empsXJs[0].appFieldName
+        })
+      }
+    })
+    wx.request({
+      url: app.globalData.hostUrl + '/workflow/getAcceptUserList',
+      header: app.globalData.header,
+      data: {
+        buttonId: '6',
+        workflowName: 'IOA_Vehicle',
+        currentStepId: null
+      },
+      success: function (res) {
+        // console.log(res.data.data)
+        that.setData({
+          empsYCs: res.data.data
+        })
+        var newArrayList = that.data.selectEmpyc
+        for (var i = 0, len = res.data.data.length; i < len; ++i) {
+          newArrayList[i] = res.data.data[i].appFieldValue
+        }
+        that.setData({
+          selectEmpyc: newArrayList,
+          appFieldNameYC: that.data.empsYCs[0].appFieldName
+        })
       }
     })
   },
@@ -339,7 +431,8 @@ Page({
               attL_Reason: that.data.attL_Reason,
               rest_day_num: that.data.rest_day_num * 1,
               in_sp_id: 0,
-              isNew: true
+              isNew: true,
+              appFieldName: that.data.appFieldNameXJ
             },
             header: app.globalData.header,
             success: function (res) {
@@ -403,7 +496,8 @@ Page({
               startPoint: that.data.startPoint,
               usingReason: that.data.usingReason,
               in_sp_id: 0,
-              isNew: true
+              isNew: true,
+              appFieldName: that.data.appFieldNameYC
             },
             header: app.globalData.header,
             success: function (res) {

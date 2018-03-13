@@ -23,6 +23,7 @@
     "pages/apply/apply",
     "pages/apply/detail/detail",
     "pages/apply/newApply/newApply",
+    "pages/apply/selectEmp/selectEmp",
     "pages/todo/todo",
     "pages/workflow/detail",
     "pages/board/board",
