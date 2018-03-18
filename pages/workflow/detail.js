@@ -28,7 +28,10 @@ Page({
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
       header: app.globalData.header,
-      data: { appID: options.appID },
+      data: { 
+        appID: options.appID,
+        workflowName: options.workflowName
+      },
       success: function (res) {
         // console.log(res.data)
         if (res.data.code == 200) {

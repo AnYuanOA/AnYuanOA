@@ -16,7 +16,7 @@
       </view>
     </block>
     <block wx:for="{{todoList}}" wx:key="{{appID}}">
-      <navigator url="/pages/workflow/detail?pageType=1&appID={{item.appID}}" class="todo-item-navigator">
+      <navigator url="/pages/workflow/detail?pageType=1&appID={{item.appID}}&appTitle={{item.appTitle}}&workflowName={{item.appTID}}&stepID={{item.stepID}}" class="todo-item-navigator">
         <view class='item-bottom-do'>
           <text class="item-db-type">{{item.appType}}</text>
           <image class="item-bottom-img" src='/images/todo/icon_todo_db_top1.png'></image>
