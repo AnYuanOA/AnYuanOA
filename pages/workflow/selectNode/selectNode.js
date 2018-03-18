@@ -16,12 +16,19 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    this.setData({
+      workflowName: options.workflowName,
+      appID: options.appID,
+      flowVersion: options.flowVersion,
+      buttonId: options.buttonId
+    })
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
       header: app.globalData.header,
       data: {
         appID: options.appID,
-        workflowName: options.workflowName
+        workflowName: options.workflowName,
+        flowVersion: options.flowVersion
       },
       success: function (res) {
         if (res.data.code == 200) {
@@ -37,7 +44,9 @@ Page({
       header: app.globalData.header,
       data: {
         buttonId: options.buttonId,
-        workflowName: options.workflowName
+        workflowName: options.workflowName,
+        appID: options.appID,
+        flowVersion: options.flowVersion
       },
       success: function (res) {
         console.log(res.data)
@@ -115,8 +124,12 @@ Page({
   },
 
   handReBack: function (e) {
-    var appFieldName = e.currentTarget.id
+    var tmp = e.currentTarget.id
+    var tmpArr = tmp.split("@")
+    var appFieldName = tmpArr[0]
+    var targetStepID = tmpArr[1]
     console.log(appFieldName)
+    console.log(targetStepID)
     var that = this
     wx.showModal({
       title: '提示',
@@ -131,11 +144,13 @@ Page({
             data: {
               operationButton: JSON.stringify(that.data.operation.appButton[0]),
               workflowTitle: that.data.applyInfo.detail.workflowTitle,
-              workflowName: that.data.applyInfo.detail.workflowTemplateID,
+              workflowName: that.data.workflowName,
               oaSPID: that.data.applyInfo.detail.in_sp_id,
               appOId: that.data.applyInfo.detail.buzPKID,
               currentStepId: that.data.operation.httAppDID,
-              appFieldName: appFieldName
+              appFieldName: appFieldName,
+              flowVersion: that.data.flowVersion,
+              targetStepID: targetStepID
             },
             success: function (res) {
               wx.hideToast();

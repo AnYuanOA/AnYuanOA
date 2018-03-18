@@ -23,7 +23,8 @@ Page({
     that.setData({
       userInfo: app.globalData.userInfo,
       pageType: options.pageType,
-      appID: options.appID
+      appID: options.appID,
+      workflowName: options.workflowName
     })
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
@@ -103,7 +104,7 @@ Page({
   approvePass: function () {
     var that = this
     wx.navigateTo({
-      url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[1].buttonId + '&workflowName=' + that.data.operation.httAppTID + '&currentStepId=' + that.data.operation.httAppDID
+      url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[1].buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion
     })
   },
 
@@ -112,8 +113,14 @@ Page({
    */
   approveReject: function () {
     var that = this
-    wx.navigateTo({
-      url: '/pages/workflow/selectNode/selectNode?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[1].buttonId + '&workflowName=' + that.data.operation.httAppTID
-    })
+    if (that.data.operation.appButton[0].buttonId == 5){
+      wx.navigateTo({
+        url: '/pages/workflow/selectNode/selectNode?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[0].buttonId + '&workflowName=' + that.data.workflowName + '&flowVersion=' + that.data.operation.flowVersion
+      })
+    }else {//结束
+      wx.navigateTo({
+        url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[0].buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion
+      })
+    }
   }
 })

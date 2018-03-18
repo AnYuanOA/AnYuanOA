@@ -17,18 +17,23 @@ Page({
    */
   onLoad: function (options) {
     var that = this
+    this.setData({
+      flowVersion: options.flowVersion,
+      buttonId: options.buttonId
+    })
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
       header: app.globalData.header,
       data: {
         appID: options.appID,
-        workflowName: options.workflowName
+        workflowName: options.workflowName,
+        flowVersion: options.flowVersion
       },
       success: function (res) {
         if (res.data.code == 200) {
           that.setData({
             applyInfo: res.data.data,
-            operation: res.data.data.operation,
+            operation: res.data.data.operation
           })
         }
       }
@@ -39,7 +44,9 @@ Page({
       data: {
         buttonId: options.buttonId,
         workflowName: options.workflowName,
-        currentStepId: options.currentStepId
+        currentStepId: options.currentStepId,
+        flowVersion: options.flowVersion,
+        isNewFlag: 0
       },
       success: function (res) {
         that.setData({
@@ -120,13 +127,14 @@ Page({
             header: app.globalData.header,
             method: 'POST',
             data: {
-              operationButton: JSON.stringify(that.data.operation.appButton[1]),
+              operationButton: that.data.buttonId == 9 ? JSON.stringify(that.data.operation.appButton[0]):JSON.stringify(that.data.operation.appButton[1]),
               workflowTitle: that.data.applyInfo.detail.workflowTitle,
               workflowName: that.data.applyInfo.detail.workflowTemplateID,
               oaSPID: that.data.applyInfo.detail.in_sp_id,
               appOId: that.data.applyInfo.detail.buzPKID,
               currentStepId: that.data.operation.httAppDID,
-              appFieldName: that.data.selectedAppFieldName
+              appFieldName: that.data.selectedAppFieldName,
+              flowVersion: that.data.flowVersion
             },
             success: function (res) {
               wx.hideToast();

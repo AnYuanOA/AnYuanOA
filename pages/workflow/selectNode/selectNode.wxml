@@ -20,7 +20,7 @@
             <view class="xf-left-name">
               <text class="xf-detail-label">{{user.appFieldValue}}</text>
             </view>
-            <button id='{{user.appFieldName}}' class="xf-detail-content" bindtap='handReBack'>退回</button>
+            <button id='{{user.appFieldName}}@{{item.nextStepID}}' class="xf-detail-content" bindtap='handReBack'>退回</button>
           </view>
         </block>
       </view>
