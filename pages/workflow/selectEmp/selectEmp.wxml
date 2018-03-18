@@ -1,0 +1,11 @@
+<!--pages/apply/selectEmp/selectEmp.wxml-->
+<view class="container">
+  <radio-group class="radio_group" bindchange="radioChange">
+    <label class="radio_label" wx:for="{{selEmps}}" wx:key="{{appFieldName}}">
+      <radio color='#3c78d8' class="radio" value="{{item.appFieldName}}" checked="{{item.checked}}" />{{item.appFieldValue}}
+    </label>
+  </radio-group>
+  <view class="submit-view">
+    <button class="submit-button" bindtap='handSubbmit'>确定并提交</button>
+  </view>
+</view>

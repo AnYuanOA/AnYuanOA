@@ -28,7 +28,7 @@ Page({
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
       header: app.globalData.header,
-      data: { 
+      data: {
         appID: options.appID,
         workflowName: options.workflowName
       },
@@ -102,42 +102,8 @@ Page({
    */
   approvePass: function () {
     var that = this
-    wx.showModal({
-      title: '提示',
-      content: '确定审批吗？',
-      success: function (res) {
-        if (res.confirm) {
-          app.showLoadToast('提交中...');
-          wx.request({
-            url: app.globalData.hostUrl + '/workflow/processWorkflow',
-            header: app.globalData.header,
-            method: 'POST',
-            data: {
-              operationButton: JSON.stringify(that.data.operation.appButton[1]),
-              workflowTitle: that.data.applyInfo.detail.workflowTitle,
-              workflowName: that.data.applyInfo.detail.workflowTemplateID,
-              oaSPID: that.data.applyInfo.detail.in_sp_id,
-              appOId: that.data.applyInfo.detail.buzPKID,
-              currentStepId: that.data.operation.httAppDID
-            },
-            success: function (res) {
-              wx.hideToast();
-              if (res.data.code == 200) {
-                wx.navigateBack({
-                  delta: 1
-                })
-                wx.showToast({
-                  title: '审批成功'
-                })
-              } else {
-                app.showErrorModal('提示', res.data.message)
-              }
-            }
-          })
-        } else if (res.cancel) {
-
-        }
-      }
+    wx.navigateTo({
+      url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[1].buttonId + '&workflowName=' + that.data.operation.httAppTID + '&currentStepId=' + that.data.operation.httAppDID
     })
   },
 
@@ -146,42 +112,8 @@ Page({
    */
   approveReject: function () {
     var that = this
-    wx.showModal({
-      title: '提示',
-      content: '确定退回吗？',
-      success: function (res) {
-        if (res.confirm) {
-          app.showLoadToast('提交中...');
-          wx.request({
-            url: app.globalData.hostUrl + '/workflow/processWorkflow',
-            header: app.globalData.header,
-            method: 'POST',
-            data: {
-              operationButton: JSON.stringify(that.data.operation.appButton[0]),
-              workflowTitle: that.data.applyInfo.detail.workflowTitle,
-              workflowName: that.data.applyInfo.detail.workflowTemplateID,
-              oaSPID: that.data.applyInfo.detail.in_sp_id,
-              appOId: that.data.applyInfo.detail.buzPKID,
-              currentStepId: that.data.operation.httAppDID
-            },
-            success: function (res) {
-              wx.hideToast();
-              if (res.data.code == 200) {
-                wx.navigateBack({
-                  delta: 1
-                })
-                wx.showToast({
-                  title: '退回成功'
-                })
-              } else {
-                app.showErrorModal('提示', res.data.message)
-              }
-            }
-          })
-        } else if (res.cancel) {
-
-        }
-      }
+    wx.navigateTo({
+      url: '/pages/workflow/selectNode/selectNode?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[1].buttonId + '&workflowName=' + that.data.operation.httAppTID
     })
   }
 })

@@ -1,0 +1,184 @@
+/* pages/workflow/selectNode/selectNode.wxss */
+
+.container {
+  height: 100%;
+}
+
+.container .search {
+  display: flex;
+  width: 100%;
+  background-color: #3c78d8;
+  position: fixed;
+  height: 50px;
+  z-index: 5;
+}
+
+.container .search-left {
+  display: flex;
+  flex: 8;
+  background: #4ea3e7;
+  text-align: left;
+  align-items: center;
+  margin: 10px 0px 10px 20px;
+}
+
+.container .search-left input {
+  font-size: 10pt;
+  width: 100%;
+  color: white;
+}
+
+.search-placeholder {
+  color: #8ccefd;
+  line-height: 20rpx;
+}
+
+.container .search .search-left image {
+  width: 35rpx;
+  height: 35rpx;
+  padding: 10px;
+}
+
+.container .search .search-right image {
+  width: 20px;
+  height: 20px;
+}
+
+.search-right {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+}
+
+/** 列表 **/
+
+.xf-types {
+  display: flex;
+  flex-direction: column;
+}
+
+.xf-type-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 11pt;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.xf-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 50px;
+  padding: 0px 10px;
+}
+
+.xf-detail {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.xf-item-show .xf-detail {
+  display: flex;
+}
+
+.xf-detail-item {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #eee;
+  height: 30px;
+  padding: 5px 5px 5px 30px;
+  justify-content: space-between;
+}
+
+.xf-left-name {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.xf-name-icon {
+  width: 20px;
+  height: 20px;
+  /* background-color: #f0f0f0; */
+  margin-right: 10px;
+  /* padding: 3px; */
+}
+
+.xf-emp-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.xf-detail-label {
+  font-size: 10pt;
+  padding-right: 30px;
+  padding-left: 10px;
+}
+
+.xf-detail-content {
+  text-align: center;
+  font-size: 10pt;
+  color: white;
+  background-color: #3c78d8;
+  height: 25px;
+  align-items: center;
+  display: flex;
+  border-radius: 0px;
+}
+
+/**列表展开的icon旋转 **/
+
+.xf-item-icon {
+  width: 30rpx;
+  height: 30rpx;
+  transition: transform 0.2s;
+}
+
+.xf-item-show .xf-item-icon {
+  transform: rotate(180deg);
+}
+
+.xf-item-icon-right {
+  width: 30rpx;
+  height: 30rpx;
+}
+
+/**列表展开时标题的颜色变化 **/
+
+.xf-type-name {
+  font-size: 10pt;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-type-name-front {
+  font-size: 11pt;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
+}
+
+.name-font-checked {
+  font-weight: bold;
+  color: #3c78d8;
+}
+
+.xf-item-show .xf-type-name {
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-TotalTuition, .xf-ApartmentPay, .xf-CollectingPay {
+  margin-left: 25rpx;
+}
+
+.xf-MajorTuition, .xf-GradeTuition, .xf-SecMajorTuition {
+  margin-left: 50rpx;
+}
+
+.xf-emp-navigator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
