@@ -213,8 +213,8 @@ App({
       'Cookie': null,
       JSESSIONID: null 
     },
-    // hostUrl: 'https://weixin.anyuanhb.com/web-service',
-    hostUrl: 'http://localhost:8080/web-service',
+    hostUrl: 'https://weixin.anyuanhb.com/web-service',
+    // hostUrl: 'http://localhost:8080/web-service',
     appId: 'wx42c2b2080fd58ff9',
     secret: 'a1eeab18ed1e785741946e3c29499a0c'
   },
