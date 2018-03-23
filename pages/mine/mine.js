@@ -30,7 +30,7 @@ Page({
       success: function (res) {
         if (res.data.code == 500) {
           wx.redirectTo({
-            url: '/pages/noAccess/noAccess',
+            url: '/pages/login/login'
           })
         } else {
           if (!res.data.data) {

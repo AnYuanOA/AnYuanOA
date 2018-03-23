@@ -1,5 +1,35 @@
 /* pages/apply/selectEmp/selectEmp.wxss */
 
+.apply_item_view {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  font-size: 11pt;
+  padding: 10px 0px;
+  margin: 0px 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+.left_text {
+  font-size: 10pt;
+  background-color: #3c78d8;
+  color: white;
+  padding: 5px;
+}
+
+.right_info {
+  border: 1px solid #e6e6e6;
+  border-radius: 5px;
+  width: 70%;
+  /* text-align: right; */
+  padding: 3px 5px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
 .radio_group {
   background-color: white;
 }

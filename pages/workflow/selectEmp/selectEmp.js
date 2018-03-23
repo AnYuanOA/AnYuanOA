@@ -9,7 +9,9 @@ Page({
     applyInfo: null,
     operation: null,
     selEmps: null,
-    selectedAppFieldName: null
+    selectedAppFieldName: null,
+    pickAry: ['文书员', '测试', 'AAAA'],
+    pickidx: 0
   },
 
   /**
@@ -127,7 +129,7 @@ Page({
             header: app.globalData.header,
             method: 'POST',
             data: {
-              operationButton: that.data.buttonId == 9 ? JSON.stringify(that.data.operation.appButton[0]):JSON.stringify(that.data.operation.appButton[1]),
+              operationButton: that.data.buttonId == 9 ? JSON.stringify(that.data.operation.appButton[0]) : JSON.stringify(that.data.operation.appButton[1]),
               workflowTitle: that.data.applyInfo.detail.workflowTitle,
               workflowName: that.data.applyInfo.detail.workflowTemplateID,
               oaSPID: that.data.applyInfo.detail.in_sp_id,
@@ -155,5 +157,8 @@ Page({
         }
       }
     })
+  },
+  listenerPickerSelected: function () {
+
   }
 })

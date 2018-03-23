@@ -209,7 +209,8 @@ App({
     openId: '',
     userInfo: null,
     header: { 
-      'content-type': 'application/x-www-form-urlencoded;charset=utf-8', 
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      'cache-control': 'no-cache',
       'Cookie': null,
       JSESSIONID: null 
     },
