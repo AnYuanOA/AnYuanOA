@@ -5,7 +5,7 @@
       <text>步骤名称：</text>
     </view>
     <picker disabled='false' class="right_info" mode="selector" value="{{pickidx}}" range="{{pickAry}}" bindchange="listenerPickerSelected">
-      <text>{{pickAry[pickidx]}}</text>
+      <text>{{selStep.nextStepName}}</text>
     </picker>
   </view>
   <radio-group class="radio_group" bindchange="radioChange">

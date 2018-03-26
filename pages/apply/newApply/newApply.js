@@ -257,16 +257,17 @@ Page({
       data: {
         buttonId: '6',
         workflowName: 'IHRM_AttendanceLeave',
-        currentStepId: null
+        currentStepId: null,
+        flowVersion: '1.0'
       },
       success: function (res) {
         // console.log(res.data.data)
         that.setData({
-          empsXJs: res.data.data
+          empsXJs: res.data.data.acceptUserInfo
         })
         var newArrayList = that.data.selectEmpxj
-        for (var i = 0, len = res.data.data.length; i < len; ++i) {
-          newArrayList[i] = res.data.data[i].appFieldValue
+        for (var i = 0, len = res.data.data.acceptUserInfo.length; i < len; ++i) {
+          newArrayList[i] = res.data.data.acceptUserInfo[i].appFieldValue
         }
         that.setData({
           selectEmpxj: newArrayList,
@@ -280,16 +281,17 @@ Page({
       data: {
         buttonId: '6',
         workflowName: 'IOA_Vehicle',
-        currentStepId: null
+        currentStepId: null,
+        flowVersion: '1.0'
       },
       success: function (res) {
         // console.log(res.data.data)
         that.setData({
-          empsYCs: res.data.data
+          empsYCs: res.data.data.acceptUserInfo
         })
         var newArrayList = that.data.selectEmpyc
-        for (var i = 0, len = res.data.data.length; i < len; ++i) {
-          newArrayList[i] = res.data.data[i].appFieldValue
+        for (var i = 0, len = res.data.data.acceptUserInfo.length; i < len; ++i) {
+          newArrayList[i] = res.data.data.acceptUserInfo[i].appFieldValue
         }
         that.setData({
           selectEmpyc: newArrayList,

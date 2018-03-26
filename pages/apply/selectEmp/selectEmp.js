@@ -25,7 +25,7 @@ Page({
       success: function (res) {
         console.log(res.data.data)
         that.setData({
-          selEmps: res.data.data
+          selEmps: res.data.data.acceptUserInfo
         })
       }
     })

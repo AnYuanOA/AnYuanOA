@@ -21,7 +21,8 @@ Page({
     var that = this
     this.setData({
       flowVersion: options.flowVersion,
-      buttonId: options.buttonId
+      buttonId: options.buttonId,
+      appID: options.appID
     })
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
@@ -48,11 +49,13 @@ Page({
         workflowName: options.workflowName,
         currentStepId: options.currentStepId,
         flowVersion: options.flowVersion,
-        isNewFlag: 0
+        isNewFlag: 0,
+        appID: that.data.appID
       },
       success: function (res) {
         that.setData({
-          selEmps: res.data.data
+          selEmps: res.data.data.acceptUserInfo,
+          selStep: res.data.data
         })
       }
     })
