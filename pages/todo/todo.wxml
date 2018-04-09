@@ -9,7 +9,7 @@
   </view>
 
   <!-- 待办视图 -->
-  <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}'>
+  <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}' style='height:{{winH}}px' bindscrolltolower="todoSearchScrollLower" bindscrolltoupper="todoPullDownRefresh">
     <block wx:if="{{todoList==null}}">
       <view class='no-data-view'>
         <image src='/images/nodata.png'></image>
@@ -36,7 +36,7 @@
   <!--  -->
 
   <!-- 待阅视图 -->
-  <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}'>
+  <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}' style='height:{{winH}}px' bindscrolltolower="toReadSearchScrollLower" bindscrolltoupper="toReadPullDownRefresh">
     <block wx:if="{{toReadList==null}}">
       <view class='no-data-view'>
         <image src='/images/nodata.png'></image>
