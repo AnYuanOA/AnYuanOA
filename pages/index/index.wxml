@@ -1,11 +1,17 @@
 <!--index.wxml-->
 <view class="container">
 
-  <block wx:for="{{chatList}}" wx:for-index="idx" wx:for-item="chat">
-    <navigator url='{{chat.url ? chat.url:"/pages/message/newMessage/newMessage?name="+chat.target+","+chat.name+","+chat.avator}}'>
+  <block wx:for="{{chatList}}" wx:key="chat.target" wx:for-item="chat">
+    <navigator bindtap='clickChat' data-chatlist="{{chatList}}" data-chat="{{chat}}" url='{{chat.url ? chat.url:"/pages/message/newMessage/newMessage?name="+chat.target+","+chat.name+","+chat.avator}}'>
       <view class='list-item'>
         <image class='list-item-icon' src='{{chat.avator}}' />
-        <view class='list-item-badge'>99</view>
+        <block wx:if="{{chat.notReadCount==0}}">
+        </block>
+        <block wx:else>
+          <view class='list-item-badge'>
+            {{chat.notReadCount}}
+          </view>
+        </block>
         <view class='list-item-content'>
           <view class='list-item-content-title-container'>
             <view class='list-item-content-title'>{{chat.name}}</view>
@@ -18,7 +24,7 @@
       </view>
     </navigator>
   </block>
-  
+
   <!-- <navigator url="/pages/event/event">
     <view class='list-item'>
       <image class='list-item-icon' src='/images/icon_index_cc.png' />

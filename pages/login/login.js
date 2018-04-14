@@ -1,8 +1,10 @@
 //login.js
-//获取应用实例
+import { im } from '../../services/IM';
+const { newWebservice } = global;
 const chatLib = require("../../services/im/IMLib.js")
 const WebService = require("../../services/webservice.js")
-const app = getApp()
+//获取应用实例
+const app = getApp();
 
 Page({
   data: {
@@ -15,63 +17,58 @@ Page({
   onLoad: function () {
     var _that = this
     _that.setData({
-      userInfo: app.globalData.userInfo,
+      //userInfo: app.globalData.userInfo,
       userid: app.globalData.userid,
       passwd: app.globalData.pwdid
     })
   },
   //登录跳转事件
-  loginUser: function (e) {
+  loginUser(e) {
     var that = this;
     if (!that.data.userid || !that.data.passwd) {
       app.showErrorModal('提醒', '账号及密码不能为空！');
       return false;
     }
     app.showLoadToast('登录中...');
-    WebService.login({
+
+    let params = {
       userName: that.data.userid,
       account: that.data.userid,
       openId: app.globalData.openId,
       password: that.data.passwd,
       chatNick: app.globalData.userInfo.nickName,
       avatarUrl: app.globalData.userInfo.avatarUrl
-    }, {
-      success: function(data) {
-        app.globalData.header.Cookie = 'JSESSIONID=' + data;
-        app.globalData.header.JSESSIONID = data;
-        //写入小程序登录态缓存
-        wx.setStorage({
-          key: 'login_jsession',
-          data: data,
-        })
-        //写入用户登录信息到缓存
-        wx.setStorage({
-          key: 'login_act',
-          data: that.data.userid,
-        })
-        wx.setStorage({
-          key: 'login_pwd',
-          data: that.data.passwd,
-        })
-        //连接IM服务
-        app.imLogin(that.data.userid, that.data.passwd, function(isSuccess){
-          // if(isSuccess){
-            
-          // }else {
-          //   app.showErrorModal('提示', '登录失败')
-          // }
-        })
-        //跳转
-        wx.hideToast();
-        wx.switchTab({
-          url: '/pages/index/index'
-        })
-      },
-      fail: function(msg) {
-        wx.hideToast();
-        app.showErrorModal('提示', msg)
-      }
-    })
+    };
+
+    newWebservice.ayLogin(params).then(res => {
+      let data = res.data;
+      app.globalData.header.Cookie = 'JSESSIONID=' + data;
+      app.globalData.header.JSESSIONID = data;
+      return newWebservice.loadUserInfo(params.openId);
+    }).then(res => {
+      
+      //写入用户登录信息到缓存
+      wx.setStorage({
+        key: 'login_act',
+        data: that.data.userid,
+      });
+      wx.setStorage({
+        key: 'login_pwd',
+        data: that.data.passwd,
+      });
+
+      wx.hideToast();
+      wx.switchTab({
+        url: '/pages/index/index'
+      });
+
+      im.connect(that.data.userid, that.data.passwd);
+
+    }).catch(error => {
+      console.log(error)
+      wx.hideToast();
+      app.showErrorModal('提示', error.data.message);
+    });
   },
   inputFocus: function (e) {
     if (e.target.id == 'userid') {

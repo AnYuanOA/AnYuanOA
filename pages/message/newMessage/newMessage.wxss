@@ -147,3 +147,70 @@
   color: white;
   line-height: 300%;
 }
+
+/* ------------------ */
+
+.btn {
+  width: 670rpx;
+  height: 94rpx;
+  line-height: 94rpx;
+  text-align: center;
+  background-color: #1aae18;
+  color: #fff;
+  border: 2rpx solid hsla(0, 0, 2, 0.8);
+  border-radius: 10rpx;
+}
+
+.message-voice-m {
+  position: relative;
+  min-height: 40px;
+  min-width: 80px;
+  max-width: 240px;
+  background: #00b271;
+  border-radius: 5px;
+  margin: 0px 10px;
+  word-break: break-word;
+  line-height: 25px;
+  font-size: 10pt;
+  padding: 0px 5px;
+  color: #f7f7ff;
+}
+
+.message-voice-m::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 8px solid transparent;
+  border-left-color: #00b271;
+  top: 2px;
+  right: -11px;
+}
+
+
+.bg {
+  background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAAAYCAYAAAAF6fiUAAAC60lEQVR42t2ZPYgTURDHE79ORRREuNPG86MT7BREucpClCsEbSxUbO0ELTy4IIiCCgcnCOohKBZe8LAS7NJpYcRmGwkSJeSEQCIJicnmS+fBDAyP3b192TeXXacJTN7+dt7/TWbee0mlQli/3782GAweN5vNyZSASfOZpVNJMyXOX7RerzebND63TCazIVHigyCnSBzI0Ce2JyDNT7Tl8/nNw+GwjeK8178D8U5HEUyav9a7JflWDER5pcQBkX5zv+M4W6BsfEPh5uLK9zOLfLl+0m63p6k0QLBntZr9GYXrdbvd4yPy90vyg4SyxE9LZ/8zFMfR/HMknOu6RyPwn0ryA95rhS9auhQcsuMPCnSZ/LVabRfL2hvaxK6DbxU+746b75eplvlpw4UPz4fmdJICrVQqOxjkNgb/Sxt/ju1kFsbN9xNKiB9GTzM+BHgTA/2q+b8g5A75crncJspm8L8Oue8X5Qe8V5TvZSPxqT7D50vylUqlbapp4WFphk3qAja0lmn9l+J7Zb8QP8yim/NBmLco0EPydTqdQ/Qzgh3MATZ2AV/wLi58rwUQ4oeZqzkfHlpBgR6wCRxmE5hmYxdx7Ju48H0WQIIfZq7mfBi8hA+9IJ9qljQB2DufYD+xK7jC1bjwvRZAiL/mFnUkPu0W4KFPWj1zULhb5CuXy9tZh38UB37AAcw23/ekHYmv7kjopMhhALiH/u9+t5lK3HHztQVIC/I9LZvNbozEV6JAkH3cKp4nf6vV2ssOMpe0rL4PzwzVjea4+dwKhcKEJN/PisXi1kh8GLiMgX70aioqe/U/TxqNxh6DMifK57eeknyTEmjEd133CGtax/h3EPxPFG9V7S5GiUyaz0XQs9EyX/RC7gMG+oP7IXOm1BUy1rT5uPL5aVSSL2b1en03ax7P+XdQT/eBcFer1erOuPKDGqNtvphBkBdt7hDWm7+ud/iCpWie/Wl+Jmn8/8LU/bkqE3CMP5hEfpztH6g+KhugfctzAAAAAElFTkSuQmCC) left 0 no-repeat;
+  width: 24px;
+  height: 30px;
+  background-size: 400%;
+  margin-top: 7px;
+}
+
+.voicePlay {
+  animation-name: voicePlay;
+  animation-duration: 0.7s;
+  animation-direction: normal;
+  animation-iteration-count: infinite;
+  animation-timing-function: steps(3);
+}
+
+@keyframes voicePlay {
+  0% {
+    background-position: 0;
+  }
+
+  100% {
+    background-position: 100%;
+  }
+}

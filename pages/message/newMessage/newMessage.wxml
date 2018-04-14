@@ -1,8 +1,9 @@
 <view class='container'>
   <view class='message-main'>
-    <view class='message-cont' wx:for-items="{{messageData}}">
-      <block wx:if="{{item.fromUserName==mine}}">       
-        <block wx:if="{{item.date==nowDate}}">  
+    <view class='message-cont' wx:for-items="{{messageData}}" wx:key="{{item.id}}">
+      <!-- 信息发起者为自己 -->
+      <block wx:if="{{item.fromName==mine}}">
+        <block wx:if="{{item.date==nowDate}}">
           <view class='message-time {{item.time}}'>
             <text wx:if='{{item.time}}'>{{item.time}}</text>
           </view>
@@ -14,13 +15,35 @@
         </block>
 
         <view class='message-detail-m'>
-          <text class='message-text-m'>{{item.content}}</text>
-          <image class='message-head' src='{{userInfo.avatarUrl}}'></image>
+          <!-- 如果为文字消息 -->
+          <text wx:if="{{item.msgType==1}}" class='message-text-m'>{{item.content}}</text>
+          <!-- 如果为语音消息 -->
+          <block wx:elif="{{item.msgType==4}}">
+            <!-- 如果声音在播放 -->
+            <block wx:if="{{item.extra.isPlay==true}}">
+              <view class="message-voice-m" data-msg="{{item}}" data-msgs="{{messageData}}">
+                <view class="bg voicePlay"></view>
+              </view>
+            </block>
+            <!-- 如果声音不在播放 -->
+            <block wx:else>
+              <view class="message-voice-m" bind:tap="palyVoice" data-msg="{{item}}" data-msgs="{{messageData}}">
+                <view class="bg"></view>
+              </view>
+            </block>
+          </block>
+          <!-- 若果是图片 -->
+          <block wx:elif="{{item.msgType==2}}">
+            <image src="{{item.content}}" data-msg="{{item}}" data-msgs="{{messageData}}" mode="widthFix" style='width:{{item.extra.imageWidth}}rpx;height:{{item.extra.imageHeight}}rpx;' />
+          </block>
+
+          <image class='message-head' src='{{item.fromAvator}}'></image>
         </view>
       </block>
       
+      <!-- 信息发起者为其他人 -->
       <block wx:else>
-        <block wx:if="{{item.date==nowDate}}">  
+        <block wx:if="{{item.date==nowDate}}">
           <view class='message-time {{item.time}}'>
             <text wx:if='{{item.time}}'>{{item.time}}</text>
           </view>
@@ -33,17 +56,26 @@
 
         <view class='message-detail-o'>
           <image class='message-head' src='{{toUserHead}}'></image>
-          <text class='message-text-o'>{{item.content}}</text>
+          <text wx:if="{{item.msgType==1}}" class='message-text-o'>{{item.content}}</text>
         </view>
       </block>
     </view>
   </view>
+  
   <form bindreset="cleanInput">
-  <view class='opt-panel'>
-    <image class='opt-icon' src='/images/message/icon_speak2.png'></image>
-    <textarea class='opt-textarea' bindinput="bindMessage"></textarea>
-    <!-- <image class='opt-icon' src='/images/message/icon_add2.png'></image> -->
-    <button class='opt-send-btn'  bindtap="sendMessage" formType="reset">发送</button>
-  </view>
-   </form>
+    <view class='opt-panel'>
+
+      <image bind:tap="changeType" class='opt-icon' src='/images/message/icon_speak.png'></image>
+      <image bind:tap="sendImage" class='opt-icon' src='/images/message/icon_add.png'></image>
+
+      <block wx:if="{{messageWay=='text'}}">
+        <textarea class='opt-textarea' bindinput="bindMessage"></textarea>
+        <!-- <image class='opt-icon' src='/images/message/icon_add2.png'></image> -->
+        <button class='opt-send-btn' bindtap="sendMessage" formType="reset">发送</button>
+      </block>
+      <block wx:else>
+        <view class="btn" bindtouchstart="touchStart" bindtouchend="touchEnd">长按说话</view>
+      </block>
+    </view>
+  </form>
 </view>

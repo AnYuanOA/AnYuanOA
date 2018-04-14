@@ -1,4 +1,5 @@
 // pages/organize/organize.js
+const { newWebservice } = global;
 var app = getApp();
 Page({
   /**
@@ -7,7 +8,7 @@ Page({
   data: {
     noData: false,
     depts: [],
-    defaultHead:''
+    defaultHead: ''
   },
 
   /**
@@ -17,28 +18,46 @@ Page({
     var that = this;
     that.setData({
       defaultHead: '/images/organize/icon_emp1.png'
-    })
-    wx.request({
-      url: app.globalData.hostUrl + '/dept/showAllDept',
-      header: app.globalData.header,
-      success: function (res) {
-        if (res.data.code == 500) {
-          wx.redirectTo({
-            url: '/pages/noAccess/noAccess',
+    });
+    newWebservice.loadDept().then(res => {
+      if (res.data.code == 500) {
+        wx.redirectTo({
+          url: '/pages/noAccess/noAccess',
+        })
+      } else {
+        if (res.data.data <= 0) {
+          that.setData({
+            noData: true
           })
         } else {
-          if (res.data.data <= 0) {
-            that.setData({
-              noData: true
-            })
-          } else {
-            that.setData({
-              depts: res.data.data
-            })
-          }
+          that.setData({
+            depts: res.data.data
+          });
         }
       }
-    })
+    }).catch(e => console.log(e));
+
+    // wx.request({
+    //   url: app.globalData.hostUrl + '/dept/showAllDept',
+    //   header: app.globalData.header,
+    //   success: function (res) {
+    //     if (res.data.code == 500) {
+    //       wx.redirectTo({
+    //         url: '/pages/noAccess/noAccess',
+    //       })
+    //     } else {
+    //       if (res.data.data <= 0) {
+    //         that.setData({
+    //           noData: true
+    //         })
+    //       } else {
+    //         that.setData({
+    //           depts: res.data.data
+    //         })
+    //       }
+    //     }
+    //   }
+    // })
   },
 
   /**
@@ -89,7 +108,7 @@ Page({
   onShareAppMessage: function () {
 
   },
-  slideChildOrg:function(e){
+  slideChildOrg: function (e) {
     var id = e.currentTarget.id
     wx.navigateTo({
       url: '/pages/organize/childOrg/childOrg?key=' + id,
@@ -98,7 +117,7 @@ Page({
   // 展示详情
   slideDetail: function (e) {
     var id = e.currentTarget.id
-    var  list = this.data.depts;
+    var list = this.data.depts;
     // 每次点击都将当前open换为相反的状态并更新到视图，视图根据open的值来切换css
     for (var i = 0, len = list.length; i < len; ++i) {
       if (list[i].id == id) {

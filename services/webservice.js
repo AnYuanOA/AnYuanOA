@@ -26,8 +26,8 @@ const USER_NOT_BIND_CODE = 10002
 const REQUEST_OK_CODE = 200
 
 
-const BASE_URL = "https://weixin.anyuanhb.com/web-service"
-// const BASE_URL = "http://localhost:8080/web-service"
+//const BASE_URL = "https://weixin.anyuanhb.com/web-service"
+const BASE_URL = "http://192.168.0.107:8080/web-service"
 /**
  * 使用用户名密码登录并绑定openID
  */
@@ -76,6 +76,14 @@ const PROCESS_WORKFLOW_URL = "/workflow/processWorkflow";
  * 获取当前用户信息
  */
 const GET_SELF_USERINFO_URL = "/user/getSelfUser"
+/**
+ * 向服务器上传文件
+ */
+const FILE_UPLOAD_URL = '/file/upload';
+/**
+ * 向服务器读取文件
+ */
+const FILE_FETCH_URL = '/file';
 
 /**
  * 发起网络请求
@@ -97,11 +105,11 @@ function request(params) {
       'JSESSIONID': sessionId
     },
     success: function (res) {
-      if(res.data.code == USER_NOT_BIND_CODE){
+      if (res.data.code == USER_NOT_BIND_CODE) {
         wx.redirectTo({
           url: '/pages/login/login'
         })
-      }else {
+      } else {
         if (params.success) {
           params.success(res)
         }
@@ -131,10 +139,10 @@ function login(params, callback) {
   request({
     url: LOGIN_URL,
     params: params,
-    success: function(res){
+    success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         wx.setStorageSync(SESSIONID_KEY, res.data.data)
-        loadUserInfo(params.openId, function(){
+        loadUserInfo(params.openId, function () {
           if (callback && callback.success) {
             callback.success(res.data.data)
           }
@@ -145,7 +153,7 @@ function login(params, callback) {
         }
       }
     },
-    fail: function(){
+    fail: function () {
       if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
@@ -165,7 +173,7 @@ function loadUserInfo(openId, callback) {
     success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         var user = res.data.data
-        if(user){
+        if (user) {
           var userInfo = {}
           userInfo.user = user
           userInfo.userName = user.userName
@@ -177,7 +185,7 @@ function loadUserInfo(openId, callback) {
           wx.setStorageSync("USER_INFO", userInfo)
         }
       }
-      if(callback){
+      if (callback) {
         callback()
       }
     },
@@ -196,7 +204,7 @@ function loginWithOpenID(openID, callback) {
     params: {
       openId: openID
     },
-    success: function(res) {
+    success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         wx.setStorageSync(SESSIONID_KEY, res.data.data)
         if (callback && callback.success) {
@@ -208,7 +216,7 @@ function loginWithOpenID(openID, callback) {
         }
       }
     },
-    fail: function() {
+    fail: function () {
       if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
@@ -226,19 +234,19 @@ function logoutWithOpenId(openID, callback) {
     params: {
       openId: openID
     },
-    success: function(res) {
-      if(res.data.code == REQUEST_OK_CODE){
-        if(callback && callback.success){
+    success: function (res) {
+      if (res.data.code == REQUEST_OK_CODE) {
+        if (callback && callback.success) {
           callback.success(res.data.data)
         }
-      }else {
-        if(callback && callback.fail){
+      } else {
+        if (callback && callback.fail) {
           callback.fail(res.data.message)
         }
       }
     },
-    fail: function() {
-      if(callback && callback.fail){
+    fail: function () {
+      if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
     }
@@ -252,26 +260,26 @@ function logoutWithOpenId(openID, callback) {
  */
 function loadToDoList(lastTime, callback) {
   request({
-      url: GET_TODO_LIST_URL,
-      params: {
-        lastTime: lastTime
-      },
-      success: function(res) {
-        if (res.data.code == REQUEST_OK_CODE) {
-          if (callback && callback.success) {
-            callback.success(res.data.data)
-          }
-        } else {
-          if (callback && callback.fail) {
-            callback.fail(res.data.message)
-          }
+    url: GET_TODO_LIST_URL,
+    params: {
+      lastTime: lastTime
+    },
+    success: function (res) {
+      if (res.data.code == REQUEST_OK_CODE) {
+        if (callback && callback.success) {
+          callback.success(res.data.data)
         }
-      },
-      fail: function() {
+      } else {
         if (callback && callback.fail) {
-          callback.fail("网络请求失败")
+          callback.fail(res.data.message)
         }
       }
+    },
+    fail: function () {
+      if (callback && callback.fail) {
+        callback.fail("网络请求失败")
+      }
+    }
   })
 }
 
@@ -286,7 +294,7 @@ function loadToReadList(currentPage, callback) {
     params: {
       currentPage: currentPage
     },
-    success: function(res) {
+    success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         if (callback && callback.success) {
           callback.success(res.data.data)
@@ -297,7 +305,7 @@ function loadToReadList(currentPage, callback) {
         }
       }
     },
-    fail: function() {
+    fail: function () {
       if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
@@ -312,7 +320,7 @@ function loadToReadList(currentPage, callback) {
 function loadRestTypeList(callback) {
   request({
     url: GET_RESTTYPELIST_URL,
-    success: function(res) {
+    success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         if (callback && callback.success) {
           callback.success(res.data.data)
@@ -323,7 +331,7 @@ function loadRestTypeList(callback) {
         }
       }
     },
-    fail: function() {
+    fail: function () {
       if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
@@ -342,7 +350,7 @@ function levealApply(params, callback) {
     params: {
       param: params
     },
-    success: function(res) {
+    success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         if (callback && callback.success) {
           callback.success(res.data.data)
@@ -353,7 +361,7 @@ function levealApply(params, callback) {
         }
       }
     },
-    fail: function() {
+    fail: function () {
       if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }
@@ -368,7 +376,7 @@ function levealApply(params, callback) {
 function loadUsCarTypeList(callback) {
   request({
     url: GET_USINGTYPELIST_URL,
-    success: function(res) {
+    success: function (res) {
       if (res.data.code == REQUEST_OK_CODE) {
         if (callback && callback.success) {
           callback.success(res.data.data)
@@ -379,7 +387,7 @@ function loadUsCarTypeList(callback) {
         }
       }
     },
-    fail: function() {
+    fail: function () {
       if (callback && callback.fail) {
         callback.fail("网络请求失败")
       }

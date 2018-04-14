@@ -2,7 +2,7 @@ const chatLib = require("../services/im/IMLib.js")
 const Message = chatLib.Message
 const MessageType = chatLib.MessageType
 const Chat = chatLib.Chat
-
+const { wxUtils } = global;
 /**
  * IM相关功能工具类
  */
@@ -12,8 +12,8 @@ const Chat = chatLib.Chat
  * @params message Message对象
  */
 function saveMessage(message) {
-  var userInfo = getApp().getLocalUserInfo()
-  if(userInfo){
+  var userInfo = wxUtils.getLocalUserInfo()
+  if (userInfo) {
     var currentUsername = userInfo.userName
     //本地聊天列表存储key
     const key = "chat_list_" + currentUsername
@@ -39,22 +39,22 @@ function getChatOfMessage(chatList, message) {
   var currentUsername = getApp().getLocalUserInfo().userName
   var theChat = null;
 
-  for(var i=0; i<chatList.length; i++){
+  for (var i = 0; i < chatList.length; i++) {
     var chat = chatList[i];
     var from = null
     var to = null
     var fromArray = message.from.split("@")
-    if(fromArray.length > 0){
+    if (fromArray.length > 0) {
       from = fromArray[0]
     }
     var toArray = message.to.split("@")
-    if(toArray.length > 0){
+    if (toArray.length > 0) {
       to = toArray[0]
     }
-    if (chat.target==from || chat.target==to){
+    if (chat.target == from || chat.target == to) {
       theChat = chat
       //如果消息不是自己发送出去的，则更新聊天信息
-      if(currentUsername != from){
+      if (currentUsername != from) {
         theChat.avator = message.fromAvator
         theChat.name = message.fromName
       }
@@ -65,20 +65,20 @@ function getChatOfMessage(chatList, message) {
     }
   }
 
-  if(!theChat){
+  if (!theChat) {
     theChat = new Chat()
     var fromArray = message.from.split("@")
-    if(fromArray.length > 0){
+    if (fromArray.length > 0) {
       var from = fromArray[0]
-      if(from == currentUsername){
+      if (from == currentUsername) {
         var toArray = message.to.split("@")
-        if(toArray.length > 0){
+        if (toArray.length > 0) {
           var to = toArray[0]
           theChat.target = to
           theChat.avator = message.toAvator
           theChat.name = message.toName
         }
-      }else{
+      } else {
         theChat.avator = message.fromAvator
         theChat.name = message.fromName
         theChat.target = message.fromUserName
@@ -97,15 +97,15 @@ function getChatOfMessage(chatList, message) {
  */
 function getPreviewContent(message) {
   var content = message.content
-  if (message.type == MessageType.IMAGE){
+  if (message.type == MessageType.IMAGE) {
     content = "[图片]"
-  } else if(message.type == MessageType.VOICE){
+  } else if (message.type == MessageType.VOICE) {
     content = "[语音]"
-  } else if(message.type == MessageType.FILE){
+  } else if (message.type == MessageType.FILE) {
     content = "[文件]"
-  } else if(message.type == MessageType.VEDIO){
+  } else if (message.type == MessageType.VEDIO) {
     content = "[视频]"
-  } else if(message.type == MessageType.LINK){
+  } else if (message.type == MessageType.LINK) {
     content = "[链接]"
   }
   return content
@@ -115,7 +115,7 @@ function getPreviewContent(message) {
  * 获取聊天列表
  */
 function getChatList() {
-  var currentUsername = getApp().getLocalUserInfo().userName
+  var currentUsername = wxUtils.getLocalUserInfo().userName
   //本地聊天列表存储key
   const key = "chat_list_" + currentUsername
   //获取已缓存的消息列表
@@ -134,13 +134,14 @@ function getChatMessageListByTarget(target) {
   //获取已缓存的消息列表
   var chatList = wx.getStorageSync(key)
   var messageList = null
-  for(var i=0; i<chatList.length; i++){
+  for (var i = 0; i < chatList.length; i++) {
     var chat = chatList[i]
-    if(chat.target == target){
+    if (chat.target == target) {
       messageList = chat.messages
       break
     }
   }
+
   return messageList
 }
 

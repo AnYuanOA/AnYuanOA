@@ -1,16 +1,17 @@
 // pages/index/index.js
 const ChatStore = require("../../utils/chatstore.js")
 const chatLib = require("../../services/im/IMLib.js")
-const Chat = chatLib.Chat
-
+const Chat = chatLib.Chat;
+const { imUtils, im } = global;
 //获取应用实例
-const app = getApp()
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    handleRef: [],
     chatList: null,//聊天列表
     newsChat: null,//新闻中心聊天项
     toReadChat: null,//待阅聊天项
@@ -21,22 +22,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    app.setImMessageListener(this.onReceiveImMessage)
-    this.loadSystemChat()
+    let that = this;
+    let ref = im.registerCallback(function () {
+      that.loadChatList();
+      //console.log('我收到消息了+index');
+    });
+
+    const _handleRef = this.data.handleRef;
+    _handleRef.push(ref);
+    this.setData({
+      handleRef: _handleRef
+    });
+    this.loadChatList();
+    //this.loadSystemChat();
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
+    //console.log(im);
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.loadChatList()
+    this.loadChatList();
   },
 
   /**
@@ -50,7 +62,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    for (let id of this.data.handleRef) {
+      im.cancelCallback(id);
+    }
   },
 
   /**
@@ -70,22 +84,36 @@ Page({
   /**
    * 加载本地聊天信息
    */
-  loadChatList: function() {
-    var chatList = ChatStore.getChatList()
-    if(!chatList){
-      chatList = []
+  loadChatList: function () {
+    var chatList = imUtils.getStoreChatList();
+    if (!chatList) {
+      chatList = [];
     }
     //插入系统消息聊天项
     // chatList.unshift(this.data.newsChat)
-    chatList.unshift(this.data.toReadChat)
-    chatList.unshift(this.data.toDoChat)
-
+    // chatList.unshift(this.data.toReadChat);
+    // chatList.unshift(this.data.toDoChat);
     this.setData({
       chatList: chatList
-    })
+    });
   },
 
-  loadSystemChat: function() {
+  clickChat: function (e) {
+    let chatlist = e.currentTarget.dataset.chatlist;
+    let chat = e.currentTarget.dataset.chat;
+
+    for (let value of chatlist) {
+      if (value.target == chat.target) {
+        value.notReadCount = 0;
+        value.chatting = true;
+        imUtils.storeChatList(chatlist);
+        break;
+      }
+    }
+
+  },
+
+  loadSystemChat: function () {
     //添加新闻中心
     var newsChat = new Chat("/images/icon_index_news.jpg",
       "新闻中心", "", "", "科研院所和高校是基础研究的主力军，其最关键的因素是科研人员。")
@@ -102,14 +130,6 @@ Page({
       toReadChat: toReadChat,
       toDoChat: toDoChat
     })
-  },
-
-  /**
-   * 收到IM消息
-   */
-  onReceiveImMessage: function() {
-    //查询本地消息，刷新界面
-    this.loadChatList()
   },
 
   /**

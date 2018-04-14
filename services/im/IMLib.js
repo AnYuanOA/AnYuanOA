@@ -1,10 +1,11 @@
-const StropheLib = require("./strophe.js")
+const StropheLib = require("./strophe.js");
+const uuidv4 = require("../../lib/uuid/v4");//目前我只弄了V4
 const Strophe = StropheLib.Strophe
 
 const BOSH_SERVICE = 'wss://weixin.anyuanhb.com/ws/'
 // const BOSH_SERVICE = 'wss://localhost:8443/ws/'
 const domain = 'anyuan.im'
-const suffix = '@'+domain
+const suffix = '@' + domain
 
 const $build = StropheLib.$build
 const $iq = StropheLib.$iq
@@ -40,7 +41,7 @@ const MessageType = {
 }
 
 class IMLib {
-  constructor(){
+  constructor() {
     this.connection = new Strophe.Connection(BOSH_SERVICE)
     this.Status = Status
     this.MessageType = MessageType
@@ -54,7 +55,7 @@ class IMLib {
         callback(status)
       }
       this.username = username
-      
+
       if (status == Strophe.Status.CONNECTED) {
         console.log("连接及时通讯服务器成功");
         this.status = Status.CONNECTED
@@ -93,10 +94,10 @@ class IMLib {
       type: "chat",
       to: message.to,
       from: message.from,
-      fromAvator:message.fromAvator,
-      fromName:message.fromName,
+      fromAvator: message.fromAvator,
+      fromName: message.fromName,
       msgTime: message.time,
-      msgType: message.type+""
+      msgType: message.type + ""
     }).cnode(Strophe.xmlElement('body', '', message.content))
     this.connection.send(msg)
   }
@@ -121,26 +122,26 @@ class IMLib {
       var realFrom = null
       var realTo = null
       var fromArray = from.split("@")
-      if(fromArray.length > 0){
+      if (fromArray.length > 0) {
         realFrom = fromArray[0]
       }
       var toArray = to.split("@")
-      if(toArray.length > 0){
+      if (toArray.length > 0) {
         realTo = toArray[0]
       }
-      if(!realFrom) {
+      if (!realFrom) {
         realFrom = from
       }
 
-      if(!realTo){
+      if (!realTo) {
         realTo = to
       }
       const message = new Message(realFrom, fromName, fromAvator, realTo, msgType, content)
       message.time = msgTime
       // if(msgType == MessageType.TEXT){
-        if (this.callbacks.onTextMessage) {
-          this.callbacks.onTextMessage(message)
-        }
+      if (this.callbacks.onTextMessage) {
+        this.callbacks.onTextMessage(message)
+      }
       // }
     }
     return true
@@ -158,8 +159,9 @@ class IMLib {
  * @property content 消息内容
  */
 class Message {
-  constructor(from, fromName, fromAvator, to, type, content){
-    this.from = from + suffix 
+  constructor(from, fromName, fromAvator, to, type, content, extra) {
+    this.id = uuidv4();
+    this.from = from + suffix
     this.fromUserName = from
     this.fromName = fromName
     this.fromAvator = fromAvator
@@ -169,6 +171,13 @@ class Message {
     this.type = type
     this.content = content
     this.MessageType = MessageType
+    this.isReaded = true;
+    //额外的信息
+    this.extra = {
+      isPlay: extra.isPlay || false,
+      imageWidth: extra.imageWidth || 0,
+      imageHeight: extra.imageHeight || 0
+    };
   }
 }
 
