@@ -43,7 +43,7 @@
       </view>
     </block>
     <block wx:for="{{toReadList}}" wx:key="{{appId}}">
-      <navigator url="/pages/workflow/detail?pageType=2&appID={{item.appId}}" class="todo-item-navigator">
+      <navigator url="/pages/workflow/detail?pageType=2&appID={{item.appId}}&workflowName={{item.appT_Id}}" class="todo-item-navigator">
         <view class='item-bottom-do'>
           <text class="item-db-type">{{item.orderType}}</text>
           <image class="item-bottom-img" src='/images/todo/icon_todo_dy2.png'></image>
