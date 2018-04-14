@@ -19,11 +19,13 @@
     </view> -->
 
       <view class='approve-info-main'>
-        <view class='approve-info-main-item'>
-          <text class='approve-info-main-item-title'>部门：</text>
-          <text class='approve-info-main-item-desc'>{{applyInfo.dealtList[0].deptName==null?'':applyInfo.dealtList[0].deptName}}</text>
-        </view>
-        <view class='approve-info-main-item' wx:if="{{applyInfo.detail.attLT_Name}}">
+        <block wx:for="{{applyInfo.detail.fields}}" wx:for-item="field" wx:key="idx">
+          <view class='approve-info-main-item'>
+            <text class='approve-info-main-item-title'>{{field.fieldName}}</text>
+            <text class='approve-info-main-item-desc'>{{field.fieldValue}}</text>
+          </view>
+        </block>
+        <!-- <view class='approve-info-main-item' wx:if="{{applyInfo.detail.attLT_Name}}">
           <text class='approve-info-main-item-title'>类别：</text>
           <text class='approve-info-main-item-desc'>{{applyInfo.detail.attLT_Name==null?'':applyInfo.detail.attLT_Name}}</text>
         </view>
@@ -40,7 +42,7 @@
         <view class='approve-info-main-item'>
           <text class='approve-info-main-item-title'>时间：</text>
           <text class='approve-info-main-item-desc'>{{applyInfo.dealtList[0].appDealTime}}</text>
-        </view>
+        </view> -->
       </view>
       <block wx:for="{{applyInfo.dealtList}}" wx:for-item="dealt" wx:key="{{appDID}}" wx:for-index="idx">
         <view class='approve-state-item'>
@@ -83,14 +85,20 @@
       </block>
     </view>
     <view class='operation-panel' hidden='{{pageType!=1}}'>
-      <view class='operation-panel-item op-panel-tongguo' bindtap='approvePass'>
+      <block wx:for="{{operation.appButton}}" wx:for-item="button" wx:key="buttonId" wx:for-index="idx">
+        <view class='operation-panel-item op-panel-tongguo' bindtap='approvePass' data-index='{{idx}}'>
+        <!-- <image class='operation-panel-item-icon' src='/images/workflow/icon_agree.png'></image> -->
+          <text class='operation-panel-item-text'>{{button.buttonValue}}</text>
+        </view>
+      </block>
+      <!-- <view class='operation-panel-item op-panel-tongguo' bindtap='approvePass'>
         <image class='operation-panel-item-icon' src='/images/workflow/icon_agree.png'></image>
         <text class='operation-panel-item-text'>{{operation.appButton[1].buttonValue}}</text>
       </view>
       <view class='operation-panel-item op-panel-tuihui' bindtap='approveReject'>
         <image class='operation-panel-item-icon' src='/images/workflow/icon_back.png'></image>
         <text class='operation-panel-item-text'>{{operation.appButton[0].buttonValue}}</text>
-      </view>
+      </view> -->
     </view>
     <!-- <view class='operation-panel-item-spliter' hidden='{{pageType!=1}}' />
   <view class='operation-panel-spliter' hidden='{{pageType!=1}}' /> -->

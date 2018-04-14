@@ -101,11 +101,16 @@ Page({
   /**
    * 审批下一步
    */
-  approvePass: function () {
+  approvePass: function (event) {
     var that = this
+    var buttonId = that.data.operation.appButton[event.currentTarget.dataset.index].buttonId
     wx.navigateTo({
-      url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[1].buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion
+      url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion
     })
+    // var that = this
+    // wx.navigateTo({
+    //   url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[1].buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion
+    // })
   },
 
   /**

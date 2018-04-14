@@ -24,6 +24,7 @@ Page({
       buttonId: options.buttonId,
       appID: options.appID
     })
+  
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
       header: app.globalData.header,
@@ -41,24 +42,26 @@ Page({
         }
       }
     })
-    wx.request({
-      url: app.globalData.hostUrl + '/workflow/getAcceptUserList',
-      header: app.globalData.header,
-      data: {
-        buttonId: options.buttonId,
-        workflowName: options.workflowName,
-        currentStepId: options.currentStepId,
-        flowVersion: options.flowVersion,
-        isNewFlag: 0,
-        appID: that.data.appID
-      },
-      success: function (res) {
-        that.setData({
-          selEmps: res.data.data.acceptUserInfo,
-          selStep: res.data.data
-        })
-      }
-    })
+    if (that.data.buttonId != 9) {
+      wx.request({
+        url: app.globalData.hostUrl + '/workflow/getAcceptUserList',
+        header: app.globalData.header,
+        data: {
+          buttonId: options.buttonId,
+          workflowName: options.workflowName,
+          currentStepId: options.currentStepId,
+          flowVersion: options.flowVersion,
+          isNewFlag: 0,
+          appID: that.data.appID
+        },
+        success: function (res) {
+          that.setData({
+            selEmps: res.data.data.acceptUserInfo,
+            selStep: res.data.data
+          })
+        }
+      })
+    }
   },
 
   /**
@@ -127,12 +130,20 @@ Page({
       success: function (res) {
         if (res.confirm) {
           app.showLoadToast('处理中...');
+          var button = null;
+          for(var i=0; i<that.data.operation.appButton.length; i++){
+            var btn = that.data.operation.appButton[i]
+            if(btn.buttonId == that.data.buttonId){
+              button = btn
+              break
+            }
+          }
           wx.request({
             url: app.globalData.hostUrl + '/workflow/processWorkflow',
             header: app.globalData.header,
             method: 'POST',
             data: {
-              operationButton: that.data.buttonId == 9 ? JSON.stringify(that.data.operation.appButton[0]) : JSON.stringify(that.data.operation.appButton[1]),
+              operationButton: JSON.stringify(button),
               workflowTitle: that.data.applyInfo.detail.workflowTitle,
               workflowName: that.data.applyInfo.detail.workflowTemplateID,
               oaSPID: that.data.applyInfo.detail.in_sp_id,

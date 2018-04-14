@@ -9,7 +9,7 @@
   </view>
 
   <!-- 待办视图 -->
-  <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}'>
+  <scroll-view class='content_container' scroll-y hidden='{{showType!=1}}' style='height:{{winH}}px' bindscrolltolower="todoSearchScrollLower" bindscrolltoupper="todoPullDownRefresh">
     <block wx:if="{{todoList==null}}">
       <view class='no-data-view'>
         <image src='/images/nodata.png'></image>
@@ -36,14 +36,14 @@
   <!--  -->
 
   <!-- 待阅视图 -->
-  <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}'>
+  <scroll-view class='content_container' scroll-y hidden='{{showType!=2}}' style='height:{{winH}}px' bindscrolltolower="toReadSearchScrollLower" bindscrolltoupper="toReadPullDownRefresh">
     <block wx:if="{{toReadList==null}}">
       <view class='no-data-view'>
         <image src='/images/nodata.png'></image>
       </view>
     </block>
     <block wx:for="{{toReadList}}" wx:key="{{appId}}">
-      <navigator url="/pages/workflow/detail?pageType=2&appID={{item.appId}}" class="todo-item-navigator">
+      <navigator url="/pages/workflow/detail?pageType=2&appID={{item.appId}}&workflowName={{item.appT_Id}}" class="todo-item-navigator">
         <view class='item-bottom-do'>
           <text class="item-db-type">{{item.orderType}}</text>
           <image class="item-bottom-img" src='/images/todo/icon_todo_dy2.png'></image>
