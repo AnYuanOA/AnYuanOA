@@ -169,11 +169,12 @@ Page({
               _todoList.splice(_todoList.length, 0, _wfList[i])
             }
             _that.setData({
-              todoList: _todoList
+              todoList: _todoList,
+              lastAppId: _wfList[_wfList.length - 1].appID
             })
           } else {
             _that.setData({
-              lastAppId: ''
+              lastAppId: _todoList[_todoList.length - 1].appID
             })
           }
         },
