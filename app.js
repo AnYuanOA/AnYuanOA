@@ -21,22 +21,34 @@ App({
 
   async onLaunch() {
     var _that = this;//bind this to _that
+
     const settings = await wxUtils.getWxSetting();
     if (settings.authSetting['scope.userInfo'] || wx.canIUse('button.open-type.getUserInfo')) {
       let res = await wxUtils.wxGetUserInfo();
       this.globalData.userInfo = res.userInfo;
     }
 
+
     try {
       // 登录微信小程序后台获取当前用户openid
       const wxLoginInfo = await wxUtils.wxLogin();
+      console.log(wxLoginInfo);   
       const serverInfo = await WebService.sendJsCode(wxLoginInfo.code);
+      console.log(serverInfo);   
       const openId = serverInfo.data.data.openid;
+      // console.log(3);   
       _that.globalData.openId = openId;
+      // console.log(4);
       const ayLoginBack = await WebService.loginWithOpenID(openId);
-      _that.globalData.header.Cookie = 'JSESSIONID=' + ayLoginBack.data.data;
-      _that.globalData.header.JSESSIONID = ayLoginBack.data.data;
+      // console.log(4);
+      // console.log(ayLoginBack);
+      // _that.globalData.header.Cookie = 'JSESSIONID=' + ayLoginBack.data.data;
+      // _that.globalData.header.JSESSIONID = ayLoginBack.data.data;
       const userInfo = await WebService.loadUserInfo(openId);
+
+      
+      console.log(111);
+
     } catch (error) {
       console.log(error);
       wx.redirectTo({
@@ -95,8 +107,8 @@ App({
       'Cookie': null,
       JSESSIONID: null
     },
-    //hostUrl: 'https://weixin.anyuanhb.com/web-service',
-    hostUrl: 'http://192.168.0.107:8080/web-service',
+    hostUrl: 'https://weixin.anyuanhb.com/web-service',
+    // hostUrl: 'http://192.168.0.107:8080/web-service',
     appId: 'wx42c2b2080fd58ff9',
     secret: 'a1eeab18ed1e785741946e3c29499a0c'
   },

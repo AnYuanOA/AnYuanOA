@@ -41,6 +41,7 @@ Page({
     };
 
     newWebservice.ayLogin(params).then(res => {
+      console.log(res);
       let data = res.data;
       app.globalData.header.Cookie = 'JSESSIONID=' + data;
       app.globalData.header.JSESSIONID = data;
@@ -65,9 +66,9 @@ Page({
       im.connect(that.data.userid, that.data.passwd);
 
     }).catch(error => {
-      console.log(error)
-      wx.hideToast();
-      app.showErrorModal('提示', error.data.message);
+      console.log(error);
+      // wx.hideToast();
+      // app.showErrorModal('提示', error.data.message);
     });
   },
   inputFocus: function (e) {

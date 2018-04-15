@@ -26,8 +26,8 @@ const USER_NOT_BIND_CODE = 10002
 const REQUEST_OK_CODE = 200
 
 
-//const BASE_URL = "https://weixin.anyuanhb.com/web-service"
-const BASE_URL = "http://192.168.0.107:8080/web-service"
+const BASE_URL = "https://weixin.anyuanhb.com/web-service"
+//const BASE_URL = "http://192.168.0.107:8080/web-service"
 /**
  * 使用用户名密码登录并绑定openID
  */

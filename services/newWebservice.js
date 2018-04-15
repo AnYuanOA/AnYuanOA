@@ -18,8 +18,8 @@ const USER_NOT_BIND_CODE = 10002
 const REQUEST_OK_CODE = 200
 
 
-//const BASE_URL = "https://weixin.anyuanhb.com/web-service"
-const BASE_URL = "http://192.168.0.107:8080/web-service"
+const BASE_URL = "https://weixin.anyuanhb.com/web-service"
+// const BASE_URL = "http://192.168.0.107:8080/web-service"
 /**
  * 使用用户名密码登录并绑定openID
  */
@@ -69,7 +69,7 @@ const PROCESS_WORKFLOW_URL = "/workflow/processWorkflow";
 /**
  * 载入部门列表
  */
-const LOAD_DEPT_DEPT ='/dept/showAllDept';
+const LOAD_DEPT_DEPT = '/dept/showAllDept';
 /**
  * 获取当前用户信息
  */
@@ -143,7 +143,17 @@ export function loginWithOpenID(openID) {
   let data = {
     openId: openID
   };
-  return WxRequest(LOGIN_OPENID_URL, data);
+  return WxRequest(LOGIN_OPENID_URL, data).then(res => {
+    console.log(res);
+    if (res.code == REQUEST_OK_CODE) {
+      return Promise.resolve(res);
+    } else {
+      console.log(res.message);
+      return Promise.reject(res);
+    }
+  }).catch(e => {
+    return Promise.reject(e);
+  });
 }
 
 //下载文件
@@ -209,10 +219,10 @@ export function loadUserInfo(openId) {
         userInfo.chatNick = user.chatNick;
         userInfo.avatarUrl = user.avatarUrl;
         wx.setStorageSync("USER_INFO", userInfo);
-      }else{
+      } else {
         throw new Error('无法获取安源用户信息');
       }
-    } 
+    }
     return Promise.resolve(userInfo);
   }).catch(e => {
     return Promise.reject(e);
@@ -234,10 +244,11 @@ export function loadUserInfo(openId) {
 export function ayLogin(params) {
   return WxRequest(LOGIN_URL, params).then(res => {
     if (res.data.code == REQUEST_OK_CODE) {
+      console.log(res);
       wx.setStorageSync(SESSIONID_KEY, res.data.data);
       return Promise.resolve(res.data);
     } else {
-      return Promise.reject(res);
+      return Promise.reject(res.data);
     }
   }).catch(error => {
     console.log(error);
@@ -249,8 +260,8 @@ export function ayLogin(params) {
 /**
  * 载入部门列表
  */
-export function loadDept(){
-  
+export function loadDept() {
+
   return WxRequest(LOAD_DEPT_DEPT, {}, 'GET');;
 }
 
