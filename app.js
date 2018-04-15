@@ -42,8 +42,8 @@ App({
       const ayLoginBack = await WebService.loginWithOpenID(openId);
       // console.log(4);
       // console.log(ayLoginBack);
-      // _that.globalData.header.Cookie = 'JSESSIONID=' + ayLoginBack.data.data;
-      // _that.globalData.header.JSESSIONID = ayLoginBack.data.data;
+      _that.globalData.header.Cookie = 'JSESSIONID=' + ayLoginBack.data.data;
+      _that.globalData.header.JSESSIONID = ayLoginBack.data.data;
       const userInfo = await WebService.loadUserInfo(openId);
 
       
