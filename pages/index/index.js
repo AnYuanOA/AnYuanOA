@@ -34,7 +34,7 @@ Page({
       handleRef: _handleRef
     });
     this.loadChatList();
-    //this.loadSystemChat();
+    this.loadSystemChat();
   },
 
   /**
@@ -90,15 +90,16 @@ Page({
       chatList = [];
     }
     //插入系统消息聊天项
-    // chatList.unshift(this.data.newsChat)
-    // chatList.unshift(this.data.toReadChat);
-    // chatList.unshift(this.data.toDoChat);
+    chatList.unshift(this.data.newsChat)
+    chatList.unshift(this.data.toReadChat);
+    chatList.unshift(this.data.toDoChat);
     this.setData({
       chatList: chatList
     });
   },
 
   clickChat: function (e) {
+  
     let chatlist = e.currentTarget.dataset.chatlist;
     let chat = e.currentTarget.dataset.chat;
 
@@ -106,6 +107,7 @@ Page({
       if (value.target == chat.target) {
         value.notReadCount = 0;
         value.chatting = true;
+        chatlist.splice(0, 3);
         imUtils.storeChatList(chatlist);
         break;
       }
