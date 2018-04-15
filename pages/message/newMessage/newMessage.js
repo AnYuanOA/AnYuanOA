@@ -201,7 +201,11 @@ Page({
 
   //载入聊天消息
   loadMessageList() {
-    let messageList = imUtils.getChatByTarget(this.data.toUser).messages || [];
+    let chat = imUtils.getChatByTarget(this.data.toUser);
+    let messageList = [];
+    if(chat){
+      messageList = chat.messages;
+    }
     this.setData({
       messageData: messageList
     });
