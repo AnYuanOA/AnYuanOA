@@ -1,12 +1,12 @@
 //login.js
 import { im } from '../../services/IM';
-const { newWebservice } = global;
-const chatLib = require("../../services/im/IMLib.js")
-const WebService = require("../../services/webservice.js")
+import * as newWebservice from '../../services/newWebservice';
+
+
 //获取应用实例
 const app = getApp();
-
 Page({
+
   data: {
     userInfo: null,
     userid_focus: false,
@@ -22,15 +22,13 @@ Page({
       passwd: app.globalData.pwdid
     })
   },
-  //登录跳转事件
   loginUser(e) {
-    var that = this;
-    if (!that.data.userid || !that.data.passwd) {
+    let that = this;
+    if (!this.data.userid || !this.data.passwd) {
       app.showErrorModal('提醒', '账号及密码不能为空！');
       return false;
     }
     app.showLoadToast('登录中...');
-
     let params = {
       userName: that.data.userid,
       account: that.data.userid,
@@ -41,13 +39,12 @@ Page({
     };
 
     newWebservice.ayLogin(params).then(res => {
-      console.log(res);
       let data = res.data;
       app.globalData.header.Cookie = 'JSESSIONID=' + data;
       app.globalData.header.JSESSIONID = data;
       return newWebservice.loadUserInfo(params.openId);
     }).then(res => {
-      
+
       //写入用户登录信息到缓存
       wx.setStorage({
         key: 'login_act',
@@ -66,11 +63,11 @@ Page({
       im.connect(that.data.userid, that.data.passwd);
 
     }).catch(error => {
-      console.log(error);
-      // wx.hideToast();
-      // app.showErrorModal('提示', error.data.message);
+      wx.hideToast();
+      app.showErrorModal('提示', error.message);
     });
   },
+  
   inputFocus: function (e) {
     if (e.target.id == 'userid') {
       this.setData({
@@ -82,6 +79,7 @@ Page({
       });
     }
   },
+
   inputBlur: function (e) {
     if (e.target.id == 'userid') {
       this.setData({
@@ -93,15 +91,26 @@ Page({
       });
     }
   },
+
   useridInput: function (e) {
     this.setData({
       userid: e.detail.value
     });
   },
+
   passwdInput: function (e) {
     this.setData({
       passwd: e.detail.value
     });
+  },
+
+  confirmInput: function (e) {
+    if (e.currentTarget.id === 'passwd') {
+      this.loginUser();
+    } else if (e.currentTarget.id === 'userid' && this.data.userid && this.data.passwd) {
+      this.loginUser();
+    }
   }
+
 })
 

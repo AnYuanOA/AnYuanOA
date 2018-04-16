@@ -1,7 +1,15 @@
 import StropheJs from '../lib/strophe.js/strophe';
-import uuid from "/../lib/uuid/v4";//目前我只弄了V4
-const { moment, wxUtils } = global;
+import uuid from "../lib/uuid/v4";//目前我只弄了V4
+import moment from '../lib/moment/moment';
+import * as wxUtils from '../utils/wxUtils';
+
 const { Strophe, $iq, $build, $msg, $pres } = StropheJs;
+
+Strophe.log = function (level, msg) {  
+  if (level == Strophe.LogLevel.ERROR) {
+    console.log(msg);
+  }
+};
 
 const BOSH_SERVICE = 'wss://weixin.anyuanhb.com/ws/';
 // const BOSH_SERVICE = 'wss://localhost:8443/ws/'
@@ -10,7 +18,7 @@ const suffix = `@` + domain;
 
 //const MessageType = 
 
-const ONLINE_PRESENCE = $pres().c("show").t("chat").up().c("status").t("talk to me");
+const ONLINE_PRESENCE = $pres().c("show").t("chat").up().c("status").t("我在线啊");
 
 const con_options = {
   "ayCookie": {
@@ -43,6 +51,11 @@ class InstanceMsg {
   sendOnline() {
     this.connection.send(ONLINE_PRESENCE.tree());
   }
+  
+  //是否在线
+  isConnected(){
+    return this.Status == Strophe.Status.CONNECTED;
+  }
 
   sendMessage(message) {
     const msg = $msg({
@@ -73,7 +86,7 @@ class InstanceMsg {
 
 }
 /** 消息Class */
-class Message {
+export class Message {
 
   constructor(fromName, fromCname, fromAvator, toName, toCname, chatType, msgType, content, extra) {
     this.id = uuid();
@@ -116,7 +129,7 @@ class Message {
  * @property lastContent 最后一条消息内容
  * @property messages    聊天项包含的消息数组
  */
-class Chat {
+export class Chat {
 
   constructor(target, name, avator, lastTime, lastContent, messages, notReadCount) {
     this.target = target;
@@ -155,7 +168,6 @@ function _onConnect(status) {
     //类似heart beat
     this.connection.addTimedHandler(60000, _heartBeat.bind(this));
 
-
   }
 }
 
@@ -193,7 +205,6 @@ function _handleMessage(msg) {
 //心跳
 function _heartBeat() {
   if (this.status == Strophe.Status.CONNECTED) {
-    console.log('发送心跳');
     this.sendOnline();
     return true;
   } else
@@ -230,7 +241,8 @@ function getChatOfMessage(chatList, msg) {
       newChat.lastTime = msg.time;
       newChat.lastContent = getPreviewContent(msg);
       chatList.splice(chatList.indexOf(chat), 1);//从当前列表删除chat
-      
+      console.log(chat);
+      console.log($from)
       if (chat.target == $from && !chat.isChatting) {
         newChat.notReadCount = newChat.notReadCount + 1;
       }
@@ -239,9 +251,8 @@ function getChatOfMessage(chatList, msg) {
   }
   //如果不存在
   if (!newChat) {
-    const username = wxUtils.getLocalUserInfo().userName;
     let _content = getPreviewContent(msg);
-    if (msg.fromName == username) {
+    if (msg.fromName == currentUsername) {
       newChat = new Chat(msg.toName, msg.toCname, msg.toAvator, msg.time, _content, [], 0);
     } else {
       newChat = new Chat(msg.fromName, msg.fromCname, msg.fromAvator, msg.time, _content, [], 1);
@@ -266,6 +277,7 @@ function getChatByTarget(target) {
   }
   return _chat;
 }
+
 /**
  * 存储聊天列表
  */
@@ -274,6 +286,7 @@ function storeChatList(chatList) {
   const key = "chat_list_" + currentUsername;
   wx.setStorageSync(key, chatList);
 }
+
 /**获取本人的聊天记录 */
 function getStoreChatList() {
   const currentUsername = wxUtils.getLocalUserInfo().userName;
@@ -306,12 +319,9 @@ export const imUtils = {
   getStoreChatList: getStoreChatList,
   storeChatList: storeChatList,
   getChatByTarget: getChatByTarget,
-  Message: Message
-
 }
 
 let inModule = typeof module === "object";
 if (typeof global === "object") {
-  global.imUtils = imUtils;
   global.im = im;
 }

@@ -1,6 +1,6 @@
 // pages/organize/organize.js
-const { newWebservice } = global;
-var app = getApp();
+import { loadDept } from '../../services/newWebservice';
+const app = getApp();
 Page({
   /**
    * 页面的初始数据
@@ -19,45 +19,24 @@ Page({
     that.setData({
       defaultHead: '/images/organize/icon_emp1.png'
     });
-    newWebservice.loadDept().then(res => {
-      if (res.data.code == 500) {
+    loadDept().then(res => {
+      console.log(res)
+      if (res.code == 500) {
         wx.redirectTo({
           url: '/pages/noAccess/noAccess',
         })
       } else {
-        if (res.data.data <= 0) {
+        if (res.data <= 0) {
           that.setData({
             noData: true
           })
         } else {
           that.setData({
-            depts: res.data.data
+            depts: res.data
           });
         }
       }
     }).catch(e => console.log(e));
-
-    // wx.request({
-    //   url: app.globalData.hostUrl + '/dept/showAllDept',
-    //   header: app.globalData.header,
-    //   success: function (res) {
-    //     if (res.data.code == 500) {
-    //       wx.redirectTo({
-    //         url: '/pages/noAccess/noAccess',
-    //       })
-    //     } else {
-    //       if (res.data.data <= 0) {
-    //         that.setData({
-    //           noData: true
-    //         })
-    //       } else {
-    //         that.setData({
-    //           depts: res.data.data
-    //         })
-    //       }
-    //     }
-    //   }
-    // })
   },
 
   /**
@@ -139,8 +118,7 @@ Page({
   },
   //新建回话
   call: function (e) {
-    var name = e.currentTarget.id
-    console.log(name);
+    var name = e.currentTarget.id;
     wx.navigateTo({
       url: '/pages/message/newMessage/newMessage?name=' + name,
     })

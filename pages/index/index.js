@@ -1,8 +1,9 @@
 // pages/index/index.js
+import { imUtils } from '../../services/IM';
 const ChatStore = require("../../utils/chatstore.js")
 const chatLib = require("../../services/im/IMLib.js")
 const Chat = chatLib.Chat;
-const { imUtils, im } = global;
+const { im } = global;
 //获取应用实例
 const app = getApp();
 Page({
@@ -25,7 +26,6 @@ Page({
     let that = this;
     let ref = im.registerCallback(function () {
       that.loadChatList();
-      //console.log('我收到消息了+index');
     });
 
     const _handleRef = this.data.handleRef;
@@ -41,7 +41,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    //console.log(im);
   },
 
   /**
@@ -99,14 +98,14 @@ Page({
   },
 
   clickChat: function (e) {
-  
+
     let chatlist = e.currentTarget.dataset.chatlist;
     let chat = e.currentTarget.dataset.chat;
 
     for (let value of chatlist) {
       if (value.target == chat.target) {
         value.notReadCount = 0;
-        value.chatting = true;
+        value.isChatting = true;
         chatlist.splice(0, 3);
         imUtils.storeChatList(chatlist);
         break;

@@ -62,8 +62,8 @@ export function wxAuthorize(scope) {
   let promise = new Promise((resolve, reject) => {
     wx.authorize({
       scope: scope,
-      success: res => resolve(res),
-      faile: e => reject(e)
+      faile: e => reject(e),
+      complete: info => { resolve(info) }
     });
   });
   return promise;
@@ -92,8 +92,8 @@ export function getWindowInfo() {
 /**
  * 获取本地用户信息
  */
-export function getLocalUserInfo(){
-  let info =wx.getStorageSync('USER_INFO');
+export function getLocalUserInfo() {
+  let info = wx.getStorageSync('USER_INFO');
   return info;
 }
 
@@ -121,9 +121,4 @@ export function imageUtil(imageInfo, wxWindowInfo) {
     imageSize.imageWidth = (windowHeight * width) / height;
   }
   return imageSize;
-}
-
-let inModule = typeof module === "object";
-if (typeof global === "object") {
-  global.wxUtils = inModule ? module.exports : {};
 }

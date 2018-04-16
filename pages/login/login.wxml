@@ -6,11 +6,11 @@
   <view class="login-form">
     <view class="login-input {{userid_focus ? 'active' : ''}}">
       <image class="input-icon" src="/images/index/act.png"></image>
-      <input id="userid" cursor-spacing="30" class="input-text" placeholder="请输入账号" bindfocus="inputFocus" bindblur="inputBlur" bindinput="useridInput" value="{{userid}}"></input>
+      <input id="userid" cursor-spacing="30" class="input-text" placeholder="请输入账号" bindfocus="inputFocus" bindblur="inputBlur" bindinput="useridInput" value="{{userid}}" bindconfirm="confirmInput"></input>
     </view>
     <view class="login-input {{passwd_focus ? 'active' : ''}}">
       <image class="input-icon" src="/images/index/pwd.png"></image>
-      <input id="passwd" password="true" cursor-spacing="30" class="input-text" placeholder="请输入密码" bindfocus="inputFocus" bindblur="inputBlur" bindinput="passwdInput" value="{{passwd}}"></input>
+      <input id="passwd" password="true" cursor-spacing="30" class="input-text" placeholder="请输入密码" bindfocus="inputFocus" bindblur="inputBlur" bindinput="passwdInput" value="{{passwd}}" bindconfirm="confirmInput"></input>
     </view>
     <button class="login-btn" bindtap="loginUser">登录</button>
   </view>

@@ -1,17 +1,23 @@
 // pages/message/newMessage/newMessage.js
-const ChatStore = require("../../../utils/chatstore.js");
-const chatLib = require("../../../services/im/IMLib.js");
-const util = require('../../../utils/util.js');
+// const ChatStore = require("../../../utils/chatstore.js");
+// const chatLib = require("../../../services/im/IMLib.js");
+// const util = require('../../../utils/util.js');
+// const Message = chatLib.Message;
+// const MessageType = chatLib.MessageType;
+// const Chat = chatLib.Chat;
+
+import moment from '../../../lib/moment/moment';
+import * as wxUtils from '../../../utils/wxUtils';
+import { imUtils, Message } from '../../../services/IM';
+import * as newWebservice from '../../../services/newWebservice';
 
 
 /** added by yandixuan **/
-const { im, regeneratorRuntime, newWebservice, wxUtils, moment, imUtils } = global;
-const MessageType = imUtils.Message.MessageType;
+const { im, regeneratorRuntime, } = global;
+const MessageType = Message.MessageType;
 
 const app = getApp();
-//const Message = chatLib.Message;
-//const MessageType = chatLib.MessageType;
-const Chat = chatLib.Chat;
+
 
 //界面消息类型 文本||语音
 const messageWay = {
@@ -62,7 +68,7 @@ Page({
 
     //绑定语音播放监听函数
     innerAudioContext.onPlay(() => {
-      console.log('开始播放')
+      console.log('开始播放');
     });
     innerAudioContext.onError(res => {
       console.log(res.errMsg)
@@ -77,13 +83,13 @@ Page({
 
     //录音监听函数
     recorderManager.onStart(() => {
-      console.log('recorder start')
+      console.log('recorder start');
     });
     recorderManager.onResume(() => {
-      console.log('recorder resume')
+      console.log('recorder resume');
     });
     recorderManager.onPause(() => {
-      console.log('recorder pause')
+      console.log('recorder pause');
     });
     recorderManager.onStop((res) => {
       let { tempFilePath } = res
@@ -92,7 +98,6 @@ Page({
         let extra = { isPlay: false };
         let msg = assembleMessage(that, MessageType.VOICE, src, extra);
         im.sendMessage(msg);
-        //app.sendImMessage(msg);
         that.setData({
           messageData: that.data.messageData
         });
@@ -101,10 +106,7 @@ Page({
       });
 
     });
-    recorderManager.onFrameRecorded((res) => {
-      const { frameBuffer } = res
-      console.log('frameBuffer.byteLength', frameBuffer.byteLength)
-    });
+
 
     /** ========== 加载页面所需数据 ===========**/
     const _name = options.name.split(",");
@@ -164,15 +166,15 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-    //app.removeImMessageListener(this.onReceiveImMessage)
     for (let id of this.data.handleRef) {
       im.cancelCallback(id);
     }
     let _chatlist = imUtils.getStoreChatList();
-    let _chat=imUtils.getChatByTarget(this.data.toUser);
-    for (let chat of _chatlist){
-      if(chat.target==_chat.target){
-        chat.isChatting=false;
+    let _chat = imUtils.getChatByTarget(this.data.toUser);
+
+    for (let chat of _chatlist) {
+      if (_chat && chat.target == _chat.target) {
+        chat.isChatting = false;
         imUtils.storeChatList(_chatlist);
       }
     }
@@ -203,7 +205,7 @@ Page({
   loadMessageList() {
     let chat = imUtils.getChatByTarget(this.data.toUser);
     let messageList = [];
-    if(chat){
+    if (chat) {
       messageList = chat.messages;
     }
     this.setData({
@@ -261,6 +263,7 @@ Page({
   palyVoice(e) {
     let msg = e.currentTarget.dataset.msg;
     let msgs = e.currentTarget.dataset.msgs;
+    console.log(msg.content)
     innerAudioContext.src = msg.content;
     restVoice(msgs, this);
     updateVoice(msg, msgs, this);
@@ -319,7 +322,7 @@ function updateVoice(msg, msgs, that) {
 function assembleMessage(that, msgType, content, extra) {
   const userInfo = wxUtils.getLocalUserInfo();
   //Message ss = new Message(obj.fromName, obj.fromCname, obj.fromAvator, obj.toName, obj.chatType, obj.msgType, obj.content, obj.extra);
-  const msg = new imUtils.Message(userInfo.userName, userInfo.user.cName, userInfo.avatarUrl, that.data.toUser, that.data.toUserCname, 'chat', msgType, content, extra);
+  const msg = new Message(userInfo.userName, userInfo.user.cName, userInfo.avatarUrl, that.data.toUser, that.data.toUserCname, 'chat', msgType, content, extra);
   if (!that.data.messageData) {
     that.data.messageData = []
   }

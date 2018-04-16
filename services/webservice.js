@@ -1,89 +1,28 @@
-/**
- * WebServiceCallback {
- *  success:function(data){
- *    data为服务端返回数据中的data字段
- *  },
- *  fail:function(msg){
- *    msg服务端返回msg
- *  }
- * }
- */
-/**
- * 本地存储sessionID key
- */
-const SESSIONID_KEY = "JSESSIONID"
-/**
- * 无权限访问code
- */
-const NO_PERMISSION_CODE = 10001
-/**
- * 用户未绑定code
- */
-const USER_NOT_BIND_CODE = 10002
-/**
- * 接口请求成功code
- */
-const REQUEST_OK_CODE = 200
+import { BASE_URL } from '../utils/const';
 
+//URL信息
+const LOGIN_URL = "/login/loginAnyuanUser"; //使用用户名密码登录并绑定openID
+const LOGIN_OPENID_URL = "/login/loginWithOpenID";//使用openID登录
+const LOGOUT_URL = "/login/logout";//退出登录，解除绑定
 
-const BASE_URL = "https://weixin.anyuanhb.com/web-service"
-//const BASE_URL = "http://192.168.0.107:8080/web-service"
-/**
- * 使用用户名密码登录并绑定openID
- */
-const LOGIN_URL = "/login/loginAnyuanUser"
-/**
- * 使用openID登录
- */
-const LOGIN_OPENID_URL = "/login/loginWithOpenID"
-/**
- * 退出登录，解除绑定
- */
-const LOGOUT_URL = "/login/logout"
-/**
- * 获取待办列表
- */
-const GET_TODO_LIST_URL = "/workflow/getToDoList"
-/**
- * 获取待阅列表
- */
-const GET_TOREAD_LIST_URL = "/workflow/getToReadList"
-/**
- * 获取待办详情
- */
-const GET_TODO_DETAIL_URL = "/workflow/getToDoDetail"
-/**
- * 获取请假类型列表
- */
-const GET_RESTTYPELIST_URL = "/workflow/getRestTypeList"
-/**
- * 获取用车类型列表
- */
-const GET_USINGTYPELIST_URL = "/workflow/getUsingTypeList";
-/**
- * 提交请假申请
- */
-const SUBMIT_LEAVE_URL = "/workflow/submitLeave";
-/**
- * 提交用车申请
- */
-const SUBMIT_USCAR_URL = "/workflow/submitUsingCar";
-/**
- * 办理流程
- */
-const PROCESS_WORKFLOW_URL = "/workflow/processWorkflow";
-/**
- * 获取当前用户信息
- */
-const GET_SELF_USERINFO_URL = "/user/getSelfUser"
-/**
- * 向服务器上传文件
- */
-const FILE_UPLOAD_URL = '/file/upload';
-/**
- * 向服务器读取文件
- */
-const FILE_FETCH_URL = '/file';
+const GET_TODO_LIST_URL = "/workflow/getToDoList";//获取待办列表
+const GET_TOREAD_LIST_URL = "/workflow/getToReadList";//获取待阅列表
+const GET_TODO_DETAIL_URL = "/workflow/getToDoDetail";//获取待办详情
+const GET_RESTTYPELIST_URL = "/workflow/getRestTypeList";//获取请假类型列表
+const GET_USINGTYPELIST_URL = "/workflow/getUsingTypeList";//获取用车类型列表
+const SUBMIT_LEAVE_URL = "/workflow/submitLeave";//提交请假申请
+const SUBMIT_USCAR_URL = "/workflow/submitUsingCar";//提交用车申请
+const PROCESS_WORKFLOW_URL = "/workflow/processWorkflow";//办理流程
+
+const LOAD_DEPT_DEPT = '/dept/showAllDept';//载入部门列表
+const GET_SELF_USERINFO_URL = '/user/getSelfUser';//获取当前用户信息
+const FILE_UPLOAD_URL = '/file/upload';//向服务器上传文件
+const FILE_FETCH_URL = '/file';//向服务器读取文件
+//
+const SESSIONID_KEY = "JSESSIONID";//本地存储sessionID key
+const NO_PERMISSION_CODE = '10001';//无权限访问code
+const USER_NOT_BIND_CODE = '10002'; //用户未绑定code
+const REQUEST_OK_CODE = '200';//接口请求成功code
 
 /**
  * 发起网络请求
