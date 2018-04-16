@@ -21,7 +21,7 @@
       <view class='approve-info-main'>
         <block wx:for="{{applyInfo.detail.fields}}" wx:for-item="field" wx:key="idx">
           <view class='approve-info-main-item'>
-            <text class='approve-info-main-item-title'>{{field.fieldName}}</text>
+            <text class='approve-info-main-item-title'>{{field.fieldName}}：</text>
             <text class='approve-info-main-item-desc'>{{field.fieldValue}}</text>
           </view>
         </block>

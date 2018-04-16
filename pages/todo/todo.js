@@ -165,7 +165,6 @@ Page({
           wx.hideLoading();
           if (data.wfList && data.wfList.length > 0) {
             var _wfList = data.wfList
-            console.log(_wfList)
             for (var i = 0, i = _wfList.length; i < i; ++i) {
               _todoList.splice(_todoList.length, 0, _wfList[i])
             }
@@ -184,6 +183,7 @@ Page({
         }
       }
     )
+    // console.log(_that.data.todoList)
   },
 
 
@@ -238,7 +238,7 @@ Page({
           if (data.waitList && data.waitList.length > 0) {
             var _waitList = data.waitList
             for (var i = 0, i = _waitList.length; i < i; ++i) {
-              _toReadList.splice(_toReadList.length-1, 0, _waitList[i])
+              _toReadList.splice(_toReadList.length - 1, 0, _waitList[i])
             }
             _that.setData({
               toReadList: _toReadList,

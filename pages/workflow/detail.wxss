@@ -67,6 +67,7 @@
   font-size: 10pt;
   line-height: 20px;
   flex-shrink: 0;
+  width: 30%;
 }
 
 .approve-info-main-item-desc {
