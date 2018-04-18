@@ -252,7 +252,7 @@ Page({
       }
     })
     wx.request({
-      url: app.globalData.hostUrl + '/workflow/getAcceptUserList',
+      url: app.globalData.hostUrl + '/workflow/getStartAcceptUserList',
       header: app.globalData.header,
       data: {
         buttonId: '6',
@@ -276,7 +276,7 @@ Page({
       }
     })
     wx.request({
-      url: app.globalData.hostUrl + '/workflow/getAcceptUserList',
+      url: app.globalData.hostUrl + '/workflow/getStartAcceptUserList',
       header: app.globalData.header,
       data: {
         buttonId: '6',
