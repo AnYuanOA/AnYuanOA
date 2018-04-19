@@ -30,16 +30,14 @@ App({
       this.globalData.userInfo = res.userInfo;
 
       // 登录微信小程序后台获取当前用户openid
+      _that.showLoadToast();
       const wxLoginInfo = await wxUtils.wxLogin();//微信登录拿到JSCODE
-
       const serverInfo = await WebService.sendJsCode(wxLoginInfo.code);//JSCODE拿到openid
-
       const openId = serverInfo.data.openid;
-
       _that.globalData.openId = openId;
-
       const ayLoginBack = await WebService.loginWithOpenID(openId);//用openid登录
 
+      wx.hideToast()
       _that.globalData.header.Cookie = 'JSESSIONID=' + ayLoginBack.data;
       _that.globalData.header.JSESSIONID = ayLoginBack.data;
 
@@ -94,8 +92,8 @@ App({
       'Cookie': null,
       JSESSIONID: null
     },
-    // hostUrl: 'https://weixin.anyuanhb.com/web-service',
-    hostUrl: 'http://192.168.0.107:8080/web-service',
+    hostUrl: 'https://weixin.anyuanhb.com/web-service',
+    // hostUrl: 'http://192.168.0.107:8080/web-service',
     appId: 'wx42c2b2080fd58ff9',
     secret: 'a1eeab18ed1e785741946e3c29499a0c'
   },
