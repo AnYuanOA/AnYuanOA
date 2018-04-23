@@ -55,10 +55,10 @@
   width: 70%;
   /* text-align: right; */
   padding: 3px 5px;
-  text-align: center;
+  /* text-align: center;
   align-items: center;
   justify-content: center;
-  display: flex;
+  display: flex; */
 }
 
 .reson_input {

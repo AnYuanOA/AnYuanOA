@@ -47,7 +47,8 @@ Page({
         success: function (data) {
           if (data.wfList && data.wfList.length > 0) {
             that.setData({
-              todoList: data.wfList
+              todoList: data.wfList,
+              lastAppId: data.wfList[0].appID
             });
           }
         },
@@ -58,44 +59,21 @@ Page({
     )
 
     WebService.loadToReadList(
-      that.data.currentPage,
+      1,
       {
         success: function (data) {
           if (data.waitList && data.waitList.length > 0) {
             that.setData({
-              toReadList: data.waitList
+              toReadList: data.waitList,
+              currentPage: 2
             });
           }
-
         },
         fail: function (msg) {
           console.log(msg)
         }
       }
     )
-    // wx.request({
-    //   url: app.globalData.hostUrl + '/workflow/getToDoList',
-    //   header: app.globalData.header,
-    //   success: function (res) {
-    //     if (res.data.code == 500) {
-    //       // wx.redirectTo({
-    //       //   url: '/pages/noAccess/noAccess',
-    //       // })
-    //     } else {
-    //       if (res.data.data <= 0) {
-    //         that.setData({
-    //           noData: true
-    //         })
-    //       } else {
-    //         console.log(res.data.data)
-    //         that.setData({
-    //           depts: res.data.data
-    //         })
-    //       }
-    //     }
-    //   }
-    // })
-    //加载待办及待阅数据
   },
 
   /*
@@ -133,11 +111,13 @@ Page({
           wx.hideLoading();
           if (data.wfList && data.wfList.length > 0) {
             _that.setData({
-              todoList: data.wfList
+              todoList: data.wfList,
+              lastAppId: data.wfList[data.wfList.length-1].appID
             });
           } else {
             _that.setData({
-              todoList: []
+              todoList: [],
+              lastAppId: ''
             });
           }
         },
@@ -157,24 +137,20 @@ Page({
       mask: true
     })
     var _that = this,
-      _todoList = _that.data.todoList;
+      _todoList = _that.data.todoList,
+    _lastAppId = _that.data.lastAppId;
     WebService.loadToDoList(
-      _todoList[_todoList.length - 1].appID,
+      _lastAppId,
       {
         success: function (data) {
           wx.hideLoading();
           if (data.wfList && data.wfList.length > 0) {
-            var _wfList = data.wfList
-            for (var i = 0, i = _wfList.length; i < i; ++i) {
-              _todoList.splice(_todoList.length, 0, _wfList[i])
+            for (var i = 0, i = data.wfList.length; i < i; ++i) {
+              _todoList.push(data.wfList[i]);
             }
             _that.setData({
               todoList: _todoList,
-              lastAppId: _wfList[_wfList.length - 1].appID
-            })
-          } else {
-            _that.setData({
-              lastAppId: _todoList[_todoList.length - 1].appID
+              lastAppId: data.wfList[data.wfList.length-1].appID
             })
           }
         },
@@ -183,7 +159,6 @@ Page({
         }
       }
     )
-    // console.log(_that.data.todoList)
   },
 
 
@@ -202,13 +177,14 @@ Page({
         success: function (data) {
           wx.hideLoading();
           if (data.waitList && data.waitList.length > 0) {
-            console.log(data.waitList)
             _that.setData({
-              toReadList: data.waitList
+              toReadList: data.waitList,
+              currentPage: 2
             });
           } else {
             _that.setData({
-              toReadList: []
+              toReadList: [],
+              currentPage: 1
             });
           }
         },
@@ -229,25 +205,20 @@ Page({
     })
     var _that = this,
       _toReadList = _that.data.toReadList,
-      _nowPage = _that.data.currentPage;
+      _nextPage = _that.data.currentPage;
     WebService.loadToReadList(
-      _nowPage + 1,
+      _nextPage,
       {
         success: function (data) {
           wx.hideLoading();
           if (data.waitList && data.waitList.length > 0) {
-            var _waitList = data.waitList
-            for (var i = 0, i = _waitList.length; i < i; ++i) {
-              _toReadList.splice(_toReadList.length - 1, 0, _waitList[i])
+            for (var i = 0, i = data.waitList.length; i < i; ++i) {
+              _toReadList.push(data.waitList[i]);
             }
             _that.setData({
               toReadList: _toReadList,
-              currentPage: _nowPage + 1
+              currentPage: _nextPage*1 + 1
             });
-          } else {
-            _that.setData({
-              currentPage: _nowPage
-            })
           }
         },
         fail: function (msg) {
