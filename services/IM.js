@@ -2,6 +2,7 @@ import StropheJs from '../lib/strophe.js/strophe';
 import uuid from "../lib/uuid/v4";//目前我只弄了V4
 import moment from '../lib/moment/moment';
 import * as wxUtils from '../utils/wxUtils';
+import { BOSH_SERVICE} from '../server';
 
 const { Strophe, $iq, $build, $msg, $pres } = StropheJs;
 
@@ -11,12 +12,8 @@ Strophe.log = function (level, msg) {
   }
 };
 
-const BOSH_SERVICE = 'wss://weixin.anyuanhb.com/ws/';
-// const BOSH_SERVICE = 'wss://localhost:8443/ws/'
 const domain = 'anyuan.im';
 const suffix = `@` + domain;
-
-//const MessageType = 
 
 const ONLINE_PRESENCE = $pres().c("show").t("chat").up().c("status").t("我在线啊");
 
