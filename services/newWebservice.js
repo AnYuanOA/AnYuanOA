@@ -1,4 +1,5 @@
-import { BASE_URL } from '../utils/const';
+import { NEW_BASE_URL } from '../server';
+
 //URL信息
 const LOGIN_URL = "/login/loginAnyuanUser"; //使用用户名密码登录并绑定openID
 const LOGIN_OPENID_URL = "/login/loginWithOpenID";//使用openID登录
@@ -50,7 +51,7 @@ function WxRequest(url, data, method, header) {
 
   let promise = new Promise((resolve, reject) => {
     wx.request({
-      url: BASE_URL + url,
+      url: NEW_BASE_URL + url,
       data: data,
       method: method,
       header: header,
@@ -168,7 +169,7 @@ export function loadDept() {
 export function uploadFile(tempFilePath) {
   let promise = new Promise((resolve, reject) => {
     wx.uploadFile({
-      url: BASE_URL + FILE_UPLOAD_URL,
+      url: NEW_BASE_URL + FILE_UPLOAD_URL,
       filePath: tempFilePath,
       name: 'file',
       header: {
@@ -201,7 +202,7 @@ export function uploadFile(tempFilePath) {
 // export function downloadFile(fileName) {
 //   let promise = new Promise((resolve, reject) => {
 //     wx.downloadFile({
-//       url: BASE_URL + FILE_FETCH_URL,
+//       url: NEW_BASE_URL + FILE_FETCH_URL,
 //       header: {
 //         'content-type': 'application/x-www-form-urlencoded',
 //         'JSESSIONID': wx.getStorageSync('JSESSIONID')

@@ -4,9 +4,9 @@ import regeneratorRuntime from "lib/regenerator-runtime/runtime";
 import * as wxUtils from 'utils/wxUtils';//wx方法基本封装成promise
 import * as WebService from 'services/newWebservice';//安源新平台接口服务
 import { im } from 'services/IM';
+import { NEW_BASE_URL} from 'server';
 
 App({
-
   async onLaunch() {
     var _that = this;//bind this to _that
 
@@ -92,8 +92,8 @@ App({
       'Cookie': null,
       JSESSIONID: null
     },
-    hostUrl: 'https://weixin.anyuanhb.com/web-service',
-    // hostUrl: 'http://192.168.0.107:8080/web-service',
+    //hostUrl: 'https://weixin.anyuanhb.com/web-service',
+    hostUrl: NEW_BASE_URL,
     appId: 'wx42c2b2080fd58ff9',
     secret: 'a1eeab18ed1e785741946e3c29499a0c'
   },

@@ -1,3 +1,5 @@
+import { OLD_BASE_URL} from '../server';
+
 const clientID = "imWebBrowser";
 const isNeedRF = false;
 //系统基础
@@ -9,9 +11,9 @@ const gridHeight = 400;
 const alwaysLogin = true;
 //var baseurl = "http://121.40.79.142/bapi/";
 //var baseurlbuzapi = "http://121.40.79.142/aymapi/";
-const baseurl = "http://10.165.3.99:99/bapi/";
-const baseurlbuzapi = "http://10.165.3.99:99/aymapi/";
-const baseoaurl = "http://10.165.3.99:99/oaapi/";
+const baseurl = OLD_BASE_URL +`/bapi/`;
+const baseurlbuzapi = OLD_BASE_URL +`/aymapi/`;;
+const baseoaurl = OLD_BASE_URL+`/oaapi/`;
 //获得某个用户的待办信息
 const getmylist_url = baseurl + "api/WorkFlow/getMyWFList";
 //获得附件

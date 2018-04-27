@@ -1,4 +1,4 @@
-import { BASE_URL } from '../utils/const';
+import { NEW_BASE_URL } from '../server';
 
 //URL信息
 const LOGIN_URL = "/login/loginAnyuanUser"; //使用用户名密码登录并绑定openID
@@ -36,7 +36,7 @@ const REQUEST_OK_CODE = '200';//接口请求成功code
 function request(params) {
   const sessionId = wx.getStorageSync(SESSIONID_KEY)
   wx.request({
-    url: BASE_URL + params.url,
+    url: NEW_BASE_URL + params.url,
     data: params.params,
     method: 'POST',
     header: {

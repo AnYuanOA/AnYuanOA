@@ -1,7 +1,7 @@
 // pages/mine/mine.js
 const app = getApp()
 const WebService = require("../../services/webservice.js")
-
+const im = global.im;
 Page({
 
   /**
@@ -123,6 +123,7 @@ Page({
           app.showLoadToast('处理中...')
           WebService.logoutWithOpenId(app.globalData.openId, {
             success: function(){
+              im.disconnect();
               wx.hideToast()
               wx.clearStorage();
               wx.redirectTo({
