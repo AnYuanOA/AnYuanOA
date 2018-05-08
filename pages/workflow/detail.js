@@ -12,7 +12,8 @@ Page({
     pageType: null,
     appID: null,
     applyInfo: null,
-    operation: null
+    operation: null,
+    appContent:''
   },
 
   /**
@@ -99,13 +100,22 @@ Page({
   },
 
   /**
+   * 审批意见输入事件
+   */
+  appContentInput:function(e){
+    this.setData({
+      appContent: e.detail.value
+    });
+  },
+
+  /**
    * 审批下一步
    */
   approvePass: function (event) {
     var that = this
     var buttonId = that.data.operation.appButton[event.currentTarget.dataset.index].buttonId
     wx.navigateTo({
-      url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion
+      url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion + '&appContent=' + that.data.appContent
     })
     // var that = this
     // wx.navigateTo({
@@ -120,11 +130,11 @@ Page({
     var that = this
     if (that.data.operation.appButton[0].buttonId == 5){
       wx.navigateTo({
-        url: '/pages/workflow/selectNode/selectNode?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[0].buttonId + '&workflowName=' + that.data.workflowName + '&flowVersion=' + that.data.operation.flowVersion
+        url: '/pages/workflow/selectNode/selectNode?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[0].buttonId + '&workflowName=' + that.data.workflowName + '&flowVersion=' + that.data.operation.flowVersion + '&appContent=' + that.data.appContent
       })
     }else {//结束
       wx.navigateTo({
-        url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[0].buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion
+        url: '/pages/workflow/selectEmp/selectEmp?appID=' + that.data.appID + '&buttonId=' + that.data.operation.appButton[0].buttonId + '&workflowName=' + that.data.workflowName + '&currentStepId=' + that.data.operation.httAppDID + '&flowVersion=' + that.data.operation.flowVersion + '&appContent=' + that.data.appContent
       })
     }
   }

@@ -80,14 +80,24 @@
                 <text class='approve-state-item-info-state info-state-3'>{{dealt.appDname}}</text>
               </block>
             </view>
+            <view class='approve-state-item-info-message-view'>
+              <block wx:if="{{idx>0}}">
+                <text class='approve-detaillist-item-mes'>{{dealt.appIcontent}}</text>
+              </block>
+            </view>
           </view>
         </view>
       </block>
+      <view class='app-content-view' hidden='{{pageType!=1}}'>
+        <text>意见：</text>
+        <input class="app-content-this" bindinput="appContentInput" value='{{appContent}}'></input>
+      </view>
     </view>
+
     <view class='operation-panel' hidden='{{pageType!=1}}'>
       <block wx:for="{{operation.appButton}}" wx:for-item="button" wx:key="buttonId" wx:for-index="idx">
         <view class='operation-panel-item op-panel-tongguo' bindtap='approvePass' data-index='{{idx}}'>
-        <!-- <image class='operation-panel-item-icon' src='/images/workflow/icon_agree.png'></image> -->
+          <!-- <image class='operation-panel-item-icon' src='/images/workflow/icon_agree.png'></image> -->
           <text class='operation-panel-item-text'>{{button.buttonValue}}</text>
         </view>
       </block>

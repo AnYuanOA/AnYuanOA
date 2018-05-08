@@ -20,7 +20,8 @@ Page({
       workflowName: options.workflowName,
       appID: options.appID,
       flowVersion: options.flowVersion,
-      buttonId: options.buttonId
+      buttonId: options.buttonId,
+      appContent: options.appContent
     })
     wx.request({
       url: app.globalData.hostUrl + '/workflow/getToDoDetail',
@@ -150,7 +151,8 @@ Page({
               currentStepId: that.data.operation.httAppDID,
               appFieldName: appFieldName,
               flowVersion: that.data.flowVersion,
-              targetStepID: targetStepID
+              targetStepID: targetStepID,
+              appContent: that.data.appContent
             },
             success: function (res) {
               wx.hideToast();

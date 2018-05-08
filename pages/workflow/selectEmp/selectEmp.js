@@ -22,7 +22,8 @@ Page({
     this.setData({
       flowVersion: options.flowVersion,
       buttonId: options.buttonId,
-      appID: options.appID
+      appID: options.appID,
+      appContent: options.appContent
     })
   
     wx.request({
@@ -150,7 +151,8 @@ Page({
               appOId: that.data.applyInfo.detail.buzPKID,
               currentStepId: that.data.operation.httAppDID,
               appFieldName: that.data.selectedAppFieldName,
-              flowVersion: that.data.flowVersion
+              flowVersion: that.data.flowVersion,
+              appContent: that.data.appContent
             },
             success: function (res) {
               wx.hideToast();
