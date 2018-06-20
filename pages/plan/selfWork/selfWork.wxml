@@ -1,0 +1,85 @@
+<!--pages/plan/planDetail/planDetail.wxml-->
+<!--xf.wxml-->
+<view class="container">
+  <!-- 标题 -->
+  <view class="xf-title-wraper">
+    <view class="xf-title-info">
+      <text class="xf-title">计划汇总</text>
+    </view>
+    <image class="xf-title-icon" src="/images/plan/gr.png"></image>
+  </view>
+  <!-- 详情 -->
+  <view class="xf-types">
+    <block wx:for="{{planData}}" wx:key="{{opId}}">
+      <view class="xf-type-item {{item.open ? 'xf-item-show' : ''}}">
+        <view class="xf-head" id="{{item.opId}}" bindtap="slideDetail">
+          <view>
+            <view>
+              <text class="xf-type-name-front">{{item.year}}年-{{item.month}}月-{{item.week}}周</text>
+            </view>
+            <text class="xf-type-name">{{item.opNoName}}</text>
+          </view>
+          <image class="xf-item-icon" src="/images/plan/down1.png"></image>
+        </view>
+        <view class="xf-detail">
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">重要级别</text>：
+            <text class="xf-detail-content">{{item.levelName?item.levelName:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">一级分类</text>：
+            <text class="xf-detail-content">{{item.typeName1?item.typeName1:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">二级分类</text>：
+            <text class="xf-detail-content">{{item.typeName2?item.typeName2:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">三级分类</text>：
+            <text class="xf-detail-content">{{item.typeName3?item.typeName3:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">工作内容</text>：
+            <text class="xf-detail-content">{{item.content?item.content:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">要求</text>：
+            <text class="xf-detail-content">{{item.contentTemp?item.contentTemp:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">工作进度</text>：
+            <text class="xf-detail-content">{{item.memo?item.memo:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">完成情况</text>：
+            <text class="xf-detail-content">{{item.statusAuditName?item.statusAuditName:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">启动时间</text>：
+            <text class="xf-detail-content">{{item.dateStart?item.dateStart:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">完成时间</text>：
+            <text class="xf-detail-content">{{item.dateEnd?item.dateEnd:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">责任部门</text>：
+            <text class="xf-detail-content">{{item.deptNameZr?item.deptNameZr:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">责任人</text>：
+            <text class="xf-detail-content">{{item.empNameZr?item.empNameZr:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">承办部门</text>：
+            <text class="xf-detail-content">{{item.deptNameXg?item.deptNameXg:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <text class="xf-detail-label">经办人</text>：
+            <text class="xf-detail-content">{{item.empNameXg?item.empNameXg:''}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

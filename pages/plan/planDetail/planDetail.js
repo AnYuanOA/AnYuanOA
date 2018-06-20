@@ -21,14 +21,16 @@ Page({
     var requestUrl=null
     switch (options.type) {
       case "1":
-        requestUrl = app.globalData.hostUrl + '/plan/yearPlanData';
+        requestUrl = app.globalData.hostUrl + '/plan/ayxzYearPlan';
         break;
       case "2":
-        requestUrl = app.globalData.hostUrl + '/plan/monthPlanData';
+        requestUrl = app.globalData.hostUrl + '/plan/ayxzMonthPlan';
         break;
       case "3":
-        requestUrl = app.globalData.hostUrl + '/plan/weekPlanData';
+        requestUrl = app.globalData.hostUrl + '/plan/ayxzWeekPlan';
         break;
+      case "4":
+        requestUrl = app.globalData.hostUrl + '/plan/ayxzSelfWork';
       default:
         break
     }

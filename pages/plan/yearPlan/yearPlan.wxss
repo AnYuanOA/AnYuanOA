@@ -1,0 +1,171 @@
+/* pages/plan/planDetail/planDetail.wxss */
+
+.container {
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+
+/** 头部 **/
+
+.xf-title-wraper {
+  display: flex;
+  justify-content: space-between;
+  padding: 20rpx 0;
+}
+
+.xf-title-info {
+  display: flex;
+  /* flex-direction:column; */
+  justify-content: center;
+  align-items: center;
+  font-size: 15pt;
+}
+
+.xf-stu-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.xf-stu-info text {
+  font-size: 11pt;
+  line-height: 160%;
+  color: #888;
+}
+
+.xf-title {
+  margin-right: 10px;
+}
+
+.xf-year-pick {
+  background-color: #ffcb63;
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 50px;
+  margin-left: 10px;
+}
+
+.xf-title-icon {
+  width: 60px;
+  height: 60px;
+}
+
+/** 列表 **/
+
+.xf-types {
+  display: flex;
+  flex-direction: column;
+}
+
+.xf-type-item {
+  display: flex;
+  flex-direction: column;
+  font-size: 11pt;
+  margin-bottom: 20rpx;
+  border-radius: 3px;
+  border: 1px solid #f7f7ff;
+  box-shadow: 0 0 20rpx 3rpx #e5e5e5;
+}
+
+.xf-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0px 10px;
+}
+
+.xf-detail {
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  border-top: 1px solid #e5e5e5;
+  padding: 0 10px;
+  color: #707070;
+}
+
+.xf-detail-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+}
+
+.xf-detail-swiper {
+  height: 400px;
+  width: 100%;
+  margin: 5px 0px;
+  padding: 0px 10px;
+}
+
+.xf-detail-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.xf-detail-swiper-item {
+  align-items: center;
+}
+
+.xf-item-show .xf-detail {
+  display: flex;
+}
+
+.xf-detail-item {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 0;
+  border-bottom: 1px solid #eee;
+}
+
+.xf-detail-label {
+  width: 40pt;
+  font-size: 10pt;
+  /* border-right:1px solid #e5e5e5; */
+  padding-right: 10px;
+}
+
+.xf-detail-content {
+  flex: 1;
+  font-size: 10pt;
+  padding-left: 10px;
+}
+
+/**列表展开的icon旋转 **/
+
+.xf-item-icon {
+  width: 30rpx;
+  height: 30rpx;
+  transition: transform 0.2s;
+  transform: rotate(0deg);
+}
+
+.xf-item-show .xf-item-icon {
+  transform: rotate(180deg);
+}
+
+/**列表展开时标题的颜色变化 **/
+
+.xf-type-name {
+  font-size: 10pt;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-type-name-front {
+  font-size: 12pt;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-item-show .xf-type-name {
+  transition: color 0.15s ease-in-out;
+}
+
+.xf-TotalTuition, .xf-ApartmentPay, .xf-CollectingPay {
+  margin-left: 25rpx;
+}
+
+.xf-MajorTuition, .xf-GradeTuition, .xf-SecMajorTuition {
+  margin-left: 50rpx;
+}

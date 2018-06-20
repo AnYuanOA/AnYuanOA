@@ -30,7 +30,11 @@
     "pages/board/board",
     "pages/feeApp/feeApp",
     "pages/event/event",
-    "pages/message/newMessage/newMessage"
+    "pages/message/newMessage/newMessage",
+    "pages/plan/yearPlan/yearPlan",
+    "pages/plan/monthPlan/monthPlan",
+    "pages/plan/weekPlan/weekPlan",
+    "pages/plan/selfWork/selfWork"
   ],
   "window": {
     "backgroundTextStyle": "light",
