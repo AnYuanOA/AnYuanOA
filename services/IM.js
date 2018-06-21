@@ -1,6 +1,6 @@
 import StropheJs from '../lib/strophe.js/strophe';
 import uuid from "../lib/uuid/v4";//目前我只弄了V4
-import moment from '../lib/moment/moment';
+import dayjs from '../lib/dayjs/dayjs.min.js';
 import * as wxUtils from '../utils/wxUtils';
 import { BOSH_SERVICE} from '../server';
 
@@ -96,7 +96,7 @@ export class Message {
     this.toCname = toCname;
     this.type = chatType;
     this.content = content;
-    this.time = new moment().format("YYYY-MM-DD HH:mm:ss");
+    this.time = dayjs().format("YYYY-MM-DD HH:mm:ss");
     this.msgType = msgType;
     //额外的信息
     this.extra = {

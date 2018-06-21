@@ -1,10 +1,10 @@
 // pages/plan/planDetail/planDetail.js
-var util = require('../../../utils/util.js');
+
+import dayjs from '../../../lib/dayjs/dayjs.min.js';
+
 var app = getApp();
-var now = new Date();
-var year = now.getFullYear();
-var month = now.getMonth() + 1;
-var format_month = util.formatDate(now).substr(0, 7);
+const format_month = dayjs().format('YYYY-MM');
+
 Page({
 
   /**

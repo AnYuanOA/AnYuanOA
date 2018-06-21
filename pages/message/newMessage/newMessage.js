@@ -6,7 +6,7 @@
 // const MessageType = chatLib.MessageType;
 // const Chat = chatLib.Chat;
 
-import moment from '../../../lib/moment/moment';
+import dayjs from '../../../lib/dayjs/dayjs.min.js';
 import * as wxUtils from '../../../utils/wxUtils';
 import { imUtils, Message } from '../../../services/IM';
 import * as newWebservice from '../../../services/newWebservice';
@@ -135,7 +135,7 @@ Page({
       toUserCname: to_userCname,
       localUserInfo: localUserInfo,
       toUserHead: head,
-      nowDate: new moment().format("YYYY-MM-DD HH:mm:ss"),
+      nowDate: dayjs().format("YYYY-MM-DD HH:mm:ss"),
       messageWay: messageWay.TEXT
     });
     this.loadMessageList();

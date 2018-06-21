@@ -1,10 +1,12 @@
 import "lib/core-js/core.js";//增加ES7 Object方法特性
-import 'lib/moment/moment';//time utils
 import regeneratorRuntime from "lib/regenerator-runtime/runtime";
 import * as wxUtils from 'utils/wxUtils';//wx方法基本封装成promise
 import * as WebService from 'services/newWebservice';//安源新平台接口服务
 import { im } from 'services/IM';
 import { NEW_BASE_URL} from 'server';
+import dayjs from './lib/dayjs/dayjs.min.js';
+console.log(dayjs().format('YYYY-MM-DD HH:mm:ss'));
+
 
 App({
   async onLaunch() {
