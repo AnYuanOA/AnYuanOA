@@ -1,19 +1,19 @@
 <!--pages/plan/plan.wxml-->
 <view class="container">
   <view class="plan-view">
-    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="1">
+    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="1" data-empNo="{{oldSelfUser.userName}}">
       <text class="cricle plan-year">年</text>
       <text class="plan-text">年计划</text>
     </view>
-    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="2">
+    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="2" data-empNo="{{oldSelfUser.userName}}">
       <text class="cricle plan-month">月</text>
       <text class="plan-text">月计划</text>
     </view>
-    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="3">
+    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="3" data-empNo="{{oldSelfUser.userName}}">
       <text class="cricle plan-week">周</text>
       <text class="plan-text">周计划</text>
     </view>
-    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="4">
+    <view class="plan-cell" bindtap="gotoPlanDetail" data-index="4" data-empNo="{{oldSelfUser.userName}}">
       <text class="cricle plan-quart">个人</text>
       <text class="plan-text">个人工作</text>
     </view>

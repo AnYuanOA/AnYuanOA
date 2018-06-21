@@ -40,7 +40,7 @@ Page({
       planData: [],
       pageNo: 1
     })
-    var empNo = app.globalData.userInfo.userid;
+    var empNo = options.empNo;
     var requestUrl = app.globalData.hostUrl +"/plan/ayxzWeekPlan";
     // var empNo = "jinher";
     // var requestUrl = "http://localhost:8080/web-service/plan/ayxzWeekPlan";

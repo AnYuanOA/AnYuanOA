@@ -8,58 +8,25 @@ Page({
    */
   data: {
     noData: false,
+    oldSelfUser: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // wx.request({
-    //   url: app.globalData.hostUrl + '/plan/reportPlan',
-    //   header: app.globalData.header,
-    //   success: function (res) {
-    //     if (res.data.code == 500) {
-    //       wx.redirectTo({
-    //         url: '/pages/noAccess/noAccess',
-    //       })
-    //     } else {
-    //       if (res.data.data <= 0) {
-    //         that.setData({
-    //           noData: true
-    //         })
-    //       } else {
-    //         var windowWidth = 320;
-    //         try {
-    //           var resSync = wx.getSystemInfoSync();
-    //           windowWidth = resSync.windowWidth;
-    //         } catch (e) {
-    //           console.error('getSystemInfoSync failed!');
-    //         }
-    //         pieChart = new wxCharts({
-    //           animation: true,
-    //           canvasId: 'pieCanvas',
-    //           type: 'pie',
-    //           series: [{
-    //             name: '年度计划',
-    //             data: res.data.NJH
-    //           }, {
-    //             name: '季度计划',
-    //             data: 0
-    //           }, {
-    //             name: '月度计划',
-    //             data: res.data.YJH
-    //           }, {
-    //             name: '周计划',
-    //             data: res.data.ZWC
-    //           }],
-    //           width: windowWidth,
-    //           height: 210,
-    //           dataLabel: true,
-    //         });
-    //       }
-    //     }
-    //   }
-    // })
+    wx.request({
+      url: app.globalData.hostUrl + '/user/getOldOAUserInfo',
+      header: app.globalData.header,
+      success: function (res) {
+        if (res.data.code == 200) {
+          console.log(res.data)
+          that.setData({
+            oldSelfUser: res.data.data
+          })
+        }
+      }
+    })
   },
 
   /**
@@ -111,22 +78,23 @@ Page({
 
   },
 
-  gotoPlanDetail:function(e){
-    var index=e.currentTarget.dataset.index;
+  gotoPlanDetail: function (e) {
+    var index = e.currentTarget.dataset.index;
+    var empNo = e.currentTarget.dataset.empNo;
     // console.log(index);
     var pageUrl = null;
     switch (index) {
       case "1":
-        pageUrl = "/pages/plan/yearPlan/yearPlan";
+        pageUrl = "/pages/plan/yearPlan/yearPlan?empNo=" + empNo;
         break;
       case "2":
-        pageUrl = "/pages/plan/monthPlan/monthPlan";
+        pageUrl = "/pages/plan/monthPlan/monthPlan?empNo=" + empNo;
         break;
       case "3":
-        pageUrl = "/pages/plan/weekPlan/weekPlan";
+        pageUrl = "/pages/plan/weekPlan/weekPlan?empNo=" + empNo;
         break;
       case "4":
-        pageUrl = "/pages/plan/selfWork/selfWork";
+        pageUrl = "/pages/plan/selfWork/selfWork?empNo=" + empNo;
       default:
         break
     }

@@ -24,7 +24,7 @@ Page({
       planData: [],
       pageNo: 1
     })
-    var empNo = app.globalData.userInfo.userid;
+    var empNo = options.empNo;
     var requestUrl = app.globalData.hostUrl +"/plan/ayxzYearPlan";
     wx.request({
       url: requestUrl,
