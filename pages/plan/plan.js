@@ -14,13 +14,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _that=this;
     wx.request({
       url: app.globalData.hostUrl + '/user/getOldOAUserInfo',
       header: app.globalData.header,
       success: function (res) {
         if (res.data.code == 200) {
-          console.log(res.data)
-          that.setData({
+          _that.setData({
             oldSelfUser: res.data.data
           })
         }
@@ -79,8 +79,7 @@ Page({
 
   gotoPlanDetail: function (e) {
     var index = e.currentTarget.dataset.index;
-    var empNo = e.currentTarget.dataset.empNo;
-    // console.log(index);
+    var empNo = e.currentTarget.dataset.empno;
     var pageUrl = null;
     switch (index) {
       case "1":
