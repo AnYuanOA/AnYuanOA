@@ -28,22 +28,22 @@ Page({
     format_week: '第' + week + '周',
     nowWeek: week,
     planData: [],
-    pageNo: 1
+    pageNo: 1,
+    empNo: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var empNo = options.empNo;
     var _that = this;
     _that.setData({
       planData: [],
-      pageNo: 1
+      pageNo: 1,
+      empNo: empNo
     })
-    var empNo = options.empNo;
-    var requestUrl = app.globalData.hostUrl +"/plan/ayxzWeekPlan";
-    // var empNo = "jinher";
-    // var requestUrl = "http://localhost:8080/web-service/plan/ayxzWeekPlan";
+    var requestUrl = app.globalData.hostUrl + "/plan/ayxzWeekPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
@@ -55,7 +55,6 @@ Page({
         pageSize: 10
       },
       success: function (res) {
-        // console.log(res.data);
         if (res.data.code == 200) {
           _that.setData({
             planData: res.data.data
@@ -63,7 +62,6 @@ Page({
         }
       }
     })
-
   },
 
   /**
@@ -114,13 +112,13 @@ Page({
     var _week = _that.data.nowWeek;
     var _pageNo = _that.data.pageNo;
     var _planData = _that.data.planData;
-    var empNo = app.globalData.userInfo.userid;
+    var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzWeekPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: empNo,
+        empNo: _empNo,
         year: year,
         week: _week,
         pageNo: Number(_pageNo) + 1,
@@ -190,13 +188,13 @@ Page({
       title: '',
       mask: true
     })
-    var empNo = app.globalData.userInfo.userid;
+    var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzWeekPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: empNo,
+        empNo: _empNo,
         year: year,
         week: Number(_idx) + 1,
         pageNo: 1,

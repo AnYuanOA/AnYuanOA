@@ -4,7 +4,9 @@ import dayjs from '../../../lib/dayjs/dayjs.min.js';
 
 var app = getApp();
 const format_month = dayjs().format('YYYY-MM');
-
+var now = new Date();
+var year = now.getFullYear();
+var month = now.getMonth() + 1;
 Page({
 
   /**
@@ -13,22 +15,22 @@ Page({
   data: {
     format_month: format_month,
     planData: [],
-    pageNo: 1
+    pageNo: 1,
+    empNo:null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var empNo = options.empNo;
     var _that = this;
     _that.setData({
       planData: [],
-      pageNo: 1
+      pageNo: 1,
+      empNo: empNo
     })
-    var empNo = options.empNo;
     var requestUrl = app.globalData.hostUrl +"/plan/ayxzMonthPlan";
-    // var empNo = "jinher";
-    // var requestUrl = "http://localhost:8080/web-service/plan/ayxzMonthPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
@@ -40,7 +42,6 @@ Page({
         pageSize: 10
       },
       success: function (res) {
-        // console.log(res.data);
         if (res.data.code == 200) {
           _that.setData({
             planData: res.data.data
@@ -101,13 +102,13 @@ Page({
     var _format_month = _that.data.format_month;
     var _newYear = _format_month.substr(0, 4);
     var _newMonth = Number(_format_month.substr(5, 2));
-    var empNo = app.globalData.userInfo.userid;
+    var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzMonthPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: empNo,
+        empNo: _empNo,
         year: _newYear,
         month: _newMonth,
         pageNo: Number(_pageNo) + 1,
@@ -175,13 +176,13 @@ Page({
       title: '',
       mask: true
     })
-    var empNo = app.globalData.userInfo.userid;
+    var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzMonthPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: empNo,
+        empNo: _empNo,
         year: _newYear,
         month: _newMonth,
         pageNo: 1,

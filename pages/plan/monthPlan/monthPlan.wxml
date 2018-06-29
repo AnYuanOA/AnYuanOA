@@ -5,7 +5,7 @@
   <view class="xf-title-wraper">
     <view class="xf-title-info">
       <text class="xf-title">选择月份</text>
-      <picker class='xf-month-pick' mode="date" fields="month" bindchange="listenerMonthPick">
+      <picker class='xf-month-pick' mode="date" fields="month" value="{{format_month}}" bindchange="listenerMonthPick">
         <text>{{format_month}}</text>
       </picker>
     </view>

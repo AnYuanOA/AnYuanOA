@@ -10,22 +10,22 @@ Page({
    */
   data: {
     planData: [],
-    pageNo: 1
+    pageNo: 1,
+    empNo: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
+    var empNo = options.empNo;
     var _that = this;
     _that.setData({
       planData: [],
-      pageNo: 1
+      pageNo: 1,
+      empNo: empNo
     })
-    var empNo = options.empNo;
-    var requestUrl = app.globalData.hostUrl +"/plan/ayxzSelfWork";
-    // var empNo = "jinher";
-    // var requestUrl = "http://localhost:8080/web-service/plan/ayxzSelfWork";
+    var requestUrl = app.globalData.hostUrl + "/plan/ayxzSelfWork";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
@@ -34,8 +34,7 @@ Page({
         pageNo: 1,
         pageSize: 10
       },
-      success: function (res) {
-        // console.log(res.data);
+      success: function(res) {
         if (res.data.code == 200) {
           _that.setData({
             planData: res.data.data
@@ -49,42 +48,42 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
+  onPullDownRefresh: function() {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
+  onReachBottom: function() {
     //上拉触底时加载更多
     wx.showLoading({
       title: '',
@@ -93,17 +92,17 @@ Page({
     var _that = this;
     var _pageNo = _that.data.pageNo;
     var _planData = _that.data.planData;
-    var empNo = app.globalData.userInfo.userid;
+    var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzSelfWork";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: empNo,
+        empNo: _empNo,
         pageNo: Number(_pageNo) + 1,
         pageSize: 10
       },
-      success: function (res) {
+      success: function(res) {
         wx.hideLoading();
         if (res.data.code == 200 && res.data.data && res.data.data.length > 0) {
           var _newData = res.data.data;
@@ -130,12 +129,12 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
+  onShareAppMessage: function() {
 
   },
 
   // 展示详情
-  slideDetail: function (e) {
+  slideDetail: function(e) {
     var id = e.currentTarget.id,
       list = this.data.planData;
     // 每次点击都将当前open换为相反的状态并更新到视图，视图根据open的值来切换css

@@ -3,29 +3,34 @@
 var app = getApp();
 var now = new Date();
 var year = now.getFullYear();
-
+var startYear = Number(year) - 5;
+var endYear = Number(year) + 5;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    startYear: startYear,
+    endYear: endYear,
     year: year,
     planData: [],
-    pageNo: 1
+    pageNo: 1,
+    empNo: null
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var empNo = options.empNo;
     var _that = this;
     _that.setData({
       planData: [],
-      pageNo: 1
+      pageNo: 1,
+      empNo: empNo
     })
-    var empNo = options.empNo;
-    var requestUrl = app.globalData.hostUrl +"/plan/ayxzYearPlan";
+    var requestUrl = app.globalData.hostUrl + "/plan/ayxzYearPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
@@ -36,7 +41,6 @@ Page({
         pageSize: 10
       },
       success: function (res) {
-        // console.log(res.data);
         if (res.data.code == 200) {
           _that.setData({
             planData: res.data.data
@@ -95,20 +99,19 @@ Page({
     var _year = _that.data.year;
     var _pageNo = _that.data.pageNo;
     var _planData = _that.data.planData;
-    var empNo = app.globalData.userInfo.userid;
+    var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzYearPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: empNo,
+        empNo: _empNo,
         year: _year,
         pageNo: Number(_pageNo) + 1,
         pageSize: 10
       },
       success: function (res) {
         wx.hideLoading();
-        // console.log(res.data);
         if (res.data.code == 200 && res.data.data && res.data.data.length > 0) {
           var _newData = res.data.data;
           _that.setData({
@@ -159,6 +162,7 @@ Page({
    * 监听年选择器
    */
   listenerYearPick: function (e) {
+    console.log(e.detail.value);
     var _that = this
     _that.setData({
       year: e.detail.value
@@ -167,13 +171,13 @@ Page({
       title: '',
       mask: true
     })
-    var empNo = app.globalData.userInfo.userid;
+    var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzYearPlan";
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: empNo,
+        empNo: _empNo,
         year: e.detail.value,
         pageNo: 1,
         pageSize: 10

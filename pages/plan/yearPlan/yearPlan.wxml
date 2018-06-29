@@ -5,7 +5,7 @@
   <view class="xf-title-wraper">
     <view class="xf-title-info">
       <text class="xf-title">选择年份</text>
-      <picker class='xf-year-pick' mode="date" fields="year" bindchange="listenerYearPick">
+      <picker class='xf-year-pick' mode="date" value="{{year}}" start="{{startYear}}" end="{{endYear}}" fields="year" bindchange="listenerYearPick">
         <text>{{year}}</text>
       </picker>
     </view>

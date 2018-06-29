@@ -4,7 +4,7 @@
   <!-- 标题 -->
   <view class="xf-title-wraper">
     <view class="xf-title-info">
-      <text class="xf-title">计划汇总</text>
+      <text class="xf-title">个人工作</text>
     </view>
     <image class="xf-title-icon" src="/images/plan/gr.png"></image>
   </view>
@@ -15,7 +15,7 @@
         <view class="xf-head" id="{{item.opId}}" bindtap="slideDetail">
           <view>
             <view>
-              <text class="xf-type-name-front">{{item.year}}年-{{item.month}}月-{{item.week}}周</text>
+              <text class="xf-type-name-front">{{item.year}}年{{item.month}}月</text>
             </view>
             <text class="xf-type-name">{{item.opNoName}}</text>
           </view>
