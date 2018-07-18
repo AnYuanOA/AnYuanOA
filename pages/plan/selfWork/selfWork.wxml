@@ -4,20 +4,23 @@
   <!-- 标题 -->
   <view class="xf-title-wraper">
     <view class="xf-title-info">
-      <text class="xf-title">个人工作</text>
+      <text class="xf-title">个人工作列表</text>
+      <picker class='xf-self-pick' mode="selector" range="{{opnos}}" range-key="{{'value'}}" value="{{selIndex}}" bindchange="listenerOpPick">
+        <text>{{opnos[selIndex].value}}</text>
+      </picker>
     </view>
     <image class="xf-title-icon" src="/images/plan/gr.png"></image>
   </view>
   <!-- 详情 -->
   <view class="xf-types">
-    <block wx:for="{{planData}}" wx:key="{{opId}}">
+    <block wx:for="{{planData}}" wx:key="{{opId}}" wx:for-index="idx">
       <view class="xf-type-item {{item.open ? 'xf-item-show' : ''}}">
         <view class="xf-head" id="{{item.opId}}" bindtap="slideDetail">
           <view>
-            <view>
+            <!-- <view>
               <text class="xf-type-name-front">{{item.year}}年{{item.month}}月</text>
-            </view>
-            <text class="xf-type-name">{{item.opNoName}}</text>
+            </view> -->
+            <text class="xf-type-name">{{idx+1}}、{{item.opNoName}} | {{item.content?item.content:''}}</text>
           </view>
           <image class="xf-item-icon" src="/images/plan/down1.png"></image>
         </view>
@@ -77,6 +80,10 @@
           <view class="xf-detail-item">
             <text class="xf-detail-label">经办人</text>：
             <text class="xf-detail-content">{{item.empNameXg?item.empNameXg:''}}</text>
+          </view>
+          <view class="xf-detail-item">
+            <button bindtap="choseToWeek" data-opid='{{item.opId}}' data-chosetype='1'>选入本周</button>
+            <button bindtap="choseToWeek" data-opid='{{item.opId}}' data-chosetype='2'>选入下周</button>
           </view>
         </view>
       </view>

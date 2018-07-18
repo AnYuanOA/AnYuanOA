@@ -10,15 +10,14 @@
 .xf-title-wraper {
   display: flex;
   justify-content: space-between;
-  padding: 20rpx 0;
 }
 
 .xf-title-info {
   display: flex;
   /* flex-direction:column; */
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  font-size: 15pt;
+  font-size: 12pt;
 }
 
 .xf-stu-info {
@@ -34,19 +33,22 @@
 
 .xf-title {
   margin-right: 10px;
+  font-size: 10pt;
 }
 
 .xf-month-pick {
   background-color: #7acfa6;
   color: #fff;
-  padding: 0 10px;
+  padding: 0 5px;
   border-radius: 50px;
-  margin-left: 10px;
+  margin: 0 5px;
 }
 
 .xf-title-icon {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  margin-left: 10px;
 }
 
 /** 列表 **/
@@ -146,9 +148,10 @@
 /**列表展开时标题的颜色变化 **/
 
 .xf-type-name {
-  font-size: 10pt;
-  letter-spacing: 1px;
-  transition: color 0.15s ease-in-out;
+  font-size:10pt;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space:nowrap;
 }
 
 .xf-type-name-front {

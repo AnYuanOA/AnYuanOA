@@ -11,7 +11,12 @@ Page({
   data: {
     planData: [],
     pageNo: 1,
-    empNo: null
+    empNo: null,
+    opnos: [{
+      key: 'OP00',
+      value: '全部类别'
+    }],
+    selIndex: 0
   },
 
   /**
@@ -31,6 +36,7 @@ Page({
       header: app.globalData.header,
       data: {
         empNo: empNo,
+        opNo: null,
         pageNo: 1,
         pageSize: 10
       },
@@ -42,7 +48,35 @@ Page({
         }
       }
     })
-
+    //初始化工作类别
+    wx.request({
+      url: app.globalData.hostUrl + "/plan/ayxzConverDiction",
+      header: app.globalData.header,
+      data: {
+        type: 'OPNO'
+      },
+      success: function (res) {
+        if (res.data.code == 200) {
+          if (res.data.data.length > 0) {
+            var _opnos = res.data.data;
+            _opnos.splice(0, 0, {
+              key: 'OP00',
+              value: '全部类别'
+            });
+            _that.setData({
+              opnos: _opnos
+            })
+          } else {
+            _that.setData({
+              opnos: {
+                key: 'OP00',
+                value: '全部类别'
+              }
+            })
+          }
+        }
+      }
+    })
   },
 
   /**
@@ -86,7 +120,7 @@ Page({
   onReachBottom: function() {
     //上拉触底时加载更多
     wx.showLoading({
-      title: '',
+      title: '加载中...',
       mask: true
     })
     var _that = this;
@@ -94,11 +128,16 @@ Page({
     var _planData = _that.data.planData;
     var _empNo = _that.data.empNo;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzSelfWork";
+    var _opnos = _that.data.opnos,
+      _selIndex = _that.data.selIndex,
+      _opNo = _opnos[_selIndex].key,
+      paramOpNo = (_opNo == 'OP00' ? null : _opNo);
     wx.request({
       url: requestUrl,
       header: app.globalData.header,
       data: {
         empNo: _empNo,
+        opNo: paramOpNo,
         pageNo: Number(_pageNo) + 1,
         pageSize: 10
       },
@@ -148,5 +187,80 @@ Page({
     this.setData({
       planData: list
     });
+  },
+
+  /**
+   * 工作类别选择事件
+   */
+  listenerOpPick: function(e) {
+    var _that = this;
+    var _opnos = _that.data.opnos;
+    var _planData = _that.data.planData;
+    var _idx = e.detail.value;
+    _that.setData({
+      selIndex: _idx
+    })
+    var _selOpNo = _opnos[_idx].key;
+    //判断是否选择了全部类别
+    if (_selOpNo == 'OP00') {
+      this.onLoad({
+        empNo: _that.data.empNo
+      });
+    } else {
+      wx.showLoading({
+        title: '加载中...',
+        mask: true
+      })
+      var requestUrl = app.globalData.hostUrl + "/plan/ayxzSelfWork";
+      wx.request({
+        url: requestUrl,
+        header: app.globalData.header,
+        data: {
+          empNo: empNo,
+          opNo: _selOpNo,
+          pageNo: 1,
+          pageSize: 10
+        },
+        success: function(res) {
+          wx.hideLoading();
+          if (res.data.code == 200) {
+            _that.setData({
+              planData: res.data.data,
+              pageNo: 1
+            })
+          }
+        }
+      })
+    }
+  },
+
+
+  /**
+   * 选入本周或下周
+   */
+  choseToWeek:function(e){
+    var _opId = e.currentTarget.dataset.opid;
+    var _type = e.currentTarget.dataset.chosetype;
+    var requestUrl = app.globalData.hostUrl + "/plan/ayxzChangeWorkToPlan";
+    wx.showLoading({
+      title: '处理中...',
+      mask: true
+    })
+    wx.request({
+      url: requestUrl,
+      header: app.globalData.header,
+      data: {
+        type: _type,
+        opId: _opId
+      },
+      success: function (res) {
+        wx.hideLoading();
+        if (res.data.code == 200) {
+          this.onLoad({
+            empNo: _that.data.empNo
+          });
+        }
+      }
+    })
   }
 })

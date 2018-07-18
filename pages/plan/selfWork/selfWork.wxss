@@ -10,13 +10,15 @@
 .xf-title-wraper {
   display: flex;
   justify-content: space-between;
-  padding: 20rpx 0;
+  /* padding: 20rpx 0; */
 }
 
 .xf-title-info {
   display: flex;
-  flex-direction: column;
+  /* flex-direction:column; */
   justify-content: center;
+  align-items: center;
+  font-size: 12pt;
 }
 
 .xf-stu-info {
@@ -31,12 +33,23 @@
 }
 
 .xf-title {
-  font-size: 16pt;
+  /* font-size: 16pt; */
+  font-size: 10pt;
+}
+
+.xf-self-pick {
+  background-color: #f4606c;
+  color: #fff;
+  padding: 0 10px;
+  border-radius: 50px;
+  margin-left: 10px;
 }
 
 .xf-title-icon {
-  width: 60px;
-  height: 60px;
+  width: 40px;
+  height: 40px;
+  padding: 10px;
+  margin-left: 10px;
 }
 
 /** 列表 **/
@@ -77,7 +90,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color:#f5f5f5;
+  background-color: #f5f5f5;
 }
 
 .xf-detail-swiper {
@@ -111,7 +124,7 @@
   width: 40pt;
   font-size: 10pt;
   /* border-right:1px solid #e5e5e5; */
-  padding-right:10px;
+  padding-right: 10px;
 }
 
 .xf-detail-content {
@@ -158,4 +171,16 @@
 
 .xf-MajorTuition, .xf-GradeTuition, .xf-SecMajorTuition {
   margin-left: 50rpx;
+}
+
+.xf-detail-item button {
+  background-color: #3c78d8;
+  color: white;
+  width: 50%;
+  height: 30px;
+  /* display:flex; *//* align-items:center; */
+  font-size: 10pt;
+  margin: 0 10px;
+  /* padding:0px; *//* text-align:center; */
+  border-radius: 0;
 }

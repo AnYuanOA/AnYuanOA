@@ -2,8 +2,8 @@
 // export const NEW_BASE_URL = "http://192.168.0.107:8080/web-service";
 // export const OLD_BASE_URL = "http://10.165.3.100:99";
 
-export const NEW_BASE_URL = "http://127.0.0.1:8080";
-export const OLD_BASE_URL = "http://10.165.3.100:99";
+// export const NEW_BASE_URL = "http://127.0.0.1:8080";
+// export const OLD_BASE_URL = "http://10.165.3.100:99";
 
 
 //测试机
@@ -11,8 +11,8 @@ export const OLD_BASE_URL = "http://10.165.3.100:99";
 //export const OLD_BASE_URL = "http://10.165.3.100:99";
 
 //正式机
-// export const NEW_BASE_URL = "https://weixin.anyuanhb.com/web-service";
-// export const OLD_BASE_URL = "http://10.165.3.99:99";
+export const NEW_BASE_URL = "https://weixin.anyuanhb.com/web-service";
+export const OLD_BASE_URL = "http://10.165.3.99:99";
 
 //im websocket
 export const BOSH_SERVICE = 'wss://weixin.anyuanhb.com/ws/';
