@@ -276,7 +276,7 @@ Page({
           wx.hideLoading();
           if (res.data.code == 200) {
             _that.setData({
-              planData: _newPlanData
+              planData: res.data.data
             })
           }
         }

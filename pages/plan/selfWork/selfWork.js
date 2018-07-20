@@ -55,7 +55,7 @@ Page({
       data: {
         type: 'OPNO'
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.code == 200) {
           if (res.data.data.length > 0) {
             var _opnos = res.data.data;
@@ -216,7 +216,7 @@ Page({
         url: requestUrl,
         header: app.globalData.header,
         data: {
-          empNo: empNo,
+          empNo: _that.data.empNo,
           opNo: _selOpNo,
           pageNo: 1,
           pageSize: 10
@@ -238,29 +238,55 @@ Page({
   /**
    * 选入本周或下周
    */
-  choseToWeek:function(e){
+  choseToWeek: function(e) {
     var _opId = e.currentTarget.dataset.opid;
     var _type = e.currentTarget.dataset.chosetype;
     var requestUrl = app.globalData.hostUrl + "/plan/ayxzChangeWorkToPlan";
-    wx.showLoading({
-      title: '处理中...',
-      mask: true
-    })
-    wx.request({
-      url: requestUrl,
-      header: app.globalData.header,
-      data: {
-        type: _type,
-        opId: _opId
-      },
-      success: function (res) {
-        wx.hideLoading();
-        if (res.data.code == 200) {
-          this.onLoad({
-            empNo: _that.data.empNo
-          });
+    wx.showModal({
+      title: '提示',
+      content: _type == 1 ? '是否将本条工作选入本周？' : '是否将本条任务选入下周？',
+      success: function(res) {
+        if (res.confirm) {
+          wx.showLoading({
+            title: '处理中...',
+            mask: true
+          })
+          wx.request({
+            url: requestUrl,
+            header: app.globalData.header,
+            data: {
+              type: _type,
+              opId: _opId
+            },
+            success: function(res) {
+              wx.hideLoading();
+              wx.showToast({
+                title: '操作成功',
+                icon: 'success',
+                duration: 1000
+              })
+              if (res.data.code == 200) {
+                this.onLoad({
+                  empNo: _that.data.empNo
+                });
+              }
+            }
+          })
+        } else if (res.cancel) {
+          console.log('用户点击取消')
         }
       }
+    })
+  },
+
+  /**
+   * 进入修改进度详情页面
+   */
+  goToUpdateView: function(e) {
+    var _opId = e.currentTarget.dataset.opid;
+    var _opType = e.currentTarget.dataset.optype;
+    wx.navigateTo({
+      url: "/pages/plan/planDetail/planDetail?opId=" + _opId + "&opType=" + _opType
     })
   }
 })

@@ -84,6 +84,9 @@
             <text class="xf-detail-label">经办人</text>：
             <text class="xf-detail-content">{{item.empNameXg?item.empNameXg:''}}</text>
           </view>
+          <view class="xf-detail-item">
+            <button bindtap="goToUpdateView" data-opid='{{item.opId}}' data-optype='{{item.opType}}'>修改进度</button>
+          </view>
         </view>
       </view>
     </block>

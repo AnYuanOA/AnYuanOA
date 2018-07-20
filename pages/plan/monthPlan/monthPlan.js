@@ -62,7 +62,7 @@ Page({
       data: {
         type: 'OPNO'
       },
-      success: function (res) {
+      success: function(res) {
         if (res.data.code == 200) {
           if (res.data.data.length > 0) {
             var _opnos = res.data.data;
@@ -285,6 +285,17 @@ Page({
           })
         }
       }
+    })
+  },
+
+  /**
+   * 进入修改进度详情页面
+   */
+  goToUpdateView: function(e) {
+    var _opId = e.currentTarget.dataset.opid;
+    var _opType = e.currentTarget.dataset.optype;
+    wx.navigateTo({
+      url: "/pages/plan/planDetail/planDetail?opId=" + _opId + "&opType=" + _opType
     })
   }
 })

@@ -279,7 +279,7 @@ Page({
       url: requestUrl,
       header: app.globalData.header,
       data: {
-        empNo: _empNo,
+        empNo: _that.data.empNo,
         year: year,
         week: Number(_newWeek),
         opNo: paramOpNo,
